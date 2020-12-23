@@ -14,8 +14,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let identify = Identify()
-        identify.helloWorld(log: "ioasys")
+        let dtIdentify = DTIdentify()
+        dtIdentify.helloWorld(log: "Hello")
     }
 }
 

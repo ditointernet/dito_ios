@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Identify {
+public class DTIdentify {
     public init() { }
     
     public func helloWorld(log: String) {

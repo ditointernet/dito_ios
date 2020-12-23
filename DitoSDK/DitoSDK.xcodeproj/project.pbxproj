@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC62F6A5259280B500CA981E /* IdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC62F6A4259280B500CA981E /* IdentifyService.swift */; };
+		DC1BD2142593B6F300ADB624 /* DTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1BD2132593B6F300ADB624 /* DTInitialize.swift */; };
+		DC62F6A5259280B500CA981E /* DTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC62F6A4259280B500CA981E /* DTIdentifyService.swift */; };
 		DCA177BB25928007004CEB8D /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA177B125928006004CEB8D /* DitoSDK.framework */; };
 		DCA177C025928007004CEB8D /* DitoSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA177BF25928007004CEB8D /* DitoSDKTests.swift */; };
 		DCA177C225928007004CEB8D /* DitoSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA177B425928006004CEB8D /* DitoSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCA177CE25928055004CEB8D /* Identify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA177CD25928055004CEB8D /* Identify.swift */; };
-		DCE09A592592816C000206C9 /* IdentifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09A582592816C000206C9 /* IdentifyModel.swift */; };
+		DCA177CE25928055004CEB8D /* DTIdentify.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA177CD25928055004CEB8D /* DTIdentify.swift */; };
+		DCE09A592592816C000206C9 /* DTIdentifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09A582592816C000206C9 /* DTIdentifyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +27,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DC62F6A4259280B500CA981E /* IdentifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyService.swift; sourceTree = "<group>"; };
+		DC1BD2132593B6F300ADB624 /* DTInitialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTInitialize.swift; sourceTree = "<group>"; };
+		DC62F6A4259280B500CA981E /* DTIdentifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyService.swift; sourceTree = "<group>"; };
 		DCA177B125928006004CEB8D /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA177B425928006004CEB8D /* DitoSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DitoSDK.h; sourceTree = "<group>"; };
 		DCA177B525928006004CEB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA177BA25928007004CEB8D /* DitoSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DitoSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA177BF25928007004CEB8D /* DitoSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoSDKTests.swift; sourceTree = "<group>"; };
 		DCA177C125928007004CEB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA177CD25928055004CEB8D /* Identify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identify.swift; sourceTree = "<group>"; };
-		DCE09A582592816C000206C9 /* IdentifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyModel.swift; sourceTree = "<group>"; };
+		DCA177CD25928055004CEB8D /* DTIdentify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentify.swift; sourceTree = "<group>"; };
+		DCE09A582592816C000206C9 /* DTIdentifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +61,7 @@
 		DC62F6A12592808700CA981E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DCE09A582592816C000206C9 /* IdentifyModel.swift */,
+				DCE09A582592816C000206C9 /* DTIdentifyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -67,7 +69,7 @@
 		DC62F6A22592809400CA981E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DC62F6A4259280B500CA981E /* IdentifyService.swift */,
+				DC62F6A4259280B500CA981E /* DTIdentifyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -75,7 +77,8 @@
 		DC62F6A3259280A300CA981E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DCA177CD25928055004CEB8D /* Identify.swift */,
+				DCA177CD25928055004CEB8D /* DTIdentify.swift */,
+				DC1BD2132593B6F300ADB624 /* DTInitialize.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -228,9 +231,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA177CE25928055004CEB8D /* Identify.swift in Sources */,
-				DCE09A592592816C000206C9 /* IdentifyModel.swift in Sources */,
-				DC62F6A5259280B500CA981E /* IdentifyService.swift in Sources */,
+				DCA177CE25928055004CEB8D /* DTIdentify.swift in Sources */,
+				DCE09A592592816C000206C9 /* DTIdentifyModel.swift in Sources */,
+				DC62F6A5259280B500CA981E /* DTIdentifyService.swift in Sources */,
+				DC1BD2142593B6F300ADB624 /* DTInitialize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -363,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
