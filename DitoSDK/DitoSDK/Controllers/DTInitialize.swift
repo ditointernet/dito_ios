@@ -7,26 +7,26 @@
 
 import Foundation
 
-
-public class DTInitialize {
+public struct DTInitialize {
     
-    private var apiKey: String = ""
-    private var apiSecret: String = ""
-    private var signature: String = ""
-    
-    public init() { }
-    
-    public func configure(apiKey: String, apiSecret: String) {
+    static var apiKey: String = ""
+    static var apiSecret: String = ""
+    static var signature: String = ""
         
-        self.apiKey = apiKey
-        self.apiSecret = apiSecret
-        self.signature = apiSecret.sha1
+    public static func configure(apiKey: String, apiSecret: String) {
+        
+        DTInitialize.apiKey = apiKey
+        DTInitialize.apiSecret = apiSecret
+        DTInitialize.signature = apiSecret.sha1
     }
     
-    public func identify(credentials: DTCredentials, accessToken: String?, data: DTParameters) {
+    public static func identify(credentials: DTCredentials, data: DTUser) {
+        
+        let identify = DTIdentify()
+        identify.identify(credentials: credentials, data: data)
     }
     
-    public func track(credentials: DTCredentials, event: DTParameters) {
+    public static func track(credentials: DTCredentials, event: DTParameters) {
     }
 
 }

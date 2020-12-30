@@ -9,5 +9,9 @@ import Foundation
 
 public class DTCredentials {
     
-    public init() {}
+    var id: String
+   
+    public init(id: String) {
+        self.id = id
+    }
 }
