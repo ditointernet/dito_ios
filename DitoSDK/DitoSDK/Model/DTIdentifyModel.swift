@@ -25,5 +25,4 @@ struct DTIdentifyModel: Codable {
         signedRequest = try values.decodeIfPresent(String.self, forKey: .signedRequest).unwrappedValue
         status = try values.decodeIfPresent(Int.self, forKey: .status).unwrappedValue
     }
-    
 }

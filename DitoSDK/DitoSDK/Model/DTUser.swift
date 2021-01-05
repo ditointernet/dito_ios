@@ -14,6 +14,7 @@ public struct DTUser: Encodable {
     let email: String?
     let birthday: String?
     let location: String?
+    let createdAt: String?
     let data: String?
     
     public init(name: String? = nil,
@@ -21,13 +22,15 @@ public struct DTUser: Encodable {
                 email: String? = nil,
                 birthday: String? = nil,
                 location: String? = nil,
-                data: String? = nil) {
+                createdAt: Date? = Date(),
+                json: AnyObject? = nil) {
         
         self.name = name
         self.gender = gender?.rawValue
         self.email = email
-        self.birthday = birthday
+        self.birthday = birthday?.formatToDitoDate
         self.location = location
-        self.data = data
+        self.createdAt = createdAt?.formatToISO
+        self.data = Util.toString(from: json)
     }
 }

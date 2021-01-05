@@ -15,6 +15,8 @@
 		2C7F9573259BF07A00F189F2 /* DTGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F9572259BF07A00F189F2 /* DTGender.swift */; };
 		2C7F9577259BF46A00F189F2 /* DTSignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F9576259BF46A00F189F2 /* DTSignupRequest.swift */; };
 		2C7F959D259CD90A00F189F2 /* DTResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7F959C259CD90A00F189F2 /* DTResultModel.swift */; };
+		2CAD3CF325A3D6FA00296288 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD3CF225A3D6FA00296288 /* Util.swift */; };
+		2CAD3CF925A3DA7200296288 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD3CF825A3DA7200296288 /* Date+Extension.swift */; };
 		2CD3F0A0259A58A80042D026 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3F09F259A58A80042D026 /* Optional+Extension.swift */; };
 		2CD3F0A4259A65190042D026 /* DTRouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3F0A3259A65190042D026 /* DTRouterService.swift */; };
 		2CD3F0AA259A67BF0042D026 /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3F0A9259A67BF0042D026 /* DTServiceManager.swift */; };
@@ -50,6 +52,8 @@
 		2C7F9572259BF07A00F189F2 /* DTGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTGender.swift; sourceTree = "<group>"; };
 		2C7F9576259BF46A00F189F2 /* DTSignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTSignupRequest.swift; sourceTree = "<group>"; };
 		2C7F959C259CD90A00F189F2 /* DTResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTResultModel.swift; sourceTree = "<group>"; };
+		2CAD3CF225A3D6FA00296288 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		2CAD3CF825A3DA7200296288 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		2CD3F09F259A58A80042D026 /* Optional+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		2CD3F0A3259A65190042D026 /* DTRouterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTRouterService.swift; sourceTree = "<group>"; };
 		2CD3F0A9259A67BF0042D026 /* DTServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTServiceManager.swift; sourceTree = "<group>"; };
@@ -95,8 +99,17 @@
 				2CD3F0B6259A6ADC0042D026 /* Data+Extension.swift */,
 				2CD3F09F259A58A80042D026 /* Optional+Extension.swift */,
 				2C0387402593F9610035A7B6 /* String+Extension.swift */,
+				2CAD3CF825A3DA7200296288 /* Date+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2CAD3CF125A3D6EF00296288 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2CAD3CF225A3D6FA00296288 /* Util.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2CD3F0AF259A686F0042D026 /* Enum */ = {
@@ -163,6 +176,7 @@
 		DCA177B325928006004CEB8D /* DitoSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2CAD3CF125A3D6EF00296288 /* Utils */,
 				2CD3F0AF259A686F0042D026 /* Enum */,
 				2C03873F2593F94C0035A7B6 /* Extensions */,
 				DC62F6A3259280A300CA981E /* Controllers */,
@@ -299,9 +313,11 @@
 				2CD3F0B3259A687F0042D026 /* DTResult.swift in Sources */,
 				2CD3F0A0259A58A80042D026 /* Optional+Extension.swift in Sources */,
 				2CD3F0BB259A6BAA0042D026 /* URLResponse+Extension.swift in Sources */,
+				2CAD3CF325A3D6FA00296288 /* Util.swift in Sources */,
 				2C7F959D259CD90A00F189F2 /* DTResultModel.swift in Sources */,
 				2C0387412593F9610035A7B6 /* String+Extension.swift in Sources */,
 				DCA177CE25928055004CEB8D /* DTIdentify.swift in Sources */,
+				2CAD3CF925A3DA7200296288 /* Date+Extension.swift in Sources */,
 				DCE09A592592816C000206C9 /* DTIdentifyModel.swift in Sources */,
 				2C774AB62594F69500B2F59C /* DTParameters.swift in Sources */,
 				DC62F6A5259280B500CA981E /* DTIdentifyService.swift in Sources */,

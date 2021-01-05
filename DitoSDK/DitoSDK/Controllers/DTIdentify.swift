@@ -19,15 +19,12 @@ class DTIdentify {
                 
         service.signup(network: "portal", id: credentials.id, data: sigunpRequest) { (identify, error) in
             
-        
-            
             if let error = error {
-                ///warning logger
+                #warning("TODO: implement logger")
                 print(error.localizedDescription)
             } else {
-                ///warning save reference
-                print(identify)
-                
+                #warning("TODO: save reference in cache")
+                print(identify?.reference)
             }
         }
     }
