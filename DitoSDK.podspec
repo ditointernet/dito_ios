@@ -12,6 +12,8 @@ TODO: Add long description of the pod here.
   s.author           = { 'brennobemoura' => 'brennobemoura@outlook.com' }
   s.source           = { :git => 'https://github.com/ditointernet/dito_ios.git', :tag => s.version.to_s }
 
+  s.swift_version = "5.3"
   s.ios.deployment_target = '13.0'
   s.source_files = 'Sources/**/*'
+  s.exclude_files = "Sources/Info.plist"
 end
