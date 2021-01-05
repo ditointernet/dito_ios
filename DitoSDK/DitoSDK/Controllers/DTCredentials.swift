@@ -7,9 +7,9 @@
 
 import Foundation
 
-public class DTCredentials {
+public struct DTCredentials {
     
-    var id: String
+    let id: String
    
     public init(id: String) {
         self.id = id

@@ -29,7 +29,7 @@ extension String {
             print("A data de aniversário não é uma data válida")
             return nil
         }
-        dateFormatter.dateFormat = "yyyy-mm-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
      }
     
