@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CCF9F4E25A4CBC00038048E /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */; };
-		0CCF9F4F25A4CBC00038048E /* DitoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC42F771259284F0007DC03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F770259284F0007DC03C /* AppDelegate.swift */; };
 		DC42F773259284F0007DC03C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F772259284F0007DC03C /* SceneDelegate.swift */; };
 		DC42F775259284F0007DC03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F774259284F0007DC03C /* ViewController.swift */; };
@@ -44,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0CCF9F4F25A4CBC00038048E /* DitoSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +49,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F76D259284F0007DC03C /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F770259284F0007DC03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC42F772259284F0007DC03C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CCF9F4E25A4CBC00038048E /* DitoSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +98,6 @@
 				DC42F789259284F1007DC03C /* iOS Example Tests */,
 				DC42F794259284F1007DC03C /* iOS Example UITests */,
 				DC42F76E259284F0007DC03C /* Products */,
-				DC42F7B425928543007DC03C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,14 +142,6 @@
 				DC42F797259284F1007DC03C /* Info.plist */,
 			);
 			path = "iOS Example UITests";
-			sourceTree = "<group>";
-		};
-		DC42F7B425928543007DC03C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

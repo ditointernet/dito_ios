@@ -92,24 +92,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C818E2325A49FBB00B96B53 /* Deployment */ = {
-			isa = PBXGroup;
-			children = (
-				0C818E2225A49FAF00B96B53 /* Package.swift */,
-				OBJ_30 /* LICENSE */,
-				OBJ_32 /* DitoSDK.podspec */,
-			);
-			name = Deployment;
-			sourceTree = "<group>";
-		};
-		0C818E2425A49FE500B96B53 /* Documentation */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_33 /* README.md */,
-			);
-			path = Documentation;
-			sourceTree = "<group>";
-		};
 		0C818E4725A4A42A00B96B53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +176,24 @@
 			path = Sources/Model;
 			sourceTree = "<group>";
 		};
+		0CF030E125A4EE2F0063F9FB /* Deployment */ = {
+			isa = PBXGroup;
+			children = (
+				0C818E2225A49FAF00B96B53 /* Package.swift */,
+				OBJ_30 /* LICENSE */,
+				OBJ_32 /* DitoSDK.podspec */,
+			);
+			name = Deployment;
+			sourceTree = "<group>";
+		};
+		0CF030E225A4EE5F0063F9FB /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_33 /* README.md */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
 		OBJ_22 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,8 +215,8 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				0C818E2325A49FBB00B96B53 /* Deployment */,
-				0C818E2425A49FE500B96B53 /* Documentation */,
+				0CF030E125A4EE2F0063F9FB /* Deployment */,
+				0CF030E225A4EE5F0063F9FB /* Documentation */,
 				OBJ_7 /* Sources */,
 				OBJ_22 /* Tests */,
 				OBJ_26 /* Products */,
