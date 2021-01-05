@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CCF9F4E25A4CBC00038048E /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */; };
+		0CCF9F4F25A4CBC00038048E /* DitoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC42F771259284F0007DC03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F770259284F0007DC03C /* AppDelegate.swift */; };
 		DC42F773259284F0007DC03C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F772259284F0007DC03C /* SceneDelegate.swift */; };
 		DC42F775259284F0007DC03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F774259284F0007DC03C /* ViewController.swift */; };
@@ -16,8 +18,6 @@
 		DC42F780259284F1007DC03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC42F77E259284F1007DC03C /* LaunchScreen.storyboard */; };
 		DC42F78B259284F1007DC03C /* DitoSwiftSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F78A259284F1007DC03C /* DitoSwiftSampleAppTests.swift */; };
 		DC42F796259284F1007DC03C /* DitoSwiftSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F795259284F1007DC03C /* DitoSwiftSampleAppUITests.swift */; };
-		DC42F7B525928543007DC03C /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC42F7AC2592851D007DC03C /* DitoSDK.framework */; };
-		DC42F7B625928543007DC03C /* DitoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DC42F7AC2592851D007DC03C /* DitoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +35,6 @@
 			remoteGlobalIDString = DC42F76C259284F0007DC03C;
 			remoteInfo = DitoSwiftSampleApp;
 		};
-		DC42F7AB2592851D007DC03C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC42F7A62592851C007DC03C /* DitoSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCA177B125928006004CEB8D;
-			remoteInfo = DitoSDK;
-		};
-		DC42F7AD2592851D007DC03C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DC42F7A62592851C007DC03C /* DitoSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCA177BA25928007004CEB8D;
-			remoteInfo = DitoSDKTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,7 +44,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC42F7B625928543007DC03C /* DitoSDK.framework in Embed Frameworks */,
+				0CCF9F4F25A4CBC00038048E /* DitoSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,7 +52,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC42F76D259284F0007DC03C /* DitoSwiftSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DitoSwiftSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC42F76D259284F0007DC03C /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F770259284F0007DC03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC42F772259284F0007DC03C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DC42F774259284F0007DC03C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,13 +62,12 @@
 		DC42F77C259284F1007DC03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC42F77F259284F1007DC03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC42F781259284F1007DC03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC42F786259284F1007DC03C /* DitoSwiftSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DitoSwiftSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC42F786259284F1007DC03C /* iOS Example Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Example Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F78A259284F1007DC03C /* DitoSwiftSampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoSwiftSampleAppTests.swift; sourceTree = "<group>"; };
 		DC42F78C259284F1007DC03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC42F791259284F1007DC03C /* DitoSwiftSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DitoSwiftSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC42F791259284F1007DC03C /* iOS Example UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Example UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F795259284F1007DC03C /* DitoSwiftSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoSwiftSampleAppUITests.swift; sourceTree = "<group>"; };
 		DC42F797259284F1007DC03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC42F7A62592851C007DC03C /* DitoSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DitoSDK.xcodeproj; path = ../../DitoSDK/DitoSDK.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC42F7B525928543007DC03C /* DitoSDK.framework in Frameworks */,
+				0CCF9F4E25A4CBC00038048E /* DitoSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,9 +99,9 @@
 		DC42F764259284F0007DC03C = {
 			isa = PBXGroup;
 			children = (
-				DC42F76F259284F0007DC03C /* DitoSwiftSampleApp */,
-				DC42F789259284F1007DC03C /* DitoSwiftSampleAppTests */,
-				DC42F794259284F1007DC03C /* DitoSwiftSampleAppUITests */,
+				DC42F76F259284F0007DC03C /* iOS Example */,
+				DC42F789259284F1007DC03C /* iOS Example Tests */,
+				DC42F794259284F1007DC03C /* iOS Example UITests */,
 				DC42F76E259284F0007DC03C /* Products */,
 				DC42F7B425928543007DC03C /* Frameworks */,
 			);
@@ -124,17 +110,16 @@
 		DC42F76E259284F0007DC03C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC42F76D259284F0007DC03C /* DitoSwiftSampleApp.app */,
-				DC42F786259284F1007DC03C /* DitoSwiftSampleAppTests.xctest */,
-				DC42F791259284F1007DC03C /* DitoSwiftSampleAppUITests.xctest */,
+				DC42F76D259284F0007DC03C /* iOS Example.app */,
+				DC42F786259284F1007DC03C /* iOS Example Tests.xctest */,
+				DC42F791259284F1007DC03C /* iOS Example UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DC42F76F259284F0007DC03C /* DitoSwiftSampleApp */ = {
+		DC42F76F259284F0007DC03C /* iOS Example */ = {
 			isa = PBXGroup;
 			children = (
-				DC42F7A62592851C007DC03C /* DitoSDK.xcodeproj */,
 				DC42F770259284F0007DC03C /* AppDelegate.swift */,
 				DC42F772259284F0007DC03C /* SceneDelegate.swift */,
 				DC42F774259284F0007DC03C /* ViewController.swift */,
@@ -144,39 +129,31 @@
 				DC42F781259284F1007DC03C /* Info.plist */,
 				DC42F779259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodeld */,
 			);
-			path = DitoSwiftSampleApp;
+			path = "iOS Example";
 			sourceTree = "<group>";
 		};
-		DC42F789259284F1007DC03C /* DitoSwiftSampleAppTests */ = {
+		DC42F789259284F1007DC03C /* iOS Example Tests */ = {
 			isa = PBXGroup;
 			children = (
 				DC42F78A259284F1007DC03C /* DitoSwiftSampleAppTests.swift */,
 				DC42F78C259284F1007DC03C /* Info.plist */,
 			);
-			path = DitoSwiftSampleAppTests;
+			path = "iOS Example Tests";
 			sourceTree = "<group>";
 		};
-		DC42F794259284F1007DC03C /* DitoSwiftSampleAppUITests */ = {
+		DC42F794259284F1007DC03C /* iOS Example UITests */ = {
 			isa = PBXGroup;
 			children = (
 				DC42F795259284F1007DC03C /* DitoSwiftSampleAppUITests.swift */,
 				DC42F797259284F1007DC03C /* Info.plist */,
 			);
-			path = DitoSwiftSampleAppUITests;
-			sourceTree = "<group>";
-		};
-		DC42F7A72592851C007DC03C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DC42F7AC2592851D007DC03C /* DitoSDK.framework */,
-				DC42F7AE2592851D007DC03C /* DitoSDKTests.xctest */,
-			);
-			name = Products;
+			path = "iOS Example UITests";
 			sourceTree = "<group>";
 		};
 		DC42F7B425928543007DC03C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CCF9F4D25A4CBC00038048E /* DitoSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,9 +161,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC42F76C259284F0007DC03C /* DitoSwiftSampleApp */ = {
+		DC42F76C259284F0007DC03C /* iOS Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC42F79A259284F1007DC03C /* Build configuration list for PBXNativeTarget "DitoSwiftSampleApp" */;
+			buildConfigurationList = DC42F79A259284F1007DC03C /* Build configuration list for PBXNativeTarget "iOS Example" */;
 			buildPhases = (
 				DC42F769259284F0007DC03C /* Sources */,
 				DC42F76A259284F0007DC03C /* Frameworks */,
@@ -197,14 +174,14 @@
 			);
 			dependencies = (
 			);
-			name = DitoSwiftSampleApp;
+			name = "iOS Example";
 			productName = DitoSwiftSampleApp;
-			productReference = DC42F76D259284F0007DC03C /* DitoSwiftSampleApp.app */;
+			productReference = DC42F76D259284F0007DC03C /* iOS Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DC42F785259284F1007DC03C /* DitoSwiftSampleAppTests */ = {
+		DC42F785259284F1007DC03C /* iOS Example Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC42F79D259284F1007DC03C /* Build configuration list for PBXNativeTarget "DitoSwiftSampleAppTests" */;
+			buildConfigurationList = DC42F79D259284F1007DC03C /* Build configuration list for PBXNativeTarget "iOS Example Tests" */;
 			buildPhases = (
 				DC42F782259284F1007DC03C /* Sources */,
 				DC42F783259284F1007DC03C /* Frameworks */,
@@ -215,14 +192,14 @@
 			dependencies = (
 				DC42F788259284F1007DC03C /* PBXTargetDependency */,
 			);
-			name = DitoSwiftSampleAppTests;
+			name = "iOS Example Tests";
 			productName = DitoSwiftSampleAppTests;
-			productReference = DC42F786259284F1007DC03C /* DitoSwiftSampleAppTests.xctest */;
+			productReference = DC42F786259284F1007DC03C /* iOS Example Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC42F790259284F1007DC03C /* DitoSwiftSampleAppUITests */ = {
+		DC42F790259284F1007DC03C /* iOS Example UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC42F7A0259284F1007DC03C /* Build configuration list for PBXNativeTarget "DitoSwiftSampleAppUITests" */;
+			buildConfigurationList = DC42F7A0259284F1007DC03C /* Build configuration list for PBXNativeTarget "iOS Example UITests" */;
 			buildPhases = (
 				DC42F78D259284F1007DC03C /* Sources */,
 				DC42F78E259284F1007DC03C /* Frameworks */,
@@ -233,9 +210,9 @@
 			dependencies = (
 				DC42F793259284F1007DC03C /* PBXTargetDependency */,
 			);
-			name = DitoSwiftSampleAppUITests;
+			name = "iOS Example UITests";
 			productName = DitoSwiftSampleAppUITests;
-			productReference = DC42F791259284F1007DC03C /* DitoSwiftSampleAppUITests.xctest */;
+			productReference = DC42F791259284F1007DC03C /* iOS Example UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -260,7 +237,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC42F768259284F0007DC03C /* Build configuration list for PBXProject "DitoSwiftSampleApp" */;
+			buildConfigurationList = DC42F768259284F0007DC03C /* Build configuration list for PBXProject "iOS Example" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -271,37 +248,14 @@
 			mainGroup = DC42F764259284F0007DC03C;
 			productRefGroup = DC42F76E259284F0007DC03C /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DC42F7A72592851C007DC03C /* Products */;
-					ProjectRef = DC42F7A62592851C007DC03C /* DitoSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				DC42F76C259284F0007DC03C /* DitoSwiftSampleApp */,
-				DC42F785259284F1007DC03C /* DitoSwiftSampleAppTests */,
-				DC42F790259284F1007DC03C /* DitoSwiftSampleAppUITests */,
+				DC42F76C259284F0007DC03C /* iOS Example */,
+				DC42F785259284F1007DC03C /* iOS Example Tests */,
+				DC42F790259284F1007DC03C /* iOS Example UITests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DC42F7AC2592851D007DC03C /* DitoSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DitoSDK.framework;
-			remoteRef = DC42F7AB2592851D007DC03C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DC42F7AE2592851D007DC03C /* DitoSDKTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DitoSDKTests.xctest;
-			remoteRef = DC42F7AD2592851D007DC03C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DC42F76B259284F0007DC03C /* Resources */ = {
@@ -363,12 +317,12 @@
 /* Begin PBXTargetDependency section */
 		DC42F788259284F1007DC03C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC42F76C259284F0007DC03C /* DitoSwiftSampleApp */;
+			target = DC42F76C259284F0007DC03C /* iOS Example */;
 			targetProxy = DC42F787259284F1007DC03C /* PBXContainerItemProxy */;
 		};
 		DC42F793259284F1007DC03C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC42F76C259284F0007DC03C /* DitoSwiftSampleApp */;
+			target = DC42F76C259284F0007DC03C /* iOS Example */;
 			targetProxy = DC42F792259284F1007DC03C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -516,12 +470,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = DitoSwiftSampleApp/Info.plist;
+				INFOPLIST_FILE = "iOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSwiftSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOS_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -535,12 +489,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = DitoSwiftSampleApp/Info.plist;
+				INFOPLIST_FILE = "iOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSwiftSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOS_Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -554,18 +508,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZ47DFV434;
-				INFOPLIST_FILE = DitoSwiftSampleAppTests/Info.plist;
+				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSwiftSampleAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOS_Example_Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DitoSwiftSampleApp.app/DitoSwiftSampleApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS Example.app/iOS Example";
 			};
 			name = Debug;
 		};
@@ -576,18 +530,18 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZ47DFV434;
-				INFOPLIST_FILE = DitoSwiftSampleAppTests/Info.plist;
+				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSwiftSampleAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOS_Example_Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DitoSwiftSampleApp.app/DitoSwiftSampleApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS Example.app/iOS Example";
 			};
 			name = Release;
 		};
@@ -597,17 +551,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZ47DFV434;
-				INFOPLIST_FILE = DitoSwiftSampleAppUITests/Info.plist;
+				INFOPLIST_FILE = "iOS Example UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSwiftSampleAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOS_Example_UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DitoSwiftSampleApp;
+				TEST_TARGET_NAME = "iOS Example UITests";
 			};
 			name = Debug;
 		};
@@ -617,24 +571,24 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZ47DFV434;
-				INFOPLIST_FILE = DitoSwiftSampleAppUITests/Info.plist;
+				INFOPLIST_FILE = "iOS Example UITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSwiftSampleAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOS_Example_UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DitoSwiftSampleApp;
+				TEST_TARGET_NAME = "iOS Example UITests";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC42F768259284F0007DC03C /* Build configuration list for PBXProject "DitoSwiftSampleApp" */ = {
+		DC42F768259284F0007DC03C /* Build configuration list for PBXProject "iOS Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC42F798259284F1007DC03C /* Debug */,
@@ -643,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC42F79A259284F1007DC03C /* Build configuration list for PBXNativeTarget "DitoSwiftSampleApp" */ = {
+		DC42F79A259284F1007DC03C /* Build configuration list for PBXNativeTarget "iOS Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC42F79B259284F1007DC03C /* Debug */,
@@ -652,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC42F79D259284F1007DC03C /* Build configuration list for PBXNativeTarget "DitoSwiftSampleAppTests" */ = {
+		DC42F79D259284F1007DC03C /* Build configuration list for PBXNativeTarget "iOS Example Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC42F79E259284F1007DC03C /* Debug */,
@@ -661,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC42F7A0259284F1007DC03C /* Build configuration list for PBXNativeTarget "DitoSwiftSampleAppUITests" */ = {
+		DC42F7A0259284F1007DC03C /* Build configuration list for PBXNativeTarget "iOS Example UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC42F7A1259284F1007DC03C /* Debug */,
