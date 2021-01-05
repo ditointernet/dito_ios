@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CCF9F0C25A4C9F60038048E /* DTGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EF325A4C9F60038048E /* DTGender.swift */; };
+		0CCF9F0D25A4C9F60038048E /* DTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EF425A4C9F60038048E /* DTResult.swift */; };
+		0CCF9F0E25A4C9F60038048E /* DTErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EF525A4C9F60038048E /* DTErrorType.swift */; };
+		0CCF9F0F25A4C9F60038048E /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EF725A4C9F60038048E /* DTServiceManager.swift */; };
+		0CCF9F1025A4C9F60038048E /* DTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EF825A4C9F60038048E /* DTIdentifyService.swift */; };
+		0CCF9F1125A4C9F60038048E /* DTRouterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EF925A4C9F60038048E /* DTRouterService.swift */; };
+		0CCF9F1225A4C9F60038048E /* DTIdentify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EFB25A4C9F60038048E /* DTIdentify.swift */; };
+		0CCF9F1325A4C9F60038048E /* DTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EFC25A4C9F60038048E /* DTInitialize.swift */; };
+		0CCF9F1425A4C9F60038048E /* DTCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EFD25A4C9F60038048E /* DTCredentials.swift */; };
+		0CCF9F1525A4C9F60038048E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9EFF25A4C9F60038048E /* Date+Extension.swift */; };
+		0CCF9F1625A4C9F60038048E /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0025A4C9F60038048E /* Optional+Extension.swift */; };
+		0CCF9F1725A4C9F60038048E /* URLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0125A4C9F60038048E /* URLResponse+Extension.swift */; };
+		0CCF9F1825A4C9F60038048E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0225A4C9F60038048E /* String+Extension.swift */; };
+		0CCF9F1925A4C9F60038048E /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0325A4C9F60038048E /* Data+Extension.swift */; };
+		0CCF9F1A25A4C9F60038048E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0525A4C9F60038048E /* Util.swift */; };
+		0CCF9F1B25A4C9F60038048E /* DTSignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0725A4C9F60038048E /* DTSignupRequest.swift */; };
+		0CCF9F1C25A4C9F60038048E /* DTIdentifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0825A4C9F60038048E /* DTIdentifyModel.swift */; };
+		0CCF9F1D25A4C9F60038048E /* DTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0925A4C9F60038048E /* DTUser.swift */; };
+		0CCF9F1E25A4C9F60038048E /* DTResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0A25A4C9F60038048E /* DTResultModel.swift */; };
+		0CCF9F1F25A4C9F60038048E /* DTParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF9F0B25A4C9F60038048E /* DTParameters.swift */; };
+		0CCF9F2E25A4CABD0038048E /* DitoSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */; };
+		OBJ_67 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DitoSDK::DitoSDK::Product" /* DitoSDK.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0C818DEE25A49D3C00B96B53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "DitoSDK::DitoSDK";
+			remoteInfo = DitoSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
+		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DitoSDKTests.swift; path = Tests/DitoSDKTests.swift; sourceTree = "<group>"; };
+		0CCF9EF325A4C9F60038048E /* DTGender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTGender.swift; sourceTree = "<group>"; };
+		0CCF9EF425A4C9F60038048E /* DTResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTResult.swift; sourceTree = "<group>"; };
+		0CCF9EF525A4C9F60038048E /* DTErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTErrorType.swift; sourceTree = "<group>"; };
+		0CCF9EF725A4C9F60038048E /* DTServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTServiceManager.swift; sourceTree = "<group>"; };
+		0CCF9EF825A4C9F60038048E /* DTIdentifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyService.swift; sourceTree = "<group>"; };
+		0CCF9EF925A4C9F60038048E /* DTRouterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTRouterService.swift; sourceTree = "<group>"; };
+		0CCF9EFB25A4C9F60038048E /* DTIdentify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentify.swift; sourceTree = "<group>"; };
+		0CCF9EFC25A4C9F60038048E /* DTInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTInitialize.swift; sourceTree = "<group>"; };
+		0CCF9EFD25A4C9F60038048E /* DTCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTCredentials.swift; sourceTree = "<group>"; };
+		0CCF9EFF25A4C9F60038048E /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		0CCF9F0025A4C9F60038048E /* Optional+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		0CCF9F0125A4C9F60038048E /* URLResponse+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLResponse+Extension.swift"; sourceTree = "<group>"; };
+		0CCF9F0225A4C9F60038048E /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		0CCF9F0325A4C9F60038048E /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		0CCF9F0525A4C9F60038048E /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		0CCF9F0725A4C9F60038048E /* DTSignupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTSignupRequest.swift; sourceTree = "<group>"; };
+		0CCF9F0825A4C9F60038048E /* DTIdentifyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyModel.swift; sourceTree = "<group>"; };
+		0CCF9F0925A4C9F60038048E /* DTUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTUser.swift; sourceTree = "<group>"; };
+		0CCF9F0A25A4C9F60038048E /* DTResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTResultModel.swift; sourceTree = "<group>"; };
+		0CCF9F0B25A4C9F60038048E /* DTParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTParameters.swift; sourceTree = "<group>"; };
+		"DitoSDK::DitoSDK::Product" /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"DitoSDK::DitoSDKTests::Product" /* DitoSDK Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "DitoSDK Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_30 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		OBJ_32 /* DitoSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DitoSDK.podspec; sourceTree = "<group>"; };
+		OBJ_33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_67 /* DitoSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C818E2325A49FBB00B96B53 /* Deployment */ = {
+			isa = PBXGroup;
+			children = (
+				0C818E2225A49FAF00B96B53 /* Package.swift */,
+				OBJ_30 /* LICENSE */,
+				OBJ_32 /* DitoSDK.podspec */,
+			);
+			name = Deployment;
+			sourceTree = "<group>";
+		};
+		0C818E2425A49FE500B96B53 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_33 /* README.md */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		0C818E4725A4A42A00B96B53 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C818E3B25A4A41500B96B53 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0C818E5125A4A4D300B96B53 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C818E4C25A4A4CF00B96B53 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0CCF9EF225A4C9F60038048E /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9EF325A4C9F60038048E /* DTGender.swift */,
+				0CCF9EF425A4C9F60038048E /* DTResult.swift */,
+				0CCF9EF525A4C9F60038048E /* DTErrorType.swift */,
+			);
+			name = Enum;
+			path = Sources/Enum;
+			sourceTree = "<group>";
+		};
+		0CCF9EF625A4C9F60038048E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9EF725A4C9F60038048E /* DTServiceManager.swift */,
+				0CCF9EF825A4C9F60038048E /* DTIdentifyService.swift */,
+				0CCF9EF925A4C9F60038048E /* DTRouterService.swift */,
+			);
+			name = Services;
+			path = Sources/Services;
+			sourceTree = "<group>";
+		};
+		0CCF9EFA25A4C9F60038048E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9EFB25A4C9F60038048E /* DTIdentify.swift */,
+				0CCF9EFC25A4C9F60038048E /* DTInitialize.swift */,
+				0CCF9EFD25A4C9F60038048E /* DTCredentials.swift */,
+			);
+			name = Controllers;
+			path = Sources/Controllers;
+			sourceTree = "<group>";
+		};
+		0CCF9EFE25A4C9F60038048E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9EFF25A4C9F60038048E /* Date+Extension.swift */,
+				0CCF9F0025A4C9F60038048E /* Optional+Extension.swift */,
+				0CCF9F0125A4C9F60038048E /* URLResponse+Extension.swift */,
+				0CCF9F0225A4C9F60038048E /* String+Extension.swift */,
+				0CCF9F0325A4C9F60038048E /* Data+Extension.swift */,
+			);
+			name = Extensions;
+			path = Sources/Extensions;
+			sourceTree = "<group>";
+		};
+		0CCF9F0425A4C9F60038048E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9F0525A4C9F60038048E /* Util.swift */,
+			);
+			name = Utils;
+			path = Sources/Utils;
+			sourceTree = "<group>";
+		};
+		0CCF9F0625A4C9F60038048E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9F0725A4C9F60038048E /* DTSignupRequest.swift */,
+				0CCF9F0825A4C9F60038048E /* DTIdentifyModel.swift */,
+				0CCF9F0925A4C9F60038048E /* DTUser.swift */,
+				0CCF9F0A25A4C9F60038048E /* DTResultModel.swift */,
+				0CCF9F0B25A4C9F60038048E /* DTParameters.swift */,
+			);
+			name = Model;
+			path = Sources/Model;
+			sourceTree = "<group>";
+		};
+		OBJ_22 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */,
+				0C818E5125A4A4D300B96B53 /* Supporting Files */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"DitoSDK::DitoSDKTests::Product" /* DitoSDK Tests.xctest */,
+				"DitoSDK::DitoSDK::Product" /* DitoSDK.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				0C818E2325A49FBB00B96B53 /* Deployment */,
+				0C818E2425A49FE500B96B53 /* Documentation */,
+				OBJ_7 /* Sources */,
+				OBJ_22 /* Tests */,
+				OBJ_26 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF9EFA25A4C9F60038048E /* Controllers */,
+				0CCF9EF225A4C9F60038048E /* Enum */,
+				0CCF9EFE25A4C9F60038048E /* Extensions */,
+				0CCF9F0625A4C9F60038048E /* Model */,
+				0CCF9EF625A4C9F60038048E /* Services */,
+				0CCF9F0425A4C9F60038048E /* Utils */,
+				0C818E4725A4A42A00B96B53 /* Supporting Files */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"DitoSDK::DitoSDK" /* DitoSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "DitoSDK" */;
+			buildPhases = (
+				OBJ_38 /* Sources */,
+				OBJ_47 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DitoSDK;
+			productName = DitoSDK;
+			productReference = "DitoSDK::DitoSDK::Product" /* DitoSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"DitoSDK::DitoSDKTests" /* DitoSDK Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_60 /* Build configuration list for PBXNativeTarget "DitoSDK Tests" */;
+			buildPhases = (
+				OBJ_63 /* Sources */,
+				OBJ_66 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_68 /* PBXTargetDependency */,
+			);
+			name = "DitoSDK Tests";
+			productName = DitoSDKTests;
+			productReference = "DitoSDK::DitoSDKTests::Product" /* DitoSDK Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "DitoSDK" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"DitoSDK::DitoSDK" /* DitoSDK */,
+				"DitoSDK::DitoSDKTests" /* DitoSDK Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				0CCF9F0E25A4C9F60038048E /* DTErrorType.swift in Sources */,
+				0CCF9F1625A4C9F60038048E /* Optional+Extension.swift in Sources */,
+				0CCF9F1E25A4C9F60038048E /* DTResultModel.swift in Sources */,
+				0CCF9F1F25A4C9F60038048E /* DTParameters.swift in Sources */,
+				0CCF9F1925A4C9F60038048E /* Data+Extension.swift in Sources */,
+				0CCF9F1A25A4C9F60038048E /* Util.swift in Sources */,
+				0CCF9F1525A4C9F60038048E /* Date+Extension.swift in Sources */,
+				0CCF9F1025A4C9F60038048E /* DTIdentifyService.swift in Sources */,
+				0CCF9F1125A4C9F60038048E /* DTRouterService.swift in Sources */,
+				0CCF9F0D25A4C9F60038048E /* DTResult.swift in Sources */,
+				0CCF9F1D25A4C9F60038048E /* DTUser.swift in Sources */,
+				0CCF9F1425A4C9F60038048E /* DTCredentials.swift in Sources */,
+				0CCF9F0F25A4C9F60038048E /* DTServiceManager.swift in Sources */,
+				0CCF9F1825A4C9F60038048E /* String+Extension.swift in Sources */,
+				0CCF9F0C25A4C9F60038048E /* DTGender.swift in Sources */,
+				0CCF9F1725A4C9F60038048E /* URLResponse+Extension.swift in Sources */,
+				0CCF9F1325A4C9F60038048E /* DTInitialize.swift in Sources */,
+				0CCF9F1225A4C9F60038048E /* DTIdentify.swift in Sources */,
+				0CCF9F1B25A4C9F60038048E /* DTSignupRequest.swift in Sources */,
+				0CCF9F1C25A4C9F60038048E /* DTIdentifyModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				0CCF9F2E25A4CABD0038048E /* DitoSDKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "DitoSDK::DitoSDK" /* DitoSDK */;
+			targetProxy = 0C818DEE25A49D3C00B96B53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = "";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		OBJ_36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Sources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSDK;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = DitoSDK;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				VALIDATE_PRODUCT = NO;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		OBJ_37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_TESTABILITY = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Sources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSDK;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = DitoSDK;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = "";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DYLIB_INSTALL_NAME_BASE = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSDK;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				VALIDATE_PRODUCT = NO;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Debug;
+		};
+		OBJ_62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DYLIB_INSTALL_NAME_BASE = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSDK;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "DitoSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_35 /* Build configuration list for PBXNativeTarget "DitoSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_60 /* Build configuration list for PBXNativeTarget "DitoSDK Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_61 /* Debug */,
+				OBJ_62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
