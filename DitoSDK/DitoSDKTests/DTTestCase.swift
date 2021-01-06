@@ -22,22 +22,4 @@ class DTTestCase: XCTestCase {
             apiSecret: Self.apiSecret
         )
     }
-    
-    /**
-     Wait the expression to be asserted on specific queue
-     
-     - Parameters:
-        - queue: A instance of `DispatchQueue` to wait for expression asserted
-        - expression: The block to be assert
-     */
-    func assert(on queue: DispatchQueue, expression: @escaping () -> Void) {
-        let expect = expectation(description: "expression to be completed")
-            
-        queue.async {
-            expression()
-            expect.fulfill()
-        }
-        
-        waitForExpectations(timeout: timeout)
-    }
 }
