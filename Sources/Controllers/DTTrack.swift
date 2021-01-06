@@ -19,8 +19,7 @@ public class DTTrack {
         service.event(id: credentials.id, data: eventRequest) { (track, error) in
             
             if let error = error {
-                #warning("TODO: implement logger")
-                print(error.localizedDescription)
+                DTLogger.error(error.localizedDescription)
             } else {
                 #warning("TODO: save reference in cache")
                 print(track)

@@ -19,8 +19,7 @@ class Util {
             return String(data: data, encoding: .utf8)
         
         } catch let error {
-            #warning("TODO: implement logger")
-            print(error)
+            DTLogger.error(error)
             return nil
         }
     }

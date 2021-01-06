@@ -25,8 +25,7 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         guard let date = dateFormatter.date(from: self), self.count == countDigitDate else {
-            #warning("TODO: implement logger")
-            print("A data de aniversário não é uma data válida")
+            DTLogger.warning("The anniversary date is not a valid date")
             return nil
         }
         dateFormatter.dateFormat = "yyyy-MM-dd"
