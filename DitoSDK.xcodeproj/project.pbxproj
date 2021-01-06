@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C7AC97425A638D2003557D1 /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AC97325A638D2003557D1 /* DTLogger.swift */; };
 		0CCF9F2E25A4CABD0038048E /* DitoSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */; };
 		0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0725A6333D00460837 /* DTServiceManager.swift */; };
 		0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0825A6333D00460837 /* DTIdentifyService.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C7AC97325A638D2003557D1 /* DTLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTLogger.swift; sourceTree = "<group>"; };
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE1EB1A25A6333D00460837 /* DTInitialize.swift */,
+				0C7AC97325A638D2003557D1 /* DTLogger.swift */,
 				0CE1EB1925A6333D00460837 /* DTIdentify.swift */,
 				0CE1EB4025A633B000460837 /* DTTrack.swift */,
 				0CE1EB1B25A6333D00460837 /* DTCredentials.swift */,
@@ -328,6 +331,7 @@
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
+				0C7AC97425A638D2003557D1 /* DTLogger.swift in Sources */,
 				0CE1EB2A25A6333D00460837 /* DTGender.swift in Sources */,
 				0CE1EB3425A6333D00460837 /* DTInitialize.swift in Sources */,
 				0CE1EB3625A6333D00460837 /* DTSignupRequest.swift in Sources */,
