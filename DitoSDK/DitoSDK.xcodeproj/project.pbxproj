@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6558B325A5D0E300B371E1 /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6558B225A5D0E300B371E1 /* DTLogger.swift */; };
 		2C0387412593F9610035A7B6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0387402593F9610035A7B6 /* String+Extension.swift */; };
 		2C774AB22594ED6400B2F59C /* DTCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C774AB12594ED6400B2F59C /* DTCredentials.swift */; };
 		2C774AB62594F69500B2F59C /* DTParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C774AB52594F69500B2F59C /* DTParameters.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C6558B225A5D0E300B371E1 /* DTLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTLogger.swift; sourceTree = "<group>"; };
 		2C0387402593F9610035A7B6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2C774AB12594ED6400B2F59C /* DTCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCredentials.swift; sourceTree = "<group>"; };
 		2C774AB52594F69500B2F59C /* DTParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTParameters.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				2C774AB92594F79500B2F59C /* DTTrack.swift */,
 				2C774AB12594ED6400B2F59C /* DTCredentials.swift */,
 				DC1BD2132593B6F300ADB624 /* DTInitialize.swift */,
+				0C6558B225A5D0E300B371E1 /* DTLogger.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CD3F0AA259A67BF0042D026 /* DTServiceManager.swift in Sources */,
+				0C6558B325A5D0E300B371E1 /* DTLogger.swift in Sources */,
 				2C7F9577259BF46A00F189F2 /* DTSignupRequest.swift in Sources */,
 				2C7F956F259BC17D00F189F2 /* DTUser.swift in Sources */,
 				2C7F9573259BF07A00F189F2 /* DTGender.swift in Sources */,
