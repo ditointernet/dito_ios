@@ -10,8 +10,6 @@ import Foundation
 /**
  DTLogger is a enum that contains the log level cases to print messages
 
- It is available the `callAsFunction(_:, separator:)` to print messages after choosing a log level.
-
  Example for fatal log:
 
      DTLogger.fatal("Can't init the db")
@@ -31,37 +29,29 @@ extension DTLogger {
      Private log method that will print message using other variables to indicate the timestamp, file name, line, column and the function that cause the message
 
      - Parameters:
-        - object: The object message to be printed
+        - items: The sequence of objects to be printed
+        - separator: Used to concatenate the string objects **items**
         - filename: The path to the file that called the log event
         - line: Indicates which line of the file the event occurred
         - column: It is combined with the line of the file to exactly find the error
         - function: The name of the function that called the log event
      */
-    private func log(
-        _ object: Any,
+    func callAsFunction(
+        _ items: Any...,
+        separator: String = " ",
         filename: String = #file,
         line: Int = #line,
         column: Int = #column,
         function: String = #function) {
 
         if DTLogger.isEnabled {
+            let message = items.map { "\($0)" }.joined(separator: separator)
             let dateString = DTLogger.dateFormatter.string(from: Date())
-            let logAtPath = "[\(DTLogger.sourceFileName(filePath: filename))]:\(line) \(column)"
-            let functionError = "\(function) -> \"\(object)\""
+            let logAtPath = "\(DTLogger.sourceFileName(filePath: filename))[\(line):\(column)]"
+            let functionError = "at \(function) => \(message)"
 
-            print("\(dateString) \(self) \(logAtPath) at \(functionError)")
+            print("\(dateString) \(self.rawValue) \(logAtPath) \(functionError)")
         }
-    }
-
-    /**
-     For each case of DTLogger, it is available to call as function method to print messages
-
-     - Parameters:
-        - items: The sequence of objects to be printed
-        - separator: The separator String used to concatenate the *items* objects
-     */
-    func callAsFunction(_ items: Any..., separator: String = " ") {
-        log(items.map { "\($0)" }.joined(separator: separator))
     }
 }
 
