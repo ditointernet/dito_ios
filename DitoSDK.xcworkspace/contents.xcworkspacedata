@@ -5,6 +5,6 @@
       location = "group:DitoSDK.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/brennobemoura/Documents/ioasys/dito_ios/Example/iOS Example.xcodeproj">
+      location = "group:Example/iOS Example.xcodeproj">
    </FileRef>
 </Workspace>
