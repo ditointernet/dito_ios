@@ -38,8 +38,6 @@ class DTServiceManager {
                         return completion(.failure(error: .invalidJSON))
                     }
                     
-                    print(json)
-                    
                     switch statusCode {
                     case 200...299:
                         completion(.success(data: json))
