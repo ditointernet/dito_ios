@@ -43,22 +43,13 @@ extension DTLogger {
         line: Int = #line,
         column: Int = #column,
         function: String = #function) {
-
-        if DTLogger.isEnabled {
-            let message = items.map { "\($0)" }.joined(separator: separator)
-            let dateString = DTLogger.dateFormatter.string(from: Date())
-            let logAtPath = "\(DTLogger.sourceFileName(filePath: filename))[\(line):\(column)]"
-            let functionError = "at \(function) => \(message)"
-
-            print("\(dateString) \(self.rawValue) \(logAtPath) \(functionError)")
-        }
-    }
-}
-
-private extension DTLogger {
-    /// Can be used to check other flags to print on console
-    static var isEnabled: Bool {
-        true
+        
+        let message = items.map { "\($0)" }.joined(separator: separator)
+        let dateString = DTLogger.dateFormatter.string(from: Date())
+        let logAtPath = "\(DTLogger.sourceFileName(filePath: filename))[\(line):\(column)]"
+        let functionError = "at \(function) => \(message)"
+        
+        print("\(dateString) \(self.rawValue) \(logAtPath) \(functionError)")
     }
 }
 
@@ -83,7 +74,7 @@ private extension DTLogger {
 
 /// Overrides Swift.print(_:, separator:, terminator:) function to only print when app is in DEBUG environment
 func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
-    #if DEBUG
+    #if DEBUG || DTLogMessagesEnabled
     Swift.print(items.map { "\($0)" }.joined(separator: separator), terminator: terminator)
     #endif
 }
