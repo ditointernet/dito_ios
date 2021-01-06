@@ -10,9 +10,18 @@ import UIKit
 
 enum DTRouterService {
     
-    static let baseUrlString = "https://login.plataformasocial.com.br/"
-    
+
     case identify(network: String, id: String, data: DTSignupRequest)
+    case track(id: String, data: DTEventRequest)
+    
+    private var baseUrl: String {
+        switch self {
+        case .identify:
+            return "https://login.plataformasocial.com.br/"
+        case .track:
+            return "https://events.plataformasocial.com.br/"
+        }
+    }
     
     private enum HTTPMethod {
         case get
@@ -29,6 +38,7 @@ enum DTRouterService {
     private var method: HTTPMethod {
         switch self {
         case .identify: return .post
+        case .track: return .post
         }
     }
 
@@ -36,12 +46,14 @@ enum DTRouterService {
         switch self {
         case .identify(let network, let id, _):
             return "users/\(network)/\(id)/signup"
+        case .track(let id, _):
+            return "users/\(id)"
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         
-        let urlString = "\(DTRouterService.baseUrlString)\(path)"
+        let urlString = "\(baseUrl)\(path)"
         
         guard let url = URL(string: urlString) else { throw DTErrorType.parseUrlFail }
         
@@ -56,6 +68,9 @@ enum DTRouterService {
   
         switch self {
         case .identify(_, _, let data):
+            urlRequest.httpBody = try encoder.encode(data)
+            return urlRequest
+        case .track(_, let data):
             urlRequest.httpBody = try encoder.encode(data)
             return urlRequest
         }

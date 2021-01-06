@@ -26,7 +26,9 @@ public struct DTInitialize {
         identify.identify(credentials: credentials, data: data)
     }
     
-    public static func track(credentials: DTCredentials, event: DTParameters) {
+    public static func track(credentials: DTCredentials, event: DTEvent) {
+        let dtTrack = DTTrack()
+        dtTrack.track(credentials: credentials, data: event)
     }
 
 }
