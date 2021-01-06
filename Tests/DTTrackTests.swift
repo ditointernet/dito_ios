@@ -9,7 +9,6 @@ import XCTest
 @testable import DitoSDK
 
 class DTTrackTests: DTTestCase {
-    // created_at
     
     func testInvalidAction() {
         let action = "Botao track pressionado"
