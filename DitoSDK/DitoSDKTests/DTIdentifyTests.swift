@@ -118,18 +118,18 @@ class DTIdentifyTests: DTTestCase {
         XCTAssertTrue(user.birthday == dateFormatter.string(from: date))
     }
     
-    func testEmptyJsonWithNullUser() {
+    func testUserIdentify() {
         let expect = expectation(description: "register an null user with empty json")
         
         let credentials = DTCredentials(id: "1020")
         
         let user = DTUser(
-            name: nil,
-            gender: nil,
-            email: nil,
-            birthday: nil,
-            location: nil,
-            createdAt: nil,
+            name: "Brenno de Moura",
+            gender: .masculino,
+            email: "teste@teste.com",
+            birthday: "09/12/1970",
+            location: "Goiânia",
+            createdAt: Date(),
             json: nil
         )
         
@@ -143,4 +143,5 @@ class DTIdentifyTests: DTTestCase {
         
         #warning("TODO: Check if user is registered")
     }
+
 }
