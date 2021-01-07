@@ -11,12 +11,18 @@ import CryptoKit
 extension String {
     
     var sha1: String {
+        if #available(iOS 13, *) {
+            return Insecure.SHA1.hash(data: self.data(using: .utf8) ?? Data())
+                .map {
+                    String(format: "%02hhx", $0)
+                }.joined()
+        }
         
-        let digest = Insecure.SHA1.hash(data: self.data(using: .utf8) ?? Data())
-
-        return digest.map {
-            String(format: "%02hhx", $0)
-        }.joined()
+        return SHA1.hash(from: self).map {
+            $0.map {
+                String(format: "%02hhx", $0)
+            }.joined()
+        } ?? ""
     }
     
     var formatToDitoDate: String? {

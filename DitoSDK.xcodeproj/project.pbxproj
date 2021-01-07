@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C7AC97425A638D2003557D1 /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AC97325A638D2003557D1 /* DTLogger.swift */; };
+		0CAB9E8225A74EA90086BEBC /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB9E8125A74EA90086BEBC /* SHA1.swift */; };
 		0CCF9F2E25A4CABD0038048E /* DitoSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */; };
 		0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0725A6333D00460837 /* DTServiceManager.swift */; };
 		0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0825A6333D00460837 /* DTIdentifyService.swift */; };
@@ -54,6 +55,7 @@
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DitoSDKTests.swift; path = Tests/DitoSDKTests.swift; sourceTree = "<group>"; };
+		0CAB9E8125A74EA90086BEBC /* SHA1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
 		0CE1EB0725A6333D00460837 /* DTServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTServiceManager.swift; sourceTree = "<group>"; };
 		0CE1EB0825A6333D00460837 /* DTIdentifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyService.swift; sourceTree = "<group>"; };
 		0CE1EB0925A6333D00460837 /* DTTrackService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrackService.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE1EB0C25A6333D00460837 /* Util.swift */,
+				0CAB9E8125A74EA90086BEBC /* SHA1.swift */,
 			);
 			name = Utils;
 			path = Sources/Utils;
@@ -344,6 +347,7 @@
 				0CE1EB3D25A6333D00460837 /* DTParameters.swift in Sources */,
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
+				0CAB9E8225A74EA90086BEBC /* SHA1.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,
 				0CE1EB2825A6333D00460837 /* DTRouterService.swift in Sources */,
 				0CE1EB2E25A6333D00460837 /* Optional+Extension.swift in Sources */,
@@ -392,7 +396,7 @@
 					"DEBUG=1",
 				);
 				INFOPLIST_FILE = Sources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -463,7 +467,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = Sources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.DitoSDK;
