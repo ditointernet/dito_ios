@@ -121,7 +121,11 @@ class DTIdentifyTests: DTTestCase {
     func testUserIdentify() {
         let expect = expectation(description: "register an null user with empty json")
         
+        let identifyService = MockDTIdentifyService()
         let credentials = DTCredentials(id: "1020")
+        
+        var error: Error? = nil
+        var successed: Bool = false
         
         let user = DTUser(
             name: "Brenno de Moura",
@@ -133,15 +137,16 @@ class DTIdentifyTests: DTTestCase {
             json: nil
         )
         
-        DTInitialize.identify(credentials: credentials, data: user)
+        identifyService.onResult {
+            successed = $0 == nil
+            error = $0
+            expect.fulfill()
+        }
         
-        #warning("TODO: Wait for user register")
-        expect.fulfill()
-        
-        #warning("TODO: Wait expectation")
+        DTInitialize.identify(credentials: credentials, data: user, service: identifyService)
         wait(for: [expect], timeout: timeout)
         
-        #warning("TODO: Check if user is registered")
+        XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
     }
 
 }

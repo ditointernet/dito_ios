@@ -7,10 +7,13 @@
 
 import Foundation
 
-public class DTTrack {
+public struct DTTrack {
 
+    private let service: DTTrackService
     
-    private lazy var service = DTTrackService()
+    init(service: DTTrackService = .init()) {
+        self.service = service
+    }
     
     func track(credentials: DTCredentials, data: DTEvent) {
         
