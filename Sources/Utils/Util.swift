@@ -10,7 +10,7 @@ import Foundation
 
 class Util {
     
-    static func toString(from json: AnyObject?) -> String? {
+    static func toString(from json: Any?) -> String? {
         
         guard let json = json else { return nil }
         
@@ -19,8 +19,7 @@ class Util {
             return String(data: data, encoding: .utf8)
         
         } catch let error {
-            #warning("TODO: implement logger")
-            print(error)
+            DTLogger.error(error)
             return nil
         }
     }

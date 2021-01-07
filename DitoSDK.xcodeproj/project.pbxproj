@@ -11,6 +11,7 @@
 		0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */; };
 		0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */; };
 		0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */; };
+		0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB9E7525A74BA80086BEBC /* DTLogger.swift */; };
 		0CD6427225A73DE8002BA5FB /* MockDTTrackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6427125A73DE8002BA5FB /* MockDTTrackService.swift */; };
 		0CD6427825A73DF1002BA5FB /* DTTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6427725A73DF1002BA5FB /* DTTrackTests.swift */; };
 		0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0725A6333D00460837 /* DTServiceManager.swift */; };
@@ -37,7 +38,6 @@
 		0CE1EB3A25A6333D00460837 /* DTResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2125A6333D00460837 /* DTResultModel.swift */; };
 		0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2225A6333D00460837 /* DTEventRequest.swift */; };
 		0CE1EB3C25A6333D00460837 /* DTEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2325A6333D00460837 /* DTEvent.swift */; };
-		0CE1EB3D25A6333D00460837 /* DTParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2425A6333D00460837 /* DTParameters.swift */; };
 		0CE1EB4125A633B000460837 /* DTTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB4025A633B000460837 /* DTTrack.swift */; };
 		OBJ_67 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DitoSDK::DitoSDK::Product" /* DitoSDK.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +60,7 @@
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		0CAB9E7525A74BA80086BEBC /* DTLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTLogger.swift; sourceTree = "<group>"; };
 		0CD6427125A73DE8002BA5FB /* MockDTTrackService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTTrackService.swift; sourceTree = "<group>"; };
 		0CD6427725A73DF1002BA5FB /* DTTrackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrackTests.swift; sourceTree = "<group>"; };
 		0CE1EB0725A6333D00460837 /* DTServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTServiceManager.swift; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		0CE1EB2125A6333D00460837 /* DTResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTResultModel.swift; sourceTree = "<group>"; };
 		0CE1EB2225A6333D00460837 /* DTEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEventRequest.swift; sourceTree = "<group>"; };
 		0CE1EB2325A6333D00460837 /* DTEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEvent.swift; sourceTree = "<group>"; };
-		0CE1EB2425A6333D00460837 /* DTParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTParameters.swift; sourceTree = "<group>"; };
 		0CE1EB4025A633B000460837 /* DTTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrack.swift; sourceTree = "<group>"; };
 		"DitoSDK::DitoSDK::Product" /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DitoSDK::DitoSDKTests::Product" /* DitoSDK Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "DitoSDK Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +201,7 @@
 		0CE1EB1825A6333D00460837 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0CAB9E7525A74BA80086BEBC /* DTLogger.swift */,
 				0CE1EB1925A6333D00460837 /* DTIdentify.swift */,
 				0CE1EB4025A633B000460837 /* DTTrack.swift */,
 				0CE1EB1A25A6333D00460837 /* DTInitialize.swift */,
@@ -220,7 +221,6 @@
 				0CE1EB2125A6333D00460837 /* DTResultModel.swift */,
 				0CE1EB2225A6333D00460837 /* DTEventRequest.swift */,
 				0CE1EB2325A6333D00460837 /* DTEvent.swift */,
-				0CE1EB2425A6333D00460837 /* DTParameters.swift */,
 			);
 			name = Model;
 			path = Sources/Model;
@@ -361,6 +361,7 @@
 				0CE1EB3225A6333D00460837 /* Data+Extension.swift in Sources */,
 				0CE1EB3025A6333D00460837 /* Encodable+Extensions.swift in Sources */,
 				0CE1EB2B25A6333D00460837 /* DTResult.swift in Sources */,
+				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
@@ -370,7 +371,6 @@
 				0CE1EB3125A6333D00460837 /* String+Extension.swift in Sources */,
 				0CE1EB3325A6333D00460837 /* DTIdentify.swift in Sources */,
 				0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */,
-				0CE1EB3D25A6333D00460837 /* DTParameters.swift in Sources */,
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,

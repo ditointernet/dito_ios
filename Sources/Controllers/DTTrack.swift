@@ -7,7 +7,11 @@
 
 import Foundation
 
+<<<<<<< HEAD
 public struct DTTrack {
+=======
+class DTTrack {
+>>>>>>> origin/feature/improvements
 
     private let service: DTTrackService
     
@@ -19,11 +23,10 @@ public struct DTTrack {
         
         let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
 
-        service.event(id: credentials.id, data: eventRequest) { (track, error) in
+        service.event(reference: credentials.id, data: eventRequest) { (track, error) in
             
             if let error = error {
-                #warning("TODO: implement logger")
-                print(error.localizedDescription)
+                DTLogger.error(error.localizedDescription)
             } else {
                 #warning("TODO: save reference in cache")
                 print(track)
