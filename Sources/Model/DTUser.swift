@@ -20,10 +20,10 @@ public struct DTUser: Encodable {
     public init(name: String? = nil,
                 gender: DTGender? = nil,
                 email: String? = nil,
-                birthday: String? = nil,
+                birthday: Date? = nil,
                 location: String? = nil,
                 createdAt: Date? = Date(),
-                json: AnyObject? = nil) {
+                json: Any? = nil) {
         
         self.name = name
         self.gender = gender?.rawValue

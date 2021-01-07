@@ -11,13 +11,13 @@ import Foundation
 class DTTrackService: DTServiceManager {
     
 
-    func event(id: String, data: DTEventRequest, completion: @escaping (_ success: DTTrackModel?, _ error: Error?) -> ()) {
+    func event(reference: String, data: DTEventRequest, completion: @escaping (_ success: [DTTrackModel]?, _ error: Error?) -> ()) {
         
-        request(type: [DTTrackModel].self, router: .track(id: id, data: data)) { result in
+        request(type: [DTTrackModel].self, router: .track(reference: reference, data: data)) { result in
             
             switch result {
             case .success(let data):
-                completion(data.first, nil)
+                completion(data, nil)
             case .failure(let error):
                 completion(nil, error)
             }

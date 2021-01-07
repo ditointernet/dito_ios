@@ -22,8 +22,8 @@ class DTIdentify {
             if let error = error {
                 DTLogger.error(error.localizedDescription)
             } else {
-                #warning("TODO: save reference in cache")
-                print(identify?.reference)
+                UserDefaults.reference = identify?.reference ?? ""
+                DTLogger.information("Identify realizado")
             }
         }
     }

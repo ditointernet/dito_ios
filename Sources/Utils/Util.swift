@@ -10,7 +10,7 @@ import Foundation
 
 class Util {
     
-    static func toString(from json: AnyObject?) -> String? {
+    static func toString(from json: Any?) -> String? {
         
         guard let json = json else { return nil }
         
@@ -21,6 +21,30 @@ class Util {
         } catch let error {
             DTLogger.error(error)
             return nil
+        }
+    }
+    
+    static func keywordVerification(_ containsCharacters: [DTValidationCharacters]) {
+        
+        var warning: String = ""
+        
+        containsCharacters.forEach{
+            switch $0 {
+            case .uppercase:
+                warning += "Sua palavra chave contém letra maiúscula\n"
+            case .accentuation:
+                warning += "Sua palavra chave contém acentuação\n"
+            case .whiteSpace:
+                warning += "Sua palavra chave contém espaço em branco\n"
+            case .special:
+                warning += "Sua palavra chave contém caractere especial\n"
+            case .number:
+                warning += "Sua palavra chave contém número\n"
+            }
+        }
+        
+        if !warning.isEmpty {
+            DTLogger.warning(warning)
         }
     }
 }
