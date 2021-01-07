@@ -14,7 +14,7 @@
 		0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB2D25A779E60050E369 /* DTValidationCharacters.swift */; };
 		0C68FB3225A779F40050E369 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */; };
 		0C68FB3625A77A100050E369 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3525A77A100050E369 /* SHA1.swift */; };
-		0C68FB3A25A77A1C0050E369 /* DTHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3925A77A1C0050E369 /* DTHashTests.swift */; };
+		0C68FB3F25A77A420050E369 /* DTHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3925A77A1C0050E369 /* DTHashTests.swift */; };
 		0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB9E7525A74BA80086BEBC /* DTLogger.swift */; };
 		0CD6427225A73DE8002BA5FB /* MockDTTrackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6427125A73DE8002BA5FB /* MockDTTrackService.swift */; };
 		0CD6427825A73DF1002BA5FB /* DTTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6427725A73DF1002BA5FB /* DTTrackTests.swift */; };
@@ -375,7 +375,6 @@
 				0CE1EB3025A6333D00460837 /* Encodable+Extensions.swift in Sources */,
 				0CE1EB2B25A6333D00460837 /* DTResult.swift in Sources */,
 				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
-				0C68FB3A25A77A1C0050E369 /* DTHashTests.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */,
 				0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */,
@@ -409,6 +408,7 @@
 				0C53306A25A73B770008B6A5 /* MockDTIdentifyService.swift in Sources */,
 				0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */,
 				0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */,
+				0C68FB3F25A77A420050E369 /* DTHashTests.swift in Sources */,
 				0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */,
 				0CD6427825A73DF1002BA5FB /* DTTrackTests.swift in Sources */,
 			);

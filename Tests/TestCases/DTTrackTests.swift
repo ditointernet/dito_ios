@@ -12,7 +12,7 @@ class DTTrackTests: DTTestCase {
     
     func testInvalidAction() {
         let action = "Botao track pressionado"
-        let expectedAction = action.split(separator: " ").joined(separator: "_").lowercased()
+        let expectedAction = action.split(separator: " ").joined(separator: "-").lowercased()
         
         let event = DTEvent(
             action: action,
@@ -23,7 +23,7 @@ class DTTrackTests: DTTestCase {
     }
     
     func testValidAction() {
-        let action = "botao_track_pressionado"
+        let action = "botao-track-pressionado"
         
         let event = DTEvent(
             action: action,
@@ -42,7 +42,7 @@ class DTTrackTests: DTTestCase {
         
         let jsonDictionary: [String: Any] = [key1: value1, key2: value2]
         
-        let expectedKey1 = key1.split(separator: " ").joined(separator: "_").lowercased()
+        let expectedKey1 = key1.split(separator: " ").joined(separator: "-").lowercased()
         let expectedValue2 = "\(value2)"
         
         let event = DTEvent(json: jsonDictionary)
