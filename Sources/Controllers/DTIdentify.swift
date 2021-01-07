@@ -7,9 +7,13 @@
 
 import Foundation
 
-class DTIdentify {
+struct DTIdentify {
     
-    private lazy var service = DTIdentifyService()
+    private let service: DTIdentifyService
+    
+    init(service: DTIdentifyService = .init()) {
+        self.service = service
+    }
     
     func identify(credentials: DTCredentials, data: DTUser) {
         

@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C7AC99425A63DF5003557D1 /* DTIdentifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AC98725A63D9E003557D1 /* DTIdentifyTests.swift */; };
-		0C7AC99725A63DF7003557D1 /* DTTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AC98825A63D9E003557D1 /* DTTestCase.swift */; };
+		0C53306A25A73B770008B6A5 /* MockDTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53306125A73ADD0008B6A5 /* MockDTIdentifyService.swift */; };
+		0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */; };
+		0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */; };
+		0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */; };
 		0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0725A6333D00460837 /* DTServiceManager.swift */; };
 		0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0825A6333D00460837 /* DTIdentifyService.swift */; };
 		0CE1EB2725A6333D00460837 /* DTTrackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0925A6333D00460837 /* DTTrackService.swift */; };
@@ -49,8 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C7AC98725A63D9E003557D1 /* DTIdentifyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTIdentifyTests.swift; path = Tests/DTIdentifyTests.swift; sourceTree = "<group>"; };
-		0C7AC98825A63D9E003557D1 /* DTTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DTTestCase.swift; path = Tests/DTTestCase.swift; sourceTree = "<group>"; };
+		0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTestCase.swift; sourceTree = "<group>"; };
+		0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyTests.swift; sourceTree = "<group>"; };
+		0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTInitialize.swift; sourceTree = "<group>"; };
+		0C53306125A73ADD0008B6A5 /* MockDTIdentifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTIdentifyService.swift; sourceTree = "<group>"; };
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -106,6 +110,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C53305A25A73ADD0008B6A5 /* TestCases */ = {
+			isa = PBXGroup;
+			children = (
+				0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */,
+				0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */,
+			);
+			name = TestCases;
+			path = Tests/TestCases;
+			sourceTree = "<group>";
+		};
+		0C53305E25A73ADD0008B6A5 /* MockServices */ = {
+			isa = PBXGroup;
+			children = (
+				0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */,
+				0C53306125A73ADD0008B6A5 /* MockDTIdentifyService.swift */,
+			);
+			name = MockServices;
+			path = Tests/MockServices;
+			sourceTree = "<group>";
+		};
 		0C818E4725A4A42A00B96B53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,8 +241,8 @@
 		OBJ_22 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0C7AC98725A63D9E003557D1 /* DTIdentifyTests.swift */,
-				0C7AC98825A63D9E003557D1 /* DTTestCase.swift */,
+				0C53305E25A73ADD0008B6A5 /* MockServices */,
+				0C53305A25A73ADD0008B6A5 /* TestCases */,
 				0C818E5125A4A4D300B96B53 /* Supporting Files */,
 			);
 			name = Tests;
@@ -359,8 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				0C7AC99425A63DF5003557D1 /* DTIdentifyTests.swift in Sources */,
-				0C7AC99725A63DF7003557D1 /* DTTestCase.swift in Sources */,
+				0C53306A25A73B770008B6A5 /* MockDTIdentifyService.swift in Sources */,
+				0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */,
+				0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */,
+				0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
