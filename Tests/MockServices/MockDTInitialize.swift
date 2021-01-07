@@ -16,4 +16,12 @@ extension DTInitialize {
         let identify = DTIdentify(service: service)
         identify.identify(credentials: credentials, data: data)
     }
+    
+    static func track(credentials: DTCredentials,
+                      event: DTEvent,
+                      service: DTTrackService) {
+        
+        let dtTrack = DTTrack(service: service)
+        dtTrack.track(credentials: credentials, data: event)
+    }
 }
