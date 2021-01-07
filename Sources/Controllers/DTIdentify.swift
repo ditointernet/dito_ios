@@ -15,10 +15,12 @@ struct DTIdentify {
         self.service = service
     }
     
-    func identify(credentials: DTCredentials, data: DTUser) {
+    func identify(credentials: DTCredentials,
+                  data: DTUser,
+                  sha1Signature: String = DTInitialize.signature) {
         
         let sigunpRequest = DTSignupRequest(platformApiKey: DTInitialize.apiKey,
-                                            sha1Signature: DTInitialize.signature,
+                                            sha1Signature: sha1Signature,
                                             userData: data)
                 
         service.signup(network: "portal", id: credentials.id, data: sigunpRequest) { (identify, error) in

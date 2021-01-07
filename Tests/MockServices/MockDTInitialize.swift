@@ -10,11 +10,12 @@
 extension DTInitialize {
     
     static func identify(credentials: DTCredentials,
-                             data: DTUser,
-                             service: DTIdentifyService) {
+                         data: DTUser,
+                         sha1Signature: String = DTInitialize.signature,
+                         service: DTIdentifyService) {
         
         let identify = DTIdentify(service: service)
-        identify.identify(credentials: credentials, data: data)
+        identify.identify(credentials: credentials, data: data, sha1Signature: sha1Signature)
     }
     
     static func track(credentials: DTCredentials,
