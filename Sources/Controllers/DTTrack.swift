@@ -7,11 +7,7 @@
 
 import Foundation
 
-<<<<<<< HEAD
-public struct DTTrack {
-=======
 class DTTrack {
->>>>>>> origin/feature/improvements
 
     private let service: DTTrackService
     

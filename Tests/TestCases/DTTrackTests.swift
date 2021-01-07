@@ -19,7 +19,7 @@ class DTTrackTests: DTTestCase {
             json: nil
         )
         
-        XCTAssertTrue(event.action == expectedAction)
+        XCTAssertEqual(event.action, expectedAction)
     }
     
     func testValidAction() {
@@ -30,7 +30,7 @@ class DTTrackTests: DTTestCase {
             json: nil
         )
         
-        XCTAssertTrue(event.action == action)
+        XCTAssertEqual(event.action, action)
     }
     
     func testJsonIntegrity() {
@@ -45,10 +45,10 @@ class DTTrackTests: DTTestCase {
         let expectedKey1 = key1.split(separator: " ").joined(separator: "_").uppercased()
         let expectedValue2 = "\(value2)"
         
-        let event = DTEvent(json: nil/*jsonDictionary*/)
+        let event = DTEvent(json: jsonDictionary)
         
         guard let data = event.data?.data(using: .utf8) else {
-            assert(false, "Data in DTEvent is empty and that was not expecteded")
+            XCTAssertTrue(false, "Data in DTEvent is empty and that was not expecteded")
             return
         }
         
@@ -58,10 +58,10 @@ class DTTrackTests: DTTestCase {
             XCTAssertNotNil(dictionary)
             XCTAssertNil(dictionary?[key1])
             XCTAssertNotNil(dictionary?[expectedKey1])
-            XCTAssertTrue(dictionary?[expectedKey1] as? String == value1)
-            XCTAssertTrue(dictionary?[key2] as? String == expectedValue2)
+            XCTAssertEqual(dictionary?[expectedKey1] as? String, value1)
+            XCTAssertEqual(dictionary?[key2] as? String, expectedValue2)
         } catch let error {
-            assert(false, "\(error)")
+            XCTAssertTrue(false, "\(error)")
         }
     }
     
@@ -103,7 +103,7 @@ extension DTTrackTests {
             name: "Rodrigo Maciel",
             gender: .masculino,
             email: "teste@teste.com.br",
-            birthday: "16/06/1994",
+            birthday: Date(),
             location: "São Paulo",
             createdAt: Date(),
             json: nil
