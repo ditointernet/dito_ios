@@ -23,6 +23,9 @@ struct DTIdentify {
                                             sha1Signature: sha1Signature,
                                             userData: data)
                 
+        guard data.email != nil else {
+            return
+        }
         service.signup(network: "portal", id: credentials.id, data: sigunpRequest) { (identify, error) in
             
             if let error = error {
