@@ -10,7 +10,7 @@ import XCTest
 
 class DTIdentifyTests: DTTestCase {
     
-    func testUserJsonIntegrity() {
+    func testJsonIntegrity() {
     
         let key1 = "name of User"
         let value1 = "Will cause and error"
@@ -26,14 +26,14 @@ class DTIdentifyTests: DTTestCase {
             name: "Brenno de Moura",
             gender: .masculino,
             email: "teste@teste.com.br",
-            birthday: "10/04/2000",
+            birthday: Date(),
             location: "São Paulo",
             createdAt: Date(),
-            json: nil//jsonDictionary
+            json: jsonDictionary
         )
         
         guard let data = user.data?.data(using: .utf8) else {
-            assert(false, "Data in DTUser is empty and that was not expecteded")
+            XCTAssertTrue(false, "Data in DTUser is empty and that was not expecteded")
             return
         }
         
@@ -43,14 +43,32 @@ class DTIdentifyTests: DTTestCase {
             XCTAssertNotNil(dictionary)
             XCTAssertNil(dictionary?[key1])
             XCTAssertNotNil(dictionary?[expectedKey1])
-            XCTAssertTrue(dictionary?[expectedKey1] as? String == value1)
-            XCTAssertTrue(dictionary?[key2] as? String == expectedValue2)
+            XCTAssertEqual(dictionary?[expectedKey1] as? String, value1)
+            XCTAssertEqual(dictionary?[key2] as? String, expectedValue2)
         } catch let error {
-            assert(false, "\(error)")
+            XCTAssertTrue(false, "\(error)")
         }
     }
     
-    func testInvalidUserEmail() {
+    func testCreateAt() {
+        let createdAt = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss -z"
+        
+        let user = DTUser(
+            name: nil,
+            gender: nil,
+            email: nil,
+            birthday: nil,
+            location: nil,
+            createdAt: createdAt,
+            json: nil
+        )
+        
+        XCTAssertEqual(dateFormatter.string(from: createdAt), user.createdAt)
+    }
+    
+    func testInvalidEmail() {
         let email = "a bc@test.com"
         
         let user = DTUser(
@@ -66,7 +84,7 @@ class DTIdentifyTests: DTTestCase {
         XCTAssertNil(user.email)
     }
     
-    func testValidUserEmail() {
+    func testValidEmail() {
         let email = "a_bc@test.com"
         
         let user = DTUser(
@@ -79,28 +97,10 @@ class DTIdentifyTests: DTTestCase {
             json: nil
         )
         
-        XCTAssertTrue(user.email == email)
+        XCTAssertEqual(user.email, email)
     }
     
-    func testInvalidUserDate() {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        
-        let user = DTUser(
-            name: nil,
-            gender: nil,
-            email: nil,
-            birthday: dateFormatter.string(from: date),
-            location: nil,
-            createdAt: nil,
-            json: nil
-        )
-        
-        XCTAssertNil(user.birthday)
-    }
-    
-    func testValidUserDate() {
+    func testValidDate() {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -109,17 +109,17 @@ class DTIdentifyTests: DTTestCase {
             name: nil,
             gender: nil,
             email: nil,
-            birthday: dateFormatter.string(from: date),
+            birthday: date,
             location: nil,
             createdAt: nil,
             json: nil
         )
         
-        XCTAssertTrue(user.birthday == dateFormatter.string(from: date))
+        XCTAssertEqual(user.birthday, dateFormatter.string(from: date))
     }
     
-    func testUserIdentify() {
-        let expect = expectation(description: "register an null user with empty json")
+    func testIdentify() {
+        let expect = expectation(description: "register an user")
         
         let identifyService = MockDTIdentifyService()
         let credentials = DTCredentials(id: "1020")
@@ -131,7 +131,7 @@ class DTIdentifyTests: DTTestCase {
             name: "Brenno de Moura",
             gender: .masculino,
             email: "teste@teste.com",
-            birthday: "09/12/1970",
+            birthday: Date(),
             location: "Goiânia",
             createdAt: Date(),
             json: nil
