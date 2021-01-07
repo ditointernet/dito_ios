@@ -34,6 +34,8 @@
 		0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2225A6333D00460837 /* DTEventRequest.swift */; };
 		0CE1EB3C25A6333D00460837 /* DTEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2325A6333D00460837 /* DTEvent.swift */; };
 		0CE1EB4125A633B000460837 /* DTTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB4025A633B000460837 /* DTTrack.swift */; };
+		2C4A4CD125A76CCF00CB98A9 /* DTValidationCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A4CD025A76CCF00CB98A9 /* DTValidationCharacters.swift */; };
+		2C4A4CD525A76CF800CB98A9 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4A4CD425A76CF800CB98A9 /* UserDefaults+Extensions.swift */; };
 		OBJ_67 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DitoSDK::DitoSDK::Product" /* DitoSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		0CE1EB2225A6333D00460837 /* DTEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEventRequest.swift; sourceTree = "<group>"; };
 		0CE1EB2325A6333D00460837 /* DTEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEvent.swift; sourceTree = "<group>"; };
 		0CE1EB4025A633B000460837 /* DTTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrack.swift; sourceTree = "<group>"; };
+		2C4A4CD025A76CCF00CB98A9 /* DTValidationCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTValidationCharacters.swift; sourceTree = "<group>"; };
+		2C4A4CD425A76CF800CB98A9 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		"DitoSDK::DitoSDK::Product" /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DitoSDK::DitoSDKTests::Product" /* DitoSDK Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "DitoSDK Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_30 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				0CE1EB0E25A6333D00460837 /* DTGender.swift */,
 				0CE1EB0F25A6333D00460837 /* DTResult.swift */,
 				0CE1EB1025A6333D00460837 /* DTErrorType.swift */,
+				2C4A4CD025A76CCF00CB98A9 /* DTValidationCharacters.swift */,
 			);
 			name = Enum;
 			path = Sources/Enum;
@@ -161,6 +166,7 @@
 				0CE1EB1525A6333D00460837 /* Encodable+Extensions.swift */,
 				0CE1EB1625A6333D00460837 /* String+Extension.swift */,
 				0CE1EB1725A6333D00460837 /* Data+Extension.swift */,
+				2C4A4CD425A76CF800CB98A9 /* UserDefaults+Extensions.swift */,
 			);
 			name = Extensions;
 			path = Sources/Extensions;
@@ -330,6 +336,7 @@
 				0CE1EB2B25A6333D00460837 /* DTResult.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */,
+				2C4A4CD125A76CCF00CB98A9 /* DTValidationCharacters.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
 				0C7AC97425A638D2003557D1 /* DTLogger.swift in Sources */,
 				0CE1EB2A25A6333D00460837 /* DTGender.swift in Sources */,
@@ -340,6 +347,7 @@
 				0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */,
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
+				2C4A4CD525A76CF800CB98A9 /* UserDefaults+Extensions.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,
 				0CE1EB2825A6333D00460837 /* DTRouterService.swift in Sources */,
 				0CE1EB2E25A6333D00460837 /* Optional+Extension.swift in Sources */,

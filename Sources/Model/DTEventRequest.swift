@@ -13,7 +13,6 @@ public struct DTEventRequest: Encodable {
     let platformApiKey: String
     let sha1Signature: String
     let event: String
-    let idType: String = "id"
     let networkName: String = "pt"
     let encoding: String = "base64"
     
@@ -28,7 +27,6 @@ public struct DTEventRequest: Encodable {
         case platformApiKey = "platform_api_key"
         case sha1Signature = "sha1_signature"
         case event
-        case idType = "id_type"
         case networkName = "network_name"
         case encoding
     }
@@ -38,7 +36,6 @@ public struct DTEventRequest: Encodable {
         try container.encode(platformApiKey, forKey: .platformApiKey)
         try container.encode(sha1Signature, forKey: .sha1Signature)
         try container.encode(event, forKey: .event)
-        try container.encode(idType, forKey: .idType)
         try container.encode(networkName, forKey: .networkName)
         try container.encode(encoding, forKey: .encoding)
     }
