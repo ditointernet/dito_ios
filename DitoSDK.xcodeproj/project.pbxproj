@@ -11,6 +11,10 @@
 		0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */; };
 		0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */; };
 		0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */; };
+		0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB2D25A779E60050E369 /* DTValidationCharacters.swift */; };
+		0C68FB3225A779F40050E369 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */; };
+		0C68FB3625A77A100050E369 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3525A77A100050E369 /* SHA1.swift */; };
+		0C68FB3A25A77A1C0050E369 /* DTHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3925A77A1C0050E369 /* DTHashTests.swift */; };
 		0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB9E7525A74BA80086BEBC /* DTLogger.swift */; };
 		0CD6427225A73DE8002BA5FB /* MockDTTrackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6427125A73DE8002BA5FB /* MockDTTrackService.swift */; };
 		0CD6427825A73DF1002BA5FB /* DTTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6427725A73DF1002BA5FB /* DTTrackTests.swift */; };
@@ -57,6 +61,10 @@
 		0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyTests.swift; sourceTree = "<group>"; };
 		0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTInitialize.swift; sourceTree = "<group>"; };
 		0C53306125A73ADD0008B6A5 /* MockDTIdentifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTIdentifyService.swift; sourceTree = "<group>"; };
+		0C68FB2D25A779E60050E369 /* DTValidationCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTValidationCharacters.swift; sourceTree = "<group>"; };
+		0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		0C68FB3525A77A100050E369 /* SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
+		0C68FB3925A77A1C0050E369 /* DTHashTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTHashTests.swift; sourceTree = "<group>"; };
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -117,6 +125,7 @@
 		0C53305A25A73ADD0008B6A5 /* TestCases */ = {
 			isa = PBXGroup;
 			children = (
+				0C68FB3925A77A1C0050E369 /* DTHashTests.swift */,
 				0CD6427725A73DF1002BA5FB /* DTTrackTests.swift */,
 				0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */,
 				0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */,
@@ -167,6 +176,7 @@
 		0CE1EB0B25A6333D00460837 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0C68FB3525A77A100050E369 /* SHA1.swift */,
 				0CE1EB0C25A6333D00460837 /* Util.swift */,
 			);
 			name = Utils;
@@ -176,6 +186,7 @@
 		0CE1EB0D25A6333D00460837 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				0C68FB2D25A779E60050E369 /* DTValidationCharacters.swift */,
 				0CE1EB0E25A6333D00460837 /* DTGender.swift */,
 				0CE1EB0F25A6333D00460837 /* DTResult.swift */,
 				0CE1EB1025A6333D00460837 /* DTErrorType.swift */,
@@ -187,6 +198,7 @@
 		0CE1EB1125A6333D00460837 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */,
 				0CE1EB1225A6333D00460837 /* Date+Extension.swift */,
 				0CE1EB1325A6333D00460837 /* Optional+Extension.swift */,
 				0CE1EB1425A6333D00460837 /* URLResponse+Extension.swift */,
@@ -357,12 +369,15 @@
 			buildActionMask = 0;
 			files = (
 				0CE1EB2C25A6333D00460837 /* DTErrorType.swift in Sources */,
+				0C68FB3625A77A100050E369 /* SHA1.swift in Sources */,
 				0CE1EB4125A633B000460837 /* DTTrack.swift in Sources */,
 				0CE1EB3225A6333D00460837 /* Data+Extension.swift in Sources */,
 				0CE1EB3025A6333D00460837 /* Encodable+Extensions.swift in Sources */,
 				0CE1EB2B25A6333D00460837 /* DTResult.swift in Sources */,
 				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
+				0C68FB3A25A77A1C0050E369 /* DTHashTests.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
+				0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */,
 				0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
 				0CE1EB2A25A6333D00460837 /* DTGender.swift in Sources */,
@@ -373,6 +388,7 @@
 				0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */,
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
+				0C68FB3225A779F40050E369 /* UserDefaults+Extensions.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,
 				0CE1EB2825A6333D00460837 /* DTRouterService.swift in Sources */,
 				0CE1EB2E25A6333D00460837 /* Optional+Extension.swift in Sources */,

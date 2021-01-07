@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         DTInitialize.configure(apiKey: "MjAxOS0wMi0wNyAxNDo1Mzo0OCAtMDIwMFRlc3RlIC0gSUI2NDE",
                                apiSecret: "xcaoI1lXnyraH1MCQtRPkbUOAqAS6ywikNGQTiZw")
         
-        credentials = DTCredentials(id: "1020")
+        credentials = DTCredentials(id: "1021")
 
     }
     
@@ -38,10 +38,14 @@ class ViewController: UIViewController {
     @IBAction func didTapTrack(_ sender: Any) {
         setupTrack()
     }
+
+}
+
+extension ViewController {
     
     func setupIdentify() {
         
-        let json = ["result": "teste", "age": "15", "data": "teste teste"]
+        let json = ["carro": "celta", "cor": "preto"]
                 
         let user = DTUser(name: "Rodrigo Maciel",
                           gender: .masculino,
@@ -55,10 +59,7 @@ class ViewController: UIViewController {
     
     func setupTrack() {
         
-        let json = ["cor": "Azul"]
-        
-        let event = DTEvent(action: "track-app",
-                            json: json)
+        let event = DTEvent(action: "botao-comprar-produtos")
         
         DTInitialize.track(credentials: credentials, event: event)
     }
