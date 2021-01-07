@@ -12,7 +12,7 @@ enum DTRouterService {
     
 
     case identify(network: String, id: String, data: DTSignupRequest)
-    case track(id: String, data: DTEventRequest)
+    case track(reference: String, data: DTEventRequest)
     
     private var baseUrl: String {
         switch self {
@@ -46,8 +46,8 @@ enum DTRouterService {
         switch self {
         case .identify(let network, let id, _):
             return "users/\(network)/\(id)/signup"
-        case .track(let id, _):
-            return "users/\(id)"
+        case .track(let reference, _):
+            return "users/\(reference)"
         }
     }
     

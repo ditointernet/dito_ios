@@ -18,18 +18,4 @@ extension String {
             String(format: "%02hhx", $0)
         }.joined()
     }
-    
-    var formatToDitoDate: String? {
-        
-        let countDigitDate: Int = 10
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        guard let date = dateFormatter.date(from: self), self.count == countDigitDate else {
-            DTLogger.warning("The anniversary date is not a valid date")
-            return nil
-        }
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: date)
-     }
-    
 }

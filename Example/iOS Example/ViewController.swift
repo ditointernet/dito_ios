@@ -12,6 +12,14 @@ class ViewController: UIViewController {
     
     
     var credentials: DTCredentials!
+    
+    private var birthday: Date? {
+        
+        let birthdayString = "16/06/1994"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.date(from: birthdayString)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +41,12 @@ class ViewController: UIViewController {
     
     func setupIdentify() {
         
-        
-        
-        let json = ["result": "teste", "age": "10", "data": "teste data"] as AnyObject
+        let json = ["result": "teste", "age": "15", "data": "teste teste"]
                 
-    
         let user = DTUser(name: "Rodrigo Maciel",
                           gender: .masculino,
                           email: "teste@teste.com.br",
-                          birthday: "16/06/1994",
+                          birthday: birthday,
                           location: "São Paulo",
                           createdAt: Date(),
                           json: json)
@@ -50,9 +55,9 @@ class ViewController: UIViewController {
     
     func setupTrack() {
         
-        let json = ["cor": "Azul"] as AnyObject
+        let json = ["cor": "Azul"]
         
-        let event = DTEvent(action: "botao-track-pressionado",
+        let event = DTEvent(action: "track-app",
                             json: json)
         
         DTInitialize.track(credentials: credentials, event: event)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class DTTrack {
+class DTTrack {
 
     
     private lazy var service = DTTrackService()
@@ -16,7 +16,7 @@ public class DTTrack {
         
         let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
 
-        service.event(id: credentials.id, data: eventRequest) { (track, error) in
+        service.event(reference: credentials.id, data: eventRequest) { (track, error) in
             
             if let error = error {
                 DTLogger.error(error.localizedDescription)

@@ -17,7 +17,7 @@ public struct DTEvent: Encodable {
     public init(action: String? = nil,
                 revenue: Double? = nil,
                 createdAt: Date? = Date(),
-                json: AnyObject? = nil) {
+                json: Any? = nil) {
         
         self.action = action
         self.revenue = revenue
