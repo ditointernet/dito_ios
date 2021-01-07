@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1667BC25A7540D006CE616 /* DTHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1667BB25A7540D006CE616 /* DTHashTests.swift */; };
 		0C7AC97425A638D2003557D1 /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AC97325A638D2003557D1 /* DTLogger.swift */; };
 		0CAB9E8225A74EA90086BEBC /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB9E8125A74EA90086BEBC /* SHA1.swift */; };
 		0CCF9F2E25A4CABD0038048E /* DitoSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C1667BB25A7540D006CE616 /* DTHashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHashTests.swift; sourceTree = "<group>"; };
 		0C7AC97325A638D2003557D1 /* DTLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTLogger.swift; sourceTree = "<group>"; };
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				0C818E4D25A4A4CF00B96B53 /* DitoSDKTests.swift */,
+				0C1667BB25A7540D006CE616 /* DTHashTests.swift */,
 				0C818E5125A4A4D300B96B53 /* Supporting Files */,
 			);
 			name = Tests;
@@ -365,6 +368,7 @@
 			buildActionMask = 0;
 			files = (
 				0CCF9F2E25A4CABD0038048E /* DitoSDKTests.swift in Sources */,
+				0C1667BC25A7540D006CE616 /* DTHashTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
