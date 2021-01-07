@@ -47,4 +47,11 @@ class Util {
             DTLogger.warning(warning)
         }
     }
+    
+    static func validateEmail(_ isValidEmail: Bool) {
+        
+        if !isValidEmail {
+            DTLogger.warning("Identify - e-mail inserido é inválido")
+        }
+    }
 }

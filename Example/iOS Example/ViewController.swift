@@ -49,7 +49,7 @@ extension ViewController {
                 
         let user = DTUser(name: "Rodrigo Maciel",
                           gender: .masculino,
-                          email: "teste@teste.com.br",
+                          email: "a teste@teste.com.br",
                           birthday: birthday,
                           location: "São Paulo",
                           createdAt: Date(),
