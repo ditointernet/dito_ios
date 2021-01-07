@@ -11,6 +11,10 @@
 		0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */; };
 		0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */; };
 		0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */; };
+		0C68E5CB25A776EA0024765D /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68E5CA25A776EA0024765D /* SHA1.swift */; };
+		0C68E5CF25A776F60024765D /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68E5CE25A776F60024765D /* UserDefaults+Extensions.swift */; };
+		0C68E5D325A777050024765D /* DTValidationCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68E5D225A777050024765D /* DTValidationCharacters.swift */; };
+		0C68E5DA25A777350024765D /* DTHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68E5D625A7772C0024765D /* DTHashTests.swift */; };
 		0CD6428C25A747EC002BA5FB /* DTLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD6428B25A747EC002BA5FB /* DTLogger.swift */; };
 		0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0725A6333D00460837 /* DTServiceManager.swift */; };
 		0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB0825A6333D00460837 /* DTIdentifyService.swift */; };
@@ -55,6 +59,10 @@
 		0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyTests.swift; sourceTree = "<group>"; };
 		0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTInitialize.swift; sourceTree = "<group>"; };
 		0C53306125A73ADD0008B6A5 /* MockDTIdentifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTIdentifyService.swift; sourceTree = "<group>"; };
+		0C68E5CA25A776EA0024765D /* SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
+		0C68E5CE25A776F60024765D /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		0C68E5D225A777050024765D /* DTValidationCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTValidationCharacters.swift; sourceTree = "<group>"; };
+		0C68E5D625A7772C0024765D /* DTHashTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTHashTests.swift; sourceTree = "<group>"; };
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		0C818E3B25A4A41500B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		0C818E4C25A4A4CF00B96B53 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
@@ -113,6 +121,7 @@
 		0C53305A25A73ADD0008B6A5 /* TestCases */ = {
 			isa = PBXGroup;
 			children = (
+				0C68E5D625A7772C0024765D /* DTHashTests.swift */,
 				0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */,
 				0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */,
 			);
@@ -161,6 +170,7 @@
 		0CE1EB0B25A6333D00460837 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0C68E5CA25A776EA0024765D /* SHA1.swift */,
 				0CE1EB0C25A6333D00460837 /* Util.swift */,
 			);
 			name = Utils;
@@ -170,6 +180,7 @@
 		0CE1EB0D25A6333D00460837 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
+				0C68E5D225A777050024765D /* DTValidationCharacters.swift */,
 				0CE1EB0E25A6333D00460837 /* DTGender.swift */,
 				0CE1EB0F25A6333D00460837 /* DTResult.swift */,
 				0CE1EB1025A6333D00460837 /* DTErrorType.swift */,
@@ -181,6 +192,7 @@
 		0CE1EB1125A6333D00460837 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0C68E5CE25A776F60024765D /* UserDefaults+Extensions.swift */,
 				0CE1EB1225A6333D00460837 /* Date+Extension.swift */,
 				0CE1EB1325A6333D00460837 /* Optional+Extension.swift */,
 				0CE1EB1425A6333D00460837 /* URLResponse+Extension.swift */,
@@ -360,6 +372,7 @@
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
 				0CD6428C25A747EC002BA5FB /* DTLogger.swift in Sources */,
 				0CE1EB2A25A6333D00460837 /* DTGender.swift in Sources */,
+				0C68E5D325A777050024765D /* DTValidationCharacters.swift in Sources */,
 				0CE1EB3425A6333D00460837 /* DTInitialize.swift in Sources */,
 				0CE1EB3625A6333D00460837 /* DTSignupRequest.swift in Sources */,
 				0CE1EB3125A6333D00460837 /* String+Extension.swift in Sources */,
@@ -368,11 +381,13 @@
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,
+				0C68E5CF25A776F60024765D /* UserDefaults+Extensions.swift in Sources */,
 				0CE1EB2825A6333D00460837 /* DTRouterService.swift in Sources */,
 				0CE1EB2E25A6333D00460837 /* Optional+Extension.swift in Sources */,
 				0CE1EB3C25A6333D00460837 /* DTEvent.swift in Sources */,
 				0CE1EB2725A6333D00460837 /* DTTrackService.swift in Sources */,
 				0CE1EB3925A6333D00460837 /* DTUser.swift in Sources */,
+				0C68E5CB25A776EA0024765D /* SHA1.swift in Sources */,
 				0CE1EB2D25A6333D00460837 /* Date+Extension.swift in Sources */,
 				0CE1EB3A25A6333D00460837 /* DTResultModel.swift in Sources */,
 				0CE1EB3825A6333D00460837 /* DTTrackModel.swift in Sources */,
@@ -385,6 +400,7 @@
 			files = (
 				0C53306A25A73B770008B6A5 /* MockDTIdentifyService.swift in Sources */,
 				0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */,
+				0C68E5DA25A777350024765D /* DTHashTests.swift in Sources */,
 				0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */,
 				0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */,
 			);

@@ -19,7 +19,7 @@ public struct DTEvent: Encodable {
                 createdAt: Date? = Date(),
                 json: Any? = nil) {
         
-        self.action = action
+        self.action = action?.formatToDitoString
         self.revenue = revenue
         self.createdAt = createdAt?.formatToISO
         self.data = Util.toString(from: json)

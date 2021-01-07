@@ -15,16 +15,20 @@ class DTTrack {
     func track(credentials: DTCredentials, data: DTEvent) {
         
         let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
-
-        service.event(reference: credentials.id, data: eventRequest) { (track, error) in
-            
-            if let error = error {
-                DTLogger.error(error.localizedDescription)
-            } else {
-                #warning("TODO: save reference in cache")
-                print(track)
+        
+        let reference = UserDefaults.reference
+        
+        if !reference.isEmpty {
+            service.event(reference: reference, data: eventRequest) { (track, error) in
+                
+                if let error = error {
+                    DTLogger.error(error.localizedDescription)
+                } else {
+                    DTLogger.information("Evento enviado")
+                }
             }
+        } else {
+            DTLogger.warning("Usuário não foi identificado.")
         }
     }
-    
 }
