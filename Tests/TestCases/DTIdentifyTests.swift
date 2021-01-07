@@ -10,50 +10,18 @@ import XCTest
 
 class DTIdentifyTests: DTTestCase {
     
-    func testJsonIntegrity() {
-    
-        let key1 = "name of User"
-        let value1 = "Will cause and error"
-        let key2 = "user-age"
-        let value2 = 1
-        
-        let jsonDictionary: [String: Any] = [key1: value1, key2: value2]
-        
-        let expectedKey1 = key1.split(separator: " ").joined(separator: "-").lowercased()
-        let expectedValue2 = "\(value2)"
-        
-        let user = DTUser(
-            name: "Brenno de Moura",
-            gender: .masculino,
-            email: "teste@teste.com.br",
-            birthday: Date(),
-            location: "São Paulo",
-            createdAt: Date(),
-            json: jsonDictionary
-        )
-        
-        guard let data = user.data?.data(using: .utf8) else {
-            XCTAssertTrue(false, "Data in DTUser is empty and that was not expecteded")
-            return
-        }
-        
-        do {
-            let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            
-            XCTAssertNotNil(dictionary)
-            XCTAssertNil(dictionary?[key1])
-            XCTAssertNotNil(dictionary?[expectedKey1])
-            XCTAssertEqual(dictionary?[expectedKey1] as? String, value1)
-            XCTAssertEqual(dictionary?[key2] as? String, expectedValue2)
-        } catch let error {
-            XCTAssertTrue(false, "\(error)")
-        }
-    }
-    
     func testCreateAt() {
+        let expect = expectation(description: "register an user with an valid created at date")
+        
+        let identifyService = MockDTIdentifyService()
+        let credentials = DTCredentials(id: "1020")
+        
         let createdAt = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss -z"
+        
+        var error: Error? = nil
+        var successed: Bool = false
         
         let user = DTUser(
             name: nil,
@@ -65,11 +33,29 @@ class DTIdentifyTests: DTTestCase {
             json: nil
         )
         
+        identifyService.onResult {
+            successed = $0 == nil
+            error = $0
+            expect.fulfill()
+        }
+        
+        DTInitialize.identify(credentials: credentials, data: user, service: identifyService)
+        wait(for: [expect], timeout: timeout)
+        
         XCTAssertEqual(dateFormatter.string(from: createdAt), user.createdAt)
+        XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
     }
     
     func testInvalidEmail() {
+        let expect = expectation(description: "register an user with an invalid email")
+        
+        let identifyService = MockDTIdentifyService()
+        let credentials = DTCredentials(id: "1020")
+        
         let email = "a bc@test.com"
+        
+        var error: Error? = nil
+        var successed: Bool = false
         
         let user = DTUser(
             name: nil,
@@ -81,11 +67,29 @@ class DTIdentifyTests: DTTestCase {
             json: nil
         )
         
+        identifyService.onResult {
+            successed = $0 == nil
+            error = $0
+            expect.fulfill()
+        }
+        
+        DTInitialize.identify(credentials: credentials, data: user, service: identifyService)
+        wait(for: [expect], timeout: timeout)
+        
         XCTAssertNil(user.email)
+        XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
     }
     
     func testValidEmail() {
+        let expect = expectation(description: "register an user with a valid email")
+        
+        let identifyService = MockDTIdentifyService()
+        let credentials = DTCredentials(id: "1020")
+        
         let email = "a_bc@test.com"
+        
+        var error: Error? = nil
+        var successed: Bool = false
         
         let user = DTUser(
             name: nil,
@@ -97,13 +101,31 @@ class DTIdentifyTests: DTTestCase {
             json: nil
         )
         
+        identifyService.onResult {
+            successed = $0 == nil
+            error = $0
+            expect.fulfill()
+        }
+        
+        DTInitialize.identify(credentials: credentials, data: user, service: identifyService)
+        wait(for: [expect], timeout: timeout)
+        
         XCTAssertEqual(user.email, email)
+        XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
     }
     
     func testValidDate() {
+        let expect = expectation(description: "register an user with an valid birthdate")
+        
+        let identifyService = MockDTIdentifyService()
+        let credentials = DTCredentials(id: "1020")
+        
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        var error: Error? = nil
+        var successed: Bool = false
         
         let user = DTUser(
             name: nil,
@@ -115,7 +137,17 @@ class DTIdentifyTests: DTTestCase {
             json: nil
         )
         
+        identifyService.onResult {
+            successed = $0 == nil
+            error = $0
+            expect.fulfill()
+        }
+        
+        DTInitialize.identify(credentials: credentials, data: user, service: identifyService)
+        wait(for: [expect], timeout: timeout)
+        
         XCTAssertEqual(user.birthday, dateFormatter.string(from: date))
+        XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
     }
     
     func testIdentify() {
@@ -148,5 +180,49 @@ class DTIdentifyTests: DTTestCase {
         
         XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
     }
+    
+    func testIdentifySHA1Algorithm() {
+        let expect = expectation(description: "register an user with sha1 Algorithm")
+        
+        let identifyService = MockDTIdentifyService()
+        let credentials = DTCredentials(id: "1020")
+        
+        var error: Error? = nil
+        var successed: Bool = false
+        
+        let user = DTUser(
+            name: nil,
+            gender: nil,
+            email: nil,
+            birthday: nil,
+            location: nil,
+            createdAt: nil,
+            json: nil
+        )
+        
+        identifyService.onResult {
+            successed = $0 == nil
+            error = $0
+            expect.fulfill()
+        }
+        
+        DTInitialize.identify(
+            credentials: credentials,
+            data: user,
+            sha1Signature: sha1Hash(Self.apiSecret),
+            service: identifyService
+        )
+        wait(for: [expect], timeout: timeout)
+        
+        XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
+    }
+}
 
+extension DTIdentifyTests {
+    
+    func sha1Hash(_ string: String) -> String {
+        SHA1.hexString(from: string)?
+            .lowercased()
+            .replacingOccurrences(of: " ", with: "") ?? ""
+    }
 }
