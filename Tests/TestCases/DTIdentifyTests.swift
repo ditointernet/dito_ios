@@ -14,12 +14,12 @@ class DTIdentifyTests: DTTestCase {
     
         let key1 = "name of User"
         let value1 = "Will cause and error"
-        let key2 = "user_age"
+        let key2 = "user-age"
         let value2 = 1
         
         let jsonDictionary: [String: Any] = [key1: value1, key2: value2]
         
-        let expectedKey1 = key1.split(separator: " ").joined(separator: "_").lowercased()
+        let expectedKey1 = key1.split(separator: " ").joined(separator: "-").lowercased()
         let expectedValue2 = "\(value2)"
         
         let user = DTUser(
