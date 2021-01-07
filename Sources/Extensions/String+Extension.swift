@@ -12,12 +12,16 @@ import CryptoKit
 extension String {
     
     var sha1: String {
+        guard #available(iOS 13, *) else {
+            return SHA1.hexString(from: self)?
+                .lowercased()
+                .replacingOccurrences(of: " ", with: "") ?? ""
+        }
         
-        let digest = Insecure.SHA1.hash(data: self.data(using: .utf8) ?? Data())
-        
-        return digest.map {
-            String(format: "%02hhx", $0)
-        }.joined()
+        return Insecure.SHA1.hash(data: self.data(using: .utf8) ?? Data())
+            .map {
+                String(format: "%02hhx", $0)
+            }.joined()
     }
     
     var formatToDitoString: String {
