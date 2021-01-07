@@ -42,7 +42,7 @@ class DTTrackTests: DTTestCase {
         
         let jsonDictionary: [String: Any] = [key1: value1, key2: value2]
         
-        let expectedKey1 = key1.split(separator: " ").joined(separator: "_").uppercased()
+        let expectedKey1 = key1.split(separator: " ").joined(separator: "_").lowercased()
         let expectedValue2 = "\(value2)"
         
         let event = DTEvent(json: jsonDictionary)
