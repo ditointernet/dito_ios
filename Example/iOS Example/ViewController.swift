@@ -10,9 +10,6 @@ import DitoSDK
 
 class ViewController: UIViewController {
     
-    
-    var credentials: DTCredentials!
-    
     private var birthday: Date? {
         
         let birthdayString = "16/06/1994"
@@ -26,9 +23,6 @@ class ViewController: UIViewController {
         
         DTInitialize.configure(apiKey: "MjAxOS0wMi0wNyAxNDo1Mzo0OCAtMDIwMFRlc3RlIC0gSUI2NDE",
                                apiSecret: "xcaoI1lXnyraH1MCQtRPkbUOAqAS6ywikNGQTiZw")
-        
-        credentials = DTCredentials(id: "1021")
-
     }
     
     @IBAction func didTapIdentify(_ sender: Any) {
@@ -54,14 +48,14 @@ extension ViewController {
                           location: "São Paulo",
                           createdAt: Date(),
                           json: json)
-        DTInitialize.identify(credentials: credentials, data: user)
+        DTInitialize.identify(id: "1021", data: user)
     }
     
     func setupTrack() {
         
         let event = DTEvent(action: "botao-comprar-produtos")
         
-        DTInitialize.track(credentials: credentials, event: event)
+        DTInitialize.track(event: event)
     }
 }
 
