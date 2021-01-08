@@ -34,7 +34,6 @@
 		0CE1EB3225A6333D00460837 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1725A6333D00460837 /* Data+Extension.swift */; };
 		0CE1EB3325A6333D00460837 /* DTIdentify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1925A6333D00460837 /* DTIdentify.swift */; };
 		0CE1EB3425A6333D00460837 /* DTInitialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1A25A6333D00460837 /* DTInitialize.swift */; };
-		0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1B25A6333D00460837 /* DTCredentials.swift */; };
 		0CE1EB3625A6333D00460837 /* DTSignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1D25A6333D00460837 /* DTSignupRequest.swift */; };
 		0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1E25A6333D00460837 /* DTIdentifyModel.swift */; };
 		0CE1EB3825A6333D00460837 /* DTTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB1F25A6333D00460837 /* DTTrackModel.swift */; };
@@ -87,7 +86,6 @@
 		0CE1EB1725A6333D00460837 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		0CE1EB1925A6333D00460837 /* DTIdentify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentify.swift; sourceTree = "<group>"; };
 		0CE1EB1A25A6333D00460837 /* DTInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTInitialize.swift; sourceTree = "<group>"; };
-		0CE1EB1B25A6333D00460837 /* DTCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTCredentials.swift; sourceTree = "<group>"; };
 		0CE1EB1D25A6333D00460837 /* DTSignupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTSignupRequest.swift; sourceTree = "<group>"; };
 		0CE1EB1E25A6333D00460837 /* DTIdentifyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTIdentifyModel.swift; sourceTree = "<group>"; };
 		0CE1EB1F25A6333D00460837 /* DTTrackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrackModel.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 				0CE1EB1925A6333D00460837 /* DTIdentify.swift */,
 				0CE1EB4025A633B000460837 /* DTTrack.swift */,
 				0CE1EB1A25A6333D00460837 /* DTInitialize.swift */,
-				0CE1EB1B25A6333D00460837 /* DTCredentials.swift */,
 			);
 			name = Controllers;
 			path = Sources/Controllers;
@@ -377,7 +374,6 @@
 				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */,
-				0CE1EB3525A6333D00460837 /* DTCredentials.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
 				0CE1EB2A25A6333D00460837 /* DTGender.swift in Sources */,
 				0CE1EB3425A6333D00460837 /* DTInitialize.swift in Sources */,

@@ -15,7 +15,7 @@ class DTTrack {
         self.service = service
     }
     
-    func track(credentials: DTCredentials, data: DTEvent) {
+    func track(data: DTEvent) {
         
         let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
         
