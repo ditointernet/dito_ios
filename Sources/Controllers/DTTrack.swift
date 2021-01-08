@@ -27,11 +27,11 @@ class DTTrack {
                 if let error = error {
                     DTLogger.error(error.localizedDescription)
                 } else {
-                    DTLogger.information("Evento enviado")
+                    DTLogger.information("Track - Evento enviado")
                 }
             }
         } else {
-            DTLogger.warning("Usuário não foi identificado.")
+            DTLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
         }
     }
 }

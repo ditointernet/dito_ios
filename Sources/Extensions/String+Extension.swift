@@ -28,6 +28,14 @@ extension String {
         Util.keywordVerification(self.checkCharacters)
         return self.replacingElements
     }
+    
+    var validateEmail: String?  {
+    
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let validate = NSPredicate(format:"SELF MATCHES %@", emailRegEx).evaluate(with: self)
+        Util.validateEmail(validate)
+        return validate ? self : nil
+    }
 }
 
 //MARK: PRIVATE

@@ -27,11 +27,12 @@ public struct DTUser: Encodable {
         
         self.name = name
         self.gender = gender?.rawValue
-        self.email = email
+        self.email = email?.validateEmail 
         self.birthday = birthday?.formatToDitoDate
         self.location = location
         self.createdAt = createdAt?.formatToISO
         self.data = Util.toString(from: json)
+        
     }
     
     enum CodingKeys: String, CodingKey {
