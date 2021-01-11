@@ -1,5 +1,3 @@
-[![Swift Version][swift-image]][swift-url]
-
 # DitoSDK
 SDK iOS 
 
