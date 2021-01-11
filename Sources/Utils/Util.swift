@@ -10,6 +10,14 @@ import Foundation
 
 class Util {
     
+    static func toDate(_ date: Date?) -> String? {
+        
+        guard let date = date else {
+            return Date().formatDefault
+        }
+        return date.formatToISO
+    }
+    
     static func toString(from json: Any?) -> String? {
         
         guard let json = json else { return nil }

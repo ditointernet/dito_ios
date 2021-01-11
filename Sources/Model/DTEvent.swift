@@ -16,12 +16,12 @@ public struct DTEvent: Encodable {
     
     public init(action: String? = nil,
                 revenue: Double? = nil,
-                createdAt: Date? = Date(),
+                createdAt: Date? = nil,
                 json: Any? = nil) {
         
         self.action = action?.formatToDitoString
         self.revenue = revenue
-        self.createdAt = createdAt?.formatToISO
+        self.createdAt = Util.toDate(createdAt)
         self.data = Util.toString(from: json)
     }
     
