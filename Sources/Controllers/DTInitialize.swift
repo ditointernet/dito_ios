@@ -20,15 +20,15 @@ public struct DTInitialize {
         DTInitialize.signature = apiSecret.sha1
     }
     
-    public static func identify(credentials: DTCredentials, data: DTUser) {
+    public static func identify(id: String, data: DTUser) {
         
         let dtIdentify = DTIdentify()
-        dtIdentify.identify(credentials: credentials, data: data)
+        dtIdentify.identify(id: id, data: data)
     }
     
-    public static func track(credentials: DTCredentials, event: DTEvent) {
+    public static func track(event: DTEvent) {
         let dtTrack = DTTrack()
-        dtTrack.track(credentials: credentials, data: event)
+        dtTrack.track(data: event)
     }
 
 }

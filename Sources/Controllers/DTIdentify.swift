@@ -15,7 +15,7 @@ struct DTIdentify {
         self.service = service
     }
     
-    func identify(credentials: DTCredentials,
+    func identify(id: String,
                   data: DTUser,
                   sha1Signature: String = DTInitialize.signature) {
         
@@ -26,7 +26,7 @@ struct DTIdentify {
         guard data.email != nil else {
             return
         }
-        service.signup(network: "portal", id: credentials.id, data: sigunpRequest) { (identify, error) in
+        service.signup(network: "portal", id: id, data: sigunpRequest) { (identify, error) in
             
             if let error = error {
                 DTLogger.error(error.localizedDescription)
