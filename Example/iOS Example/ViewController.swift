@@ -21,8 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DTInitialize.configure(apiKey: "MjAxOS0wMi0wNyAxNDo1Mzo0OCAtMDIwMFRlc3RlIC0gSUI2NDE",
-                               apiSecret: "xcaoI1lXnyraH1MCQtRPkbUOAqAS6ywikNGQTiZw")
+        DTInitialize.configure(apiKey: Bundle.main.apiKey, apiSecret: Bundle.main.apiSecret)
     }
     
     @IBAction func didTapIdentify(_ sender: Any) {
@@ -46,7 +45,6 @@ extension ViewController {
                           email: "teste@teste.com.br",
                           birthday: birthday,
                           location: "São Paulo",
-                          createdAt: Date(),
                           json: json)
         DTInitialize.identify(id: "1021", data: user)
     }
@@ -58,4 +56,3 @@ extension ViewController {
         DTInitialize.track(event: event)
     }
 }
-

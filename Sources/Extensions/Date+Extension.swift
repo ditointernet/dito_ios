@@ -24,12 +24,12 @@ extension Date {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss -z"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         return dateFormatter.string(from: self)
-     }
+    }
     
     var formatToDitoDate: String? {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
-     }
+    }
 }
