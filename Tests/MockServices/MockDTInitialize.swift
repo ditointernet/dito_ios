@@ -9,20 +9,19 @@
 
 extension DTInitialize {
     
-    static func identify(credentials: DTCredentials,
+    static func identify(id: String,
                          data: DTUser,
                          sha1Signature: String = DTInitialize.signature,
                          service: DTIdentifyService) {
         
         let identify = DTIdentify(service: service)
-        identify.identify(credentials: credentials, data: data, sha1Signature: sha1Signature)
+        identify.identify(id: id, data: data, sha1Signature: sha1Signature)
     }
     
-    static func track(credentials: DTCredentials,
-                      event: DTEvent,
+    static func track(event: DTEvent,
                       service: DTTrackService) {
         
         let dtTrack = DTTrack(service: service)
-        dtTrack.track(credentials: credentials, data: event)
+        dtTrack.track(data: event)
     }
 }
