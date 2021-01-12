@@ -9,20 +9,27 @@ import Foundation
 
 extension Date {
     
-    var formatToISO: String? {
+    var formatDefault: String? {
         
-        let currentDateTime = self
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss -z"
-        dateFormatter.locale = Locale.current
-        return dateFormatter.string(from: currentDateTime)
-     }
+        dateFormatter.locale = Locale.init(identifier: "pt-br")
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        return dateFormatter.string(from: self)
+    }
+    
+    var formatToISO: String? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss -z"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        return dateFormatter.string(from: self)
+    }
     
     var formatToDitoDate: String? {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let result = dateFormatter.string(from: self)
-        return result
-     }
+        return dateFormatter.string(from: self)
+    }
 }

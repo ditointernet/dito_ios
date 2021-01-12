@@ -22,7 +22,7 @@ public struct DTUser: Encodable {
                 email: String? = nil,
                 birthday: Date? = nil,
                 location: String? = nil,
-                createdAt: Date? = Date(),
+                createdAt: Date? = nil,
                 json: Any? = nil) {
         
         self.name = name
@@ -30,7 +30,7 @@ public struct DTUser: Encodable {
         self.email = email?.validateEmail 
         self.birthday = birthday?.formatToDitoDate
         self.location = location
-        self.createdAt = createdAt?.formatToISO
+        self.createdAt = Util.toDate(createdAt)
         self.data = Util.toString(from: json)
         
     }
