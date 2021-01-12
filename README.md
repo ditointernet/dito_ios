@@ -32,7 +32,7 @@ DTInitialize.configure(apiKey: "yourapikey", apiSecret: "yourapisecret")
         let dtuser = DTUser(name: "My name",
                           gender: .masculino,
                           email: "teste@teste.com.br",
-                          birthday: birthday,
+                          birthday: Date(),
                           location: "My city",
                           createdAt: Date(),
                           json: json)

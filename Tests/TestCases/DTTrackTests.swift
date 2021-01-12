@@ -19,7 +19,7 @@ class DTTrackTests: DTTestCase {
         let action = "Botao track pressionado"
         let expectedAction = action.split(separator: " ").joined(separator: "-").lowercased()
         
-        let credentials = registerUser()
+        registerUser()
         let trackService = MockDTTrackService()
         
         var error: Error? = nil
@@ -36,7 +36,7 @@ class DTTrackTests: DTTestCase {
             expect.fulfill()
         }
         
-        DTInitialize.track(credentials: credentials, event: event, service: trackService)
+        DTInitialize.track(event: event, service: trackService)
         wait(for: [expect], timeout: timeout)
         
         XCTAssertEqual(event.action, expectedAction)
@@ -48,7 +48,7 @@ class DTTrackTests: DTTestCase {
         
         let action = "botao-track-pressionado"
         
-        let credentials = registerUser()
+        registerUser()
         let trackService = MockDTTrackService()
         
         var error: Error? = nil
@@ -65,7 +65,7 @@ class DTTrackTests: DTTestCase {
             expect.fulfill()
         }
         
-        DTInitialize.track(credentials: credentials, event: event, service: trackService)
+        DTInitialize.track(event: event, service: trackService)
         wait(for: [expect], timeout: timeout)
         
         XCTAssertEqual(event.action, action)
@@ -77,7 +77,7 @@ class DTTrackTests: DTTestCase {
         
         let action = "botao-track-pressionado"
         
-        let credentials = registerUser()
+        registerUser()
         let trackService = MockDTTrackService()
         
         var error: Error? = nil
@@ -94,7 +94,7 @@ class DTTrackTests: DTTestCase {
             expect.fulfill()
         }
         
-        DTInitialize.track(credentials: credentials, event: event, service: trackService)
+        DTInitialize.track(event: event, service: trackService)
         wait(for: [expect], timeout: timeout)
         
         XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
@@ -102,9 +102,9 @@ class DTTrackTests: DTTestCase {
 }
 
 extension DTTrackTests {
-    func registerUser() -> DTCredentials {
+    func registerUser() {
         
-        let credentials = DTCredentials(id: "1020")
+        let id = "1020"
         
         let user = DTUser(
             name: "Rodrigo Maciel",
@@ -112,11 +112,10 @@ extension DTTrackTests {
             email: "teste@teste.com.br",
             birthday: Date(),
             location: "São Paulo",
-            createdAt: Date(),
+            createdAt: nil,
             json: nil
         )
         
-        DTInitialize.identify(credentials: credentials, data: user)
-        return credentials
+        DTInitialize.identify(id: id, data: user)
     }
 }
