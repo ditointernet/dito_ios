@@ -25,6 +25,7 @@ public class DTCoreDataManager {
         let messageKitBundle = Bundle(identifier: self.identifier)
         let modelURL = messageKitBundle!.url(forResource: self.model, withExtension: "momd")!
         
+        
         let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
         
         let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
