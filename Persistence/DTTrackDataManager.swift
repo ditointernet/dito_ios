@@ -14,7 +14,12 @@ public struct DTTrackDataManager {
     public static func save(action: String, reference: String, status:Int, send: Bool) -> Bool{
     
         let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as! Track
+        guard let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track else{
+            
+            DTLogger.error("Failed to save Track")
+            return false
+
+        }
         client.action = action
         client.reference = reference
         client.send = send

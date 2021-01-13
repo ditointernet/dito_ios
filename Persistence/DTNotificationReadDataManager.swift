@@ -13,7 +13,12 @@ public struct DTNotificationReadDataManager {
     public static func save(reference: String,send: Bool,json:Data) -> Bool{
     
         let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        let client = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as! NotificationRead
+        guard let client = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as? NotificationRead else{
+            
+            DTLogger.error("Failed to save Notification")
+            return false
+
+        }
         client.reference = reference
         client.send = send
         client.json = json

@@ -24,7 +24,13 @@ public struct DTIdentifyDataManager {
 
             if try context.fetch(fetchRequest).count == 0{
                 
-                let client = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as! Identify
+                guard let client = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
+                else{
+                    
+                    DTLogger.error("Failed to save Identify")
+                    return false
+        
+                }
                 
                 client.id = Int16(id)
                 client.reference = reference
