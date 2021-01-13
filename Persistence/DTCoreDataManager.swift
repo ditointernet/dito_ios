@@ -14,11 +14,12 @@ public class DTCoreDataManager {
     public static let shared = DTCoreDataManager()
     
     ///Your framework bundle ID
-    let identifier: String = "br.com.dito.sdk.swift.DitoSDK"
+    private let identifier: String = "br.com.dito.sdk.swift.DitoSDK"
     
     ///Model name
-    let model: String = "dataModel"
+    private let model: String = "dataModel"
     
+    ///Persistent Container to mange Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         
         let messageKitBundle = Bundle(identifier: self.identifier)
@@ -28,16 +29,13 @@ public class DTCoreDataManager {
         
         let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
         container.loadPersistentStores { (storeDescription, error) in
-            
             if let err = error{
                 DTLogger.error(err.localizedDescription)
             }
+            
         }
         
         return container
     }()
-    
-    
-    
-    
+
 }

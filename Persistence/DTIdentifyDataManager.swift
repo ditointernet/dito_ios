@@ -9,25 +9,40 @@ import Foundation
 import CoreData
 
 
-struct DTIdentifyDataManager {
+public struct DTIdentifyDataManager {
     
-    ///Singlenton of its class
-    public static let shared = DTIdentifyDataManager()
     
-    func save(id:Int, reference: String, signedRequest: String) -> Bool{
+    public static func save(id:Int, reference: String, signedRequest: String) -> Bool{
         
         let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        let client = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as! Identify
-        client.id = Int16(id)
-        client.reference = reference
-        client.signedRequest = signedRequest
         
+        let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
+    
+       
         do {
-            try context.save()
-            DTLogger.information("Identify Saved Successfully!!!")
+
+            if try context.fetch(fetchRequest).count == 0{
+                
+                let client = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as! Identify
+                
+                client.id = Int16(id)
+                client.reference = reference
+                client.signedRequest = signedRequest
+                
+                try context.save()
+                
+                DTLogger.information("Identify Saved Successfully!!!")
+                
+                return true
+            }else{
+
+                DTLogger.error("An identify record already exists!!!")
+
+                return false
+            }
+
             
-            return true
         } catch let error {
             DTLogger.error("Failed to save Identify: \(error.localizedDescription)")
             
@@ -35,7 +50,7 @@ struct DTIdentifyDataManager {
         }
     }
     
-    func fetch() -> Identify? {
+    public static func fetch() -> Identify? {
         
         let resultFetch:[Identify]
         
@@ -49,16 +64,49 @@ struct DTIdentifyDataManager {
             
             guard let identify = resultFetch.first else{ return nil }
             
-            DTLogger.information("Identify Fetch Successfully!!!")
+            DTLogger.information("\(resultFetch.count) Identify Fetch - Successfully!!!")
             
             return identify
         
         }catch let fetchErr {
             
             DTLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
+            
+            return nil
         }
+    }
     
-        return nil
+    
+    public static func delete() -> Bool {
+        
+        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
+        
+        do{
+            
+            let resultFetch = try context.fetch(fetchRequest)
+            
+            var countDelete:Int = 0
+            
+            for identify in resultFetch{
+                context.delete(identify)
+               
+                countDelete = countDelete + 1
+            }
+            
+            try context.save()
+            
+            DTLogger.information("\(countDelete) Identify Deleted - Successfully!!!")
+            
+            return true
+        
+        }catch let fetchErr {
+            
+            DTLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
+            
+            return false
+        }
     }
 
 }
