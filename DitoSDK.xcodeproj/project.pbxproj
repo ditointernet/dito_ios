@@ -42,6 +42,12 @@
 		0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2225A6333D00460837 /* DTEventRequest.swift */; };
 		0CE1EB3C25A6333D00460837 /* DTEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2325A6333D00460837 /* DTEvent.swift */; };
 		0CE1EB4125A633B000460837 /* DTTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB4025A633B000460837 /* DTTrack.swift */; };
+		DC09871025AE6C5C00C9EA95 /* DTPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */; };
+		DC31287E25AE85AB002D867B /* DTNotificationReadDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09872725AE84A700C9EA95 /* DTNotificationReadDataManager.swift */; };
+		DC7E8BB825AE086B009B86CC /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BB625AE086B009B86CC /* dataModel.xcdatamodeld */; };
+		DC7E8BBD25AE24D9009B86CC /* DTCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BBC25AE24D9009B86CC /* DTCoreDataManager.swift */; };
+		DC7E8BC125AE44D2009B86CC /* DTIdentifyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BC025AE44D2009B86CC /* DTIdentifyDataManager.swift */; };
+		DC7E8BC525AE44E1009B86CC /* DTTrackDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BC425AE44E1009B86CC /* DTTrackDataManager.swift */; };
 		OBJ_67 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DitoSDK::DitoSDK::Product" /* DitoSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +100,12 @@
 		0CE1EB2225A6333D00460837 /* DTEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEventRequest.swift; sourceTree = "<group>"; };
 		0CE1EB2325A6333D00460837 /* DTEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEvent.swift; sourceTree = "<group>"; };
 		0CE1EB4025A633B000460837 /* DTTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrack.swift; sourceTree = "<group>"; };
+		DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTPersistenceTests.swift; sourceTree = "<group>"; };
+		DC09872725AE84A700C9EA95 /* DTNotificationReadDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTNotificationReadDataManager.swift; sourceTree = "<group>"; };
+		DC7E8BB725AE086B009B86CC /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
+		DC7E8BBC25AE24D9009B86CC /* DTCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCoreDataManager.swift; sourceTree = "<group>"; };
+		DC7E8BC025AE44D2009B86CC /* DTIdentifyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyDataManager.swift; sourceTree = "<group>"; };
+		DC7E8BC425AE44E1009B86CC /* DTTrackDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrackDataManager.swift; sourceTree = "<group>"; };
 		"DitoSDK::DitoSDK::Product" /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DitoSDK::DitoSDKTests::Product" /* DitoSDK Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = "DitoSDK Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_30 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -127,6 +139,7 @@
 				0CD6427725A73DF1002BA5FB /* DTTrackTests.swift */,
 				0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */,
 				0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */,
+				DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */,
 			);
 			name = TestCases;
 			path = Tests/TestCases;
@@ -253,6 +266,18 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
+		DC7E8BBB25AE249A009B86CC /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				DC7E8BB625AE086B009B86CC /* dataModel.xcdatamodeld */,
+				DC7E8BBC25AE24D9009B86CC /* DTCoreDataManager.swift */,
+				DC7E8BC025AE44D2009B86CC /* DTIdentifyDataManager.swift */,
+				DC7E8BC425AE44E1009B86CC /* DTTrackDataManager.swift */,
+				DC09872725AE84A700C9EA95 /* DTNotificationReadDataManager.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		OBJ_22 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +300,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				DC7E8BBB25AE249A009B86CC /* Persistence */,
 				0CF030E125A4EE2F0063F9FB /* Deployment */,
 				0CF030E225A4EE5F0063F9FB /* Documentation */,
 				OBJ_7 /* Sources */,
@@ -370,18 +396,23 @@
 				0CE1EB4125A633B000460837 /* DTTrack.swift in Sources */,
 				0CE1EB3225A6333D00460837 /* Data+Extension.swift in Sources */,
 				0CE1EB3025A6333D00460837 /* Encodable+Extensions.swift in Sources */,
+				DC7E8BC525AE44E1009B86CC /* DTTrackDataManager.swift in Sources */,
 				0CE1EB2B25A6333D00460837 /* DTResult.swift in Sources */,
 				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
+				DC31287E25AE85AB002D867B /* DTNotificationReadDataManager.swift in Sources */,
+				DC7E8BC125AE44D2009B86CC /* DTIdentifyDataManager.swift in Sources */,
 				0CE1EB2A25A6333D00460837 /* DTGender.swift in Sources */,
 				0CE1EB3425A6333D00460837 /* DTInitialize.swift in Sources */,
 				0CE1EB3625A6333D00460837 /* DTSignupRequest.swift in Sources */,
 				0CE1EB3125A6333D00460837 /* String+Extension.swift in Sources */,
+				DC7E8BB825AE086B009B86CC /* dataModel.xcdatamodeld in Sources */,
 				0CE1EB3325A6333D00460837 /* DTIdentify.swift in Sources */,
 				0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */,
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
+				DC7E8BBD25AE24D9009B86CC /* DTCoreDataManager.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
 				0C68FB3225A779F40050E369 /* UserDefaults+Extensions.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,
@@ -403,6 +434,7 @@
 				0CD6427225A73DE8002BA5FB /* MockDTTrackService.swift in Sources */,
 				0C53306A25A73B770008B6A5 /* MockDTIdentifyService.swift in Sources */,
 				0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */,
+				DC09871025AE6C5C00C9EA95 /* DTPersistenceTests.swift in Sources */,
 				0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */,
 				0C68FB3F25A77A420050E369 /* DTHashTests.swift in Sources */,
 				0C53306F25A73B7B0008B6A5 /* MockDTInitialize.swift in Sources */,
@@ -603,6 +635,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DC7E8BB625AE086B009B86CC /* dataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC7E8BB725AE086B009B86CC /* dataModel.xcdatamodel */,
+			);
+			currentVersion = DC7E8BB725AE086B009B86CC /* dataModel.xcdatamodel */;
+			path = dataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }
