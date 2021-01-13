@@ -11,7 +11,7 @@ import CoreData
 public struct DTTrackDataManager {
     
 
-    public static func save(action: String, reference: String, status:Int, send: Bool) -> Bool{
+    public static func save(action: String, reference: String, status:Int, send: Bool) -> Bool {
     
         let context = DTCoreDataManager.shared.persistentContainer.viewContext
         guard let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track else{
@@ -52,7 +52,7 @@ public struct DTTrackDataManager {
             
             return resultFetch
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
             return []
@@ -66,13 +66,13 @@ public struct DTTrackDataManager {
         
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
-        do{
+        do {
             
             let tracks = try context.fetch(fetchRequest)
             var resultFetch:[Track] = []
             var countFetch:Int = 0
             
-            for track in tracks{
+            for track in tracks {
                 if track.send == send{
                     resultFetch.append(track)
                     countFetch += 1
@@ -83,7 +83,7 @@ public struct DTTrackDataManager {
             
             return resultFetch
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
             
@@ -94,16 +94,15 @@ public struct DTTrackDataManager {
     public static func deleteBySend(send: Bool) -> Bool {
         
         let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
-        do{
+        do {
             
             let tracks = try context.fetch(fetchRequest)
             var countDeletes:Int = 0
             
-            for track in tracks{
-                if track.send == send{
+            for track in tracks {
+                if track.send == send {
                     context.delete(track)
                     countDeletes += 1
                 }
@@ -115,7 +114,7 @@ public struct DTTrackDataManager {
             
             return true
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
             

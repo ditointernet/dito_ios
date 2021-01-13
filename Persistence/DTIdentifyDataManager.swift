@@ -12,17 +12,14 @@ import CoreData
 public struct DTIdentifyDataManager {
     
     
-    public static func save(id:Int, reference: String, signedRequest: String) -> Bool{
+    public static func save(id:Int, reference: String, signedRequest: String) -> Bool {
         
         let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
-    
-       
         do {
 
-            if try context.fetch(fetchRequest).count == 0{
+            if try context.fetch(fetchRequest).count == 0 {
                 
                 guard let client = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
                 else{
@@ -41,7 +38,7 @@ public struct DTIdentifyDataManager {
                 DTLogger.information("Identify Saved Successfully!!!")
                 
                 return true
-            }else{
+            } else {
 
                 DTLogger.error("An identify record already exists!!!")
 
@@ -64,7 +61,7 @@ public struct DTIdentifyDataManager {
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
-        do{
+        do {
             
             resultFetch = try context.fetch(fetchRequest)
             
@@ -74,7 +71,7 @@ public struct DTIdentifyDataManager {
             
             return identify
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
             
@@ -89,7 +86,7 @@ public struct DTIdentifyDataManager {
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
-        do{
+        do {
             
             let resultFetch = try context.fetch(fetchRequest)
             
@@ -107,7 +104,7 @@ public struct DTIdentifyDataManager {
             
             return true
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
             
