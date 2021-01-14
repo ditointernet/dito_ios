@@ -15,24 +15,25 @@ struct DTIdentify {
         self.service = service
     }
     
-    func identify(id: String,
-                  data: DTUser,
-                  sha1Signature: String = DTInitialize.signature) {
+    func identify(id: String, data: DTUser, sha1Signature: String = DTInitialize.signature) {
         
-        let sigunpRequest = DTSignupRequest(platformApiKey: DTInitialize.apiKey,
-                                            sha1Signature: sha1Signature,
-                                            userData: data)
-                
-        guard data.email != nil else {
-            return
-        }
-        service.signup(network: "portal", id: id, data: sigunpRequest) { (identify, error) in
+        DispatchQueue.global().async {
             
-            if let error = error {
-                DTLogger.error(error.localizedDescription)
-            } else {
-                UserDefaults.reference = identify?.reference ?? ""
-                DTLogger.information("Identify realizado")
+            let sigunpRequest = DTSignupRequest(platformApiKey: DTInitialize.apiKey,
+                                                sha1Signature: sha1Signature,
+                                                userData: data)
+            
+            guard data.email != nil else {
+                return
+            }
+            service.signup(network: "portal", id: id, data: sigunpRequest) { (identify, error) in
+                
+                if let error = error {
+                    DTLogger.error(error.localizedDescription)
+                } else {
+                    UserDefaults.reference = identify?.reference ?? ""
+                    DTLogger.information("Identify realizado")
+                }
             }
         }
     }

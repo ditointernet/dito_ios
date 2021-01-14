@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DTTrack {
+struct DTTrack {
 
     private let service: DTTrackService
     
@@ -17,21 +17,24 @@ class DTTrack {
     
     func track(data: DTEvent) {
         
-        let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
-        
-        let reference = UserDefaults.reference
-        
-        if !reference.isEmpty {
-            service.event(reference: reference, data: eventRequest) { (track, error) in
-                
-                if let error = error {
-                    DTLogger.error(error.localizedDescription)
-                } else {
-                    DTLogger.information("Track - Evento enviado")
+        DispatchQueue.global().async {
+            
+            let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
+            
+            let reference = UserDefaults.reference
+            
+            if !reference.isEmpty {
+                service.event(reference: reference, data: eventRequest) { (track, error) in
+                    
+                    if let error = error {
+                        DTLogger.error(error.localizedDescription)
+                    } else {
+                        DTLogger.information("Track - Evento enviado")
+                    }
                 }
+            } else {
+                DTLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
             }
-        } else {
-            DTLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
         }
     }
 }
