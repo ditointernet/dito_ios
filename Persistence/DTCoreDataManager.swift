@@ -23,7 +23,7 @@ public class DTCoreDataManager {
     lazy var container: NSPersistentContainer? = {
 
         //Validate if model archive is create before first save
-        if UserDefaults.firstSave == false {
+        if !UserDefaults.firstSave{
             UserDefaults.firstSave = true
             
             //if model archive is created them returns error
@@ -83,14 +83,9 @@ extension DTCoreDataManager{
                 let dataModelPath = paths.map {
                     (path) -> String in
                     
-                    if path.hasPrefix("DitoDataModel") {
-                        return "nothing"
-                    }
-                    
-                    return "have"
+                    return path.hasPrefix("DitoDataModel") ? "nothing" : "have"
                 }
-                
-                
+            
                 if dataModelPath[0] == "nothing" {
                     return false
                 }
