@@ -12,7 +12,7 @@ import CoreData
 public struct DTIdentifyDataManager {
     
     
-    public static func save(id:Int, reference: String, signedRequest: String) -> Bool {
+    public static func save(id:String, reference: String,json: String, send: Bool) -> Bool {
         
         guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
@@ -29,9 +29,12 @@ public struct DTIdentifyDataManager {
         
                 }
                 
-                client.id = Int16(id)
+                client.id = id
+                client.json = json
                 client.reference = reference
-                client.signedRequest = signedRequest
+                client.send = send
+                
+                
                 
                 try context.save()
                 
