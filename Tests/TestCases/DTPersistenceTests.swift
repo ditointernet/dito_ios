@@ -16,9 +16,9 @@ class DTPersistenceTests: XCTestCase{
     
     func testSaveIdentify(){
         
-        let result = DTIdentifyDataManager.save(id: "sdk223", reference: "drrt", json: "rtrt:{{rtrt:}}", send: true)
+        let result = DTIdentifyDataManager.save(id: 1, reference: "ertit343434", signedRequest: "er")
         
-        XCTAssertTrue(result, "Result must be true when nothing idetify has been saved")
+        XCTAssertTrue(result, "Result must be true")
     }
     
     func testFetchIdentify(){
@@ -39,7 +39,7 @@ class DTPersistenceTests: XCTestCase{
     
     func testSaveTrack(){
         
-        let result = DTTrackDataManager.save(event: "toque-no-botao-de-cancelar", retry: 2)
+        let result = DTTrackDataManager.save(action: "toque-no-botao-de-compra", reference: "ertit343434", status: 1, send: true)
         
         XCTAssertTrue(result, "Result must be true")
     }
@@ -51,10 +51,16 @@ class DTPersistenceTests: XCTestCase{
         XCTAssertFalse(result.isEmpty,"Result must be false")
     }
     
+    func testFetchBySendTrack(){
+        
+        let result = DTTrackDataManager.fetchBySend(send: true)
+
+        XCTAssertFalse(result.isEmpty,"Result must be false")
+    }
     
     func testDeleteTrack(){
         
-        let result = DTTrackDataManager.delete()
+        let result = DTTrackDataManager.deleteBySend(send: true)
 
         XCTAssertTrue(result, "Result must be true")
     }
