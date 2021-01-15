@@ -47,6 +47,7 @@ extension ViewController {
                           location: "São Paulo",
                           json: json)
         DTInitialize.identify(id: "1021", data: user)
+    
     }
     
     func setupTrack() {

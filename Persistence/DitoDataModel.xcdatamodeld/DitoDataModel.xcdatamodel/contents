@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Identify" representedClassName="Identify" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="json" optional="YES" attributeType="String"/>
+        <attribute name="reference" optional="YES" attributeType="String"/>
+        <attribute name="send" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="NotificationRead" representedClassName="NotificationRead" syncable="YES" codeGenerationType="class">
+        <attribute name="json" optional="YES" attributeType="Binary"/>
+        <attribute name="reference" optional="YES" attributeType="String"/>
+        <attribute name="send" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
+        <attribute name="event" optional="YES" attributeType="String"/>
+        <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Identify" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="NotificationRead" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="Track" positionX="-36" positionY="45" width="128" height="59"/>
+    </elements>
+</model>
