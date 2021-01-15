@@ -31,16 +31,16 @@ struct DTIdentify {
             service.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
                 
                 if let error = error {
-                    identifyOffline.identify(params: signupRequest , reference: nil, send: false)
+                    identifyOffline.identify(id: id, params: signupRequest , reference: nil, send: false)
                     DTLogger.error(error.localizedDescription)
                 } else {
                     if let reference = identify?.reference {
                         UserDefaults.reference = reference
-                        identifyOffline.identify(params: signupRequest , reference: reference, send: true)
+                        identifyOffline.identify(id: id, params: signupRequest , reference: reference, send: true)
                         DTLogger.information("Identify realizado")
                     } else {
                         UserDefaults.reference = ""
-                        identifyOffline.identify(params: signupRequest , reference: nil, send: false)
+                        identifyOffline.identify(id: id, params: signupRequest , reference: nil, send: false)
                     }
                 }
             }
