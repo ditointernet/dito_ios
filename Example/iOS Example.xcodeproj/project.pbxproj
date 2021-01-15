@@ -36,19 +36,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		DC42F7B725928543007DC03C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		2C8AC0C425AD4E6A00585CDA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DC42F76D259284F0007DC03C /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +53,7 @@
 		DC42F791259284F1007DC03C /* iOS Example UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Example UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F795259284F1007DC03C /* DitoSwiftSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoSwiftSampleAppUITests.swift; sourceTree = "<group>"; };
 		DC42F797259284F1007DC03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6A757D25AE030700DD114B /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +88,7 @@
 				DC42F789259284F1007DC03C /* iOS Example Tests */,
 				DC42F794259284F1007DC03C /* iOS Example UITests */,
 				DC42F76E259284F0007DC03C /* Products */,
+				DC6A757C25AE030700DD114B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +136,14 @@
 			path = "iOS Example UITests";
 			sourceTree = "<group>";
 		};
+		DC6A757C25AE030700DD114B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC6A757D25AE030700DD114B /* DitoSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,7 +154,6 @@
 				DC42F769259284F0007DC03C /* Sources */,
 				DC42F76A259284F0007DC03C /* Frameworks */,
 				DC42F76B259284F0007DC03C /* Resources */,
-				DC42F7B725928543007DC03C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
