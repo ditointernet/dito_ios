@@ -13,7 +13,7 @@ public struct DTTrackDataManager {
 
     public static func save(action: String, reference: String, status:Int, send: Bool) -> Bool {
     
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         guard let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track else{
             
             DTLogger.error("Failed to save Track")
@@ -40,7 +40,7 @@ public struct DTTrackDataManager {
         
         let resultFetch:[Track]
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
@@ -62,7 +62,7 @@ public struct DTTrackDataManager {
     
     public static func fetchBySend(send: Bool) -> [Track] {
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
@@ -93,7 +93,7 @@ public struct DTTrackDataManager {
 
     public static func deleteBySend(send: Bool) -> Bool {
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
         do {

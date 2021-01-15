@@ -14,7 +14,7 @@ public struct DTIdentifyDataManager {
     
     public static func save(id:Int, reference: String, signedRequest: String) -> Bool {
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
         do {
@@ -57,7 +57,7 @@ public struct DTIdentifyDataManager {
         
         let resultFetch:[Identify]
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return nil }
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
@@ -82,7 +82,7 @@ public struct DTIdentifyDataManager {
     
     public static func delete() -> Bool {
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
