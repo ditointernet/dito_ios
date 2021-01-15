@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct DTTrackOffline {
+    
+    
+    func track(event: DTEventRequest) {
+        
+        #warning("save data to database")
+    }
+}

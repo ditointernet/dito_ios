@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+
+struct DTIdentifyOffline {
+    
+    
+    func identify(params: DTSignupRequest, reference: String?, send: Bool) {
+        
+        #warning("save data to database")
+    }
+}

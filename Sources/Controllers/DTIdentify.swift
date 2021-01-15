@@ -10,29 +10,38 @@ import Foundation
 struct DTIdentify {
     
     private let service: DTIdentifyService
+    private let identifyOffline: DTIdentifyOffline
     
-    init(service: DTIdentifyService = .init()) {
+    init(service: DTIdentifyService = .init(), identifyOffline: DTIdentifyOffline = .init()) {
         self.service = service
+        self.identifyOffline = identifyOffline
     }
     
     func identify(id: String, data: DTUser, sha1Signature: String = DTInitialize.signature) {
         
         DispatchQueue.global().async {
             
-            let sigunpRequest = DTSignupRequest(platformApiKey: DTInitialize.apiKey,
+            let signupRequest = DTSignupRequest(platformApiKey: DTInitialize.apiKey,
                                                 sha1Signature: sha1Signature,
                                                 userData: data)
             
             guard data.email != nil else {
                 return
             }
-            service.signup(network: "portal", id: id, data: sigunpRequest) { (identify, error) in
+            service.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
                 
                 if let error = error {
+                    identifyOffline.identify(params: signupRequest , reference: nil, send: false)
                     DTLogger.error(error.localizedDescription)
                 } else {
-                    UserDefaults.reference = identify?.reference ?? ""
-                    DTLogger.information("Identify realizado")
+                    if let reference = identify?.reference {
+                        UserDefaults.reference = reference
+                        identifyOffline.identify(params: signupRequest , reference: reference, send: true)
+                        DTLogger.information("Identify realizado")
+                    } else {
+                        UserDefaults.reference = ""
+                        identifyOffline.identify(params: signupRequest , reference: nil, send: false)
+                    }
                 }
             }
         }
