@@ -11,13 +11,17 @@ import CoreData
 public struct DTTrackDataManager {
     
 
-    public static func save(action: String, reference: String, status:Int, send: Bool) -> Bool{
-    
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as! Track
-        client.action = action
-        client.reference = reference
-        client.send = send
+    public static func save(event: String, retry: Int16) -> Bool {
+
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track
+        else {
+            DTLogger.error("Failed to save Track")
+            return false
+        }
+        
+        client.event = event
+        client.retry = retry
         
         do {
             try context.save()
@@ -33,13 +37,13 @@ public struct DTTrackDataManager {
     
     public static func fetch() -> [Track] {
         
-        let resultFetch:[Track]
+        let resultFetch: [Track]
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
-        do{
+        do {
             
             resultFetch = try context.fetch(fetchRequest)
             
@@ -47,70 +51,34 @@ public struct DTTrackDataManager {
             
             return resultFetch
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
             return []
         }
 
-    }
-    
-    public static func fetchBySend(send: Bool) -> [Track] {
-        
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
-        
-        do{
-            
-            let tracks = try context.fetch(fetchRequest)
-            var resultFetch:[Track] = []
-            var countFetch:Int = 0
-            
-            for track in tracks{
-                if track.send == send{
-                    resultFetch.append(track)
-                    countFetch += 1
-                }
-            }
-            
-            DTLogger.information("\(countFetch) Tracks found - Successfully!!!")
-            
-            return resultFetch
-        
-        }catch let fetchErr {
-            
-            DTLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
-            
-            return []
-        }
     }
 
     public static func deleteBySend(send: Bool) -> Bool {
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
-        do{
+        do {
             
             let tracks = try context.fetch(fetchRequest)
-            var countDeletes:Int = 0
             
-            for track in tracks{
-                if track.send == send{
-                    context.delete(track)
-                    countDeletes += 1
-                }
+            for track in tracks {
+                context.delete(track)
             }
             
             try context.save()
             
-            DTLogger.information("\(countDeletes) Tracks Deleted - Successfully!!!")
+            DTLogger.information("Tracks Deleted - Successfully!!!")
             
             return true
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
             
