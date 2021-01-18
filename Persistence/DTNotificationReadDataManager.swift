@@ -10,10 +10,15 @@ import CoreData
 
 public struct DTNotificationReadDataManager {
     
-    public static func save(reference: String,send: Bool,json:Data) -> Bool{
+    public static func save(reference: String, send: Bool, json:Data) -> Bool {
     
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
-        let client = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as! NotificationRead
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let client = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as? NotificationRead
+        else {
+
+            DTLogger.error("Failed to save Notification")
+            return false
+        }
         client.reference = reference
         client.send = send
         client.json = json
@@ -33,13 +38,13 @@ public struct DTNotificationReadDataManager {
     
     public static func fetch() -> [NotificationRead] {
         
-        let resultFetch:[NotificationRead]
+        let resultFetch: [NotificationRead]
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
         
-        do{
+        do {
             
             resultFetch = try context.fetch(fetchRequest)
             
@@ -47,10 +52,9 @@ public struct DTNotificationReadDataManager {
             
             return resultFetch
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Notification fetch: \(fetchErr.localizedDescription)")
-            
             return []
         }
 
@@ -58,13 +62,13 @@ public struct DTNotificationReadDataManager {
     
     public static func fetchBySend(send: Bool) -> [NotificationRead] {
         
-        var resultFetch:[NotificationRead] = []
+        var resultFetch: [NotificationRead] = []
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
         
-        do{
+        do {
             
             let notifications = try context.fetch(fetchRequest)
             var countFetch:Int = 0
@@ -80,28 +84,26 @@ public struct DTNotificationReadDataManager {
             
             return resultFetch
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
-            
             return []
         }
-
     }
     
     public static func deleteBySend(send: Bool) -> Bool {
         
-        let context = DTCoreDataManager.shared.persistentContainer.viewContext
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
         
-        do{
+        do {
             
             let tracks = try context.fetch(fetchRequest)
             var countDeletes:Int = 0
             
-            for track in tracks{
-                if track.send == send{
+            for track in tracks {
+                if track.send == send {
                     context.delete(track)
                     countDeletes += 1
                 }
@@ -113,7 +115,7 @@ public struct DTNotificationReadDataManager {
             
             return true
         
-        }catch let fetchErr {
+        } catch let fetchErr {
             
             DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
             

@@ -45,9 +45,9 @@
 		2C9E178725B0F44E0027FAF9 /* DTRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E178625B0F44E0027FAF9 /* DTRetry.swift */; };
 		2CBCB2E725AF712500A79C49 /* DTIdentifyOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2E625AF712500A79C49 /* DTIdentifyOffline.swift */; };
 		2CBCB2EB25AF713A00A79C49 /* DTTrackOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2EA25AF713A00A79C49 /* DTTrackOffline.swift */; };
+		2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */; };
 		DC09871025AE6C5C00C9EA95 /* DTPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */; };
 		DC31287E25AE85AB002D867B /* DTNotificationReadDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09872725AE84A700C9EA95 /* DTNotificationReadDataManager.swift */; };
-		DC7E8BB825AE086B009B86CC /* dataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BB625AE086B009B86CC /* dataModel.xcdatamodeld */; };
 		DC7E8BBD25AE24D9009B86CC /* DTCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BBC25AE24D9009B86CC /* DTCoreDataManager.swift */; };
 		DC7E8BC125AE44D2009B86CC /* DTIdentifyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BC025AE44D2009B86CC /* DTIdentifyDataManager.swift */; };
 		DC7E8BC525AE44E1009B86CC /* DTTrackDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BC425AE44E1009B86CC /* DTTrackDataManager.swift */; };
@@ -106,9 +106,9 @@
 		2C9E178625B0F44E0027FAF9 /* DTRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRetry.swift; sourceTree = "<group>"; };
 		2CBCB2E625AF712500A79C49 /* DTIdentifyOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyOffline.swift; sourceTree = "<group>"; };
 		2CBCB2EA25AF713A00A79C49 /* DTTrackOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrackOffline.swift; sourceTree = "<group>"; };
+		2CC04D0125B5EA8E003347EA /* DitoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DitoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTPersistenceTests.swift; sourceTree = "<group>"; };
 		DC09872725AE84A700C9EA95 /* DTNotificationReadDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTNotificationReadDataManager.swift; sourceTree = "<group>"; };
-		DC7E8BB725AE086B009B86CC /* dataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dataModel.xcdatamodel; sourceTree = "<group>"; };
 		DC7E8BBC25AE24D9009B86CC /* DTCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTCoreDataManager.swift; sourceTree = "<group>"; };
 		DC7E8BC025AE44D2009B86CC /* DTIdentifyDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyDataManager.swift; sourceTree = "<group>"; };
 		DC7E8BC425AE44E1009B86CC /* DTTrackDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrackDataManager.swift; sourceTree = "<group>"; };
@@ -286,11 +286,11 @@
 		DC7E8BBB25AE249A009B86CC /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				DC7E8BB625AE086B009B86CC /* dataModel.xcdatamodeld */,
 				DC7E8BBC25AE24D9009B86CC /* DTCoreDataManager.swift */,
 				DC7E8BC025AE44D2009B86CC /* DTIdentifyDataManager.swift */,
 				DC7E8BC425AE44E1009B86CC /* DTTrackDataManager.swift */,
 				DC09872725AE84A700C9EA95 /* DTNotificationReadDataManager.swift */,
+				2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -418,6 +418,7 @@
 				2C9E178725B0F44E0027FAF9 /* DTRetry.swift in Sources */,
 				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
+				2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */,
 				0C68FB2E25A779E60050E369 /* DTValidationCharacters.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DTIdentifyService.swift in Sources */,
 				DC31287E25AE85AB002D867B /* DTNotificationReadDataManager.swift in Sources */,
@@ -426,7 +427,6 @@
 				0CE1EB3425A6333D00460837 /* DTInitialize.swift in Sources */,
 				0CE1EB3625A6333D00460837 /* DTSignupRequest.swift in Sources */,
 				0CE1EB3125A6333D00460837 /* String+Extension.swift in Sources */,
-				DC7E8BB825AE086B009B86CC /* dataModel.xcdatamodeld in Sources */,
 				0CE1EB3325A6333D00460837 /* DTIdentify.swift in Sources */,
 				0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */,
 				0CE1EB3725A6333D00460837 /* DTIdentifyModel.swift in Sources */,
@@ -657,13 +657,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DC7E8BB625AE086B009B86CC /* dataModel.xcdatamodeld */ = {
+		2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DC7E8BB725AE086B009B86CC /* dataModel.xcdatamodel */,
+				2CC04D0125B5EA8E003347EA /* DitoDataModel.xcdatamodel */,
 			);
-			currentVersion = DC7E8BB725AE086B009B86CC /* dataModel.xcdatamodel */;
-			path = dataModel.xcdatamodeld;
+			currentVersion = 2CC04D0125B5EA8E003347EA /* DitoDataModel.xcdatamodel */;
+			path = DitoDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
