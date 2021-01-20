@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-public class DTCoreDataManager {
+class DTCoreDataManager {
     
     ///Singlenton of its class
     public static let shared = DTCoreDataManager()

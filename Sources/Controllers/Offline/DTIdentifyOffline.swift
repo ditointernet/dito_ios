@@ -18,18 +18,19 @@ struct DTIdentifyOffline {
     
     
     func identify(id: String, params: DTSignupRequest, reference: String?, send: Bool) {
-        
-        #warning("save data to database")
+        DispatchQueue.global().async {
+            let json = params.toString
+            identifyDataManager.save(id: id, reference: reference, json: json, send: send)
+        }
+    }
     
+    var getIdentify: Identify? {
+        return identifyDataManager.fetch
+    }
+    
+    func update(id: String, params: DTSignupRequest, reference: String?, send: Bool) {
+        let json = params.toString
+        identifyDataManager.update(id: id, reference: reference, json: json, send: send)
         
-        /**
-
-        - Parameter id: String
-        - Parameter json: String
-        - Parameter reference: String or nil
-        - Parameter send: Boolean
-       
-        */
-                
     }
 }

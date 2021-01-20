@@ -8,12 +8,12 @@
 import Foundation
 
 
-public struct DTSignupRequest: Encodable {
+struct DTSignupRequest: Codable {
     
     let platformApiKey: String
     let sha1Signature: String
     let userData: DTUser
-    let encoding: String = "base64"
+    var encoding: String = "base64"
    
     enum CodingKeys: String, CodingKey {
         case platformApiKey = "platform_api_key"
@@ -22,7 +22,7 @@ public struct DTSignupRequest: Encodable {
         case encoding
     }
     
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(platformApiKey, forKey: .platformApiKey)
         try container.encode(sha1Signature, forKey: .sha1Signature)

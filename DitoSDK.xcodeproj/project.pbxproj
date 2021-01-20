@@ -42,7 +42,7 @@
 		0CE1EB3B25A6333D00460837 /* DTEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2225A6333D00460837 /* DTEventRequest.swift */; };
 		0CE1EB3C25A6333D00460837 /* DTEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB2325A6333D00460837 /* DTEvent.swift */; };
 		0CE1EB4125A633B000460837 /* DTTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB4025A633B000460837 /* DTTrack.swift */; };
-		2C9E178725B0F44E0027FAF9 /* DTRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E178625B0F44E0027FAF9 /* DTRetry.swift */; };
+		2C9E178725B0F44E0027FAF9 /* DitoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E178625B0F44E0027FAF9 /* DitoRetry.swift */; };
 		2CBCB2E725AF712500A79C49 /* DTIdentifyOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2E625AF712500A79C49 /* DTIdentifyOffline.swift */; };
 		2CBCB2EB25AF713A00A79C49 /* DTTrackOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2EA25AF713A00A79C49 /* DTTrackOffline.swift */; };
 		2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */; };
@@ -103,7 +103,7 @@
 		0CE1EB2225A6333D00460837 /* DTEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEventRequest.swift; sourceTree = "<group>"; };
 		0CE1EB2325A6333D00460837 /* DTEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTEvent.swift; sourceTree = "<group>"; };
 		0CE1EB4025A633B000460837 /* DTTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTTrack.swift; sourceTree = "<group>"; };
-		2C9E178625B0F44E0027FAF9 /* DTRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTRetry.swift; sourceTree = "<group>"; };
+		2C9E178625B0F44E0027FAF9 /* DitoRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoRetry.swift; sourceTree = "<group>"; };
 		2CBCB2E625AF712500A79C49 /* DTIdentifyOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyOffline.swift; sourceTree = "<group>"; };
 		2CBCB2EA25AF713A00A79C49 /* DTTrackOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrackOffline.swift; sourceTree = "<group>"; };
 		2CC04D0125B5EA8E003347EA /* DitoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DitoDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 			children = (
 				2CBCB2E625AF712500A79C49 /* DTIdentifyOffline.swift */,
 				2CBCB2EA25AF713A00A79C49 /* DTTrackOffline.swift */,
-				2C9E178625B0F44E0027FAF9 /* DTRetry.swift */,
+				2C9E178625B0F44E0027FAF9 /* DitoRetry.swift */,
 			);
 			path = Offline;
 			sourceTree = "<group>";
@@ -415,7 +415,7 @@
 				0CE1EB3025A6333D00460837 /* Encodable+Extensions.swift in Sources */,
 				DC7E8BC525AE44E1009B86CC /* DTTrackDataManager.swift in Sources */,
 				0CE1EB2B25A6333D00460837 /* DTResult.swift in Sources */,
-				2C9E178725B0F44E0027FAF9 /* DTRetry.swift in Sources */,
+				2C9E178725B0F44E0027FAF9 /* DitoRetry.swift in Sources */,
 				0CAB9E7625A74BA90086BEBC /* DTLogger.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DTServiceManager.swift in Sources */,
 				2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */,

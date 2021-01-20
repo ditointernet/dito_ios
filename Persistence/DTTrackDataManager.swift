@@ -8,20 +8,20 @@
 import Foundation
 import CoreData
 
-public struct DTTrackDataManager {
+struct DTTrackDataManager {
     
-
-    public static func save(event: String, retry: Int16) -> Bool {
+    @discardableResult
+    func save(event: String?, retry: Int16) -> Bool {
 
         guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
-        guard let client = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track
+        guard let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track
         else {
             DTLogger.error("Failed to save Track")
             return false
         }
         
-        client.event = event
-        client.retry = retry
+        track.event = event
+        track.retry = retry
         
         do {
             try context.save()
@@ -35,11 +35,38 @@ public struct DTTrackDataManager {
         }
     }
     
-    public static func fetch() -> [Track] {
+    @discardableResult
+    func update(id: NSManagedObjectID, event: String?, retry: Int16) -> Bool {
+        
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
+        let predicate = NSPredicate(format: "SELF = %@", id)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let resultFetch = try context.fetch(fetchRequest).first
+            resultFetch?.event = event
+            resultFetch?.retry = retry
+            
+            try context.save()
+            
+            DTLogger.information("Track Updated Successfully!!!")
+            return true
+            
+        } catch let error {
+            
+            DTLogger.error("Failed to update Track: \(error.localizedDescription)")
+            return false
+        }
+         
+    }
+    
+    var fetchAll: [Track] {
         
         let resultFetch: [Track]
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return []
+        }
         
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         
@@ -59,28 +86,27 @@ public struct DTTrackDataManager {
 
     }
 
-    public static func deleteBySend(send: Bool) -> Bool {
+    @discardableResult
+    func delete(with id: NSManagedObjectID) -> Bool {
         
         guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
+        let predicate = NSPredicate(format: "SELF = %@", id)
+        fetchRequest.predicate = predicate
         
         do {
             
-            let tracks = try context.fetch(fetchRequest)
+            guard let track = try context.fetch(fetchRequest).first else { throw DTErrorType.objectError }
             
-            for track in tracks {
-                context.delete(track)
-            }
-            
+            context.delete(track)
             try context.save()
             
-            DTLogger.information("Tracks Deleted - Successfully!!!")
-            
+            DTLogger.information("Track Deleted - Successfully!!!")
             return true
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
+            DTLogger.error("Error to Delete Track: \(fetchErr.localizedDescription)")
             
             return false
         }

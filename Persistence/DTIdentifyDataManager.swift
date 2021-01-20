@@ -9,40 +9,30 @@ import Foundation
 import CoreData
 
 
-public struct DTIdentifyDataManager {
+struct DTIdentifyDataManager {
     
-    
-    public static func save(id: String, reference: String, json: String, send: Bool) -> Bool {
-         
-         guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
-         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
+    @discardableResult
+    func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
-    
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        delete(id: id)
+        
         do {
-
-            if try context.fetch(fetchRequest).isEmpty {
-                
-                guard let client = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
-                else {
-                    DTLogger.error("Failed to save Identify")
-                    return false
-                }
-                
-                client.id = id
-                client.json = json
-                client.send = send
-                
-                try context.save()
-                
-                DTLogger.information("Identify Saved Successfully!!!")
-                return true
-                
-            } else {
-
-                DTLogger.error("An identify record already exists!!!")
+            guard let identify = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
+            else {
+                DTLogger.error("Failed to save Identify")
                 return false
             }
-
+            
+            identify.id = id
+            identify.reference = reference
+            identify.json = json
+            identify.send = send
+            
+            try context.save()
+            
+            DTLogger.information("Identify Saved Successfully!!!")
+            return true
             
         } catch let error {
             
@@ -51,9 +41,35 @@ public struct DTIdentifyDataManager {
         }
     }
     
-    public static func fetch() -> Identify? {
+    @discardableResult
+    func update(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
-        let resultFetch: [Identify]
+        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
+        let predicate = NSPredicate(format: "id = %@", id)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let identify = try context.fetch(fetchRequest).first
+            identify?.id = id
+            identify?.reference = reference
+            identify?.json = json
+            identify?.send = send
+            
+            try context.save()
+            
+            DTLogger.information("Identify Updated Successfully!!!")
+            return true
+            
+        } catch let error {
+            
+            DTLogger.error("Failed to update Identify: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    var fetch: Identify? {
+        
         
         guard let context = DTCoreDataManager.shared.container?.viewContext else { return nil }
         
@@ -61,11 +77,9 @@ public struct DTIdentifyDataManager {
         
         do {
             
-            resultFetch = try context.fetch(fetchRequest)
+            guard let identify: Identify = try context.fetch(fetchRequest).first else { return nil }
             
-            guard let identify = resultFetch.first else { return nil }
-            
-            DTLogger.information("\(resultFetch.count) Identify Fetch - Successfully!!!")
+            DTLogger.information("Identify Fetch - Successfully!!!")
             
             return identify
         
@@ -76,28 +90,23 @@ public struct DTIdentifyDataManager {
         }
     }
     
-    
-    public static func delete() -> Bool {
+    @discardableResult
+    func delete(id: String) -> Bool {
         
         guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
+        let predicate = NSPredicate(format: "id = %@", id)
+        fetchRequest.predicate = predicate
         
         do {
             
-            let resultFetch = try context.fetch(fetchRequest)
-            
-            var countDelete:Int = 0
-            
-            for identify in resultFetch{
-                context.delete(identify)
-               
-                countDelete = countDelete + 1
-            }
-            
+            guard let identify: Identify = try context.fetch(fetchRequest).first else { return false }
+    
+            context.delete(identify)
             try context.save()
             
-            DTLogger.information("\(countDelete) Identify Deleted - Successfully!!!")
+            DTLogger.information("Identify Deleted - Successfully!!!")
             
             return true
         

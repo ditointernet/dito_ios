@@ -23,9 +23,7 @@ struct DTTrack {
             
             let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
             
-            let reference = UserDefaults.reference
-            
-            if !reference.isEmpty {
+            if let reference = trackOffline.reference, !reference.isEmpty {
                 service.event(reference: reference, data: eventRequest) { (track, error) in
                     
                     if let error = error {
