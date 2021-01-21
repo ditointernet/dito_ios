@@ -36,6 +36,13 @@ extension String {
         Util.validateEmail(validate)
         return validate ? self : nil
     }
+    
+    func convertToObject<T: Decodable>(type: T.Type) -> T? {
+    
+        guard let data = self.data(using: .utf8) else { return nil }
+        let result = try? JSONDecoder().decode(T.self, from: data)
+        return result
+    }
 }
 
 //MARK: PRIVATE

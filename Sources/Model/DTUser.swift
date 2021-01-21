@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DTUser: Encodable {
+public struct DTUser: Codable {
     
     let name: String?
     let gender: String?

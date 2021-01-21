@@ -8,13 +8,13 @@
 import Foundation
 
 
-public struct DTEventRequest: Encodable {
+public struct DTEventRequest: Codable {
     
     let platformApiKey: String
     let sha1Signature: String
     let event: String
-    let networkName: String = "pt"
-    let encoding: String = "base64"
+    var networkName: String = "pt"
+    var encoding: String = "base64"
     
     public init(platformApiKey: String, sha1Signature: String, event: DTEvent) {
         

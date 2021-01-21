@@ -14,20 +14,23 @@ enum DTErrorType: Error, LocalizedError {
     case noConnectivity
     case invalidJSON
     case unknown
+    case objectError
     case defaultError(Error)
     
     var errorDescription: String? {
         switch self {
         case .parseUrlFail:
-            return "Não é possível inicializar a URL."
+            return "The URL cannot be initialized."
         case .serverError:
-            return "Houve um erro ao se comunicar com o servidor.\nTente novamente."
+            return "There was an error communicating with the server.\nTry again."
         case .noConnectivity:
-            return "Verifique sua conexão com a internet."
+            return "Check your internet connection"
         case .invalidJSON:
-            return "JSON inválido"
+            return "Invalid JSON"
         case .unknown:
-            return "Erro desconhecido"
+            return "Unkown error"
+        case .objectError:
+            return "Error fetching object"
         case .defaultError(let error):
             return error.localizedDescription
         }

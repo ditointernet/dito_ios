@@ -12,13 +12,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DitoSwiftSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQe-hC-u9y">
-                                <rect key="frame" x="30" y="363" width="354" height="170"/>
+                                <rect key="frame" x="30" y="318" width="354" height="260"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WP-lI-TgN">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="80"/>
@@ -40,6 +40,17 @@
                                         <state key="normal" title="Track"/>
                                         <connections>
                                             <action selector="didTapTrack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JV8-Mo-PXg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdY-x2-Ibg">
+                                        <rect key="frame" x="0.0" y="180" width="354" height="80"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="6fo-ci-jzQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Offline"/>
+                                        <connections>
+                                            <action selector="didTapOffline:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iY4-5J-5do"/>
                                         </connections>
                                     </button>
                                 </subviews>

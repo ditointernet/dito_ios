@@ -31,12 +31,16 @@ class ViewController: UIViewController {
     @IBAction func didTapTrack(_ sender: Any) {
         setupTrack()
     }
-
+    
+    @IBAction func didTapOffline(_ sender: Any) {
+        sendAllEvents()
+    }
+    
 }
 
 extension ViewController {
     
-    func setupIdentify() {
+    private func setupIdentify() {
         
         let json = ["carro": "celta", "cor": "preto"]
                 
@@ -49,10 +53,14 @@ extension ViewController {
         DTInitialize.identify(id: "1021", data: user)
     }
     
-    func setupTrack() {
+    private func setupTrack() {
         
         let event = DTEvent(action: "botao-comprar-produtos")
         
         DTInitialize.track(event: event)
+    }
+    
+    private func sendAllEvents() {
+        DTInitialize.retry()
     }
 }

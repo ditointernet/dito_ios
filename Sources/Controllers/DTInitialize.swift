@@ -30,6 +30,12 @@ public struct DTInitialize {
         let dtTrack = DTTrack()
         dtTrack.track(data: event)
     }
+    
+    public static func retry() {
+        
+        let retry = DitoRetry()
+        retry.loadOffline()
+    }
 
 }
 
