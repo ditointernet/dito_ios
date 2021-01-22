@@ -74,5 +74,7 @@ private extension DTLogger {
 
 /// Overrides Swift.print(_:, separator:, terminator:) function to only print when app is in DEBUG environment
 func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
-    Swift.print(items.map { "\($0)" }.joined(separator: separator), terminator: terminator)
+    if ProcessInfo.processInfo.arguments.contains("EnabledDebug") {
+        Swift.print(items.map { "\($0)" }.joined(separator: separator), terminator: terminator)
+    }
 }

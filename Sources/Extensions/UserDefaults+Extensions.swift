@@ -23,3 +23,14 @@ extension UserDefaults {
          }
      }
 }
+
+extension Bundle {
+    
+    var apiKey: String {
+        return object(forInfoDictionaryKey: "ApiKey") as? String ?? ""
+    }
+    
+    var apiSecret: String {
+        return object(forInfoDictionaryKey: "ApiSecret") as? String ?? ""
+    }
+}

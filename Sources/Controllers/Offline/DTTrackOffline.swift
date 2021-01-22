@@ -21,7 +21,7 @@ struct DTTrackOffline {
     func track(event: DTEventRequest) {
         DispatchQueue.global().async {
             let json = event.toString
-            trackDataManager.save(event: json, retry: 1)
+            trackDataManager.save(event: json)
         }
     }
     

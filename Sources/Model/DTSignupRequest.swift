@@ -2,7 +2,7 @@
 //  DTSignupRequest.swift
 //  DitoSDK
 //
-//  Created by Rodrigo DamaCena Gamarra Maciel on 29/12/20.
+//  Created by Rodrigo Damacena Gamarra Maciel on 29/12/20.
 //
 
 import Foundation

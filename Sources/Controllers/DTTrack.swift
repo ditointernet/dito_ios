@@ -21,7 +21,7 @@ struct DTTrack {
         
         DispatchQueue.global().async {
             
-            let eventRequest = DTEventRequest(platformApiKey: DTInitialize.apiKey, sha1Signature: DTInitialize.signature, event: data)
+            let eventRequest = DTEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
             
             if let reference = trackOffline.reference, !reference.isEmpty {
                 service.event(reference: reference, data: eventRequest) { (track, error) in

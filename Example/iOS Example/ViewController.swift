@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DTInitialize.configure(apiKey: Bundle.main.apiKey, apiSecret: Bundle.main.apiSecret)
     }
     
     @IBAction func didTapIdentify(_ sender: Any) {
@@ -31,11 +30,6 @@ class ViewController: UIViewController {
     @IBAction func didTapTrack(_ sender: Any) {
         setupTrack()
     }
-    
-    @IBAction func didTapOffline(_ sender: Any) {
-        sendAllEvents()
-    }
-    
 }
 
 extension ViewController {
@@ -50,17 +44,13 @@ extension ViewController {
                           birthday: birthday,
                           location: "São Paulo",
                           json: json)
-        DTInitialize.identify(id: "1021", data: user)
+        Dito.identify(id: "1021", data: user)
     }
     
     private func setupTrack() {
         
         let event = DTEvent(action: "botao-comprar-produtos")
         
-        DTInitialize.track(event: event)
-    }
-    
-    private func sendAllEvents() {
-        DTInitialize.retry()
+        Dito.track(event: event)
     }
 }
