@@ -7,14 +7,14 @@
 
 @testable import DitoSDK
 
-class MockDTIdentifyService: DTIdentifyService {
+class MockDTIdentifyService: DitoIdentifyService {
     var resultHandler: ((Error?) -> Void)?
     
     func onResult(_ resultHandler: @escaping (Error?) -> Void) {
         self.resultHandler = resultHandler
     }
     
-    override func request<T>(type: T.Type, router: DTRouterService, completion: @escaping NetworkCompletion<T>) where T : Decodable {
+    override func request<T>(type: T.Type, router: DitoRouterService, completion: @escaping NetworkCompletion<T>) where T : Decodable {
         super.request(type: type, router: router) { [resultHandler] in
             if case .failure(let error) = $0 {
                 resultHandler?(error)

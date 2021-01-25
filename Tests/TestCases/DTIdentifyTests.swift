@@ -23,14 +23,14 @@ class DTIdentifyTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
 
-        let user = DTUser(
+        let user = DitoUser(
             name: nil,
             gender: nil,
             email: nil,
             birthday: nil,
             location: nil,
             createdAt: createdAt,
-            json: nil
+            customData: nil
         )
 
         identifyService.onResult {
@@ -40,7 +40,7 @@ class DTIdentifyTests: DTTestCase {
         }
 
       
-        DTInitialize.identify(id: id, data: user, service: identifyService)
+        Dito.identify(id: id, data: user, service: identifyService)
         wait(for: [expect], timeout: timeout)
 
         XCTAssertEqual(dateFormatter.string(from: createdAt), user.createdAt)
@@ -59,14 +59,14 @@ class DTIdentifyTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
 
-        let user = DTUser(
+        let user = DitoUser(
             name: nil,
             gender: nil,
             email: email,
             birthday: nil,
             location: nil,
             createdAt: nil,
-            json: nil
+            customData: nil
         )
 
         identifyService.onResult {
@@ -75,7 +75,7 @@ class DTIdentifyTests: DTTestCase {
             expect.fulfill()
         }
 
-        DTInitialize.identify(id: id, data: user, service: identifyService)
+        Dito.identify(id: id, data: user, service: identifyService)
 
         wait(for: [expect], timeout: timeout)
 
@@ -95,14 +95,14 @@ class DTIdentifyTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
 
-        let user = DTUser(
+        let user = DitoUser(
             name: nil,
             gender: nil,
             email: email,
             birthday: nil,
             location: nil,
             createdAt: nil,
-            json: nil
+            customData: nil
         )
 
         identifyService.onResult {
@@ -111,7 +111,7 @@ class DTIdentifyTests: DTTestCase {
             expect.fulfill()
         }
 
-        DTInitialize.identify(id: id, data: user, service: identifyService)
+        Dito.identify(id: id, data: user, service: identifyService)
 
         wait(for: [expect], timeout: timeout)
 
@@ -133,14 +133,14 @@ class DTIdentifyTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
 
-        let user = DTUser(
+        let user = DitoUser(
             name: nil,
             gender: nil,
             email: nil,
             birthday: date,
             location: nil,
             createdAt: nil,
-            json: nil
+            customData: nil
         )
 
         identifyService.onResult {
@@ -150,7 +150,7 @@ class DTIdentifyTests: DTTestCase {
         }
 
         
-        DTInitialize.identify(id: id, data: user, service: identifyService)
+        Dito.identify(id: id, data: user, service: identifyService)
 
         wait(for: [expect], timeout: timeout)
 
@@ -168,14 +168,14 @@ class DTIdentifyTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
 
-        let user = DTUser(
+        let user = DitoUser(
             name: "Brenno de Moura",
             gender: .masculino,
             email: "teste@teste.com",
             birthday: Date(),
             location: "Goiânia",
             createdAt: Date(),
-            json: nil
+            customData: nil
         )
 
         identifyService.onResult {
@@ -184,7 +184,7 @@ class DTIdentifyTests: DTTestCase {
             expect.fulfill()
         }
 
-        DTInitialize.identify(id: id, data: user, service: identifyService)
+        Dito.identify(id: id, data: user, service: identifyService)
 
         wait(for: [expect], timeout: timeout)
 
@@ -201,14 +201,14 @@ class DTIdentifyTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
 
-        let user = DTUser(
+        let user = DitoUser(
             name: nil,
             gender: nil,
             email: nil,
             birthday: nil,
             location: nil,
             createdAt: nil,
-            json: nil
+            customData: nil
         )
 
         identifyService.onResult {
@@ -217,7 +217,7 @@ class DTIdentifyTests: DTTestCase {
             expect.fulfill()
         }
 
-        DTInitialize.identify(
+        Dito.identify(
             id: id,
             data: user,
             sha1Signature: sha1Hash(Self.apiSecret),

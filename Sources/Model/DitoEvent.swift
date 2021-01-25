@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DTEvent: Encodable {
+public struct DitoEvent: Encodable {
     
     let action: String?
     let revenue: Double?
@@ -17,12 +17,12 @@ public struct DTEvent: Encodable {
     public init(action: String? = nil,
                 revenue: Double? = nil,
                 createdAt: Date? = nil,
-                json: Any? = nil) {
+                customData: Any? = nil) {
         
         self.action = action?.formatToDitoString
         self.revenue = revenue
         self.createdAt = Util.toDate(createdAt)
-        self.data = Util.toString(from: json)
+        self.data = Util.toString(from: customData)
     }
     
     enum CodingKeys: String, CodingKey {

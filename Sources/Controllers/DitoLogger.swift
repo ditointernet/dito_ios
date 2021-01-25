@@ -15,7 +15,7 @@ import Foundation
      DTLogger.fatal("Can't init the db")
  */
 
-enum DTLogger: String {
+enum DitoLogger: String {
     case fatal = "FATAL"
     case error = "ERROR"
     case warning = "WARNING"
@@ -24,7 +24,7 @@ enum DTLogger: String {
     case trace = "TRACE"
 }
 
-extension DTLogger {
+extension DitoLogger {
     /**
      Private log method that will print message using other variables to indicate the timestamp, file name, line, column and the function that cause the message
 
@@ -45,15 +45,15 @@ extension DTLogger {
         function: String = #function) {
         
         let message = items.map { "\($0)" }.joined(separator: separator)
-        let dateString = DTLogger.dateFormatter.string(from: Date())
-        let logAtPath = "\(DTLogger.sourceFileName(filePath: filename))[\(line):\(column)]"
+        let dateString = DitoLogger.dateFormatter.string(from: Date())
+        let logAtPath = "\(DitoLogger.sourceFileName(filePath: filename))[\(line):\(column)]"
         let functionError = "at \(function) => \(message)"
         
         print("\(dateString) \(self.rawValue) \(logAtPath) \(functionError)")
     }
 }
 
-private extension DTLogger {
+private extension DitoLogger {
     private static var dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
 
     static var dateFormatter: DateFormatter {
@@ -65,7 +65,7 @@ private extension DTLogger {
     }
 }
 
-private extension DTLogger {
+private extension DitoLogger {
     /// Private method to get the name of the file only
     static func sourceFileName(filePath: String) -> String {
         filePath.components(separatedBy: "/").last ?? ""

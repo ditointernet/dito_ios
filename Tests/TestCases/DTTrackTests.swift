@@ -25,9 +25,9 @@ class DTTrackTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
         
-        let event = DTEvent(
+        let event = DitoEvent(
             action: action,
-            json: nil
+            customData: nil
         )
         
         trackService.onResult {
@@ -36,7 +36,7 @@ class DTTrackTests: DTTestCase {
             expect.fulfill()
         }
         
-        DTInitialize.track(event: event, service: trackService)
+        Dito.track(event: event, service: trackService)
         wait(for: [expect], timeout: timeout)
         
         XCTAssertEqual(event.action, expectedAction)
@@ -54,9 +54,9 @@ class DTTrackTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
         
-        let event = DTEvent(
+        let event = DitoEvent(
             action: action,
-            json: nil
+            customData: nil
         )
         
         trackService.onResult {
@@ -65,7 +65,7 @@ class DTTrackTests: DTTestCase {
             expect.fulfill()
         }
         
-        DTInitialize.track(event: event, service: trackService)
+        Dito.track(event: event, service: trackService)
         wait(for: [expect], timeout: timeout)
         
         XCTAssertEqual(event.action, action)
@@ -83,9 +83,9 @@ class DTTrackTests: DTTestCase {
         var error: Error? = nil
         var successed: Bool = false
         
-        let event = DTEvent(
+        let event = DitoEvent(
             action: action,
-            json: nil
+            customData: nil
         )
         
         trackService.onResult {
@@ -94,7 +94,7 @@ class DTTrackTests: DTTestCase {
             expect.fulfill()
         }
         
-        DTInitialize.track(event: event, service: trackService)
+        Dito.track(event: event, service: trackService)
         wait(for: [expect], timeout: timeout)
         
         XCTAssertTrue(successed, error?.localizedDescription ?? "Test didn't success")
@@ -106,16 +106,16 @@ extension DTTrackTests {
         
         let id = "1020"
         
-        let user = DTUser(
+        let user = DitoUser(
             name: "Rodrigo Maciel",
             gender: .masculino,
             email: "teste@teste.com.br",
             birthday: Date(),
             location: "São Paulo",
             createdAt: nil,
-            json: nil
+            customData: nil
         )
         
-        DTInitialize.identify(id: id, data: user)
+        Dito.identify(id: id, data: user)
     }
 }

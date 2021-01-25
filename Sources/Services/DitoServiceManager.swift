@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DTServiceManager {
+class DitoServiceManager {
     
     private let config: URLSessionConfiguration
     private let session: URLSession
@@ -17,7 +17,7 @@ class DTServiceManager {
         session = URLSession(configuration: config)
     }
     
-    func request<T: Decodable>(type: T.Type, router: DTRouterService, completion: @escaping NetworkCompletion<T>) {
+    func request<T: Decodable>(type: T.Type, router: DitoRouterService, completion: @escaping NetworkCompletion<T>) {
         do {
             let task = try session.dataTask(with: router.asURLRequest()) { (data, response, error) in
                 DispatchQueue.main.async {

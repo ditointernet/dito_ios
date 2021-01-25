@@ -36,20 +36,20 @@ extension ViewController {
     
     private func setupIdentify() {
         
-        let json = ["carro": "celta", "cor": "preto"]
+        let customData = ["carro": "celta", "cor": "preto"]
                 
-        let user = DTUser(name: "Rodrigo Maciel",
+        let user = DitoUser(name: "Rodrigo Maciel",
                           gender: .masculino,
                           email: "teste@teste.com.br",
                           birthday: birthday,
                           location: "São Paulo",
-                          json: json)
+                          customData: customData)
         Dito.identify(id: "1021", data: user)
     }
     
     private func setupTrack() {
         
-        let event = DTEvent(action: "botao-comprar-produtos")
+        let event = DitoEvent(action: "botao-comprar-produtos")
         
         Dito.track(event: event)
     }

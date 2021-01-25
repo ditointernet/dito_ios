@@ -8,12 +8,12 @@
 import Foundation
 
 
-class DTTrackService: DTServiceManager {
+class DitoTrackService: DitoServiceManager {
     
 
-    func event(reference: String, data: DTEventRequest, completion: @escaping (_ success: [DTTrackModel]?, _ error: Error?) -> ()) {
+    func event(reference: String, data: DitoEventRequest, completion: @escaping (_ success: [DitoTrackModel]?, _ error: Error?) -> ()) {
         
-        request(type: [DTTrackModel].self, router: .track(reference: reference, data: data)) { result in
+        request(type: [DitoTrackModel].self, router: .track(reference: reference, data: data)) { result in
             
             switch result {
             case .success(let data):

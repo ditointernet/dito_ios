@@ -10,77 +10,88 @@ import XCTest
 @testable import DitoSDK
 
 
-class DTPersistenceTests: XCTestCase{
+class DTPersistenceTests: XCTestCase {
     
     //MARK: Identify
     
-    func testSaveIdentify(){
+    func testSaveIdentify() {
         
-        let result = DTIdentifyDataManager.save(id: "sdk223", reference: "drrt", json: "rtrt:{{rtrt:}}", send: true)
+        let dataManager = DitoIdentifyDataManager()
+        let result = dataManager.save(id: "sdk223", reference: "drrt", json: "rtrt:{{rtrt:}}", send: true)
         
         XCTAssertTrue(result, "Result must be true when nothing idetify has been saved")
     }
     
-    func testFetchIdentify(){
+    func testFetchIdentify() {
         
-        let result = DTIdentifyDataManager.fetch()
+        let dataManager = DitoIdentifyDataManager()
+        let result = dataManager.fetch
 
         XCTAssertNotNil(result, "Result must be not nil")
     }
     
-    func testDeleteIdentify(){
+    func testDeleteIdentify() {
         
-        let result = DTIdentifyDataManager.delete()
-
+        let dataManager = DitoIdentifyDataManager()
+        let result = dataManager.delete(id: "1021")
+        
         XCTAssertTrue(result, "Result must be true")
     }
     
     //MARK: Track
     
-    func testSaveTrack(){
+    func testSaveTrack() {
         
-        let result = DTTrackDataManager.save(event: "toque-no-botao-de-cancelar", retry: 2)
+        let dataManager = DitoTrackDataManager()
+        let result = dataManager.save(event: "toque-no-botao-de-cancelar", retry: 1)
         
         XCTAssertTrue(result, "Result must be true")
     }
     
-    func testFetchTrack(){
+    func testFetchTrack() {
         
-        let result = DTTrackDataManager.fetch()
+        let dataManager = DitoTrackDataManager()
+        let result = dataManager.fetchAll
    
-        XCTAssertFalse(result.isEmpty,"Result must be false")
+        XCTAssertFalse(result.isEmpty, "Result must be false")
     }
     
-    func testDeleteTrack(){
+    func testDeleteTrack() {
         
-        let result = DTTrackDataManager.delete()
+        let dataManager = DitoTrackDataManager()
+        let tracks = dataManager.fetchAll
+        var result: Bool = false
+        
+        if !tracks.isEmpty, let id = tracks.first?.objectID {
+            result = dataManager.delete(with: id)
+        }
 
         XCTAssertTrue(result, "Result must be true")
     }
     
     //MARK: Notify
     
-    func testSaveNotify(){
+    func testSaveNotify() {
         
-        let result = DTNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
+        let result = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
         
         XCTAssertTrue(result, "Result must be true")
     }
     
-    func testFetchNotify(){
+    func testFetchNotify() {
     
-        _ = DTNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
-        _ = DTNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
-        _ = DTNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
+        _ = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
+        _ = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
+        _ = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
         
-        let result = DTNotificationReadDataManager.fetch()
+        let result = DitoNotificationReadDataManager.fetch()
         
         XCTAssertNotNil(result, "Result must be not nil")
     }
     
-    func testDeleteNotify(){
+    func testDeleteNotify() {
         
-        let result = DTNotificationReadDataManager.deleteBySend(send: true)
+        let result = DitoNotificationReadDataManager.deleteBySend(send: true)
 
         XCTAssertTrue(result, "Result must be true")
     }

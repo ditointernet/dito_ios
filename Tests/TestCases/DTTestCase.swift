@@ -17,9 +17,7 @@ class DTTestCase: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        DTInitialize.configure(
-            apiKey: Self.apiKey,
-            apiSecret: Self.apiSecret
-        )
+        let dito = Dito(apiKey: Self.apiKey, apiSecret: Self.apiSecret)
+        dito.configure()
     }
 }

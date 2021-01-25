@@ -8,15 +8,15 @@
 import Foundation
 import CoreData
 
-struct DTTrackDataManager {
+struct DitoTrackDataManager {
     
     @discardableResult
     func save(event: String?, retry: Int16 = 1) -> Bool {
 
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         guard let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track
         else {
-            DTLogger.error("Failed to save Track")
+            DitoLogger.error("Failed to save Track")
             return false
         }
         
@@ -25,11 +25,11 @@ struct DTTrackDataManager {
             track.retry = retry
         
             try context.save()
-            DTLogger.information("Track Saved Successfully!!!")
+            DitoLogger.information("Track Saved Successfully!!!")
             
             return true
         } catch let error {
-            DTLogger.error("Failed to save Track: \(error.localizedDescription)")
+            DitoLogger.error("Failed to save Track: \(error.localizedDescription)")
             
             return false
         }
@@ -38,7 +38,7 @@ struct DTTrackDataManager {
     @discardableResult
     func update(id: NSManagedObjectID, event: String?, retry: Int16) -> Bool {
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         let predicate = NSPredicate(format: "SELF = %@", id)
         fetchRequest.predicate = predicate
@@ -50,12 +50,12 @@ struct DTTrackDataManager {
             
             try context.save()
             
-            DTLogger.information("Track Updated Successfully!!!")
+            DitoLogger.information("Track Updated Successfully!!!")
             return true
             
         } catch let error {
             
-            DTLogger.error("Failed to update Track: \(error.localizedDescription)")
+            DitoLogger.error("Failed to update Track: \(error.localizedDescription)")
             return false
         }
          
@@ -65,7 +65,7 @@ struct DTTrackDataManager {
         
         let resultFetch: [Track]
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else {
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else {
             return []
         }
         
@@ -75,13 +75,13 @@ struct DTTrackDataManager {
             
             resultFetch = try context.fetch(fetchRequest)
             
-            DTLogger.information("\(resultFetch.count) Tracks found - Successfully!!!")
+            DitoLogger.information("\(resultFetch.count) Tracks found - Successfully!!!")
             
             return resultFetch
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
             return []
         }
 
@@ -90,24 +90,24 @@ struct DTTrackDataManager {
     @discardableResult
     func delete(with id: NSManagedObjectID) -> Bool {
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
         let predicate = NSPredicate(format: "SELF = %@", id)
         fetchRequest.predicate = predicate
         
         do {
             
-            guard let track = try context.fetch(fetchRequest).first else { throw DTErrorType.objectError }
+            guard let track = try context.fetch(fetchRequest).first else { throw DitoErrorType.objectError }
             
             context.delete(track)
             try context.save()
             
-            DTLogger.information("Track Deleted - Successfully!!!")
+            DitoLogger.information("Track Deleted - Successfully!!!")
             return true
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to Delete Track: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to Delete Track: \(fetchErr.localizedDescription)")
             
             return false
         }

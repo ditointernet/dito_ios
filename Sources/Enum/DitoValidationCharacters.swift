@@ -2,13 +2,13 @@
 //  DTValidationCharacters.swift
 //  DitoSDK
 //
-//  Created by Rodrigo DamaCena Gamarra Maciel on 07/01/21.
+//  Created by Rodrigo Damacena Gamarra Maciel on 07/01/21.
 //
 
 import Foundation
 
 
-enum DTValidationCharacters {
+enum DitoValidationCharacters {
     case whiteSpace
     case number
     case special

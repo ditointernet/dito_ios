@@ -8,11 +8,11 @@
 import Foundation
 
 
-struct DTSignupRequest: Codable {
+struct DitoSignupRequest: Codable {
     
     let platformApiKey: String
     let sha1Signature: String
-    let userData: DTUser
+    let userData: DitoUser
     var encoding: String = "base64"
    
     enum CodingKeys: String, CodingKey {

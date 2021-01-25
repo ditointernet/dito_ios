@@ -10,13 +10,13 @@ import Foundation
 
 struct DitoRetry {
     
-    private var identifyOffline: DTIdentifyOffline
-    private var trackOffline: DTTrackOffline
-    private let serviceIdentify: DTIdentifyService
-    private let serviceTrack: DTTrackService
+    private var identifyOffline: DitoIdentifyOffline
+    private var trackOffline: DitoTrackOffline
+    private let serviceIdentify: DitoIdentifyService
+    private let serviceTrack: DitoTrackService
     
-    init(identifyOffline: DTIdentifyOffline = .init(), trackOffline: DTTrackOffline = .init(),
-         serviceIdentify: DTIdentifyService = .init(), serviceTrack: DTTrackService = .init()) {
+    init(identifyOffline: DitoIdentifyOffline = .init(), trackOffline: DitoTrackOffline = .init(),
+         serviceIdentify: DitoIdentifyService = .init(), serviceTrack: DitoTrackService = .init()) {
         
         self.identifyOffline = identifyOffline
         self.trackOffline = trackOffline
@@ -37,19 +37,19 @@ struct DitoRetry {
             
             guard let identify = identifyOffline.getIdentify,
                   let id = identify.id,
-                  let signupRequest = identify.json?.convertToObject(type: DTSignupRequest.self) else { return }
+                  let signupRequest = identify.json?.convertToObject(type: DitoSignupRequest.self) else { return }
             
             if !identify.send {
                 
                 serviceIdentify.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
                     
                     if let error = error {
-                        DTLogger.error(error.localizedDescription)
+                        DitoLogger.error(error.localizedDescription)
                         completion(false)
                     } else {
                         if let reference = identify?.reference {
                             identifyOffline.update(id: id, params: signupRequest, reference: reference, send: true)
-                            DTLogger.information("Identify realizado")
+                            DitoLogger.information("Identify realizado")
                             completion(true)
                         }
                     }
@@ -73,7 +73,7 @@ struct DitoRetry {
     
     private func sendEvent(track: Track) {
         
-        guard let event = track.event, let eventRequest = event.convertToObject(type: DTEventRequest.self) else { return }
+        guard let event = track.event, let eventRequest = event.convertToObject(type: DitoEventRequest.self) else { return }
         let id = track.objectID
         
         if let reference = trackOffline.reference, !reference.isEmpty {
@@ -81,15 +81,15 @@ struct DitoRetry {
                 
                 if let error = error {
                     trackOffline.update(id: id, event: eventRequest, retry: track.retry + 1)
-                    DTLogger.error(error.localizedDescription)
+                    DitoLogger.error(error.localizedDescription)
                 } else {
                     trackOffline.delete(id: id)
-                    DTLogger.information("Track - Evento enviado")
+                    DitoLogger.information("Track - Evento enviado")
                 }
             }
         } else {
             trackOffline.update(id: id, event: eventRequest, retry: track.retry + 1)
-            DTLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
+            DitoLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
         }
     }
 }

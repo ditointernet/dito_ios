@@ -8,17 +8,17 @@
 import Foundation
 import CoreData
 
-struct DTTrackOffline {
+struct DitoTrackOffline {
     
-    private var trackDataManager: DTTrackDataManager
-    private let identifyOffline: DTIdentifyOffline
+    private var trackDataManager: DitoTrackDataManager
+    private let identifyOffline: DitoIdentifyOffline
     
-    init(trackDataManager: DTTrackDataManager = .init(), identifyOffline: DTIdentifyOffline = .init()) {
+    init(trackDataManager: DitoTrackDataManager = .init(), identifyOffline: DitoIdentifyOffline = .init()) {
         self.trackDataManager = trackDataManager
         self.identifyOffline = identifyOffline
     }
     
-    func track(event: DTEventRequest) {
+    func track(event: DitoEventRequest) {
         DispatchQueue.global().async {
             let json = event.toString
             trackDataManager.save(event: json)
@@ -33,7 +33,7 @@ struct DTTrackOffline {
         return trackDataManager.fetchAll
     }
     
-    func update(id: NSManagedObjectID, event: DTEventRequest, retry: Int16) {
+    func update(id: NSManagedObjectID, event: DitoEventRequest, retry: Int16) {
         let json = event.toString
         trackDataManager.update(id: id, event: json, retry: retry)
     }

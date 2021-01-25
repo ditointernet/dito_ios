@@ -7,21 +7,29 @@
 
 @testable import DitoSDK
 
-extension DTInitialize {
+extension Dito {
     
     static func identify(id: String,
-                         data: DTUser,
-                         sha1Signature: String = DTInitialize.signature,
-                         service: DTIdentifyService) {
+                         data: DitoUser,
+                         sha1Signature: String = Dito.signature,
+                         service: DitoIdentifyService) {
         
-        let identify = DTIdentify(service: service)
+        let identify = DitoIdentify(service: service)
         identify.identify(id: id, data: data, sha1Signature: sha1Signature)
     }
     
-    static func track(event: DTEvent,
-                      service: DTTrackService) {
+    static func track(event: DitoEvent,
+                      service: DitoTrackService) {
         
-        let dtTrack = DTTrack(service: service)
+        let dtTrack = DitoTrack(service: service)
         dtTrack.track(data: event)
+    }
+    
+    convenience init(apiKey: String, apiSecret: String) {
+      
+        Dito.apiKey = apiKey
+        Dito.apiSecret = apiSecret
+        Dito.signature = apiSecret.sha1
+        self.init()
     }
 }

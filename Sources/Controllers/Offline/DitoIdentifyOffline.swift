@@ -8,16 +8,16 @@
 import Foundation
 
 
-struct DTIdentifyOffline {
+struct DitoIdentifyOffline {
     
-    private var identifyDataManager: DTIdentifyDataManager
+    private var identifyDataManager: DitoIdentifyDataManager
     
-    init(identifyDataManager: DTIdentifyDataManager = .init()) {
+    init(identifyDataManager: DitoIdentifyDataManager = .init()) {
         self.identifyDataManager = identifyDataManager
     }
     
     
-    func identify(id: String, params: DTSignupRequest, reference: String?, send: Bool) {
+    func identify(id: String, params: DitoSignupRequest, reference: String?, send: Bool) {
         DispatchQueue.global().async {
             let json = params.toString
             identifyDataManager.save(id: id, reference: reference, json: json, send: send)
@@ -28,7 +28,7 @@ struct DTIdentifyOffline {
         return identifyDataManager.fetch
     }
     
-    func update(id: String, params: DTSignupRequest, reference: String?, send: Bool) {
+    func update(id: String, params: DitoSignupRequest, reference: String?, send: Bool) {
         let json = params.toString
         identifyDataManager.update(id: id, reference: reference, json: json, send: send)
     }

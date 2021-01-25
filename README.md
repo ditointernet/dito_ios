@@ -7,7 +7,7 @@ SDK iOS
 - [ x ] Identify
 - [ x ] Track
 - [ ] Notification
-- [ ] Offline Management
+- [ x ] Offline Management
 
 ## Requirements
 - iOS 11.0+
@@ -19,30 +19,42 @@ Para instalar o SDK Dito em seu projeto é necessário arrastar o arquivo DitoSD
 Há neste repositório presente na pasta Example a forma de utilização e configuração do SDK.
 
 ### Usage example
+É necessário fazer a inicialização do SDK no arquivo AppDelegate.swift do seu projeto.
 
 #### Initialize
 ```swift
 import DitoSDK
-DTInitialize.configure(apiKey: "yourapikey", apiSecret: "yourapisecret")
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    ...
+        
+    Dito.shared.configure()
+        
+    ...
+}
 ```
 #### Identify
 ```swift
-        let json = ["x": "y"]
+        let customData = ["x": "y"]
                 
-        let dtuser = DTUser(name: "My name",
+        let ditoUser = DitoUser(name: "My name",
                           gender: .masculino,
                           email: "teste@teste.com.br",
                           birthday: Date(),
                           location: "My city",
                           createdAt: Date(),
-                          json: json)
-        DTInitialize.identify(id: user.id, data:dtuser)
+                          customData: customData)
+        Dito.identify(id: "My user id", data: ditoUser)
 ```
 #### Track
 ```swift
-    let event = DTEvent(action: "My current event to track")
-    DTInitialize.track(event: event)
+    let event = DitoEvent(action: "my-current-event-to-track")
+    Dito.track(event: event)
 ```
+
+## Debug mode
+Para ativar os logs é necessário colocar a flag ```EnabledDebug``` ativada no Arguments Passed On Launch que fica no scheme do seu projeto.
+
 ## Author
 
 ioasys, contato@ioasys.com.br

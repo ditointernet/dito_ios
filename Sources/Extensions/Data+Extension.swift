@@ -10,7 +10,7 @@ import Foundation
 extension Data {
     
     func convertToJson<T: Decodable>(type: T.Type) -> T? {
-        let result = try? JSONDecoder().decode(DTResultModel<T>.self, from: self)
+        let result = try? JSONDecoder().decode(DitoResultModel<T>.self, from: self)
         return result?.data
     }
 }

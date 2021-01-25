@@ -8,15 +8,15 @@
 import Foundation
 import CoreData
 
-public struct DTNotificationReadDataManager {
+struct DitoNotificationReadDataManager {
     
-    public static func save(reference: String, send: Bool, json:Data) -> Bool {
+    static func save(reference: String, send: Bool, json:Data) -> Bool {
     
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         guard let client = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as? NotificationRead
         else {
 
-            DTLogger.error("Failed to save Notification")
+            DitoLogger.error("Failed to save Notification")
             return false
         }
         client.reference = reference
@@ -26,21 +26,21 @@ public struct DTNotificationReadDataManager {
         
         do {
             try context.save()
-            DTLogger.information("Notification Saved Successfully!!!")
+            DitoLogger.information("Notification Saved Successfully!!!")
             
             return true
         } catch let error {
-            DTLogger.error("Failed to Notification save: \(error.localizedDescription)")
+            DitoLogger.error("Failed to Notification save: \(error.localizedDescription)")
             
             return false
         }
     }
     
-    public static func fetch() -> [NotificationRead] {
+    static func fetch() -> [NotificationRead] {
         
         let resultFetch: [NotificationRead]
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
         
@@ -48,23 +48,23 @@ public struct DTNotificationReadDataManager {
             
             resultFetch = try context.fetch(fetchRequest)
             
-            DTLogger.information("\(resultFetch.count) Notification found - Successfully!!!")
+            DitoLogger.information("\(resultFetch.count) Notification found - Successfully!!!")
             
             return resultFetch
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to Notification fetch: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to Notification fetch: \(fetchErr.localizedDescription)")
             return []
         }
 
     }
     
-    public static func fetchBySend(send: Bool) -> [NotificationRead] {
+    static func fetchBySend(send: Bool) -> [NotificationRead] {
         
         var resultFetch: [NotificationRead] = []
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return [] }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return [] }
         
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
         
@@ -80,20 +80,20 @@ public struct DTNotificationReadDataManager {
                 }
             }
             
-            DTLogger.information("\(countFetch) Notification found - Successfully!!!")
+            DitoLogger.information("\(countFetch) Notification found - Successfully!!!")
             
             return resultFetch
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
             return []
         }
     }
     
-    public static func deleteBySend(send: Bool) -> Bool {
+    static func deleteBySend(send: Bool) -> Bool {
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
         
@@ -111,13 +111,13 @@ public struct DTNotificationReadDataManager {
             
             try context.save()
             
-            DTLogger.information("\(countDeletes) Notification Deleted - Successfully!!!")
+            DitoLogger.information("\(countDeletes) Notification Deleted - Successfully!!!")
             
             return true
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
             
             return false
         }

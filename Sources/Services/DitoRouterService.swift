@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-enum DTRouterService {
+enum DitoRouterService {
     
 
-    case identify(network: String, id: String, data: DTSignupRequest)
-    case track(reference: String, data: DTEventRequest)
+    case identify(network: String, id: String, data: DitoSignupRequest)
+    case track(reference: String, data: DitoEventRequest)
     
     private var baseUrl: String {
         switch self {
@@ -55,7 +55,7 @@ enum DTRouterService {
         
         let urlString = "\(baseUrl)\(path)"
         
-        guard let url = URL(string: urlString) else { throw DTErrorType.parseUrlFail }
+        guard let url = URL(string: urlString) else { throw DitoErrorType.parseUrlFail }
         
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 10)
         urlRequest.httpMethod = method.value
