@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct DTIdentify {
+struct DitoIdentify {
     
-    private let service: DTIdentifyService
-    private let identifyOffline: DTIdentifyOffline
+    private let service: DitoIdentifyService
+    private let identifyOffline: DitoIdentifyOffline
     
-    init(service: DTIdentifyService = .init(), identifyOffline: DTIdentifyOffline = .init()) {
+    init(service: DitoIdentifyService = .init(), identifyOffline: DitoIdentifyOffline = .init()) {
         self.service = service
         self.identifyOffline = identifyOffline
     }
     
-    func identify(id: String, data: DTUser, sha1Signature: String = Dito.signature) {
+    func identify(id: String, data: DitoUser, sha1Signature: String = Dito.signature) {
         
         DispatchQueue.global().async {
             
-            let signupRequest = DTSignupRequest(platformApiKey: Dito.apiKey,
+            let signupRequest = DitoSignupRequest(platformApiKey: Dito.apiKey,
                                                 sha1Signature: sha1Signature,
                                                 userData: data)
             
@@ -32,11 +32,11 @@ struct DTIdentify {
                 
                 if let error = error {
                     identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
-                    DTLogger.error(error.localizedDescription)
+                    DitoLogger.error(error.localizedDescription)
                 } else {
                     if let reference = identify?.reference {
                         identifyOffline.identify(id: id, params: signupRequest, reference: reference, send: true)
-                        DTLogger.information("Identify realizado")
+                        DitoLogger.information("Identify realizado")
                     } else {
                         identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
                     }

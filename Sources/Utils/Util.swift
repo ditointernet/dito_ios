@@ -27,12 +27,12 @@ class Util {
             return String(data: data, encoding: .utf8)
         
         } catch let error {
-            DTLogger.error(error)
+            DitoLogger.error(error)
             return nil
         }
     }
     
-    static func keywordVerification(_ containsCharacters: [DTValidationCharacters]) {
+    static func keywordVerification(_ containsCharacters: [DitoValidationCharacters]) {
         
         var warning: String = ""
         
@@ -52,14 +52,14 @@ class Util {
         }
         
         if !warning.isEmpty {
-            DTLogger.warning(warning)
+            DitoLogger.warning(warning)
         }
     }
     
     static func validateEmail(_ isValidEmail: Bool) {
         
         if !isValidEmail {
-            DTLogger.warning("DTUser - e-mail inserido é inválido")
+            DitoLogger.warning("DTUser - e-mail inserido é inválido")
         }
     }
 }

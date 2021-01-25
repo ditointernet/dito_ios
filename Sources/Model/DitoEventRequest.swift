@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct DTEventRequest: Codable {
+struct DitoEventRequest: Codable {
     
     let platformApiKey: String
     let sha1Signature: String
@@ -16,7 +16,7 @@ public struct DTEventRequest: Codable {
     var networkName: String = "pt"
     var encoding: String = "base64"
     
-    public init(platformApiKey: String, sha1Signature: String, event: DTEvent) {
+    init(platformApiKey: String, sha1Signature: String, event: DitoEvent) {
         
         self.platformApiKey = platformApiKey
         self.sha1Signature = sha1Signature

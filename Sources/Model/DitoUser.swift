@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DTUser: Codable {
+public struct DitoUser: Codable {
     
     let name: String?
     let gender: String?
@@ -18,12 +18,12 @@ public struct DTUser: Codable {
     let data: String?
     
     public init(name: String? = nil,
-                gender: DTGender? = nil,
+                gender: DitoGender? = nil,
                 email: String? = nil,
                 birthday: Date? = nil,
                 location: String? = nil,
                 createdAt: Date? = nil,
-                json: Any? = nil) {
+                customData: Any? = nil) {
         
         self.name = name
         self.gender = gender?.rawValue
@@ -31,7 +31,7 @@ public struct DTUser: Codable {
         self.birthday = birthday?.formatToDitoDate
         self.location = location
         self.createdAt = Util.toDate(createdAt)
-        self.data = Util.toString(from: json)
+        self.data = Util.toString(from: customData)
         
     }
     

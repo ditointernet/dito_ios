@@ -1,28 +1,28 @@
 //
-//  DTTrackModel.swift
+//  DTIdentifyModel.swift
 //  DitoSDK
 //
-//  Created by Rodrigo Damacena Gamarra Maciel on 05/01/21.
+//  Created by Willian Junior Peres De Pinho on 22/12/20.
 //
 
 import Foundation
 
-struct DTTrackModel: Codable {
+struct DitoIdentifyModel: Codable {
     
-    let action: String
     let reference: String
+    let signedRequest: String
     let status: Int
     
     private enum CodingKeys: String, CodingKey {
-        case action
         case reference
+        case signedRequest = "signed_request"
         case status
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        action = try values.decodeIfPresent(String.self, forKey: .action).unwrappedValue
         reference = try values.decodeIfPresent(String.self, forKey: .reference).unwrappedValue
+        signedRequest = try values.decodeIfPresent(String.self, forKey: .signedRequest).unwrappedValue
         status = try values.decodeIfPresent(Int.self, forKey: .status).unwrappedValue
     }
 }

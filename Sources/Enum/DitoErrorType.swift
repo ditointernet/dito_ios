@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum DTErrorType: Error, LocalizedError {
+enum DitoErrorType: Error, LocalizedError {
     case parseUrlFail
     case serverError
     case noConnectivity

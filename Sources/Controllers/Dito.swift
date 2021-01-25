@@ -30,18 +30,18 @@ public class Dito {
             do{
                 try self.reachability.startNotifier()
             } catch let error {
-                DTLogger.error(error.localizedDescription)
+                DitoLogger.error(error.localizedDescription)
             }
         }
     }
     
-    public static func identify(id: String, data: DTUser) {
-        let dtIdentify = DTIdentify()
+    public static func identify(id: String, data: DitoUser) {
+        let dtIdentify = DitoIdentify()
         dtIdentify.identify(id: id, data: data)
     }
     
-    public static func track(event: DTEvent) {
-        let dtTrack = DTTrack()
+    public static func track(event: DitoEvent) {
+        let dtTrack = DitoTrack()
         dtTrack.track(data: event)
     }
     

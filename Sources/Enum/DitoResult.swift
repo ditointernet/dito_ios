@@ -8,10 +8,10 @@
 
 import Foundation
 
-typealias NetworkCompletion<T: Decodable> = (_ result: DTResult<T>)-> Void
+typealias NetworkCompletion<T: Decodable> = (_ result: DitoResult<T>)-> Void
 
-enum DTResult<T> {
+enum DitoResult<T> {
     case success(data: T)
-    case failure(error: DTErrorType)
+    case failure(error: DitoErrorType)
 }
  

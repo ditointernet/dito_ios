@@ -75,9 +75,9 @@ extension String {
         return self != self.ignoreAccentuation
     }
     
-    private var checkCharacters: [DTValidationCharacters] {
+    private var checkCharacters: [DitoValidationCharacters] {
         
-        var containsCharacters: [DTValidationCharacters] = []
+        var containsCharacters: [DitoValidationCharacters] = []
         
         if self.containsUppercase {
             containsCharacters.append(.uppercase)

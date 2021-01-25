@@ -8,7 +8,7 @@
 import Foundation
 
 
-public enum DTGender: String {
+public enum DitoGender: String {
     
     case masculino = "male"
     case feminino = "female"

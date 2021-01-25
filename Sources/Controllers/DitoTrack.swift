@@ -7,35 +7,35 @@
 
 import Foundation
 
-struct DTTrack {
+struct DitoTrack {
 
-    private let service: DTTrackService
-    private let trackOffline: DTTrackOffline
+    private let service: DitoTrackService
+    private let trackOffline: DitoTrackOffline
     
-    init(service: DTTrackService = .init(), trackOffline: DTTrackOffline = .init()) {
+    init(service: DitoTrackService = .init(), trackOffline: DitoTrackOffline = .init()) {
         self.service = service
         self.trackOffline = trackOffline
     }
     
-    func track(data: DTEvent) {
+    func track(data: DitoEvent) {
         
         DispatchQueue.global().async {
             
-            let eventRequest = DTEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
+            let eventRequest = DitoEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
             
             if let reference = trackOffline.reference, !reference.isEmpty {
                 service.event(reference: reference, data: eventRequest) { (track, error) in
                     
                     if let error = error {
                         trackOffline.track(event: eventRequest)
-                        DTLogger.error(error.localizedDescription)
+                        DitoLogger.error(error.localizedDescription)
                     } else {
-                        DTLogger.information("Track - Evento enviado")
+                        DitoLogger.information("Track - Evento enviado")
                     }
                 }
             } else {
                 trackOffline.track(event: eventRequest)
-                DTLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
+                DitoLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
             }
         }
     }

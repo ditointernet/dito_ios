@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
-class DTCoreDataManager {
+class DitoCoreDataManager {
     
     ///Singlenton of its class
-    public static let shared = DTCoreDataManager()
+    public static let shared = DitoCoreDataManager()
     
     ///Your framework bundle ID
     private let identifier: String = "br.com.dito.sdk.swift.DitoSDK"
@@ -29,7 +29,7 @@ class DTCoreDataManager {
             //if model archive is created them returns error
             if validateDataModel("DitoDataModel") {
                 
-                DTLogger.error("You can not create a data model with name 'DitoDataModel'")
+                DitoLogger.error("You can not create a data model with name 'DitoDataModel'")
                 return nil
             }
             
@@ -52,7 +52,7 @@ class DTCoreDataManager {
         let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
         container.loadPersistentStores { (storeDescription, error) in
             if let err = error{
-                DTLogger.error(err.localizedDescription)
+                DitoLogger.error(err.localizedDescription)
             }
             
         }
@@ -61,7 +61,7 @@ class DTCoreDataManager {
     }()
 }
 
-extension DTCoreDataManager{
+extension DitoCoreDataManager{
     
     private func validateDataModel(_ modelName: String) -> Bool {
         do {
@@ -86,7 +86,7 @@ extension DTCoreDataManager{
             return dataModelPath[0] == "have"
             
         } catch let err {
-            DTLogger.error(err.localizedDescription)
+            DitoLogger.error(err.localizedDescription)
             return false
         }
     }

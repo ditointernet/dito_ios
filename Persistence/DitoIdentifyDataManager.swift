@@ -9,18 +9,18 @@ import Foundation
 import CoreData
 
 
-struct DTIdentifyDataManager {
+struct DitoIdentifyDataManager {
     
     @discardableResult
     func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         delete(id: id)
         
         do {
             guard let identify = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
             else {
-                DTLogger.error("Failed to save Identify")
+                DitoLogger.error("Failed to save Identify")
                 return false
             }
             
@@ -31,12 +31,12 @@ struct DTIdentifyDataManager {
             
             try context.save()
             
-            DTLogger.information("Identify Saved Successfully!!!")
+            DitoLogger.information("Identify Saved Successfully!!!")
             return true
             
         } catch let error {
             
-            DTLogger.error("Failed to save Identify: \(error.localizedDescription)")
+            DitoLogger.error("Failed to save Identify: \(error.localizedDescription)")
             return false
         }
     }
@@ -44,7 +44,7 @@ struct DTIdentifyDataManager {
     @discardableResult
     func update(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         let predicate = NSPredicate(format: "id = %@", id)
         fetchRequest.predicate = predicate
@@ -58,12 +58,12 @@ struct DTIdentifyDataManager {
             
             try context.save()
             
-            DTLogger.information("Identify Updated Successfully!!!")
+            DitoLogger.information("Identify Updated Successfully!!!")
             return true
             
         } catch let error {
             
-            DTLogger.error("Failed to update Identify: \(error.localizedDescription)")
+            DitoLogger.error("Failed to update Identify: \(error.localizedDescription)")
             return false
         }
     }
@@ -71,7 +71,7 @@ struct DTIdentifyDataManager {
     var fetch: Identify? {
         
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return nil }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return nil }
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         
@@ -79,13 +79,13 @@ struct DTIdentifyDataManager {
             
             guard let identify: Identify = try context.fetch(fetchRequest).first else { return nil }
             
-            DTLogger.information("Identify Fetch - Successfully!!!")
+            DitoLogger.information("Identify Fetch - Successfully!!!")
             
             return identify
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
             return nil
         }
     }
@@ -93,7 +93,7 @@ struct DTIdentifyDataManager {
     @discardableResult
     func delete(id: String) -> Bool {
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         
         let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
         let predicate = NSPredicate(format: "id = %@", id)
@@ -106,13 +106,13 @@ struct DTIdentifyDataManager {
             context.delete(identify)
             try context.save()
             
-            DTLogger.information("Identify Deleted - Successfully!!!")
+            DitoLogger.information("Identify Deleted - Successfully!!!")
             
             return true
         
         } catch let fetchErr {
             
-            DTLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
             return false
         }
     }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct DTResultModel<T: Decodable>: Decodable {
+struct DitoResultModel<T: Decodable>: Decodable {
     var data: T?
 }

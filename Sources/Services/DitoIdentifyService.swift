@@ -8,12 +8,12 @@
 import Foundation
 
 
-class DTIdentifyService: DTServiceManager {
+class DitoIdentifyService: DitoServiceManager {
     
 
-    func signup(network: String, id: String, data: DTSignupRequest, completion: @escaping (_ success: DTIdentifyModel?, _ error: Error?) -> ()) {
+    func signup(network: String, id: String, data: DitoSignupRequest, completion: @escaping (_ success: DitoIdentifyModel?, _ error: Error?) -> ()) {
         
-        request(type: DTIdentifyModel.self, router: .identify(network: network, id: id, data: data)) { result in
+        request(type: DitoIdentifyModel.self, router: .identify(network: network, id: id, data: data)) { result in
             
             switch result {
             case .success(let data):
