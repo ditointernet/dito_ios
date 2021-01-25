@@ -31,6 +31,5 @@ struct DTIdentifyOffline {
     func update(id: String, params: DTSignupRequest, reference: String?, send: Bool) {
         let json = params.toString
         identifyDataManager.update(id: id, reference: reference, json: json, send: send)
-        
     }
 }

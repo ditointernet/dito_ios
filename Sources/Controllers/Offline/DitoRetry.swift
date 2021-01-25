@@ -25,12 +25,14 @@ struct DitoRetry {
     }
     
     func loadOffline() {
-        
-        checkIdentify()
-        checkTrack()
+        checkIdentify() { finish in
+            if finish {
+                checkTrack()
+            }
+        }
     }
     
-    private func checkIdentify() {
+    private func checkIdentify(completion: @escaping (_ executed: Bool)->()) {
         DispatchQueue.global().async {
             
             guard let identify = identifyOffline.getIdentify,
@@ -43,29 +45,28 @@ struct DitoRetry {
                     
                     if let error = error {
                         DTLogger.error(error.localizedDescription)
+                        completion(false)
                     } else {
                         if let reference = identify?.reference {
                             identifyOffline.update(id: id, params: signupRequest, reference: reference, send: true)
                             DTLogger.information("Identify realizado")
+                            completion(true)
                         }
                     }
                 }
+            } else {
+                completion(true)
             }
         }
     }
     
-    private func checkTrack(retry: Int = 5) {
-        DispatchQueue.global().async {
+    private func checkTrack() {
+        DispatchQueue.global(qos: .background).async {
             
             let tracks = trackOffline.getTrack
             
             tracks.forEach { track in
-
-                if track.retry == retry {
-                    trackOffline.delete(id: track.objectID)
-                } else {
-                    sendEvent(track: track)
-                }
+                sendEvent(track: track)
             }
         }
     }

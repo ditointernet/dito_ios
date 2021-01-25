@@ -17,11 +17,11 @@ struct DTIdentify {
         self.identifyOffline = identifyOffline
     }
     
-    func identify(id: String, data: DTUser, sha1Signature: String = DTInitialize.signature) {
+    func identify(id: String, data: DTUser, sha1Signature: String = Dito.signature) {
         
         DispatchQueue.global().async {
             
-            let signupRequest = DTSignupRequest(platformApiKey: DTInitialize.apiKey,
+            let signupRequest = DTSignupRequest(platformApiKey: Dito.apiKey,
                                                 sha1Signature: sha1Signature,
                                                 userData: data)
             

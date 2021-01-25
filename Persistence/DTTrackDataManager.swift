@@ -11,7 +11,7 @@ import CoreData
 struct DTTrackDataManager {
     
     @discardableResult
-    func save(event: String?, retry: Int16) -> Bool {
+    func save(event: String?, retry: Int16 = 1) -> Bool {
 
         guard let context = DTCoreDataManager.shared.container?.viewContext else { return false }
         guard let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track
@@ -20,10 +20,10 @@ struct DTTrackDataManager {
             return false
         }
         
-        track.event = event
-        track.retry = retry
-        
         do {
+            track.event = event
+            track.retry = retry
+        
             try context.save()
             DTLogger.information("Track Saved Successfully!!!")
             
@@ -65,7 +65,8 @@ struct DTTrackDataManager {
         
         let resultFetch: [Track]
         
-        guard let context = DTCoreDataManager.shared.container?.viewContext else { return []
+        guard let context = DTCoreDataManager.shared.container?.viewContext else {
+            return []
         }
         
         let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
