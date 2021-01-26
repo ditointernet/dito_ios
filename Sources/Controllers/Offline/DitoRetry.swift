@@ -108,6 +108,6 @@ struct DitoRetry {
     }
     
     private func sendNotificationRead(_ notification: NotificationRead) {
-        
+        #warning("awaiting implementation of the notification api")
     }
 }
