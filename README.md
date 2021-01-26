@@ -19,7 +19,12 @@ Para instalar o SDK Dito em seu projeto é necessário arrastar o arquivo DitoSD
 Há neste repositório presente na pasta Example a forma de utilização e configuração do SDK.
 
 ### Usage example
-É necessário fazer a inicialização do SDK no arquivo AppDelegate.swift do seu projeto.
+
+É necessário setar o ```App Key``` e ```App secret``` do seu dashboard Dito no arquivo ```.plist``` do seu projeto, utilizar as chaves exatamente como no exemplo abaixo:
+
+![plist](https://user-images.githubusercontent.com/76013839/105905864-5c010c00-5ff9-11eb-9961-eda5c9a62d4b.png)
+
+É necessário fazer a inicialização do SDK no arquivo ```AppDelegate.swift``` do seu projeto.
 
 #### Initialize
 ```swift
@@ -53,7 +58,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 
 ## Debug mode
-Para ativar os logs é necessário colocar a flag ```EnabledDebug``` ativada no Arguments Passed On Launch que fica no scheme do seu projeto.
+Para ativar os logs é necessário colocar a flag ```EnabledDebug``` ativada no ```Arguments Passed On Launch``` que fica no ```scheme``` do seu projeto.
 
 ## Author
 
