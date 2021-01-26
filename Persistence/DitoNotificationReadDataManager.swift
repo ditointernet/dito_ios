@@ -10,21 +10,21 @@ import CoreData
 
 struct DitoNotificationReadDataManager {
     
-    static func save(reference: String, send: Bool, json:Data) -> Bool {
+    @discardableResult
+    func save(json: String?, retry: Int16 = 1) -> Bool {
     
         guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        guard let client = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as? NotificationRead
+        guard let notificationRead = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as? NotificationRead
         else {
 
             DitoLogger.error("Failed to save Notification")
             return false
         }
-        client.reference = reference
-        client.send = send
-        client.json = json
-    
         
         do {
+            notificationRead.retry = retry
+            notificationRead.json = json
+
             try context.save()
             DitoLogger.information("Notification Saved Successfully!!!")
             
@@ -36,7 +36,32 @@ struct DitoNotificationReadDataManager {
         }
     }
     
-    static func fetch() -> [NotificationRead] {
+    @discardableResult
+    func update(id: NSManagedObjectID, retry: Int16) -> Bool {
+        
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
+        let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
+        let predicate = NSPredicate(format: "SELF = %@", id)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let resultFetch = try context.fetch(fetchRequest).first
+            resultFetch?.retry = retry
+            
+            try context.save()
+            
+            DitoLogger.information("NotificationRead Updated Successfully!!!")
+            return true
+            
+        } catch let error {
+            
+            DitoLogger.error("Failed to update NotificationRead: \(error.localizedDescription)")
+            return false
+        }
+         
+    }
+    
+    var fetchAll: [NotificationRead] {
         
         let resultFetch: [NotificationRead]
         
@@ -60,64 +85,28 @@ struct DitoNotificationReadDataManager {
 
     }
     
-    static func fetchBySend(send: Bool) -> [NotificationRead] {
+    @discardableResult
+    func delete(with id: NSManagedObjectID) -> Bool {
         
-        var resultFetch: [NotificationRead] = []
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return [] }
-        
-        let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
-        
-        do {
-            
-            let notifications = try context.fetch(fetchRequest)
-            var countFetch:Int = 0
-            
-            for notification in notifications{
-                if notification.send == send{
-                    resultFetch.append(notification)
-                    countFetch += 1
-                }
-            }
-            
-            DitoLogger.information("\(countFetch) Notification found - Successfully!!!")
-            
-            return resultFetch
-        
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
-            return []
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false
         }
-    }
-    
-    static func deleteBySend(send: Bool) -> Bool {
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        
         let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
+        let predicate = NSPredicate(format: "SELF = %@", id)
+        fetchRequest.predicate = predicate
         
         do {
             
-            let tracks = try context.fetch(fetchRequest)
-            var countDeletes:Int = 0
+            guard let notificationRead = try context.fetch(fetchRequest).first else { throw DitoErrorType.objectError }
             
-            for track in tracks {
-                if track.send == send {
-                    context.delete(track)
-                    countDeletes += 1
-                }
-            }
-            
+            context.delete(notificationRead)
             try context.save()
             
-            DitoLogger.information("\(countDeletes) Notification Deleted - Successfully!!!")
-            
+            DitoLogger.information("Notification Deleted - Successfully!!!")
             return true
         
         } catch let fetchErr {
             
-            DitoLogger.error("Error to Delete Identify: \(fetchErr.localizedDescription)")
+            DitoLogger.error("Error to Delete NotificationRead: \(fetchErr.localizedDescription)")
             
             return false
         }
