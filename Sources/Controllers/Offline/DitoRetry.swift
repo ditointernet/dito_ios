@@ -12,14 +12,17 @@ struct DitoRetry {
     
     private var identifyOffline: DitoIdentifyOffline
     private var trackOffline: DitoTrackOffline
+    private var notificationRead: DitoNotificationOffline
     private let serviceIdentify: DitoIdentifyService
     private let serviceTrack: DitoTrackService
     
     init(identifyOffline: DitoIdentifyOffline = .init(), trackOffline: DitoTrackOffline = .init(),
+         notificationOffline: DitoNotificationOffline = .init(),
          serviceIdentify: DitoIdentifyService = .init(), serviceTrack: DitoTrackService = .init()) {
         
         self.identifyOffline = identifyOffline
         self.trackOffline = trackOffline
+        self.notificationRead = notificationOffline
         self.serviceIdentify = serviceIdentify
         self.serviceTrack = serviceTrack
     }
@@ -28,6 +31,7 @@ struct DitoRetry {
         checkIdentify() { finish in
             if finish {
                 checkTrack()
+                checkNotification()
             }
         }
     }
@@ -91,5 +95,19 @@ struct DitoRetry {
             trackOffline.update(id: id, event: eventRequest, retry: track.retry + 1)
             DitoLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
         }
+    }
+    
+    private func checkNotification() {
+        DispatchQueue.global(qos: .background).async {
+            
+            let notifications = notificationRead.getNotification
+            notifications.forEach { notification in
+                sendNotificationRead(notification)
+            }
+        }
+    }
+    
+    private func sendNotificationRead(_ notification: NotificationRead) {
+        #warning("awaiting implementation of the notification api")
     }
 }
