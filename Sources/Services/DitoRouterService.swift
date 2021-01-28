@@ -13,6 +13,9 @@ enum DitoRouterService {
 
     case identify(network: String, id: String, data: DitoSignupRequest)
     case track(reference: String, data: DitoEventRequest)
+    case register(reference: String, data: DitoTokenRequest)
+    case unregister(reference: String, data: DitoTokenRequest)
+    case open(reference: String, data: DitoNotificationOpenRequest)
     
     private var baseUrl: String {
         switch self {
@@ -20,6 +23,8 @@ enum DitoRouterService {
             return "https://login.plataformasocial.com.br/"
         case .track:
             return "https://events.plataformasocial.com.br/"
+        case .register, .unregister, .open:
+            return "https://notification.plataformasocial.com.br/"
         }
     }
     
@@ -39,6 +44,8 @@ enum DitoRouterService {
         switch self {
         case .identify: return .post
         case .track: return .post
+        case .register, .unregister, .open:
+            return .post
         }
     }
 
@@ -48,6 +55,12 @@ enum DitoRouterService {
             return "users/\(network)/\(id)/signup"
         case .track(let reference, _):
             return "users/\(reference)"
+        case .register(let reference, _):
+            return "users/\(reference)/mobile-tokens/"
+        case .unregister(let reference, _):
+            return "users/\(reference)/mobile-tokens/disable"
+        case .open(let reference, _):
+            return "notifications/\(reference)/open"
         }
     }
     
@@ -71,6 +84,15 @@ enum DitoRouterService {
             urlRequest.httpBody = try encoder.encode(data)
             return urlRequest
         case .track(_, let data):
+            urlRequest.httpBody = try encoder.encode(data)
+            return urlRequest
+        case .register(_, let data):
+            urlRequest.httpBody = try encoder.encode(data)
+            return urlRequest
+        case .unregister(_, let data):
+            urlRequest.httpBody = try encoder.encode(data)
+            return urlRequest
+        case .open(_, let data):
             urlRequest.httpBody = try encoder.encode(data)
             return urlRequest
         }

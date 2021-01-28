@@ -13,3 +13,9 @@ public enum DitoGender: String {
     case masculino = "male"
     case feminino = "female"
 }
+
+public enum TokenType: String {
+    
+    case firebase
+    case apple
+}

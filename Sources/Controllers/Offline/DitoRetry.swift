@@ -12,19 +12,21 @@ struct DitoRetry {
     
     private var identifyOffline: DitoIdentifyOffline
     private var trackOffline: DitoTrackOffline
-    private var notificationRead: DitoNotificationOffline
+    private var notificationReadOffline: DitoNotificationOffline
     private let serviceIdentify: DitoIdentifyService
     private let serviceTrack: DitoTrackService
+    private let serviceNotification: DitoNotificationService
     
     init(identifyOffline: DitoIdentifyOffline = .init(), trackOffline: DitoTrackOffline = .init(),
-         notificationOffline: DitoNotificationOffline = .init(),
+         notificationOffline: DitoNotificationOffline = .init(), serviceNotification: DitoNotificationService = .init(),
          serviceIdentify: DitoIdentifyService = .init(), serviceTrack: DitoTrackService = .init()) {
         
         self.identifyOffline = identifyOffline
         self.trackOffline = trackOffline
-        self.notificationRead = notificationOffline
+        self.notificationReadOffline = notificationOffline
         self.serviceIdentify = serviceIdentify
         self.serviceTrack = serviceTrack
+        self.serviceNotification = serviceNotification
     }
     
     func loadOffline() {
@@ -100,7 +102,7 @@ struct DitoRetry {
     private func checkNotification() {
         DispatchQueue.global(qos: .background).async {
             
-            let notifications = notificationRead.getNotification
+            let notifications = notificationReadOffline.getNotification
             notifications.forEach { notification in
                 sendNotificationRead(notification)
             }
@@ -108,6 +110,27 @@ struct DitoRetry {
     }
     
     private func sendNotificationRead(_ notification: NotificationRead) {
-        #warning("awaiting implementation of the notification api")
+        
+        guard let notificationRead = notification.json,
+              let notificationRequest = notificationRead.convertToObject(type: DitoNotificationOpenRequest.self) else {
+                return
+        }
+        
+        if let reference = notificationReadOffline.reference, !reference.isEmpty, !notificationRequest.data.identifier.isEmpty {
+            
+            serviceNotification.read(reference: reference, data: notificationRequest) { (register, error) in
+                
+                if let error = error {
+                    notificationReadOffline.update(id: notification.objectID, retry: notification.retry + 1)
+                    DitoLogger.error(error.localizedDescription)
+                } else {
+                    notificationReadOffline.delete(id: notification.objectID)
+                    DitoLogger.information("Notification Read - Deletado")
+                }
+            }
+            
+        } else {
+            DitoLogger.warning("Notification Read - Antes de informar uma notifição lida é preciso identificar o usuário.")
+        }
     }
 }
