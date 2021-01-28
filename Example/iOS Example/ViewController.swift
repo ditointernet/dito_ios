@@ -30,6 +30,14 @@ class ViewController: UIViewController {
     @IBAction func didTapTrack(_ sender: Any) {
         setupTrack()
     }
+    @IBAction func didTapRegisterDevice(_ sender: Any) {
+        registerToken()
+    }
+    @IBAction func didTapUnregisterDevice(_ sender: Any) {
+        unregisterToken()
+    }
+    
+    
 }
 
 extension ViewController {
@@ -50,7 +58,15 @@ extension ViewController {
     private func setupTrack() {
         
         let event = DitoEvent(action: "botao-comprar-produtos")
-        
+
         Dito.track(event: event)
+    }
+    
+    private func registerToken() {
+        Dito.registerDevice(token: "123456", tokenType: .apple)
+    }
+    
+    private func unregisterToken() {
+        Dito.unregisterDevice(token: "123456", tokenType: .apple)
     }
 }

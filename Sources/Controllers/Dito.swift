@@ -45,11 +45,29 @@ public class Dito {
         dtTrack.track(data: event)
     }
     
+    public static func registerDevice(token: String, tokenType: DitoTokenType) {
+        let notification = DitoNotification()
+        notification.registerToken(token: token, tokenType: tokenType)
+    }
+    
+    public static func unregisterDevice(token: String, tokenType: DitoTokenType) {
+        let notification = DitoNotification()
+        notification.unregisterToken(token: token, tokenType: tokenType)
+    }
+    
+    public static func notificationRead(notification: String) {
+        let ditoNotification = DitoNotification()
+        ditoNotification.notificationRead(identifier: notification)
+    }
+}
+
+    //MARK: - Network Connection
+extension Dito {
+    
     @objc func reachabilityChanged(_ note: Notification) {
 
         if self.reachability.connection != .unavailable {
             retry.loadOffline()
         }
     }
-
 }

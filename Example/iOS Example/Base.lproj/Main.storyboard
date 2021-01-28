@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wQe-hC-u9y">
-                                <rect key="frame" x="30" y="363" width="354" height="170"/>
+                                <rect key="frame" x="30" y="273" width="354" height="350"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WP-lI-TgN">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="80"/>
@@ -40,6 +40,28 @@
                                         <state key="normal" title="Track"/>
                                         <connections>
                                             <action selector="didTapTrack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JV8-Mo-PXg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nda-Fw-mhg">
+                                        <rect key="frame" x="0.0" y="180" width="354" height="80"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="VMx-6N-Fam"/>
+                                        </constraints>
+                                        <state key="normal" title="Registrar Device"/>
+                                        <connections>
+                                            <action selector="didTapRegisterDevice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3k-1K-Wid"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efc-dK-Wy8">
+                                        <rect key="frame" x="0.0" y="270" width="354" height="80"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="gds-dk-Cux"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancelar Device"/>
+                                        <connections>
+                                            <action selector="didTapUnregisterDevice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aVs-XG-pHi"/>
                                         </connections>
                                     </button>
                                 </subviews>
