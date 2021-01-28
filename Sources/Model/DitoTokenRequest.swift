@@ -15,7 +15,7 @@ struct DitoTokenRequest: Codable {
     let tokenType: String
     let platform: String = "Apple iPhone"
     
-    init(platformApiKey: String, sha1Signature: String, token: String, tokenType: TokenType) {
+    init(platformApiKey: String, sha1Signature: String, token: String, tokenType: DitoTokenType) {
         
         self.platformApiKey = platformApiKey
         self.sha1Signature = sha1Signature

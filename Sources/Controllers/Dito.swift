@@ -15,7 +15,6 @@ public class Dito {
     static var signature: String = ""
     private var reachability = try! Reachability()
     private lazy var retry = DitoRetry()
-    lazy var notification = DitoNotification()
     
     init() {
         Dito.apiKey = Bundle.main.apiKey
@@ -46,23 +45,23 @@ public class Dito {
         dtTrack.track(data: event)
     }
     
-    public static func registerDevice(token: String, tokenType: TokenType) {
+    public static func registerDevice(token: String, tokenType: DitoTokenType) {
         let notification = DitoNotification()
         notification.registerToken(token: token, tokenType: tokenType)
     }
     
-    public static func unregisterDevice(token: String, tokenType: TokenType) {
+    public static func unregisterDevice(token: String, tokenType: DitoTokenType) {
         let notification = DitoNotification()
         notification.unregisterToken(token: token, tokenType: tokenType)
     }
     
     public static func notificationRead(notification: String) {
-        let not = DitoNotification()
-        not.notificationRead(identifier: notification)
+        let ditoNotification = DitoNotification()
+        ditoNotification.notificationRead(identifier: notification)
     }
-    
 }
 
+    //MARK: - Network Connection
 extension Dito {
     
     @objc func reachabilityChanged(_ note: Notification) {

@@ -17,7 +17,7 @@ struct DitoNotification {
         self.notificationOffline = trackOffline
     }
     
-    func registerToken(token: String, tokenType: TokenType) {
+    func registerToken(token: String, tokenType: DitoTokenType) {
         
         DispatchQueue.global().async {
             
@@ -40,7 +40,7 @@ struct DitoNotification {
         }
     }
     
-    func unregisterToken(token: String, tokenType: TokenType) {
+    func unregisterToken(token: String, tokenType: DitoTokenType) {
         
         DispatchQueue.global().async {
             
