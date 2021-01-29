@@ -15,7 +15,7 @@ enum DitoRouterService {
     case track(reference: String, data: DitoEventRequest)
     case register(reference: String, data: DitoTokenRequest)
     case unregister(reference: String, data: DitoTokenRequest)
-    case open(reference: String, data: DitoNotificationOpenRequest)
+    case open(notificationId: String, data: DitoNotificationOpenRequest)
     
     private var baseUrl: String {
         switch self {
@@ -59,8 +59,8 @@ enum DitoRouterService {
             return "users/\(reference)/mobile-tokens/"
         case .unregister(let reference, _):
             return "users/\(reference)/mobile-tokens/disable"
-        case .open(let reference, _):
-            return "notifications/\(reference)/open"
+        case .open(let notificationId, _):
+            return "notifications/\(notificationId)/open"
         }
     }
     

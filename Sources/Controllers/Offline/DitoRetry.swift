@@ -118,7 +118,7 @@ struct DitoRetry {
         
         if let reference = notificationReadOffline.reference, !reference.isEmpty, !notificationRequest.data.identifier.isEmpty {
             
-            serviceNotification.read(reference: reference, data: notificationRequest) { (register, error) in
+            serviceNotification.read(notificationId: notificationRequest.data.identifier, data: notificationRequest) { (register, error) in
                 
                 if let error = error {
                     notificationReadOffline.update(id: notification.objectID, retry: notification.retry + 1)

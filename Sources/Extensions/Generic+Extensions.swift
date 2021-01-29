@@ -1,5 +1,5 @@
 //
-//  UserDefaults+Extensions.swift
+//  Generic+Extensions.swift
 //  DitoSDK
 //
 //  Created by Rodrigo Damacena Gamarra Maciel on 07/01/21.
@@ -32,5 +32,12 @@ extension Bundle {
     
     var apiSecret: String {
         return object(forInfoDictionaryKey: "ApiSecret") as? String ?? ""
+    }
+}
+
+extension Int {
+    
+    var toString: String {
+        return String(self)
     }
 }

@@ -12,7 +12,7 @@
 		0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305C25A73ADD0008B6A5 /* DTTestCase.swift */; };
 		0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53305D25A73ADD0008B6A5 /* DTIdentifyTests.swift */; };
 		0C68FB2E25A779E60050E369 /* DitoValidationCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB2D25A779E60050E369 /* DitoValidationCharacters.swift */; };
-		0C68FB3225A779F40050E369 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */; };
+		0C68FB3225A779F40050E369 /* Generic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3125A779F40050E369 /* Generic+Extensions.swift */; };
 		0C68FB3625A77A100050E369 /* SHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3525A77A100050E369 /* SHA1.swift */; };
 		0C68FB3F25A77A420050E369 /* DTHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68FB3925A77A1C0050E369 /* DTHashTests.swift */; };
 		0CAB9E7625A74BA90086BEBC /* DitoLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB9E7525A74BA80086BEBC /* DitoLogger.swift */; };
@@ -53,6 +53,7 @@
 		2C973FC425C1FC73000563FC /* DitoNotificationReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C973FC325C1FC73000563FC /* DitoNotificationReadModel.swift */; };
 		2C973FCA25C22E9B000563FC /* DitoDataNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C973FC925C22E9B000563FC /* DitoDataNotification.swift */; };
 		2C9E178725B0F44E0027FAF9 /* DitoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9E178625B0F44E0027FAF9 /* DitoRetry.swift */; };
+		2C9FCF9125C44DFB00FC1F41 /* DitoNotificationReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9FCF9025C44DFB00FC1F41 /* DitoNotificationReceived.swift */; };
 		2CBCB2E725AF712500A79C49 /* DitoIdentifyOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2E625AF712500A79C49 /* DitoIdentifyOffline.swift */; };
 		2CBCB2EB25AF713A00A79C49 /* DitoTrackOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2EA25AF713A00A79C49 /* DitoTrackOffline.swift */; };
 		2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */; };
@@ -80,7 +81,7 @@
 		0C53305F25A73ADD0008B6A5 /* MockDTInitialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTInitialize.swift; sourceTree = "<group>"; };
 		0C53306125A73ADD0008B6A5 /* MockDTIdentifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDTIdentifyService.swift; sourceTree = "<group>"; };
 		0C68FB2D25A779E60050E369 /* DitoValidationCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DitoValidationCharacters.swift; sourceTree = "<group>"; };
-		0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		0C68FB3125A779F40050E369 /* Generic+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Generic+Extensions.swift"; sourceTree = "<group>"; };
 		0C68FB3525A77A100050E369 /* SHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHA1.swift; sourceTree = "<group>"; };
 		0C68FB3925A77A1C0050E369 /* DTHashTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTHashTests.swift; sourceTree = "<group>"; };
 		0C818E2225A49FAF00B96B53 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		2C973FC325C1FC73000563FC /* DitoNotificationReadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationReadModel.swift; sourceTree = "<group>"; };
 		2C973FC925C22E9B000563FC /* DitoDataNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoDataNotification.swift; sourceTree = "<group>"; };
 		2C9E178625B0F44E0027FAF9 /* DitoRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoRetry.swift; sourceTree = "<group>"; };
+		2C9FCF9025C44DFB00FC1F41 /* DitoNotificationReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationReceived.swift; sourceTree = "<group>"; };
 		2CBCB2E625AF712500A79C49 /* DitoIdentifyOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoIdentifyOffline.swift; sourceTree = "<group>"; };
 		2CBCB2EA25AF713A00A79C49 /* DitoTrackOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrackOffline.swift; sourceTree = "<group>"; };
 		2CC04D0125B5EA8E003347EA /* DitoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DitoDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 		0CE1EB1125A6333D00460837 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0C68FB3125A779F40050E369 /* UserDefaults+Extensions.swift */,
+				0C68FB3125A779F40050E369 /* Generic+Extensions.swift */,
 				0CE1EB1225A6333D00460837 /* Date+Extension.swift */,
 				0CE1EB1325A6333D00460837 /* Optional+Extension.swift */,
 				0CE1EB1425A6333D00460837 /* URLResponse+Extension.swift */,
@@ -267,6 +269,7 @@
 		0CE1EB1C25A6333D00460837 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C9FCF9025C44DFB00FC1F41 /* DitoNotificationReceived.swift */,
 				0CE1EB2025A6333D00460837 /* DitoUser.swift */,
 				0CE1EB2325A6333D00460837 /* DitoEvent.swift */,
 				2C973FC925C22E9B000563FC /* DitoDataNotification.swift */,
@@ -453,6 +456,7 @@
 				0CAB9E7625A74BA90086BEBC /* DitoLogger.swift in Sources */,
 				2C64BF4125C09D7B0069B788 /* DitoNotificationOpenRequest.swift in Sources */,
 				2C64BF4525C09D870069B788 /* DitoTokenRequest.swift in Sources */,
+				2C9FCF9125C44DFB00FC1F41 /* DitoNotificationReceived.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DitoServiceManager.swift in Sources */,
 				2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */,
 				0C68FB2E25A779E60050E369 /* DitoValidationCharacters.swift in Sources */,
@@ -469,7 +473,7 @@
 				0CE1EB3725A6333D00460837 /* DitoIdentifyModel.swift in Sources */,
 				DC7E8BBD25AE24D9009B86CC /* DitoCoreDataManager.swift in Sources */,
 				0CE1EB2F25A6333D00460837 /* URLResponse+Extension.swift in Sources */,
-				0C68FB3225A779F40050E369 /* UserDefaults+Extensions.swift in Sources */,
+				0C68FB3225A779F40050E369 /* Generic+Extensions.swift in Sources */,
 				0CE1EB2925A6333D00460837 /* Util.swift in Sources */,
 				2CBCB2E725AF712500A79C49 /* DitoIdentifyOffline.swift in Sources */,
 				0CE1EB2825A6333D00460837 /* DitoRouterService.swift in Sources */,

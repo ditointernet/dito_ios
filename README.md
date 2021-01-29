@@ -24,9 +24,10 @@ Há neste repositório presente na pasta Example a forma de utilização e confi
 
 ![plist](https://user-images.githubusercontent.com/76013839/105905864-5c010c00-5ff9-11eb-9961-eda5c9a62d4b.png)
 
+#### Initialize
+
 É necessário fazer a inicialização do SDK no arquivo ```AppDelegate.swift``` do seu projeto.
 
-#### Initialize
 ```swift
 import DitoSDK
 
@@ -55,6 +56,25 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```swift
     let event = DitoEvent(action: "my-current-event-to-track")
     Dito.track(event: event)
+```
+
+#### Push Notification
+
+##### Register Device
+
+```swift
+    Dito.registerDevice(token: "My notification token", tokenType: .apple)
+```
+##### Unregister Device
+```swift
+    Dito.unegisterDevice(token: "My notification token", tokenType: .apple)
+```
+##### Register notification reading
+    O método recebe como parâmetro o ```dictionary``` que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo.
+```swift
+   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        Dito.notificationRead(with: userInfo)
+    }
 ```
 
 ## Debug mode

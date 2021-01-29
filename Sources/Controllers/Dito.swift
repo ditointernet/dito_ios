@@ -55,9 +55,13 @@ public class Dito {
         notification.unregisterToken(token: token, tokenType: tokenType)
     }
     
-    public static func notificationRead(notification: String) {
+    @discardableResult
+    public static func notificationRead(with userInfo: [AnyHashable: Any]) -> DitoNotificationReceived {
+        
+        let notificationReceived = DitoNotificationReceived(with: userInfo)
         let ditoNotification = DitoNotification()
-        ditoNotification.notificationRead(identifier: notification)
+        ditoNotification.notificationRead(identifier: notificationReceived.notification)
+        return notificationReceived
     }
 }
 

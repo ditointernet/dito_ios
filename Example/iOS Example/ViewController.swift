@@ -36,8 +36,6 @@ class ViewController: UIViewController {
     @IBAction func didTapUnregisterDevice(_ sender: Any) {
         unregisterToken()
     }
-    
-    
 }
 
 extension ViewController {
@@ -63,10 +61,20 @@ extension ViewController {
     }
     
     private func registerToken() {
-        Dito.registerDevice(token: "123456", tokenType: .apple)
+    
+        Dito.registerDevice(token: notificationToken, tokenType: .apple)
     }
     
     private func unregisterToken() {
-        Dito.unregisterDevice(token: "123456", tokenType: .apple)
+
+        Dito.unregisterDevice(token: notificationToken, tokenType: .apple)
+    }
+    
+    private var notificationToken: String {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let token = appDelegate.token else { return "" }
+        
+        return token
     }
 }
