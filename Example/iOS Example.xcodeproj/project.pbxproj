@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CE857C425C36AE400BC4305 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE857C325C36AE400BC4305 /* DitoSDK.framework */; };
+		2CE857C525C36AE400BC4305 /* DitoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE857C325C36AE400BC4305 /* DitoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC42F771259284F0007DC03C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F770259284F0007DC03C /* AppDelegate.swift */; };
 		DC42F773259284F0007DC03C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F772259284F0007DC03C /* SceneDelegate.swift */; };
 		DC42F775259284F0007DC03C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F774259284F0007DC03C /* ViewController.swift */; };
 		DC42F778259284F0007DC03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC42F776259284F0007DC03C /* Main.storyboard */; };
-		DC42F77B259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC42F779259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodeld */; };
 		DC42F77D259284F1007DC03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC42F77C259284F1007DC03C /* Assets.xcassets */; };
 		DC42F780259284F1007DC03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC42F77E259284F1007DC03C /* LaunchScreen.storyboard */; };
 		DC42F78B259284F1007DC03C /* DitoSwiftSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42F78A259284F1007DC03C /* DitoSwiftSampleAppTests.swift */; };
@@ -35,13 +36,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2CE857C625C36AE400BC4305 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2CE857C525C36AE400BC4305 /* DitoSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2CE8576725C3459000BC4305 /* iOS Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS Example.entitlements"; sourceTree = "<group>"; };
+		2CE857C325C36AE400BC4305 /* DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F76D259284F0007DC03C /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC42F770259284F0007DC03C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC42F772259284F0007DC03C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DC42F774259284F0007DC03C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC42F777259284F0007DC03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DC42F77A259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DitoSwiftSampleApp.xcdatamodel; sourceTree = "<group>"; };
 		DC42F77C259284F1007DC03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC42F77F259284F1007DC03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC42F781259284F1007DC03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE857C425C36AE400BC4305 /* DitoSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +120,7 @@
 		DC42F76F259284F0007DC03C /* iOS Example */ = {
 			isa = PBXGroup;
 			children = (
+				2CE8576725C3459000BC4305 /* iOS Example.entitlements */,
 				DC42F770259284F0007DC03C /* AppDelegate.swift */,
 				DC42F772259284F0007DC03C /* SceneDelegate.swift */,
 				DC42F774259284F0007DC03C /* ViewController.swift */,
@@ -110,7 +128,6 @@
 				DC42F77C259284F1007DC03C /* Assets.xcassets */,
 				DC42F77E259284F1007DC03C /* LaunchScreen.storyboard */,
 				DC42F781259284F1007DC03C /* Info.plist */,
-				DC42F779259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodeld */,
 			);
 			path = "iOS Example";
 			sourceTree = "<group>";
@@ -136,6 +153,7 @@
 		DC6A757C25AE030700DD114B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CE857C325C36AE400BC4305 /* DitoSDK.framework */,
 				DC6A757D25AE030700DD114B /* DitoSDK.framework */,
 			);
 			name = Frameworks;
@@ -151,6 +169,7 @@
 				DC42F769259284F0007DC03C /* Sources */,
 				DC42F76A259284F0007DC03C /* Frameworks */,
 				DC42F76B259284F0007DC03C /* Resources */,
+				2CE857C625C36AE400BC4305 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,7 +293,6 @@
 				DC42F775259284F0007DC03C /* ViewController.swift in Sources */,
 				DC42F771259284F0007DC03C /* AppDelegate.swift in Sources */,
 				DC42F773259284F0007DC03C /* SceneDelegate.swift in Sources */,
-				DC42F77B259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,8 +468,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS Example/iOS Example.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,8 +491,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS Example/iOS Example.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,6 +504,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.sdk.swift.iOSExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -609,19 +634,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		DC42F779259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DC42F77A259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodel */,
-			);
-			currentVersion = DC42F77A259284F0007DC03C /* DitoSwiftSampleApp.xcdatamodel */;
-			path = DitoSwiftSampleApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = DC42F765259284F0007DC03C /* Project object */;
 }

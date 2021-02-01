@@ -35,9 +35,9 @@ class DitoNotificationService: DitoServiceManager {
         }
     }
     
-    func read(reference: String, data: DitoNotificationOpenRequest, completion: @escaping (_ success: DitoIdentifyModel?, _ error: Error?) -> ()) {
+    func read(notificationId: String, data: DitoNotificationOpenRequest, completion: @escaping (_ success: DitoIdentifyModel?, _ error: Error?) -> ()) {
         
-        request(type: DitoIdentifyModel.self, router: .open(reference: reference, data: data)) { result in
+        request(type: DitoIdentifyModel.self, router: .open(notificationId: notificationId, data: data)) { result in
             
             switch result {
             case .success(let data):

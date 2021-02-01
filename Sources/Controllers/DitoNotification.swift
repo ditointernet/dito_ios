@@ -33,7 +33,7 @@ struct DitoNotification {
                         DitoLogger.information("Notification - Token registrado")
                     }
                 }
-                
+    
             } else {
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
             }
@@ -67,26 +67,29 @@ struct DitoNotification {
     
     func notificationRead(identifier: String) {
         
-        if let reference = notificationOffline.reference, !reference.isEmpty, !identifier.isEmpty {
+        DispatchQueue.global(qos: .background).async {
             
-            let data = DitoDataNotification(identifier: identifier, reference: reference)
-            
-            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
-                                                                  sha1Signature: Dito.signature,
-                                                                  data: data)
-            
-            service.read(reference: reference, data: notificationRequest) { (register, error) in
+            if let reference = notificationOffline.reference, !reference.isEmpty, !identifier.isEmpty {
                 
-                if let error = error {
-                    notificationOffline.notificationRead(notificationRequest)
-                    DitoLogger.error(error.localizedDescription)
-                } else {
-                    DitoLogger.information("Notification - Token cancelado")
+                let data = DitoDataNotification(identifier: identifier, reference: reference)
+                
+                let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
+                                                                      sha1Signature: Dito.signature,
+                                                                      data: data)
+                
+                service.read(notificationId: identifier, data: notificationRequest) { (register, error) in
+                    
+                    if let error = error {
+                        notificationOffline.notificationRead(notificationRequest)
+                        DitoLogger.error(error.localizedDescription)
+                    } else {
+                        DitoLogger.information("Notification - Registro do notification push enviado")
+                    }
                 }
+                
+            } else {
+                DitoLogger.warning("Notification Read - Antes de informar uma notifição lida é preciso identificar o usuário.")
             }
-            
-        } else {
-            DitoLogger.warning("Notification Read - Antes de informar uma notifição lida é preciso identificar o usuário.")
         }
     }
 }
