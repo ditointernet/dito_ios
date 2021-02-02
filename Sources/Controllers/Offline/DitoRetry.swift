@@ -34,6 +34,8 @@ struct DitoRetry {
             if finish {
                 checkTrack()
                 checkNotification()
+                checkNotificationRegister()
+                checkNotificationUnregister()
             }
         }
     }
@@ -102,7 +104,7 @@ struct DitoRetry {
     private func checkNotification() {
         DispatchQueue.global(qos: .background).async {
             
-            let notifications = notificationReadOffline.getNotification
+            let notifications = notificationReadOffline.getNotificationRead
             notifications.forEach { notification in
                 sendNotificationRead(notification)
             }
@@ -121,16 +123,84 @@ struct DitoRetry {
             serviceNotification.read(notificationId: notificationRequest.data.identifier, data: notificationRequest) { (register, error) in
                 
                 if let error = error {
-                    notificationReadOffline.update(id: notification.objectID, retry: notification.retry + 1)
+                    notificationReadOffline.updateRead(id: notification.objectID, retry: notification.retry + 1)
                     DitoLogger.error(error.localizedDescription)
                 } else {
-                    notificationReadOffline.delete(id: notification.objectID)
+                    notificationReadOffline.deleteRead(id: notification.objectID)
                     DitoLogger.information("Notification Read - Deletado")
                 }
             }
             
         } else {
             DitoLogger.warning("Notification Read - Antes de informar uma notifição lida é preciso identificar o usuário.")
+        }
+    }
+    
+    private func checkNotificationRegister() {
+        DispatchQueue.global(qos: .background).async {
+            
+            if let reference = notificationReadOffline.reference, !reference.isEmpty {
+                
+                
+                guard let notificationRegister = notificationReadOffline.getNotificationRegister,
+                      let registerJson = notificationRegister.json,
+                      let registerRequest = registerJson.convertToObject(type: DitoTokenRequest.self),
+                      let tokenType = DitoTokenType(rawValue: registerRequest.tokenType) else {
+                        return
+                }
+                
+                let tokenRequest = DitoTokenRequest(platformApiKey: registerRequest.platformApiKey,
+                                                    sha1Signature: registerRequest.sha1Signature,
+                                                    token: registerRequest.token, tokenType: tokenType)
+                
+                serviceNotification.register(reference: reference, data: tokenRequest) { (register, error) in
+                    
+                    if let error = error {
+                        notificationReadOffline.updateRegister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
+                        DitoLogger.error(error.localizedDescription)
+                    } else {
+                        notificationReadOffline.deleteRegister()
+                        DitoLogger.information("Notification - Token registrado")
+                    }
+                }
+    
+            } else {
+                DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
+            }
+        }
+    }
+    
+    private func checkNotificationUnregister() {
+        DispatchQueue.global(qos: .background).async {
+            
+            if let reference = notificationReadOffline.reference, !reference.isEmpty {
+                
+                
+                guard let notificationRegister = notificationReadOffline.getNotificationUnregister,
+                      let registerJson = notificationRegister.json,
+                      let registerRequest = registerJson.convertToObject(type: DitoTokenRequest.self),
+                      let tokenType = DitoTokenType(rawValue: registerRequest.tokenType) else {
+                        return
+                }
+                
+                let tokenRequest = DitoTokenRequest(platformApiKey: registerRequest.platformApiKey,
+                                                    sha1Signature: registerRequest.sha1Signature,
+                                                    token: registerRequest.token, tokenType: tokenType)
+                
+                serviceNotification.unregister(reference: reference, data: tokenRequest) { (register, error) in
+                    
+                    if let error = error {
+                        notificationReadOffline.updateUnregister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
+                        DitoLogger.error(error.localizedDescription)
+                    } else {
+                        notificationReadOffline.deleteUnregister()
+                        DitoLogger.information("Notification - Token registrado")
+                    }
+                }
+    
+            } else {
+                DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
+            }
         }
     }
 }

@@ -91,8 +91,13 @@ class DTPersistenceTests: XCTestCase {
     
     func testDeleteNotify() {
         
-        let result = DitoNotificationReadDataManager.deleteBySend(send: true)
-
+        let dataManager = DitoNotificationReadDataManager()
+        let notifications = dataManager.fetchAll
+        var result: Bool = false
+        
+        if !notifications.isEmpty, let id = notifications.first?.objectID {
+            result = dataManager.delete(with: id)
+        }
         XCTAssertTrue(result, "Result must be true")
     }
     
