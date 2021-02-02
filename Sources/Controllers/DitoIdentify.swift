@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DitoIdentify {
+class DitoIdentify {
     
     private let service: DitoIdentifyService
     private let identifyOffline: DitoIdentifyOffline
@@ -28,17 +28,17 @@ struct DitoIdentify {
             guard data.email != nil else {
                 return
             }
-            service.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
+            self.service.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
                 
                 if let error = error {
-                    identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
+                    self.identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
                     DitoLogger.error(error.localizedDescription)
                 } else {
                     if let reference = identify?.reference {
-                        identifyOffline.identify(id: id, params: signupRequest, reference: reference, send: true)
+                        self.identifyOffline.identify(id: id, params: signupRequest, reference: reference, send: true)
                         DitoLogger.information("Identify realizado")
                     } else {
-                        identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
+                        self.identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
                     }
                 }
             }

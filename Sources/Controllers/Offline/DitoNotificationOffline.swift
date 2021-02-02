@@ -29,21 +29,21 @@ struct DitoNotificationOffline {
     func notificationRegister(_ notification: DitoTokenRequest) {
         DispatchQueue.global().async {
             let json = notification.toString
-            notificationRegisterDataManager.save(with: json)
+            self.notificationRegisterDataManager.save(with: json)
         }
     }
     
     func notificationUnregister(_ notification: DitoTokenRequest) {
         DispatchQueue.global().async {
             let json = notification.toString
-            notificationUnregisterDataManager.save(with: json)
+            self.notificationUnregisterDataManager.save(with: json)
         }
     }
     
     func notificationRead(_ notification: DitoNotificationOpenRequest) {
         DispatchQueue.global().async {
             let json = notification.toString
-            notificationDataManager.save(with: json)
+            self.notificationDataManager.save(with: json)
         }
     }
     

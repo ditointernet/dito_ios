@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct DitoRetry {
+class DitoRetry {
     
     private var identifyOffline: DitoIdentifyOffline
     private var trackOffline: DitoTrackOffline
@@ -30,12 +30,13 @@ struct DitoRetry {
     }
     
     func loadOffline() {
-        checkIdentify() { finish in
+        checkIdentify() { [weak self] finish in
+            guard let self = self else { return }
             if finish {
-                checkTrack()
-                checkNotification()
-                checkNotificationRegister()
-                checkNotificationUnregister()
+                self.checkTrack()
+                self.checkNotification()
+                self.checkNotificationRegister()
+                self.checkNotificationUnregister()
             }
         }
     }
@@ -43,20 +44,21 @@ struct DitoRetry {
     private func checkIdentify(completion: @escaping (_ executed: Bool)->()) {
         DispatchQueue.global().async {
             
-            guard let identify = identifyOffline.getIdentify,
+            guard let identify = self.identifyOffline.getIdentify,
                   let id = identify.id,
                   let signupRequest = identify.json?.convertToObject(type: DitoSignupRequest.self) else { return }
             
             if !identify.send {
                 
-                serviceIdentify.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
+                self.serviceIdentify.signup(network: "portal", id: id, data: signupRequest) { [weak self] (identify, error) in
                     
+                    guard let self = self else { return }
                     if let error = error {
                         DitoLogger.error(error.localizedDescription)
                         completion(false)
                     } else {
                         if let reference = identify?.reference {
-                            identifyOffline.update(id: id, params: signupRequest, reference: reference, send: true)
+                            self.identifyOffline.update(id: id, params: signupRequest, reference: reference, send: true)
                             DitoLogger.information("Identify realizado")
                             completion(true)
                         }
@@ -71,10 +73,10 @@ struct DitoRetry {
     private func checkTrack() {
         DispatchQueue.global(qos: .background).async {
             
-            let tracks = trackOffline.getTrack
+            let tracks = self.trackOffline.getTrack
             
             tracks.forEach { track in
-                sendEvent(track: track)
+                self.sendEvent(track: track)
             }
         }
     }
@@ -85,13 +87,14 @@ struct DitoRetry {
         let id = track.objectID
         
         if let reference = trackOffline.reference, !reference.isEmpty {
-            serviceTrack.event(reference: reference, data: eventRequest) { (_, error) in
+            serviceTrack.event(reference: reference, data: eventRequest) { [weak self] (_, error) in
                 
+                guard let self = self else { return }
                 if let error = error {
-                    trackOffline.update(id: id, event: eventRequest, retry: track.retry + 1)
+                    self.trackOffline.update(id: id, event: eventRequest, retry: track.retry + 1)
                     DitoLogger.error(error.localizedDescription)
                 } else {
-                    trackOffline.delete(id: id)
+                    self.trackOffline.delete(id: id)
                     DitoLogger.information("Track - Evento enviado")
                 }
             }
@@ -104,9 +107,9 @@ struct DitoRetry {
     private func checkNotification() {
         DispatchQueue.global(qos: .background).async {
             
-            let notifications = notificationReadOffline.getNotificationRead
+            let notifications = self.notificationReadOffline.getNotificationRead
             notifications.forEach { notification in
-                sendNotificationRead(notification)
+                self.sendNotificationRead(notification)
             }
         }
     }
@@ -123,10 +126,10 @@ struct DitoRetry {
             serviceNotification.read(notificationId: notificationRequest.data.identifier, data: notificationRequest) { (register, error) in
                 
                 if let error = error {
-                    notificationReadOffline.updateRead(id: notification.objectID, retry: notification.retry + 1)
+                    self.notificationReadOffline.updateRead(id: notification.objectID, retry: notification.retry + 1)
                     DitoLogger.error(error.localizedDescription)
                 } else {
-                    notificationReadOffline.deleteRead(id: notification.objectID)
+                    self.notificationReadOffline.deleteRead(id: notification.objectID)
                     DitoLogger.information("Notification Read - Deletado")
                 }
             }
@@ -139,10 +142,10 @@ struct DitoRetry {
     private func checkNotificationRegister() {
         DispatchQueue.global(qos: .background).async {
             
-            if let reference = notificationReadOffline.reference, !reference.isEmpty {
+            if let reference = self.notificationReadOffline.reference, !reference.isEmpty {
                 
                 
-                guard let notificationRegister = notificationReadOffline.getNotificationRegister,
+                guard let notificationRegister = self.notificationReadOffline.getNotificationRegister,
                       let registerJson = notificationRegister.json,
                       let registerRequest = registerJson.convertToObject(type: DitoTokenRequest.self),
                       let tokenType = DitoTokenType(rawValue: registerRequest.tokenType) else {
@@ -153,13 +156,14 @@ struct DitoRetry {
                                                     sha1Signature: registerRequest.sha1Signature,
                                                     token: registerRequest.token, tokenType: tokenType)
                 
-                serviceNotification.register(reference: reference, data: tokenRequest) { (register, error) in
+                self.serviceNotification.register(reference: reference, data: tokenRequest) { [weak self] (register, error) in
                     
+                    guard let self = self else { return }
                     if let error = error {
-                        notificationReadOffline.updateRegister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
+                        self.notificationReadOffline.updateRegister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
                         DitoLogger.error(error.localizedDescription)
                     } else {
-                        notificationReadOffline.deleteRegister()
+                        self.notificationReadOffline.deleteRegister()
                         DitoLogger.information("Notification - Token registrado")
                     }
                 }
@@ -173,10 +177,10 @@ struct DitoRetry {
     private func checkNotificationUnregister() {
         DispatchQueue.global(qos: .background).async {
             
-            if let reference = notificationReadOffline.reference, !reference.isEmpty {
+            if let reference = self.notificationReadOffline.reference, !reference.isEmpty {
                 
                 
-                guard let notificationRegister = notificationReadOffline.getNotificationUnregister,
+                guard let notificationRegister = self.notificationReadOffline.getNotificationUnregister,
                       let registerJson = notificationRegister.json,
                       let registerRequest = registerJson.convertToObject(type: DitoTokenRequest.self),
                       let tokenType = DitoTokenType(rawValue: registerRequest.tokenType) else {
@@ -187,13 +191,14 @@ struct DitoRetry {
                                                     sha1Signature: registerRequest.sha1Signature,
                                                     token: registerRequest.token, tokenType: tokenType)
                 
-                serviceNotification.unregister(reference: reference, data: tokenRequest) { (register, error) in
+                self.serviceNotification.unregister(reference: reference, data: tokenRequest) { [weak self] (register, error) in
                     
+                    guard let self = self else { return }
                     if let error = error {
-                        notificationReadOffline.updateUnregister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
+                        self.notificationReadOffline.updateUnregister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
                         DitoLogger.error(error.localizedDescription)
                     } else {
-                        notificationReadOffline.deleteUnregister()
+                        self.notificationReadOffline.deleteUnregister()
                         DitoLogger.information("Notification - Token registrado")
                     }
                 }

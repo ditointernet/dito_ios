@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DitoNotification {
+class DitoNotification {
     
     private let service: DitoNotificationService
     private let notificationOffline: DitoNotificationOffline
@@ -24,11 +24,11 @@ struct DitoNotification {
             let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature,
                                                 token: token, tokenType: tokenType)
             
-            if let reference = notificationOffline.reference, !reference.isEmpty {
-                service.register(reference: reference, data: tokenRequest) { (register, error) in
+            if let reference = self.notificationOffline.reference, !reference.isEmpty {
+                self.service.register(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
-                        notificationOffline.notificationRegister(tokenRequest)
+                        self.notificationOffline.notificationRegister(tokenRequest)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         DitoLogger.information("Notification - Token registrado")
@@ -36,7 +36,7 @@ struct DitoNotification {
                 }
                 
             } else {
-                notificationOffline.notificationRegister(tokenRequest)
+                self.notificationOffline.notificationRegister(tokenRequest)
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
             }
         }
@@ -50,11 +50,11 @@ struct DitoNotification {
                                                 sha1Signature: Dito.signature,
                                                 token: token, tokenType: tokenType)
             
-            if let reference = notificationOffline.reference, !reference.isEmpty {
-                service.register(reference: reference, data: tokenRequest) { (register, error) in
+            if let reference = self.notificationOffline.reference, !reference.isEmpty {
+                self.service.register(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
-                        notificationOffline.notificationUnregister(tokenRequest)
+                        self.notificationOffline.notificationUnregister(tokenRequest)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         DitoLogger.information("Notification - Token cancelado")
@@ -62,7 +62,7 @@ struct DitoNotification {
                 }
                 
             } else {
-                notificationOffline.notificationUnregister(tokenRequest)
+                self.notificationOffline.notificationUnregister(tokenRequest)
                 DitoLogger.warning("Unregister Token - Antes de cancelar um token é preciso identificar o usuário.")
             }
         }
@@ -72,7 +72,7 @@ struct DitoNotification {
         
         DispatchQueue.global(qos: .background).async {
             
-            if let reference = notificationOffline.reference, !reference.isEmpty, !identifier.isEmpty {
+            if let reference = self.notificationOffline.reference, !reference.isEmpty, !identifier.isEmpty {
                 
                 let data = DitoDataNotification(identifier: identifier, reference: reference)
                 
@@ -80,10 +80,10 @@ struct DitoNotification {
                                                                       sha1Signature: Dito.signature,
                                                                       data: data)
                 
-                service.read(notificationId: identifier, data: notificationRequest) { (register, error) in
+                self.service.read(notificationId: identifier, data: notificationRequest) { (register, error) in
                     
                     if let error = error {
-                        notificationOffline.notificationRead(notificationRequest)
+                        self.notificationOffline.notificationRead(notificationRequest)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         DitoLogger.information("Notification - Registro do notification push enviado")

@@ -20,7 +20,7 @@ struct DitoIdentifyOffline {
     func identify(id: String, params: DitoSignupRequest, reference: String?, send: Bool) {
         DispatchQueue.global().async {
             let json = params.toString
-            identifyDataManager.save(id: id, reference: reference, json: json, send: send)
+            self.identifyDataManager.save(id: id, reference: reference, json: json, send: send)
         }
     }
     
