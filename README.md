@@ -6,7 +6,7 @@ SDK iOS
 - [ x ] Initialize
 - [ x ] Identify
 - [ x ] Track
-- [ ] Notification
+- [ x ] Notification
 - [ x ] Offline Management
 
 ## Requirements
@@ -70,12 +70,22 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     Dito.unegisterDevice(token: "My notification token", tokenType: .apple)
 ```
 ##### Register notification reading
-    O método recebe como parâmetro o ```dictionary``` que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo.
+    O método recebe como parâmetro um ```dictionary``` que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo.
+
 ```swift
-   func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         Dito.notificationRead(with: userInfo)
     }
 ```
+
+    É possível também obter o deepLink para direcionamento de fluxo igual ao exemplo abaixo:
+
+```swift
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let notificationRead = Dito.notificationRead(with: userInfo)
+        print(notificationRead.deepLink)
+    }
+``` 
 
 ## Debug mode
 Para ativar os logs é necessário colocar a flag ```EnabledDebug``` ativada no ```Arguments Passed On Launch``` que fica no ```scheme``` do seu projeto.
