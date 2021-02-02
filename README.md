@@ -71,7 +71,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 ##### Register notification reading
 
-O método recebe como parâmetro um dictionary que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo.
+O método recebe como parâmetro um ```dictionary``` que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo:
 
 ```swift
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -79,7 +79,7 @@ O método recebe como parâmetro um dictionary que é enviado no push. Não nece
     }
 ```
 
-É possível também obter o deepLink para direcionamento de fluxo igual ao exemplo abaixo:
+Também é possível obter o ```deepLink``` para direcionamento de fluxo como no exemplo abaixo:
 
 ```swift
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
