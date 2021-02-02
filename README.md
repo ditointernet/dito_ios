@@ -67,10 +67,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 ##### Unregister Device
 ```swift
-    Dito.unegisterDevice(token: "My notification token", tokenType: .apple)
+    Dito.unregisterDevice(token: "My notification token", tokenType: .apple)
 ```
 ##### Register notification reading
-    O método recebe como parâmetro um ```dictionary``` que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo.
+    O método recebe como parâmetro um dictionary que é enviado no push. Não necessáriamente precisa ser implementado no método do delegate como no exemplo abaixo.
 
 ```swift
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
