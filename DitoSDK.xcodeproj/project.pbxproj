@@ -43,6 +43,8 @@
 		0CE1EB4125A633B000460837 /* DitoTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1EB4025A633B000460837 /* DitoTrack.swift */; };
 		2C17B0C125BA166D00DAD77C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17B0C025BA166D00DAD77C /* Reachability.swift */; };
 		2C17B0C525BA33FB00DAD77C /* Dito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17B0C425BA33FB00DAD77C /* Dito.swift */; };
+		2C36ED5425C88D600044CFCE /* DitoNotificationRegisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36ED5325C88D600044CFCE /* DitoNotificationRegisterDataManager.swift */; };
+		2C36ED5825C88D730044CFCE /* DitoNotificationUnregisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36ED5725C88D730044CFCE /* DitoNotificationUnregisterDataManager.swift */; };
 		2C64BF3B25C067770069B788 /* DitoNotificationOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64BF3A25C067770069B788 /* DitoNotificationOffline.swift */; };
 		2C64BF4125C09D7B0069B788 /* DitoNotificationOpenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64BF4025C09D7B0069B788 /* DitoNotificationOpenRequest.swift */; };
 		2C64BF4525C09D870069B788 /* DitoTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64BF4425C09D870069B788 /* DitoTokenRequest.swift */; };
@@ -115,6 +117,8 @@
 		0CE1EB4025A633B000460837 /* DitoTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DitoTrack.swift; sourceTree = "<group>"; };
 		2C17B0C025BA166D00DAD77C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C17B0C425BA33FB00DAD77C /* Dito.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dito.swift; sourceTree = "<group>"; };
+		2C36ED5325C88D600044CFCE /* DitoNotificationRegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationRegisterDataManager.swift; sourceTree = "<group>"; };
+		2C36ED5725C88D730044CFCE /* DitoNotificationUnregisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationUnregisterDataManager.swift; sourceTree = "<group>"; };
 		2C64BF3A25C067770069B788 /* DitoNotificationOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationOffline.swift; sourceTree = "<group>"; };
 		2C64BF4025C09D7B0069B788 /* DitoNotificationOpenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationOpenRequest.swift; sourceTree = "<group>"; };
 		2C64BF4425C09D870069B788 /* DitoTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTokenRequest.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 				DC7E8BC025AE44D2009B86CC /* DitoIdentifyDataManager.swift */,
 				DC7E8BC425AE44E1009B86CC /* DitoTrackDataManager.swift */,
 				DC09872725AE84A700C9EA95 /* DitoNotificationReadDataManager.swift */,
+				2C36ED5325C88D600044CFCE /* DitoNotificationRegisterDataManager.swift */,
+				2C36ED5725C88D730044CFCE /* DitoNotificationUnregisterDataManager.swift */,
 				2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */,
 			);
 			path = Persistence;
@@ -446,6 +452,7 @@
 				0C68FB3625A77A100050E369 /* SHA1.swift in Sources */,
 				2C82943625C26BBA008196C3 /* DitoTokenType.swift in Sources */,
 				0CE1EB4125A633B000460837 /* DitoTrack.swift in Sources */,
+				2C36ED5425C88D600044CFCE /* DitoNotificationRegisterDataManager.swift in Sources */,
 				0CE1EB3225A6333D00460837 /* Data+Extension.swift in Sources */,
 				0CE1EB3025A6333D00460837 /* Encodable+Extensions.swift in Sources */,
 				2C973FB825C1B7D7000563FC /* DitoNotificationService.swift in Sources */,
@@ -456,6 +463,7 @@
 				0CAB9E7625A74BA90086BEBC /* DitoLogger.swift in Sources */,
 				2C64BF4125C09D7B0069B788 /* DitoNotificationOpenRequest.swift in Sources */,
 				2C64BF4525C09D870069B788 /* DitoTokenRequest.swift in Sources */,
+				2C36ED5825C88D730044CFCE /* DitoNotificationUnregisterDataManager.swift in Sources */,
 				2C9FCF9125C44DFB00FC1F41 /* DitoNotificationReceived.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DitoServiceManager.swift in Sources */,
 				2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */,

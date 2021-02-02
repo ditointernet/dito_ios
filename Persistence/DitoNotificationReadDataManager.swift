@@ -11,7 +11,7 @@ import CoreData
 struct DitoNotificationReadDataManager {
     
     @discardableResult
-    func save(json: String?, retry: Int16 = 1) -> Bool {
+    func save(with json: String?, retry: Int16 = 1) -> Bool {
     
         guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
         guard let notificationRead = NSEntityDescription.insertNewObject(forEntityName: "NotificationRead", into: context) as? NotificationRead

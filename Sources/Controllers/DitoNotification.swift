@@ -21,20 +21,22 @@ struct DitoNotification {
         
         DispatchQueue.global().async {
             
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature,
+                                                token: token, tokenType: tokenType)
+            
             if let reference = notificationOffline.reference, !reference.isEmpty {
-                let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature,
-                                                    token: token, tokenType: tokenType)
-                
                 service.register(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
+                        notificationOffline.notificationRegister(tokenRequest)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         DitoLogger.information("Notification - Token registrado")
                     }
                 }
-    
+                
             } else {
+                notificationOffline.notificationRegister(tokenRequest)
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
             }
         }
@@ -44,15 +46,15 @@ struct DitoNotification {
         
         DispatchQueue.global().async {
             
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey,
+                                                sha1Signature: Dito.signature,
+                                                token: token, tokenType: tokenType)
+            
             if let reference = notificationOffline.reference, !reference.isEmpty {
-                
-                let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey,
-                                                    sha1Signature: Dito.signature,
-                                                    token: token, tokenType: tokenType)
-                
                 service.register(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
+                        notificationOffline.notificationUnregister(tokenRequest)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         DitoLogger.information("Notification - Token cancelado")
@@ -60,6 +62,7 @@ struct DitoNotification {
                 }
                 
             } else {
+                notificationOffline.notificationUnregister(tokenRequest)
                 DitoLogger.warning("Unregister Token - Antes de cancelar um token é preciso identificar o usuário.")
             }
         }

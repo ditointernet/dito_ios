@@ -10,6 +10,14 @@
         <attribute name="json" optional="YES" attributeType="String"/>
         <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="NotificationRegister" representedClassName="NotificationRegister" syncable="YES" codeGenerationType="class">
+        <attribute name="json" optional="YES" attributeType="String"/>
+        <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="NotificationUnregister" representedClassName="NotificationUnregister" syncable="YES" codeGenerationType="class">
+        <attribute name="json" optional="YES" attributeType="String"/>
+        <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
         <attribute name="event" optional="YES" attributeType="String"/>
         <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -18,5 +26,7 @@
         <element name="Identify" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="NotificationRead" positionX="-54" positionY="-9" width="128" height="73"/>
         <element name="Track" positionX="-36" positionY="9" width="128" height="73"/>
+        <element name="NotificationRegister" positionX="-45" positionY="9" width="128" height="73"/>
+        <element name="NotificationUnregister" positionX="-36" positionY="18" width="128" height="73"/>
     </elements>
 </model>
