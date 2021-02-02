@@ -21,7 +21,7 @@ struct DitoTrackOffline {
     func track(event: DitoEventRequest) {
         DispatchQueue.global().async {
             let json = event.toString
-            trackDataManager.save(event: json)
+            self.trackDataManager.save(event: json)
         }
     }
     

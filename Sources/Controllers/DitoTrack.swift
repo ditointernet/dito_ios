@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DitoTrack {
+class DitoTrack {
 
     private let service: DitoTrackService
     private let trackOffline: DitoTrackOffline
@@ -23,18 +23,18 @@ struct DitoTrack {
             
             let eventRequest = DitoEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
             
-            if let reference = trackOffline.reference, !reference.isEmpty {
-                service.event(reference: reference, data: eventRequest) { (track, error) in
+            if let reference = self.trackOffline.reference, !reference.isEmpty {
+                self.service.event(reference: reference, data: eventRequest) { (track, error) in
                     
                     if let error = error {
-                        trackOffline.track(event: eventRequest)
+                        self.trackOffline.track(event: eventRequest)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         DitoLogger.information("Track - Evento enviado")
                     }
                 }
             } else {
-                trackOffline.track(event: eventRequest)
+                self.trackOffline.track(event: eventRequest)
                 DitoLogger.warning("Track - Antes de enviar um evento é preciso identificar o usuário.")
             }
         }
