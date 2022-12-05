@@ -77,7 +77,7 @@ struct DitoIdentifyDataManager {
         
         do {
             
-            guard let identify: Identify = try context.fetch(fetchRequest).first else { return nil }
+            guard let identify: Identify = try context.fetch(fetchRequest).last else { return nil }
             
             DitoLogger.information("Identify Fetch - Successfully!!!")
             
