@@ -17,7 +17,7 @@ class DitoNotification {
         self.notificationOffline = trackOffline
     }
     
-    private func registerToken(token: String, tokenType: DitoTokenType) {
+    func registerToken(token: String, tokenType: DitoTokenType) {
         
         if self.notificationOffline.isSaving {
             self.notificationOffline.setRegisterAsCompletion{
