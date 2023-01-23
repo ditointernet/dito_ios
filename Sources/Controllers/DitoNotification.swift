@@ -17,13 +17,25 @@ class DitoNotification {
         self.notificationOffline = trackOffline
     }
     
-    func registerToken(token: String, tokenType: DitoTokenType) {
+    private func registerToken(token: String, tokenType: DitoTokenType) {
+        
+        if self.notificationOffline.isSaving {
+            self.notificationOffline.setRegisterAsCompletion{
+                self.finishRegisterToken(token: token, tokenType: tokenType)
+            }
+        } else {
+            self.finishRegisterToken(token: token, tokenType: tokenType)
+        }
+    }
+    
+    func finishRegisterToken(token: String, tokenType: DitoTokenType) {
         
         DispatchQueue.global().async {
-            
+                        
             let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature,
                                                 token: token, tokenType: tokenType)
-            
+       
+
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 self.service.register(reference: reference, data: tokenRequest) { (register, error) in
                     

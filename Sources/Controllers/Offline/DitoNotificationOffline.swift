@@ -47,6 +47,14 @@ struct DitoNotificationOffline {
         }
     }
     
+    func setRegisterAsCompletion(_ completion: @escaping () -> Void) {
+        identifyOffline.setIdentityCompletionClosure(completion)
+    }
+    
+    var isSaving: Bool {
+        return identifyOffline.getSavingState
+    }
+    
     var reference: String? {
         return identifyOffline.getIdentify?.reference
     }

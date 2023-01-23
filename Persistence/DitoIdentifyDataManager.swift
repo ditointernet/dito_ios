@@ -11,6 +11,89 @@ import CoreData
 
 struct DitoIdentifyDataManager {
     
+    
+    var identitySaveCallback: (() -> ())? = nil
+    
+    func setIdentitySaveCallback(_ callback: @escaping () -> Void) {
+        self.identitySaveCallback = callback
+    }
+    
+    //TODO: Manter logs nesta função?
+    @discardableResult
+    func saveIdentifyStamp() -> Bool {
+        
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
+        
+        do {
+            guard let identifyStamp = NSEntityDescription.insertNewObject(forEntityName: "IdentifySaveStamp", into: context) as? IdentifySaveStamp
+            else {
+                DitoLogger.error("Failed to save IdentifySaveStamp")
+                return false
+            }
+            
+            identifyStamp.timeStamp = NSDate().timeIntervalSince1970
+            
+            try context.save()
+            
+            DitoLogger.information("IdentifySaveStamp Saved Successfully!!!")
+            return true
+        } catch let error {
+            
+            DitoLogger.error("Failed to save IdentifySaveStamp: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    var fetchSavingState: IdentifySaveStamp? {
+        
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return nil }
+        
+        let fetchRequest = NSFetchRequest<IdentifySaveStamp>(entityName: "IdentifySaveStamp")
+        
+        do {
+            
+            guard let identifyStamp: IdentifySaveStamp = try context.fetch(fetchRequest).last else { return nil }
+            
+            DitoLogger.information("IdentifyStamp Fetch - Successfully!!!")
+            
+            return identifyStamp
+        
+        } catch let fetchErr {
+            
+            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
+            return  nil
+        }
+    }
+    
+    @discardableResult
+    func deleteIdentifyStamp() -> Bool {
+        
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
+        
+        do {
+            
+            let fetchRequest = NSFetchRequest<IdentifySaveStamp>(entityName: "IdentifySaveStamp")
+            let savedStamps: [IdentifySaveStamp] = try context.fetch(fetchRequest)
+    
+            for stamp in savedStamps {
+                context.delete(stamp)
+            }
+            try context.save()
+            if let callback = self.identitySaveCallback {
+                callback()
+            }
+            
+            DitoLogger.information("IdentifyStamp Deleted - Successfully!!!")
+            return true
+            
+        } catch let fetchErr {
+            
+            DitoLogger.error("Error to Delete IdentifyStamp: \(fetchErr.localizedDescription)")
+            return false
+        }
+    }
+
+    
     @discardableResult
     func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
@@ -69,7 +152,6 @@ struct DitoIdentifyDataManager {
     }
     
     var fetch: Identify? {
-        
         
         guard let context = DitoCoreDataManager.shared.container?.viewContext else { return nil }
         
