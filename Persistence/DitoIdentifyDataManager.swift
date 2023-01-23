@@ -8,9 +8,7 @@
 import Foundation
 import CoreData
 
-
-struct DitoIdentifyDataManager {
-    
+class DitoIdentifyDataManager {
     
     var identitySaveCallback: (() -> ())? = nil
     
@@ -18,7 +16,6 @@ struct DitoIdentifyDataManager {
         self.identitySaveCallback = callback
     }
     
-    //TODO: Manter logs nesta função?
     @discardableResult
     func saveIdentifyStamp() -> Bool {
         
@@ -92,7 +89,6 @@ struct DitoIdentifyDataManager {
             return false
         }
     }
-
     
     @discardableResult
     func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
