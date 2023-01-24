@@ -10,11 +10,7 @@ import CoreData
 
 class DitoIdentifyDataManager {
     
-    private var identitySaveCallback: (() -> ())? = nil
-    
-    func setIdentitySaveCallback(_ callback: @escaping () -> Void) {
-        self.identitySaveCallback = callback
-    }
+    var identitySaveCallback: (() -> ())? = nil
     
     @discardableResult
     func saveIdentifyStamp() -> Bool {

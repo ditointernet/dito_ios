@@ -25,7 +25,7 @@ struct DitoIdentifyOffline {
     }
     
     func setIdentityCompletionClosure(_ closure: @escaping () -> Void) {
-        self.identifyDataManager.setIdentitySaveCallback( closure )
+        self.identifyDataManager.identitySaveCallback = closure
     }
     
     func getIdentifyCompletionClosure() -> (() -> Void)? {
