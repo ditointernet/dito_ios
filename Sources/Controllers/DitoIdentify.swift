@@ -21,13 +21,17 @@ class DitoIdentify {
         
         DispatchQueue.global().async {
             
+            self.identifyOffline.initiateIdentify()
+            
             let signupRequest = DitoSignupRequest(platformApiKey: Dito.apiKey,
                                                 sha1Signature: sha1Signature,
                                                 userData: data)
             
             guard data.email != nil else {
+                self.identifyOffline.finishIdentify()
                 return
             }
+            
             self.service.signup(network: "portal", id: id, data: signupRequest) { (identify, error) in
                 
                 if let error = error {
@@ -41,6 +45,7 @@ class DitoIdentify {
                         self.identifyOffline.identify(id: id, params: signupRequest, reference: nil, send: false)
                     }
                 }
+                self.identifyOffline.finishIdentify()
             }
         }
     }

@@ -16,12 +16,36 @@ struct DitoIdentifyOffline {
         self.identifyDataManager = identifyDataManager
     }
     
+    func initiateIdentify() {
+        self.identifyDataManager.saveIdentifyStamp()
+    }
+    
+    func finishIdentify() {
+        self.identifyDataManager.deleteIdentifyStamp()
+    }
+    
+    func setIdentityCompletionClosure(_ closure: @escaping () -> Void) {
+        self.identifyDataManager.identitySaveCallback = closure
+    }
+    
+    func getIdentifyCompletionClosure() -> (() -> Void)? {
+        return self.identifyDataManager.identitySaveCallback
+    }
     
     func identify(id: String, params: DitoSignupRequest, reference: String?, send: Bool) {
-        DispatchQueue.global().async {
-            let json = params.toString
-            self.identifyDataManager.save(id: id, reference: reference, json: json, send: send)
+        let json = params.toString
+        self.identifyDataManager.save(id: id, reference: reference, json: json, send: send)
+    }
+     
+    var getSavingState: Bool {
+        guard let savingState = identifyDataManager.fetchSavingState?.timeStamp else {return false}
+        
+        let savingStamp = NSDate(timeIntervalSince1970: savingState)
+        if savingStamp.timeIntervalSinceNow.isLess(than: -60.0) {
+            identifyDataManager.deleteIdentifyStamp()
+            return false
         }
+        return true
     }
     
     var getIdentify: Identify? {
