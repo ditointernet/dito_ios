@@ -19,10 +19,24 @@ struct DitoTrackOffline {
     }
     
     func track(event: DitoEventRequest) {
+        
+        if self.identifyOffline.getSavingState {
+            self.identifyOffline.setIdentityCompletionClosure{
+                self.completeTrack(event: event)
+            }
+        } else {
+            self.completeTrack(event: event)
+        }
+    }
+    
+    func completeTrack(event: DitoEventRequest) {
+        
+        //TODO: Confirmar se há histórico de erro por conta deste nested Dispatch
         DispatchQueue.global().async {
             let json = event.toString
             self.trackDataManager.save(event: json)
         }
+
     }
     
     var reference: String? {
