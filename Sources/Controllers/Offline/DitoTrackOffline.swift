@@ -31,7 +31,6 @@ struct DitoTrackOffline {
     
     func completeTrack(event: DitoEventRequest) {
         
-        //TODO: Confirmar se há histórico de erro por conta deste nested Dispatch
         DispatchQueue.global().async {
             let json = event.toString
             self.trackDataManager.save(event: json)
