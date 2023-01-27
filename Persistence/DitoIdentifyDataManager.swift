@@ -86,11 +86,29 @@ class DitoIdentifyDataManager {
         }
     }
     
+    private func clearIdentifyCache() {
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return }
+        
+        do {
+            let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
+            let identifyList: [Identify] = try context.fetch(fetchRequest)
+            
+            for identify in identifyList {
+                context.delete(identify)
+            }
+            try context.save()
+            DitoLogger.information("Identify Deleted - Successfully!!!")
+                    
+        } catch let fetchErr {
+            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
+        }
+    }
+    
     @discardableResult
     func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
         guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        delete(id: id)
+        clearIdentifyCache()
         
         do {
             guard let identify = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
