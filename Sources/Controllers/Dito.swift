@@ -35,6 +35,10 @@ public class Dito {
         }
     }
     
+    public static func sha1(for email: String) -> String {
+        return email.sha1
+    }
+    
     public static func identify(id: String, data: DitoUser) {
         let dtIdentify = DitoIdentify()
         dtIdentify.identify(id: id, data: data)
