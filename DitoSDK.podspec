@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'DitoSDK'
-  s.version          = '1.0.0'
-  s.summary          = 'A short description of DitoSDK.'
+  s.version          = '0.0.3'
+  s.summary          = 'SDK da Dito CRM'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+'https://developers.dito.com.br/reference/ios'
                        DESC
 
   s.homepage         = 'https://github.com/ditointernet/dito_ios'
@@ -14,6 +14,7 @@ TODO: Add long description of the pod here.
 
   s.swift_version = "5.3"
   s.ios.deployment_target = '10.0'
-  s.source_files = 'Sources/**/*'
+  s.source_files = 'Sources/**/*', 'Persistence/*.{swift}'
+  s.resources = 'Persistence/*.{xcdatamodeld}'
   s.exclude_files = "Sources/Info.plist"
 end
