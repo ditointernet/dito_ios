@@ -11,12 +11,17 @@ class DitoNotificationService: DitoServiceManager {
     
     func register(reference: String, data: DitoTokenRequest, completion: @escaping (_ success: DitoTokenModel?, _ error: Error?) -> ()) {
         
+        DitoLogger.debug("DitoNotificationService.register() - Função chamada com sucesso.")
+        DitoLogger.debug("Dados: reference = \(reference), data = \(data)")
+
         request(type: DitoTokenModel.self, router: .register(reference: reference, data: data)) { result in
             
             switch result {
             case .success(let data):
+                DitoLogger.debug("DitoNotificationService.register() - Retorno Sucesso: \(data)")
                 completion(data, nil)
             case .failure(let error):
+                DitoLogger.debug("DitoNotificationService.register() - Retorno Erro: \(error)")
                 completion(nil, error)
             }
         }

@@ -50,6 +50,8 @@ public class Dito {
     }
     
     public static func registerDevice(token: String, tokenType: DitoTokenType) {
+        DitoLogger.debug("Dito.registerDevice() - função chamada com sucesso")
+        DitoLogger.debug("Dados: token = \(token), tokenType = \(tokenType)")
         let notification = DitoNotification()
         notification.registerToken(token: token, tokenType: tokenType)
     }
