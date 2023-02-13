@@ -107,7 +107,12 @@ class DitoIdentifyDataManager {
     @discardableResult
     func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
+        guard let context = DitoCoreDataManager.shared.container?.viewContext else {
+            
+            let ditoDataShared = DitoCoreDataManager.shared
+            
+            return false
+        }
         clearIdentifyCache()
         
         do {

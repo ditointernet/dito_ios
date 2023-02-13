@@ -42,8 +42,7 @@ class DitoNotification {
                         
             DitoLogger.debug("DitoNotification.finishRegisterToken() - Assincrono")
 
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature,
-                                                token: token, tokenType: tokenType)
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
             
             DitoLogger.debug("Request criado: ")
             DitoLogger.debug("platformApiKey: \(Dito.apiKey)")
