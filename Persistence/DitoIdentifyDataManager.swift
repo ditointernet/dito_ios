@@ -18,15 +18,15 @@ class DitoIdentifyDataManager {
         return true
     }
     
-    var fetchSavingState: IdentifySaveStamp? {
+    var fetchSavingState: Double? {
         
         let stamp = UserDefaults.savingState
         if stamp == 0 { return nil }
         
         //TODO: Não é necessário converter caso o CoreData seja removido
-        let identifyStamp = IdentifySaveStamp()
-        identifyStamp.timeStamp = stamp
-        return identifyStamp
+//        let identifyStamp = IdentifySaveStamp()
+//        identifyStamp.timeStamp = stamp
+        return stamp
     }
     
     @discardableResult
@@ -53,18 +53,19 @@ class DitoIdentifyDataManager {
         return true
     }
     
-    var fetch: Identify? {
+    var fetch: IdentifyDefaults? {
         
         guard let savedIdentify = UserDefaults.identify else {return nil}
         
         //TODO: Não é necessário converter o objeto se substituirmos completamente o CoreData
-        var identify = Identify()
-        identify.id = savedIdentify.id
-        identify.json = savedIdentify.json
-        identify.reference = savedIdentify.reference
-        identify.send = savedIdentify.send
+//        var identify = Identify()
+//
+//        identify.id = savedIdentify.id
+//        identify.json = savedIdentify.json
+//        identify.reference = savedIdentify.reference
+//        identify.send = savedIdentify.send
         
-        return identify
+        return savedIdentify
     }
     
     @discardableResult

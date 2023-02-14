@@ -21,20 +21,20 @@ struct DitoNotificationRegisterDataManager {
     }
     
     @discardableResult
-    func update(id: NSManagedObjectID, retry: Int16) -> Bool {
+    func update(id: NSManagedObjectID? = nil, retry: Int16) -> Bool {
         save(with: nil, retry: retry)
     }
     
-    var fetch: NotificationRegister? {
+    var fetch: NotificationDefaults? {
         
         guard let notificationRegisterSaved = UserDefaults.notificationRegister else {return nil}
+//        
+//        var notificationObject = NotificationRegister()
+//        
+//        notificationObject.json = notificationRegisterSaved.json
+//        notificationObject.retry = notificationRegisterSaved.retry
         
-        var notificationObject = NotificationRegister()
-        
-        notificationObject.json = notificationRegisterSaved.json
-        notificationObject.retry = notificationRegisterSaved.retry
-        
-        return notificationObject
+        return notificationRegisterSaved
     }
     
     @discardableResult

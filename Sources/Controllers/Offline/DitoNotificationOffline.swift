@@ -60,11 +60,11 @@ struct DitoNotificationOffline {
     }
     
     //MARK: - notification Register
-    var getNotificationRegister: NotificationRegister? {
+    var getNotificationRegister: NotificationDefaults? {
         return notificationRegisterDataManager.fetch
     }
     
-    func updateRegister(id: NSManagedObjectID, retry: Int16) {
+    func updateRegister(id: NSManagedObjectID? = nil, retry: Int16) {
         notificationRegisterDataManager.update(id: id, retry: retry)
     }
     

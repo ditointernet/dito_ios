@@ -28,16 +28,34 @@ extension UserDefaults {
     
     class var identify: IdentifyDefaults? {
         get {
-            UserDefaults.standard.object(forKey: Keys.identifyKey) as? IdentifyDefaults
+            
+            if let data = UserDefaults.standard.data(forKey: Keys.identifyKey) {
+                do {
+                    let decoder = JSONDecoder()
+
+                    let decodedData = try decoder.decode(IdentifyDefaults.self, from: data)
+                    return decodedData
+
+                } catch {
+                    print("Unable to Decode Note (\(error))")
+                }
+            }
+            return nil
         }
         set {
             
             if newValue == nil {
                 UserDefaults.standard.removeObject(forKey: Keys.identifyKey)
             } else {
-                UserDefaults.standard.set(newValue, forKey: Keys.identifyKey)
-                UserDefaults.standard.synchronize()
-            }
+                
+                do {
+                    let encoder = JSONEncoder()
+                    let endcodedData = try encoder.encode(newValue)
+                    UserDefaults.standard.set(endcodedData, forKey: Keys.identifyKey)
+                    UserDefaults.standard.synchronize()
+                } catch {
+                    print("Unable to Encode Note (\(error))")
+                }            }
         }
     }
     
@@ -58,15 +76,32 @@ extension UserDefaults {
     
     class var notificationRegister: NotificationDefaults? {
         get {
-            UserDefaults.standard.object(forKey: Keys.notificationRegisterKey) as? NotificationDefaults
-        }
+            if let data = UserDefaults.standard.data(forKey: Keys.notificationRegisterKey) {
+                do {
+                    let decoder = JSONDecoder()
+
+                    let decodedData = try decoder.decode(NotificationDefaults.self, from: data)
+                    return decodedData
+
+                } catch {
+                    print("Unable to Decode Note (\(error))")
+                }
+            }
+            return nil        }
         set {
             
             if newValue == nil {
                 UserDefaults.standard.removeObject(forKey: Keys.notificationRegisterKey)
             } else {
-                UserDefaults.standard.set(newValue, forKey: Keys.notificationRegisterKey)
-                UserDefaults.standard.synchronize()
+                
+                do {
+                    let encoder = JSONEncoder()
+                    let endcodedData = try encoder.encode(newValue)
+                    UserDefaults.standard.set(endcodedData, forKey: Keys.notificationRegisterKey)
+                    UserDefaults.standard.synchronize()
+                } catch {
+                    print("Unable to Encode Note (\(error))")
+                }
             }
         }
     }

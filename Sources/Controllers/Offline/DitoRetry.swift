@@ -160,7 +160,7 @@ class DitoRetry {
                     
                     guard let self = self else { return }
                     if let error = error {
-                        self.notificationReadOffline.updateRegister(id: notificationRegister.objectID, retry: notificationRegister.retry + 1)
+                        self.notificationReadOffline.updateRegister(id: nil, retry: notificationRegister.retry + 1)
                         DitoLogger.error(error.localizedDescription)
                     } else {
                         self.notificationReadOffline.deleteRegister()
