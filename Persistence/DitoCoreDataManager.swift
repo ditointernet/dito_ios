@@ -80,3 +80,20 @@ extension DitoCoreDataManager{
         }
     }
 }
+
+
+struct NotificationDefaults: Codable {
+    
+    var retry: Int16
+    var json: String?
+}
+
+struct IdentifyDefaults: Codable {
+    
+    var id: String?
+    var json: String?
+    var reference: String?
+    var send: Bool
+    
+}
+

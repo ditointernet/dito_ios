@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct NotificationDefaults: Codable {
-    
-    var retry: Int16
-    var json: String?
-}
+//struct NotificationDefaults: Codable {
+//    
+//    var retry: Int16
+//    var json: String?
+//}

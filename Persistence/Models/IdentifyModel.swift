@@ -6,12 +6,12 @@
 //
 
 import Foundation
-
-struct IdentifyDefaults: Codable {
-    
-    var id: String?
-    var json: String?
-    var reference: String?
-    var send: Bool
-    
-}
+//
+//struct IdentifyDefaults: Codable {
+//    
+//    var id: String?
+//    var json: String?
+//    var reference: String?
+//    var send: Bool
+//    
+//}
