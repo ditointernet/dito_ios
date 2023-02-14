@@ -5,6 +5,7 @@ SDK iOS
 
 - [ x ] Initialize
 - [ x ] Identify
+- [ x ] Conversão SHA1
 - [ x ] Track
 - [ x ] Notification
 - [ x ] Offline Management
@@ -14,6 +15,26 @@ SDK iOS
 - Xcode 11.3.1+
 
 ## Installation
+
+### Cocoapods
+Para instalar a versão mais recente do SDK Dito em seu projeto através do Cocoapods, adicione o pod em seu podfile:
+
+pod 'DitoSDK'
+
+Para instalar uma versão específica, inclua o número da versão:
+
+pod 'DitoSDK', '~> 0.0.4'
+
+Em alguns casos, pode ser necessário utilizar uma branch específica para algum ajuste ou correção pontual ou urgente. Neste caso, basta especificar a branch:
+
+pod 'DitoSDK', :git => 'https://github.com/ditointernet/dito_ios.git', :branch => 'NOME_DA_BRANCH'
+
+ps.: Para incluir cocoapods em um projeto, [siga o tutorial] (https://guides.cocoapods.org/using/using-cocoapods.html)
+
+
+Após adição no podfile, execute o comando pod install --repo-update para instalar e utilizar o pod no projeto.
+
+### Manual
 Para instalar o SDK Dito em seu projeto é necessário arrastar o arquivo DitoSDK.framework, disponível na pasta Framework do projeto.
 ## Example
 Há neste repositório presente na pasta Example a forma de utilização e configuração do SDK.
@@ -52,6 +73,12 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                           customData: customData)
         Dito.identify(id: "My user id", data: ditoUser)
 ```
+
+#### Conversão SHA1
+```swift
+    let sha1String = Dito.sha1(for: "String to convert")
+```
+
 #### Track
 ```swift
     let event = DitoEvent(action: "my-current-event-to-track")
