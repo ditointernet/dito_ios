@@ -35,7 +35,9 @@ ps.: Para incluir cocoapods em um projeto, [siga o tutorial] (https://guides.coc
 Após adição no podfile, execute o comando pod install --repo-update para instalar e utilizar o pod no projeto.
 
 ### Manual
-Para instalar o SDK Dito em seu projeto é necessário arrastar o arquivo DitoSDK.framework, disponível na pasta Framework do projeto.
+
+Para instalar o SDK Dito em seu projeto de forma manual, sem utilizar cocoapods, é necessário arrastar o arquivo DitoSDK.framework, disponível na pasta Framework do projeto.
+
 ## Example
 Há neste repositório presente na pasta Example a forma de utilização e configuração do SDK.
 
