@@ -48,7 +48,6 @@ struct DitoNotificationOffline {
     }
     
     func setRegisterAsCompletion(_ completion: @escaping () -> Void) {
-        DitoLogger.debug("DitoNotificationOffline.setRegisterAsCompletion() - Função chamada com sucesso.")
         identifyOffline.setIdentityCompletionClosure(completion)
     }
     

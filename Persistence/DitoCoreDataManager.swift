@@ -31,16 +31,10 @@ class DitoCoreDataManager {
                 return nil
             }
             UserDefaults.firstSave = true
-            let valuePersistentContainer = persistentContainer
-            return valuePersistentContainer
+            return persistentContainer
         }
-        let valuePersistentContainer = persistentContainer
-        return valuePersistentContainer
-    }() {
-        willSet {
-                let value = newValue
-            }
-    }
+        return persistentContainer
+    }()
     
     ///Persistent Container to mange Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
