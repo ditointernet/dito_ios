@@ -18,14 +18,9 @@ class DitoNotification {
     }
     
     func registerToken(token: String, tokenType: DitoTokenType) {
-        
-        DitoLogger.debug("DitoNotification.registerToken() - Função chamada com sucesso.")
-        DitoLogger.debug("Dados: token = \(token), tokenType = \(tokenType)")
-        
-        DitoLogger.debug("Dados internos: isSaving\(self.notificationOffline.isSaving)")
-        
+                
         if self.notificationOffline.isSaving {
-            self.notificationOffline.setRegisterAsCompletion{
+            self.notificationOffline.setRegisterAsCompletion {
                 self.finishRegisterToken(token: token, tokenType: tokenType)
             }
         } else {
@@ -35,25 +30,12 @@ class DitoNotification {
     
     func finishRegisterToken(token: String, tokenType: DitoTokenType) {
         
-        DitoLogger.debug("DitoNotification.finishRegisterToken() - Função chamada com sucesso.")
-        DitoLogger.debug("Dados: token = \(token), tokenType = \(tokenType)")
-        
         DispatchQueue.global().async {
                         
-            DitoLogger.debug("DitoNotification.finishRegisterToken() - Assincrono")
-
             let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
             
-            DitoLogger.debug("Request criado: ")
-            DitoLogger.debug("platformApiKey: \(Dito.apiKey)")
-            DitoLogger.debug("sha1Signature: \(Dito.signature)")
-            DitoLogger.debug("token: \(token)")
-            DitoLogger.debug("tokenType: \(tokenType)")
-
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 
-                DitoLogger.debug("Reference: \(reference)")
-
                 self.service.register(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
@@ -65,9 +47,7 @@ class DitoNotification {
                 }
                 
             } else {
-                
-                DitoLogger.debug("Reference vazia ou nula")
-                
+                            
                 self.notificationOffline.notificationRegister(tokenRequest)
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
             }

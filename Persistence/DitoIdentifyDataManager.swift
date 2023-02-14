@@ -14,204 +14,66 @@ class DitoIdentifyDataManager {
     
     @discardableResult
     func saveIdentifyStamp() -> Bool {
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        
-        do {
-            guard let identifyStamp = NSEntityDescription.insertNewObject(forEntityName: "IdentifySaveStamp", into: context) as? IdentifySaveStamp
-            else {
-                DitoLogger.error("Failed to save IdentifySaveStamp")
-                return false
-            }
-            
-            identifyStamp.timeStamp = NSDate().timeIntervalSince1970
-            
-            try context.save()
-            
-            DitoLogger.information("IdentifySaveStamp Saved Successfully!!!")
-            return true
-        } catch let error {
-            
-            DitoLogger.error("Failed to save IdentifySaveStamp: \(error.localizedDescription)")
-            return false
-        }
+        UserDefaults.savingState = NSDate().timeIntervalSince1970
+        return true
     }
     
     var fetchSavingState: IdentifySaveStamp? {
         
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return nil }
+        let stamp = UserDefaults.savingState
+        if stamp == 0 { return nil }
         
-        let fetchRequest = NSFetchRequest<IdentifySaveStamp>(entityName: "IdentifySaveStamp")
-        
-        do {
-            
-            guard let identifyStamp: IdentifySaveStamp = try context.fetch(fetchRequest).last else { return nil }
-            
-            DitoLogger.information("IdentifyStamp Fetch - Successfully!!!")
-            
-            return identifyStamp
-        
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
-            return  nil
-        }
+        //TODO: Não é necessário converter caso o CoreData seja removido
+        let identifyStamp = IdentifySaveStamp()
+        identifyStamp.timeStamp = stamp
+        return identifyStamp
     }
     
     @discardableResult
     func deleteIdentifyStamp() -> Bool {
         
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        
-        do {
-            
-            let fetchRequest = NSFetchRequest<IdentifySaveStamp>(entityName: "IdentifySaveStamp")
-            let savedStamps: [IdentifySaveStamp] = try context.fetch(fetchRequest)
-    
-            for stamp in savedStamps {
-                context.delete(stamp)
-            }
-            try context.save()
-            if let callback = self.identitySaveCallback {
-                callback()
-            }
-            
-            DitoLogger.information("IdentifyStamp Deleted - Successfully!!!")
-            return true
-            
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to Delete IdentifyStamp: \(fetchErr.localizedDescription)")
-            return false
-        }
+        UserDefaults.savingState = -1
+        return true
     }
-    
-    private func clearIdentifyCache() {
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return }
-        
-        do {
-            let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
-            let identifyList: [Identify] = try context.fetch(fetchRequest)
-            
-            for identify in identifyList {
-                context.delete(identify)
-            }
-            try context.save()
-            DitoLogger.information("Identify Deleted - Successfully!!!")
-                    
-        } catch let fetchErr {
-            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
-        }
-    }
-    
+
     @discardableResult
     func save(id: String, reference: String?, json: String?, send: Bool) -> Bool {
         
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else {
-            
-            let ditoDataShared = DitoCoreDataManager.shared
-            
-            return false
-        }
-        clearIdentifyCache()
+        let newIdentify = IdentifyDefaults(id: id, json: json, reference: reference, send: send)
+        UserDefaults.identify = newIdentify
         
-        do {
-            guard let identify = NSEntityDescription.insertNewObject(forEntityName: "Identify", into: context) as? Identify
-            else {
-                DitoLogger.error("Failed to save Identify")
-                return false
-            }
-            
-            identify.id = id
-            identify.reference = reference
-            identify.json = json
-            identify.send = send
-            
-            try context.save()
-            
-            DitoLogger.information("Identify Saved Successfully!!!")
-            return true
-            
-        } catch let error {
-            
-            DitoLogger.error("Failed to save Identify: \(error.localizedDescription)")
-            return false
-        }
+        //TODO: Alterar para nenhum retorno
+        return true
     }
     
     @discardableResult
     func update(id: String, reference: String?, json: String?, send: Bool) -> Bool {
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
-        let predicate = NSPredicate(format: "id = %@", id)
-        fetchRequest.predicate = predicate
-        
-        do {
-            let identify = try context.fetch(fetchRequest).first
-            identify?.id = id
-            identify?.reference = reference
-            identify?.json = json
-            identify?.send = send
-            
-            try context.save()
-            
-            DitoLogger.information("Identify Updated Successfully!!!")
-            return true
-            
-        } catch let error {
-            
-            DitoLogger.error("Failed to update Identify: \(error.localizedDescription)")
-            return false
-        }
+        //TODO: Função update pode ser descartada ao utilizar UserDefaults
+        save(id: id, reference: reference, json: json, send: send)
+        return true
     }
     
     var fetch: Identify? {
         
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return nil }
+        guard let savedIdentify = UserDefaults.identify else {return nil}
         
-        let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
+        //TODO: Não é necessário converter o objeto se substituirmos completamente o CoreData
+        var identify = Identify()
+        identify.id = savedIdentify.id
+        identify.json = savedIdentify.json
+        identify.reference = savedIdentify.reference
+        identify.send = savedIdentify.send
         
-        do {
-            
-            guard let identify: Identify = try context.fetch(fetchRequest).last else { return nil }
-            
-            DitoLogger.information("Identify Fetch - Successfully!!!")
-            
-            return identify
-        
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
-            return nil
-        }
+        return identify
     }
     
     @discardableResult
     func delete(id: String) -> Bool {
         
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        
-        let fetchRequest = NSFetchRequest<Identify>(entityName: "Identify")
-        let predicate = NSPredicate(format: "id = %@", id)
-        fetchRequest.predicate = predicate
-        
-        do {
-            
-            guard let identify: Identify = try context.fetch(fetchRequest).first else { return false }
-    
-            context.delete(identify)
-            try context.save()
-            
-            DitoLogger.information("Identify Deleted - Successfully!!!")
-            
-            return true
-        
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to fetch Identify: \(fetchErr.localizedDescription)")
-            return false
+        let checkIdentify = UserDefaults.identify
+        if checkIdentify?.id == id {
+            UserDefaults.identify = nil
         }
+        return true
     }
-
 }
