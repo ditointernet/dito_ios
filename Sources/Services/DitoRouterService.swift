@@ -22,7 +22,7 @@ enum DitoRouterService {
         case .identify:
             return "https://login.plataformasocial.com.br/"
         case .track:
-            return "http://events.plataformasocial.com.br/"
+            return "https://events.plataformasocial.com.br/"
         case .register, .unregister, .open:
             return "https://notification.plataformasocial.com.br/"
         }
