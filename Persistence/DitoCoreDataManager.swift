@@ -81,7 +81,7 @@ extension DitoCoreDataManager{
     }
 }
 
-
+//MARK: UserDefaults Objects
 struct NotificationDefaults: Codable {
     
     var retry: Int16
@@ -94,6 +94,4 @@ struct IdentifyDefaults: Codable {
     var json: String?
     var reference: String?
     var send: Bool
-    
 }
-

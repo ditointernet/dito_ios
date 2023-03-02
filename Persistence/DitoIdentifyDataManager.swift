@@ -42,13 +42,11 @@ class DitoIdentifyDataManager {
         let newIdentify = IdentifyDefaults(id: id, json: json, reference: reference, send: send)
         UserDefaults.identify = newIdentify
         
-        //TODO: Alterar para nenhum retorno
         return true
     }
     
     @discardableResult
     func update(id: String, reference: String?, json: String?, send: Bool) -> Bool {
-        //TODO: Função update pode ser descartada ao utilizar UserDefaults
         save(id: id, reference: reference, json: json, send: send)
         return true
     }
@@ -56,15 +54,6 @@ class DitoIdentifyDataManager {
     var fetch: IdentifyDefaults? {
         
         guard let savedIdentify = UserDefaults.identify else {return nil}
-        
-        //TODO: Não é necessário converter o objeto se substituirmos completamente o CoreData
-//        var identify = Identify()
-//
-//        identify.id = savedIdentify.id
-//        identify.json = savedIdentify.json
-//        identify.reference = savedIdentify.reference
-//        identify.send = savedIdentify.send
-        
         return savedIdentify
     }
     

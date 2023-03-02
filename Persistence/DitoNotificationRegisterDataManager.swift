@@ -16,7 +16,6 @@ struct DitoNotificationRegisterDataManager {
         let newNotificationRegister = NotificationDefaults(retry: retry, json: json)
         UserDefaults.notificationRegister = newNotificationRegister
         
-        //TODO: Alterar para nenhum retorno
         return true
     }
     
@@ -26,23 +25,13 @@ struct DitoNotificationRegisterDataManager {
     }
     
     var fetch: NotificationDefaults? {
-        
         guard let notificationRegisterSaved = UserDefaults.notificationRegister else {return nil}
-//        
-//        var notificationObject = NotificationRegister()
-//        
-//        notificationObject.json = notificationRegisterSaved.json
-//        notificationObject.retry = notificationRegisterSaved.retry
-        
         return notificationRegisterSaved
     }
     
     @discardableResult
     func delete() -> Bool {
-        
         UserDefaults.notificationRegister = nil
-        
-        //TODO: Alterar para nenhum retorno
         return true
     }
 }
