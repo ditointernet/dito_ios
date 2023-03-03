@@ -38,7 +38,7 @@ struct DitoIdentifyOffline {
     }
      
     var getSavingState: Bool {
-        guard let savingState = identifyDataManager.fetchSavingState?.timeStamp else {return false}
+        guard let savingState = identifyDataManager.fetchSavingState else {return false}
         
         let savingStamp = NSDate(timeIntervalSince1970: savingState)
         if savingStamp.timeIntervalSinceNow.isLess(than: -60.0) {
@@ -48,7 +48,7 @@ struct DitoIdentifyOffline {
         return true
     }
     
-    var getIdentify: Identify? {
+    var getIdentify: IdentifyDefaults? {
         return identifyDataManager.fetch
     }
     

@@ -10,7 +10,6 @@ import Foundation
 class DitoNotificationService: DitoServiceManager {
     
     func register(reference: String, data: DitoTokenRequest, completion: @escaping (_ success: DitoTokenModel?, _ error: Error?) -> ()) {
-        
         request(type: DitoTokenModel.self, router: .register(reference: reference, data: data)) { result in
             
             switch result {

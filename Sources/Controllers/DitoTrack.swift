@@ -21,6 +21,10 @@ class DitoTrack {
         
         DispatchQueue.global().async {
             
+            let debugData = data
+            let debugKey = Dito.apiKey
+            let debugSignature = Dito.signature
+            
             let eventRequest = DitoEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
             
             if let reference = self.trackOffline.reference, !reference.isEmpty {

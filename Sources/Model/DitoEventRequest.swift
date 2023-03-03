@@ -15,6 +15,7 @@ struct DitoEventRequest: Codable {
     let event: String
     var networkName: String = "pt"
     var encoding: String = "base64"
+    var idType: String = "id"
     
     init(platformApiKey: String, sha1Signature: String, event: DitoEvent) {
         
@@ -29,6 +30,7 @@ struct DitoEventRequest: Codable {
         case event
         case networkName = "network_name"
         case encoding
+        case idType = "id_type"
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -38,5 +40,6 @@ struct DitoEventRequest: Codable {
         try container.encode(event, forKey: .event)
         try container.encode(networkName, forKey: .networkName)
         try container.encode(encoding, forKey: .encoding)
+        try container.encode(idType, forKey: .idType)
     }
 }
