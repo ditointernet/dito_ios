@@ -21,6 +21,7 @@ struct DitoIdentifyOffline {
     }
     
     func finishIdentify() {
+        self.getIdentifyCompletionClosure()?()
         self.identifyDataManager.deleteIdentifyStamp()
     }
     
