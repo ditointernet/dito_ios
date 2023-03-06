@@ -14,7 +14,8 @@ struct DitoTokenRequest: Codable {
     let token: String
     let tokenType: String
     let platform: String = "Apple iPhone"
-    
+    let idType: String = "id"
+
     init(platformApiKey: String, sha1Signature: String, token: String, tokenType: DitoTokenType) {
         
         self.platformApiKey = platformApiKey
@@ -29,6 +30,7 @@ struct DitoTokenRequest: Codable {
         case token
         case tokenType = "ios_token_type"
         case platform
+        case idType = "id_type"
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -38,5 +40,6 @@ struct DitoTokenRequest: Codable {
         try container.encode(token, forKey: .token)
         try container.encode(tokenType, forKey: .tokenType)
         try container.encode(platform, forKey: .platform)
+        try container.encode(idType, forKey: .idType)
     }
 }
