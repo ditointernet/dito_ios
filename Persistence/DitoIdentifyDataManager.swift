@@ -10,6 +10,11 @@ import CoreData
 
 class DitoIdentifyDataManager {
     
+    static var shared: DitoIdentifyDataManager = {
+        let sharedInstance = DitoIdentifyDataManager()
+        return sharedInstance
+    }()
+    
     var identitySaveCallback: (() -> ())? = nil
     
     @discardableResult

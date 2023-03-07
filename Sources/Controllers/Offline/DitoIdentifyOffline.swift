@@ -12,8 +12,8 @@ struct DitoIdentifyOffline {
     
     private var identifyDataManager: DitoIdentifyDataManager
     
-    init(identifyDataManager: DitoIdentifyDataManager = .init()) {
-        self.identifyDataManager = identifyDataManager
+    init() {
+        self.identifyDataManager = DitoIdentifyDataManager.shared
     }
     
     func initiateIdentify() {
