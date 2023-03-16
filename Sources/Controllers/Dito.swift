@@ -61,12 +61,12 @@ public class Dito {
     
     @discardableResult
     public static func notificationRead(with userInfo: [AnyHashable: Any],
-                                        callback: (() -> Void)?) -> DitoNotificationReceived {
+                                        callback: ((String) -> Void)?) -> DitoNotificationReceived {
         
         let notificationReceived = DitoNotificationReceived(with: userInfo)
         let ditoNotification = DitoNotification()
         ditoNotification.notificationRead(identifier: notificationReceived.notification)
-        callback?()
+        callback?(notificationReceived.deeplink)
         return notificationReceived
     }
 }
