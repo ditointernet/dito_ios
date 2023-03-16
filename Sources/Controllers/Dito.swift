@@ -61,7 +61,7 @@ public class Dito {
     
     @discardableResult
     public static func notificationRead(with userInfo: [AnyHashable: Any],
-                                        callback: ((String) -> Void)?) -> DitoNotificationReceived {
+                                        callback: ((String) -> Void)? = nil) -> DitoNotificationReceived {
         
         let notificationReceived = DitoNotificationReceived(with: userInfo)
         let ditoNotification = DitoNotification()
