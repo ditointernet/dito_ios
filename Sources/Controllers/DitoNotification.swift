@@ -39,7 +39,7 @@ class DitoNotification {
             
             print(tokenType)
             
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: .firebase)
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
             
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 
