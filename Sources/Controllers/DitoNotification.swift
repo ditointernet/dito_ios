@@ -36,8 +36,10 @@ class DitoNotification {
     func finishRegisterToken(token: String, tokenType: DitoTokenType) {
         
         DispatchQueue.global().async {
-                        
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
+            
+            print(tokenType)
+            
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: .firebase)
             
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 
