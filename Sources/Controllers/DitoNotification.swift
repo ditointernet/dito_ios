@@ -37,7 +37,7 @@ class DitoNotification {
         
         DispatchQueue.global().async {
                         
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: .apple)
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
             
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 
