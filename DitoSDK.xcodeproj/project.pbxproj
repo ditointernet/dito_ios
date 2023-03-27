@@ -59,6 +59,8 @@
 		2CBCB2E725AF712500A79C49 /* DitoIdentifyOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2E625AF712500A79C49 /* DitoIdentifyOffline.swift */; };
 		2CBCB2EB25AF713A00A79C49 /* DitoTrackOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2EA25AF713A00A79C49 /* DitoTrackOffline.swift */; };
 		2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */; };
+		6A50D64029CDCEA600B9C06E /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50D63F29CDCEA600B9C06E /* Debugger.swift */; };
+		6A50D64129CDCEA600B9C06E /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50D63F29CDCEA600B9C06E /* Debugger.swift */; };
 		DC09871025AE6C5C00C9EA95 /* DTPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */; };
 		DC31287E25AE85AB002D867B /* DitoNotificationReadDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09872725AE84A700C9EA95 /* DitoNotificationReadDataManager.swift */; };
 		DC7E8BBD25AE24D9009B86CC /* DitoCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BBC25AE24D9009B86CC /* DitoCoreDataManager.swift */; };
@@ -133,6 +135,8 @@
 		2CBCB2E625AF712500A79C49 /* DitoIdentifyOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoIdentifyOffline.swift; sourceTree = "<group>"; };
 		2CBCB2EA25AF713A00A79C49 /* DitoTrackOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrackOffline.swift; sourceTree = "<group>"; };
 		2CC04D0125B5EA8E003347EA /* DitoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DitoDataModel.xcdatamodel; sourceTree = "<group>"; };
+		6A50D63E29CDCE6C00B9C06E /* GlobalState.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GlobalState.plist; sourceTree = "<group>"; };
+		6A50D63F29CDCEA600B9C06E /* Debugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTPersistenceTests.swift; sourceTree = "<group>"; };
 		DC09872725AE84A700C9EA95 /* DitoNotificationReadDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationReadDataManager.swift; sourceTree = "<group>"; };
 		DC7E8BBC25AE24D9009B86CC /* DitoCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoCoreDataManager.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				0C818E3B25A4A41500B96B53 /* Info.plist */,
+				6A50D63E29CDCE6C00B9C06E /* GlobalState.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				2C17B0C025BA166D00DAD77C /* Reachability.swift */,
 				0C68FB3525A77A100050E369 /* SHA1.swift */,
 				0CE1EB0C25A6333D00460837 /* Util.swift */,
+				6A50D63F29CDCEA600B9C06E /* Debugger.swift */,
 			);
 			name = Utils;
 			path = Sources/Utils;
@@ -495,6 +501,7 @@
 				2C973FC025C1FBD9000563FC /* DitoTokenModel.swift in Sources */,
 				0CE1EB2D25A6333D00460837 /* Date+Extension.swift in Sources */,
 				0CE1EB3A25A6333D00460837 /* DitoResultModel.swift in Sources */,
+				6A50D64029CDCEA600B9C06E /* Debugger.swift in Sources */,
 				0CE1EB3825A6333D00460837 /* DitoTrackModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +513,7 @@
 				0CD6427225A73DE8002BA5FB /* MockDTTrackService.swift in Sources */,
 				0C53306A25A73B770008B6A5 /* MockDTIdentifyService.swift in Sources */,
 				0C53307E25A73B850008B6A5 /* DTTestCase.swift in Sources */,
+				6A50D64129CDCEA600B9C06E /* Debugger.swift in Sources */,
 				DC09871025AE6C5C00C9EA95 /* DTPersistenceTests.swift in Sources */,
 				0C53308A25A73BAE0008B6A5 /* DTIdentifyTests.swift in Sources */,
 				0C68FB3F25A77A420050E369 /* DTHashTests.swift in Sources */,
