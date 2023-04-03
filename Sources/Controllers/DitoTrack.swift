@@ -18,12 +18,18 @@ class DitoTrack {
     }
     
     func track(data: DitoEvent) {
+        if self.trackOffline.checkIdentifyState() {
+            self.trackOffline.setTrackCompletion {
+                self.completeTracking(data: data)
+            }
+        } else {
+            self.completeTracking(data: data)
+        }
+    }
+    
+    func completeTracking(data: DitoEvent) {
         
         DispatchQueue.global().async {
-            
-            let debugData = data
-            let debugKey = Dito.apiKey
-            let debugSignature = Dito.signature
             
             let eventRequest = DitoEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
             

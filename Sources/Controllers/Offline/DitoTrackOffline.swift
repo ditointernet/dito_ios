@@ -18,6 +18,15 @@ struct DitoTrackOffline {
         self.identifyOffline = identifyOffline
     }
     
+    func checkIdentifyState() -> Bool {
+        if self.identifyOffline.getSavingState {return true}
+        return false
+    }
+    
+    func setTrackCompletion(closure: @escaping () -> ()) {
+        self.identifyOffline.setIdentityCompletionClosure{closure()}
+    }
+    
     func track(event: DitoEventRequest) {
         
         if self.identifyOffline.getSavingState {

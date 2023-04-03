@@ -12,8 +12,8 @@ struct DitoIdentifyOffline {
     
     private var identifyDataManager: DitoIdentifyDataManager
     
-    init(identifyDataManager: DitoIdentifyDataManager = .init()) {
-        self.identifyDataManager = identifyDataManager
+    init() {
+        self.identifyDataManager = DitoIdentifyDataManager.shared
     }
     
     func initiateIdentify() {
@@ -21,7 +21,9 @@ struct DitoIdentifyOffline {
     }
     
     func finishIdentify() {
+        self.getIdentifyCompletionClosure()?()
         self.identifyDataManager.deleteIdentifyStamp()
+        self.identifyDataManager.identitySaveCallback = nil
     }
     
     func setIdentityCompletionClosure(_ closure: @escaping () -> Void) {
