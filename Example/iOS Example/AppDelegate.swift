@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Dito.notificationRead(with: userInfo)
+        Dito.notificationRead(with: userInfo, callback: { deeplink in print(deeplink) })
     }
 }
 
