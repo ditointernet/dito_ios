@@ -8,6 +8,7 @@ SDK iOS
 - [ x ] Conversão SHA1
 - [ x ] Track
 - [ x ] Notification
+- [ x ] Tratamento de Deeplink
 - [ x ] Offline Management
 
 ## Requirements
@@ -23,7 +24,7 @@ pod 'DitoSDK'
 
 Para instalar uma versão específica, inclua o número da versão:
 
-pod 'DitoSDK', '~> 0.0.4'
+pod 'DitoSDK', '~> 1.0.0'
 
 Em alguns casos, pode ser necessário utilizar uma branch específica para algum ajuste ou correção pontual ou urgente. Neste caso, basta especificar a branch:
 
@@ -89,6 +90,52 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 #### Push Notification
 
+Para captura e tratamento de notificações, é necessário incluir no projeto a função inicial, responsável por capturar notificações nativas.
+A função pode ser encontrada no projeto de exemplo, e executa o processo de leitura e notificação interna sobre o push recebido.
+Deve ser incluída na classe 'AppDelegate' do lado nativo do projeto
+
+```swift
+    func application(_ application: UIApplication, 
+                     didReceiveRemoteNotification userInfo: [AnyHashable : Any], 
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        //Ver sessão 'tratamento de deeplink' para definição interna desta função
+    }
+
+```
+
+##### Tratamento de Deeplink
+
+O projeto conta com opção para receber o deeplink de notificações durante a leitura das mesmas. 
+Para isso, basta incluir o envio da closure na chamada notificationRead. 
+
+```swift
+Dito.notificationRead(with: userInfo, callback: { deeplink in 
+							print(deeplink) })
+```
+
+No exemplo, a variável. “deeplink” é retornada com o valor do deeplink, e a ação de print é executada no bloco.
+A inclusão é opcional, e pode ser omitida caso não haja necessidade de captura de deeplink
+
+```swift
+Dito.notificationRead(with: userInfo)
+```
+
+De forma completa, há duas opções para a função adicionada ao AppDelegate.
+
+Com captura de Deeplink: 
+```swift
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        Dito.notificationRead(with: userInfo, callback: { deeplink in print(deeplink) })
+    }
+
+```
+
+Ou sem captura de deeplink
+```swift
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        Dito.notificationRead(with: userInfo)
+    }
+```
 ##### Register Device
 
 ```swift
