@@ -68,7 +68,7 @@ class DitoNotification {
                                                 token: token, tokenType: tokenType)
             
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
-                self.service.register(reference: reference, data: tokenRequest) { (register, error) in
+                self.service.unregister(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
                         self.notificationOffline.notificationUnregister(tokenRequest)
