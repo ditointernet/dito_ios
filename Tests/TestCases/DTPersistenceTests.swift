@@ -12,6 +12,8 @@ import XCTest
 
 class DTPersistenceTests: XCTestCase {
     
+    var sut: DitoNotificationReadDataManager!
+    
     //MARK: Identify
     
     func testSaveIdentify() {
@@ -72,19 +74,22 @@ class DTPersistenceTests: XCTestCase {
     //MARK: Notify
     
     func testSaveNotify() {
+        let JSON = "{\"title\": \"New Notification\"}"
         
-        let result = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
-        
-        XCTAssertTrue(result, "Result must be true")
+        let saveResult = sut.save(with: JSON)
+        XCTAssertTrue(saveResult, "Result must be true")
     }
     
     func testFetchNotify() {
-    
-        _ = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
-        _ = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
-        _ = DitoNotificationReadDataManager.save(reference: "ertit343434", send: true, json: Data())
+        let JSON = "{\"title\": \"New Notification\"}"
         
-        let result = DitoNotificationReadDataManager.fetch()
+        _ = sut.save(with: JSON)
+        _ = sut.save(with: JSON)
+        _ = sut.save(with: JSON)
+        _ = sut.save(with: JSON)
+        _ = sut.save(with: JSON)
+        
+        let result = sut.fetchAll
         
         XCTAssertNotNil(result, "Result must be not nil")
     }

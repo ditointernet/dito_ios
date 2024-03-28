@@ -40,10 +40,16 @@ class DitoCoreDataManager {
     lazy var persistentContainer: NSPersistentContainer = {
         
         let messageKitBundle = Bundle(identifier: self.identifier)
-        let modelURL = messageKitBundle!.url(forResource: self.model, withExtension: "momd")!
-        let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
         
-        let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
+        guard let modelURL = messageKitBundle?.url(forResource: self.model, withExtension: "momd")  else {
+            fatalError("Failed to find data model")
+        }
+        
+        guard let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL) else {
+           fatalError("Failed to create model from file: \(modelURL)")
+        }
+        
+        let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel)
         container.loadPersistentStores { (storeDescription, error) in
             if let err = error{
                 DitoLogger.error(err.localizedDescription)
