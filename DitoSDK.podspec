@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/ditointernet/dito_ios.git', :tag => 'v' + s.version.to_s }
 
   s.swift_version = "5.3"
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '14.3'
   s.source_files = 'Sources/**/*', 'Persistence/*.{swift}'
   s.resources = 'Persistence/*.{xcdatamodeld}'
   s.exclude_files = "Sources/Info.plist"
