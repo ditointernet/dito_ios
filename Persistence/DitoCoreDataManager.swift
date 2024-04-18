@@ -38,14 +38,20 @@ class DitoCoreDataManager {
     
     ///Persistent Container to mange Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: self.model, managedObjectModel: self.managedObjectModel!)
+        let modelPath = Bundle.main.path(forResource: self.model, ofType: "momd")!
+        let modelURL = Bundle(for: type(of: self)).url(forResource: self.model, withExtension: "momd") ?? URL(fileURLWithPath: modelPath )
+        let managedObjectModel =  NSManagedObjectModel(contentsOf: modelURL)
+        
+        let container = NSPersistentContainer(name: self.model, managedObjectModel: managedObjectModel!)
         container.loadPersistentStores { (storeDescription, error) in
-            if let error = error {
-                fatalError("Failed to load persistent stores: \(error)")
+            if let err = error{
+                DitoLogger.error(err.localizedDescription)
             }
         }
         return container
     }()
+    
+    
     
     private var managedObjectModel: NSManagedObjectModel? {
         let messageKitBundle = Bundle(identifier: self.identifier)
@@ -94,4 +100,9 @@ struct IdentifyDefaults: Codable {
     var json: String?
     var reference: String?
     var send: Bool
+}
+
+
+enum MyError: Error {
+    case modelNotFound
 }
