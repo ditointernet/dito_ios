@@ -86,7 +86,7 @@ class DitoRetry {
         guard let event = track.event, let eventRequest = event.convertToObject(type: DitoEventRequest.self) else { return }
         let id = track.objectID
         
-        if let reference = trackOffline.reference, !reference.isEmpty {
+        if let reference = trackOffline.id, !reference.isEmpty {
             serviceTrack.event(reference: reference, data: eventRequest) { [weak self] (_, error) in
                 
                 guard let self = self else { return }

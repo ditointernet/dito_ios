@@ -47,8 +47,12 @@ struct DitoTrackOffline {
 
     }
     
-    var reference: String? {
+    var id: String? {
         return identifyOffline.getIdentify?.id
+    }
+    
+    var reference: String? {
+        return identifyOffline.getIdentify?.reference
     }
     
     var getTrack: [Track] {

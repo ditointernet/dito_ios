@@ -39,7 +39,7 @@ class DitoNotification {
                         
             let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
             
-            if let reference = self.notificationOffline.reference, !reference.isEmpty {
+            if let reference = self.notificationOffline.id, !reference.isEmpty {
                 
                 self.service.register(reference: reference, data: tokenRequest) { (register, error) in
                     
@@ -67,8 +67,8 @@ class DitoNotification {
                                                 sha1Signature: Dito.signature,
                                                 token: token, tokenType: tokenType)
             
-            if let reference = self.notificationOffline.reference, !reference.isEmpty {
-                self.service.register(reference: reference, data: tokenRequest) { (register, error) in
+            if let reference = self.notificationOffline.id, !reference.isEmpty {
+                self.service.unregister(reference: reference, data: tokenRequest) { (register, error) in
                     
                     if let error = error {
                         self.notificationOffline.notificationUnregister(tokenRequest)

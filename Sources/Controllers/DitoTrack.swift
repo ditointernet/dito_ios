@@ -33,7 +33,7 @@ class DitoTrack {
             
             let eventRequest = DitoEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
             
-            if let reference = self.trackOffline.reference, !reference.isEmpty {
+            if let reference = self.trackOffline.id, !reference.isEmpty {
                 self.service.event(reference: reference, data: eventRequest) { (track, error) in
                     
                     if let error = error {
