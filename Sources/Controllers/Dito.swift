@@ -8,7 +8,7 @@
 import Foundation
 
 public class Dito {
-
+    
     public static let shared = Dito()
     static var apiKey: String = ""
     static var apiSecret: String = ""
@@ -65,17 +65,17 @@ public class Dito {
         
         let notificationReceived = DitoNotificationReceived(with: userInfo)
         let ditoNotification = DitoNotification()
-        ditoNotification.notificationRead(identifier: notificationReceived.notification)
+        ditoNotification.notificationRead(notificationId: notificationReceived.notification, reference: notificationReceived.reference, identifier: notificationReceived.identifier)
         callback?(notificationReceived.deeplink)
         return notificationReceived
     }
 }
 
-    //MARK: - Network Connection
+//MARK: - Network Connection
 extension Dito {
     
     @objc func reachabilityChanged(_ note: Notification) {
-
+        
         if self.reachability.connection != .unavailable {
             retry.loadOffline()
         }

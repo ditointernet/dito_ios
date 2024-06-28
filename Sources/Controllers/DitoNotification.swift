@@ -23,20 +23,20 @@ class DitoNotification {
         //TODO: Analisar remoção do valor salvo
         
         /*
-        if self.notificationOffline.isSaving {
-            self.notificationOffline.setRegisterAsCompletion {
-                self.finishRegisterToken(token: token, tokenType: tokenType)
-            }
-        } else {
-            self.finishRegisterToken(token: token, tokenType: tokenType)
-        }
+         if self.notificationOffline.isSaving {
+         self.notificationOffline.setRegisterAsCompletion {
+         self.finishRegisterToken(token: token, tokenType: tokenType)
+         }
+         } else {
+         self.finishRegisterToken(token: token, tokenType: tokenType)
+         }
          */
     }
     
     func finishRegisterToken(token: String, tokenType: DitoTokenType) {
         
         DispatchQueue.global().async {
-                        
+            
             let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
             
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
@@ -52,7 +52,7 @@ class DitoNotification {
                 }
                 
             } else {
-                            
+                
                 self.notificationOffline.notificationRegister(tokenRequest)
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
             }
@@ -85,30 +85,23 @@ class DitoNotification {
         }
     }
     
-    func notificationRead(identifier: String) {
+    func notificationRead(notificationId: String, reference: String, identifier: String) {
         
         DispatchQueue.global(qos: .background).async {
+            let data = DitoDataNotification(identifier: identifier, reference: reference)
             
-            if let reference = self.notificationOffline.reference, !reference.isEmpty, !identifier.isEmpty {
+            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
+                                                                  sha1Signature: Dito.signature,
+                                                                  data: data)
+            
+            self.service.read(notificationId: notificationId, data: notificationRequest) { (register, error) in
                 
-                let data = DitoDataNotification(identifier: identifier, reference: reference)
-                
-                let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
-                                                                      sha1Signature: Dito.signature,
-                                                                      data: data)
-                
-                self.service.read(notificationId: identifier, data: notificationRequest) { (register, error) in
-                    
-                    if let error = error {
-                        self.notificationOffline.notificationRead(notificationRequest)
-                        DitoLogger.error(error.localizedDescription)
-                    } else {
-                        DitoLogger.information("Notification - Registro do notification push enviado")
-                    }
+                if let error = error {
+                    self.notificationOffline.notificationRead(notificationRequest)
+                    DitoLogger.error(error.localizedDescription)
+                } else {
+                    DitoLogger.information("Notification - Registro do notification push enviado")
                 }
-                
-            } else {
-                DitoLogger.warning("Notification Read - Antes de informar uma notifição lida é preciso identificar o usuário.")
             }
         }
     }

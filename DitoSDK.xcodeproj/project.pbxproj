@@ -58,7 +58,6 @@
 		2C9FCF9125C44DFB00FC1F41 /* DitoNotificationReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9FCF9025C44DFB00FC1F41 /* DitoNotificationReceived.swift */; };
 		2CBCB2E725AF712500A79C49 /* DitoIdentifyOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2E625AF712500A79C49 /* DitoIdentifyOffline.swift */; };
 		2CBCB2EB25AF713A00A79C49 /* DitoTrackOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB2EA25AF713A00A79C49 /* DitoTrackOffline.swift */; };
-		2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */; };
 		6A50D64029CDCEA600B9C06E /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50D63F29CDCEA600B9C06E /* Debugger.swift */; };
 		6A50D64129CDCEA600B9C06E /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50D63F29CDCEA600B9C06E /* Debugger.swift */; };
 		DC09871025AE6C5C00C9EA95 /* DTPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09870F25AE6C5C00C9EA95 /* DTPersistenceTests.swift */; };
@@ -66,6 +65,7 @@
 		DC7E8BBD25AE24D9009B86CC /* DitoCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BBC25AE24D9009B86CC /* DitoCoreDataManager.swift */; };
 		DC7E8BC125AE44D2009B86CC /* DitoIdentifyDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BC025AE44D2009B86CC /* DitoIdentifyDataManager.swift */; };
 		DC7E8BC525AE44E1009B86CC /* DitoTrackDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7E8BC425AE44E1009B86CC /* DitoTrackDataManager.swift */; };
+		E97BEBEC2C2F27BE007EC83F /* DitoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CC04D0025B5EA8E003347EA /* DitoDataModel.xcdatamodeld */; };
 		OBJ_67 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DitoSDK::DitoSDK::Product" /* DitoSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -437,6 +437,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_26 /* Products */;
@@ -454,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				E97BEBEC2C2F27BE007EC83F /* DitoDataModel.xcdatamodeld in Sources */,
 				2C64BF3B25C067770069B788 /* DitoNotificationOffline.swift in Sources */,
 				0CE1EB2C25A6333D00460837 /* DitoErrorType.swift in Sources */,
 				0C68FB3625A77A100050E369 /* SHA1.swift in Sources */,
@@ -473,7 +475,6 @@
 				2C36ED5825C88D730044CFCE /* DitoNotificationUnregisterDataManager.swift in Sources */,
 				2C9FCF9125C44DFB00FC1F41 /* DitoNotificationReceived.swift in Sources */,
 				0CE1EB2525A6333D00460837 /* DitoServiceManager.swift in Sources */,
-				2CC04D0225B5EA8E003347EA /* DitoDataModel.xcdatamodeld in Sources */,
 				0C68FB2E25A779E60050E369 /* DitoValidationCharacters.swift in Sources */,
 				0CE1EB2625A6333D00460837 /* DitoIdentifyService.swift in Sources */,
 				DC31287E25AE85AB002D867B /* DitoNotificationReadDataManager.swift in Sources */,
