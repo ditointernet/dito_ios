@@ -9,25 +9,33 @@ import Foundation
 
 public struct DitoNotificationReceived {
     
+    var reference: String = ""
+    var identifier: String = ""
     var notification: String = ""
     var notificationLogId: String = ""
-    public let deeplink: String
+    public let deeplink: String = ""
     
     init(with userInfo: [AnyHashable: Any]) {
         
-        let custom_data = userInfo["custom_data"] as? [String: Any]
-        deeplink = custom_data?["link"] as? String ?? ""
-        
-        if let notification = custom_data?["notification"] as? String {
+        if let notification = userInfo["notification"] as? String {
             self.notification = notification
-        } else if let notification = custom_data?["notification"] as? Int {
-            self.notification = notification.toString
         }
         
-        if let notificationLogId = custom_data?["notification_log_id"] as? String {
+        if let notification = userInfo["link"] as? String {
+            self.notification = notification
+        }
+
+        
+        if let reference = userInfo["reference"] as? String {
+            self.reference = reference
+        }
+        
+        if let identifier = userInfo["identifier"] as? String {
+            self.identifier = identifier
+        }
+        
+        if let notificationLogId = userInfo["notification_log_id"] as? String {
             self.notificationLogId = notificationLogId
-        } else if let notificationLogId = custom_data?["notification_log_id"] as? Int {
-            self.notificationLogId = notificationLogId.toString
         }
     }
 }
