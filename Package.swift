@@ -16,14 +16,14 @@ let package = Package(
         .target(
             name: "DitoSDK",
             dependencies: [],
-            path: "Sources",
-            exclude: ["Info.plist"]
+            path: "DitoSDK/Sources",
+            exclude: ["DitoSDK/Info.plist"]
         ),
         .testTarget(
             name: "DitoSDKTests",
             dependencies: ["DitoSDK"],
             path: "Tests",
-            exclude: ["Info.plist"]
+            exclude: ["DitoSDK/Info.plist"]
         ),
     ]
 )

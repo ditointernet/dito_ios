@@ -171,6 +171,7 @@
 		E317FE537B4DD79FA107A536 /* Debugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		E36C88373075F1E953FD21A5 /* DitoNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotification.swift; sourceTree = "<group>"; };
 		E6EEB14B38A1C5877FBAA131 /* DitoGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoGender.swift; sourceTree = "<group>"; };
+		E974488C2C33496500352791 /* DitoSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DitoSDK.podspec; sourceTree = "<group>"; };
 		E9ECDC4D91B5F9BC6D4609C6 /* DitoNotificationOpenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationOpenRequest.swift; sourceTree = "<group>"; };
 		E9F16BCD2C33299A00AC9424 /* SampleDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleDebug.entitlements; sourceTree = "<group>"; };
 		EE304EF54A31ACD454D6E5B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -263,6 +264,10 @@
 		51D3D224B61F59E9BB426949 = {
 			isa = PBXGroup;
 			children = (
+				1DA63E9569FD1A8A0D69F6A9 /* Package.swift */,
+				E974488C2C33496500352791 /* DitoSDK.podspec */,
+				B5D8F87C9E4C9112E5B0E765 /* LICENSE */,
+				491A7EF85D83719C2E191064 /* README.md */,
 				E9F16BCD2C33299A00AC9424 /* SampleDebug.entitlements */,
 				E2B361C4CF85C237FB25C36D /* DitoSDK */,
 				77EDF3217D3F7FB6DD95B854 /* SampleApplication */,
@@ -416,9 +421,6 @@
 			children = (
 				911578593020D76D866C2261 /* GlobalState.plist */,
 				970313E9E6618FE30F4BA7E9 /* Info.plist */,
-				B5D8F87C9E4C9112E5B0E765 /* LICENSE */,
-				1DA63E9569FD1A8A0D69F6A9 /* Package.swift */,
-				491A7EF85D83719C2E191064 /* README.md */,
 				1E5A6EC2237004703E2948DD /* Persistence */,
 				C8A1413E3834DC372F5FAD3C /* Sources */,
 				2A9A4503A3F275E3CE1D8453 /* Tests */,
