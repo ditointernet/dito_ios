@@ -86,7 +86,7 @@ public class Dito {
                     "token": token,
                     "id-disparo": notificationReceived.logId,
                     "id-notificacao": notificationReceived.notification,
-                    "nome_notificacao": "notificationReceived.notificationName",
+                    "nome_notificacao": notificationReceived.notificationName,
                     "provedor": "firebase",
                     "sistema_operacional": "Apple iPhone",
                 ]
