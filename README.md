@@ -246,7 +246,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 // MARK: - Notification Center Delegate
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    
+
     /// Chamado quando a notificação chega com o app em FOREGROUND
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
@@ -255,10 +255,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             @escaping (UNNotificationPresentationOptions) -> Void
     ) {
         let userInfo = notification.request.content.userInfo
-        
+
         // Notifique o Firebase que recebeu a mensagem
         Messaging.messaging().appDidReceiveMessage(userInfo)
-        
+
         // Mostre o banner mesmo com app em foreground
         if #available(iOS 14.0, *) {
             completionHandler([[.banner, .list, .sound, .badge]])
@@ -296,17 +296,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 // MARK: - Messaging Delegate
 
 extension AppDelegate: MessagingDelegate {
-    
+
     /// Chamado quando o token FCM é atualizado
     func messaging(
         _ messaging: Messaging,
         didReceiveRegistrationToken fcmToken: String?
     ) {
         guard let fcmToken = fcmToken else { return }
-        
+
         print("🔑 Novo token FCM: \(fcmToken)")
         self.fcmToken = fcmToken
-        
+
         // Registra o token no DitoSDK
         Dito.registerDevice(token: fcmToken)
     }
@@ -543,9 +543,9 @@ extension AppDelegate: MessagingDelegate {
         didReceiveRegistrationToken fcmToken: String?
     ) {
         guard let fcmToken = fcmToken else { return }
-        
+
         print("🔑 Novo token FCM: \(fcmToken)")
-        
+
         // Registra o token no Dito
         Dito.registerDevice(token: fcmToken)
     }
@@ -675,14 +675,14 @@ func userNotificationCenter(
         @escaping (UNNotificationPresentationOptions) -> Void
 ) {
     let userInfo = notification.request.content.userInfo
-    
+
     // Registra recebimento em foreground
     Messaging.messaging().token { fcmToken, error in
         if let fcmToken = fcmToken {
             Dito.notificationRead(with: userInfo, token: fcmToken)
         }
     }
-    
+
     completionHandler([[.banner, .list, .sound, .badge]])
 }
 
@@ -705,14 +705,14 @@ func userNotificationCenter(
     withCompletionHandler completionHandler: @escaping () -> Void
 ) {
     let userInfo = response.notification.request.content.userInfo
-    
+
     Messaging.messaging().token { fcmToken, error in
         if let fcmToken = fcmToken {
             // Registra que foi lida
             Dito.notificationRead(with: userInfo, token: fcmToken)
         }
     }
-    
+
     completionHandler()
 }
 ```
@@ -765,13 +765,13 @@ func userNotificationCenter(
     let notificationData = Dito.notificationClick(with: userInfo) { deeplink in
         // Callback com o deeplink
         print("🔗 Deeplink: \(deeplink)")
-        
+
         // Processe o deeplink para navegar
         if !deeplink.isEmpty {
             self.handleDeeplink(deeplink)
         }
     }
-    
+
     // Acesse os dados da notificação
     print("📱 Notificação: \(notificationData.notification)")
     print("👤 Usuário: \(notificationData.identifier)")
@@ -825,13 +825,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     ) -> Bool {
         // 1. Firebase
         FirebaseApp.configure()
-        
+
         // 2. Messaging
         Messaging.messaging().delegate = self
-        
+
         // 3. Dito
         Dito.shared.configure()
-        
+
         // 4. Notificações
         UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications(application: application)
@@ -878,7 +878,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 // MARK: - Notification Delegate
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    
+
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
@@ -887,7 +887,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     ) {
         let userInfo = notification.request.content.userInfo
         print("🔔 Notificação em foreground: \(userInfo)")
-        
+
         completionHandler([[.banner, .list, .sound, .badge]])
     }
 
@@ -903,7 +903,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             if let fcmToken = fcmToken {
                 // Registra leitura
                 Dito.notificationRead(with: userInfo, token: fcmToken)
-                
+
                 // Registra clique
                 let notification = Dito.notificationClick(
                     with: userInfo
@@ -911,7 +911,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                     // Processe o deeplink
                     print("🔗 Deeplink: \(deeplink)")
                 }
-                
+
                 print("✅ Notificação processada: \(notification.notification)")
             }
         }
@@ -923,16 +923,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 // MARK: - Messaging Delegate
 
 extension AppDelegate: MessagingDelegate {
-    
+
     func messaging(
         _ messaging: Messaging,
         didReceiveRegistrationToken fcmToken: String?
     ) {
         guard let fcmToken = fcmToken else { return }
-        
+
         print("🔑 FCM Token: \(fcmToken)")
         self.fcmToken = fcmToken
-        
+
         // Registra no Dito
         Dito.registerDevice(token: fcmToken)
     }
@@ -971,16 +971,16 @@ func application(
 ) -> Bool {
     // 1️⃣ Firebase PRIMEIRO
     FirebaseApp.configure()
-    
+
     // 2️⃣ Messaging delegate SEGUNDO
     Messaging.messaging().delegate = self
-    
+
     // 3️⃣ Dito por último
     Dito.shared.configure()
-    
+
     // 4️⃣ Notificações
     UNUserNotificationCenter.current().delegate = self
-    
+
     return true
 }
 ```
@@ -994,7 +994,7 @@ func application(
 ) {
     // ⚠️ SEMPRE PRIMEIRO
     Messaging.messaging().apnsToken = deviceToken
-    
+
     // Depois pedir o token FCM
     Messaging.messaging().token { token, error in
         if let token = token {
