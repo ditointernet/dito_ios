@@ -77,7 +77,10 @@ public class Dito {
         let dtIdentify = DitoIdentify()
 
 
-        dtIdentify.identify(id: notificationReceived.userId)
+        // Ensure we have a valid email for identification
+        let userEmail = notificationReceived.email ?? ""
+        let ditoUser = DitoUser(id: notificationReceived.userId, email: userEmail)
+        dtIdentify.identify(id: notificationReceived.userId, data: ditoUser)
         dtTrack.track(
             data: DitoEvent(
                 action: "receive-ios-notification",
