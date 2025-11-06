@@ -1,18 +1,11 @@
-//
-//  DTLogger.swift
-//  DitoSDK
-//
-//  Created by brennobemoura on 06/01/21.
-//
-
 import Foundation
 
 /**
- DTLogger is a enum that contains the log level cases to print messages
+ DitoLogger is a enum that contains the log level cases to print messages
 
  Example for fatal log:
 
-     DTLogger.fatal("Can't init the db")
+     DitoLogger.fatal("Can't init the db")
  */
 
 enum DitoLogger: String {
@@ -43,18 +36,18 @@ extension DitoLogger {
         line: Int = #line,
         column: Int = #column,
         function: String = #function) {
-        
+
         let message = items.map { "\($0)" }.joined(separator: separator)
         let dateString = DitoLogger.dateFormatter.string(from: Date())
         let logAtPath = "\(DitoLogger.sourceFileName(filePath: filename))[\(line):\(column)]"
         let functionError = "at \(function) => \(message)"
-        
+
         print("\(dateString) \(self.rawValue) \(logAtPath) \(functionError)")
     }
 }
 
 private extension DitoLogger {
-    private static var dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
+    private static let dateFormat = "yyyy-MM-dd hh:mm:ssSSS"
 
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()

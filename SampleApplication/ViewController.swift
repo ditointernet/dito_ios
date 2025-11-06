@@ -1,11 +1,20 @@
 import CoreData
 import DitoSDK
+import DitoSDK
 import FirebaseMessaging
+import Toast_Swift
+import UIKit
 import Toast_Swift
 import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var fieldCpf: UITextField!
+    @IBOutlet weak var fieldEmail: UITextField!
+    @IBOutlet weak var buttonRegisterDevice: UIButton!
+    @IBOutlet weak var buttonNotification: UIButton!
+
+    var identified: Bool = false
+
     @IBOutlet weak var fieldEmail: UITextField!
     @IBOutlet weak var buttonRegisterDevice: UIButton!
     @IBOutlet weak var buttonNotification: UIButton!
@@ -19,19 +28,30 @@ class ViewController: UIViewController {
         return dateFormatter.date(from: birthdayString)
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureKeyboardDismissGesture()
         fieldEmail?.becomeFirstResponder()
+
+        configureKeyboardDismissGesture()
+        fieldEmail?.becomeFirstResponder()
     }
+
 
     @IBAction func didTapIdentify(_ sender: Any) {
         handleIndentifyClick()
+        handleIndentifyClick()
     }
+
 
     @IBAction func didTapNotification(_ sender: Any) {
         handleNotificationClick()
+    }
+
+    @IBAction func didTapRegistration(_ sender: Any) {
+        handleDeviceRegistration()
     }
 
     @IBAction func didTapRegistration(_ sender: Any) {
@@ -79,9 +99,55 @@ extension ViewController {
 
         buttonRegisterDevice.isEnabled = true
         buttonNotification.isEnabled = true
+
+    // MARK: - Actions
+    func handleIndentifyClick() {
+        // Garante que teremos um campo de email válido (via IBOutlet ou fallback)
+        guard let emailField = fieldEmail else {
+            showToast("Campo de e-mail não disponível. Verifique conexões no storyboard.")
+            return
+        }
+
+        //  Normaliza e valida e-mail
+        let normalizedEmail = normalizeEmail(emailField.text)
+
+        // Verifica se o e-mail foi informado
+        guard let email = normalizedEmail, !email.isEmpty else {
+            showToast("E-mail não informado")
+            emailField.becomeFirstResponder()
+            return
+        }
+
+        // Monta o usuário; o SDK validará o formato do e-mail
+        let user = DitoUser(
+            name: "Dito user teste",
+            gender: .masculino,
+            email: email,
+            birthday: birthday,
+            location: "Florianópolis"
+        )
+
+        // ID estável via SHA1 (email normalizado)
+        let userId = Dito.sha1(for: email)
+
+        // Identifica no Dito
+        Dito.identify(id: userId, data: user)
+        identified = true
+
+        showToast("Usuário identificado")
+
+        buttonRegisterDevice.isEnabled = true
+        buttonNotification.isEnabled = true
     }
 
+
     func handleNotificationClick() {
+        // Cria objeto evento de comportamento customizado
+        let event = DitoEvent(
+            action: "teste-behavior",
+            customData: ["id_loja": 123]
+        )
+        // Dispara o evento no Dito SDK
         // Cria objeto evento de comportamento customizado
         let event = DitoEvent(
             action: "teste-behavior",
@@ -101,8 +167,10 @@ extension ViewController {
                 }
                 print("Error fetching FCM registration token: \(error)")
             } else if let fcmToken = fcmToken {
-                // Registra o dispositivo no Dito SDK
-                Dito.registerDevice(token: fcmToken)
+                // Registra o dispositivo no Dito SDK em MainActor
+                Task { @MainActor in
+                    Dito.registerDevice(token: fcmToken)
+                }
                 DispatchQueue.main.async {
                     self.showToast("Dispositivo registrado")
                 }

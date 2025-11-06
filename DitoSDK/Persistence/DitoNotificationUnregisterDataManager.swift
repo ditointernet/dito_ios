@@ -1,19 +1,10 @@
-//
-//  DitoNotificationUnregisterDataManager.swift
-//  DitoSDK
-//
-//  Created by Rodrigo Damacena Gamarra Maciel on 01/02/21.
-//
-
 import Foundation
 import CoreData
 
 struct DitoNotificationUnregisterDataManager {
 
-    /// Saves notification unregister using background context (iOS 16+ safe)
     @discardableResult
     func save(with json: String?, retry: Int16 = 1) -> Bool {
-        // Delete any existing entries first
         delete()
 
         var success = false
@@ -44,9 +35,10 @@ struct DitoNotificationUnregisterDataManager {
         return success
     }
 
-    /// Updates notification unregister using background context (iOS 16+ safe)
     @discardableResult
     func update(id: NSManagedObjectID, retry: Int16) -> Bool {
+        guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+            DitoLogger.error("Failed to create background context for update")
         guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
             DitoLogger.error("Failed to create background context for update")
             return false
@@ -73,7 +65,6 @@ struct DitoNotificationUnregisterDataManager {
         return success
     }
 
-    /// Fetches the first notification unregister using background context
     var fetch: NotificationUnregister? {
         guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
             DitoLogger.error("Failed to create background context for fetch")
@@ -99,7 +90,6 @@ struct DitoNotificationUnregisterDataManager {
         return result
     }
 
-    /// Deletes all notification unregisters using background context (iOS 16+ safe)
     @discardableResult
     func delete() -> Bool {
         guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
@@ -125,7 +115,32 @@ struct DitoNotificationUnregisterDataManager {
                 DitoLogger.error("Error deleting NotificationUnregister: \(error.localizedDescription)")
                 success = false
             }
+        guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+            DitoLogger.error("Failed to create background context for delete")
+            return false
         }
+
+        var success = false
+        context.performAndWait {
+            do {
+                let fetchRequest = NSFetchRequest<NotificationUnregister>(entityName: "NotificationUnregister")
+                fetchRequest.returnsObjectsAsFaults = false
+
+                let notificationUnregisters = try context.fetch(fetchRequest)
+                for managedObject in notificationUnregisters {
+                    context.delete(managedObject)
+                }
+
+                try context.save()
+                DitoLogger.information("NotificationUnregister Deleted - Successfully!!!")
+                success = true
+            } catch {
+                DitoLogger.error("Error deleting NotificationUnregister: \(error.localizedDescription)")
+                success = false
+            }
+        }
+
+        return success
 
         return success
     }

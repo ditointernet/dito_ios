@@ -60,7 +60,7 @@ public class Reachability {
         }
     }
 
-    public enum Connection: CustomStringConvertible {
+    public enum Connection: CustomStringConvertible, Sendable {
         case unavailable, wifi, cellular
         public var description: String {
             switch self {
@@ -69,7 +69,7 @@ public class Reachability {
             case .unavailable: return "No Connection"
             }
         }
-        
+
         @available(*, deprecated, renamed: "unavailable")
         public static let none: Connection = .unavailable
     }
@@ -100,7 +100,7 @@ public class Reachability {
         if flags == nil {
             try? setReachabilityFlags()
         }
-        
+
         switch flags?.connection {
         case .unavailable?, nil: return .unavailable
         case .cellular?: return allowsCellularConnection ? .cellular : .unavailable
@@ -261,11 +261,11 @@ fileprivate extension Reachability {
                 self.stopNotifier()
                 throw ReachabilityError.unableToGetFlags(SCError())
             }
-            
+
             self.flags = flags
         }
     }
-    
+
 
     func notifyReachabilityChanged() {
         let notify = { [weak self] in

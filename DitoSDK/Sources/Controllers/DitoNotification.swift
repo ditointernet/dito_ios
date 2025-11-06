@@ -7,10 +7,13 @@
 
 import Foundation
 
+@MainActor
 class DitoNotification {
+
 
     private let service: DitoNotificationService
     private let notificationOffline: DitoNotificationOffline
+
 
     init(service: DitoNotificationService = .init(), trackOffline: DitoNotificationOffline = .init()) {
         self.service = service
@@ -21,28 +24,40 @@ class DitoNotification {
     /// - Parameter token: The FCM token from Firebase Messaging
     func registerToken(token: String) {
         self.finishRegisterToken(token: token)
+
+    /// Registers a Firebase Cloud Messaging (FCM) token
+    /// - Parameter token: The FCM token from Firebase Messaging
+    func registerToken(token: String) {
+        self.finishRegisterToken(token: token)
         //TODO: Analisar remoção do valor salvo
+
 
         /*
          if self.notificationOffline.isSaving {
          self.notificationOffline.setRegisterAsCompletion {
          self.finishRegisterToken(token: token)
+         self.finishRegisterToken(token: token)
          }
          } else {
+         self.finishRegisterToken(token: token)
          self.finishRegisterToken(token: token)
          }
          */
     }
 
     func finishRegisterToken(token: String) {
+        // Capture main-actor isolated values before hopping to a background queue
+        let apiKey = Dito.apiKey
+        let signature = Dito.signature
 
         DispatchQueue.global().async {
-
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token)
+            let tokenRequest = DitoTokenRequest(platformApiKey: apiKey, sha1Signature: signature, token: token)
 
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
 
+
                 self.service.register(reference: reference, data: tokenRequest) { (register, error) in
+
 
                     if let error = error {
                         self.notificationOffline.notificationRegister(tokenRequest)
@@ -52,7 +67,9 @@ class DitoNotification {
                     }
                 }
 
+
             } else {
+
 
                 self.notificationOffline.notificationRegister(tokenRequest)
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
@@ -63,15 +80,18 @@ class DitoNotification {
     /// Unregisters a Firebase Cloud Messaging (FCM) token
     /// - Parameter token: The FCM token to unregister
     func unregisterToken(token: String) {
+        // Capture main-actor isolated values before hopping to a background queue
+        let apiKey = Dito.apiKey
+        let signature = Dito.signature
 
         DispatchQueue.global().async {
-
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey,
-                                                sha1Signature: Dito.signature,
+            let tokenRequest = DitoTokenRequest(platformApiKey: apiKey,
+                                                sha1Signature: signature,
                                                 token: token)
 
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 self.service.unregister(reference: reference, data: tokenRequest) { (register, error) in
+
 
                     if let error = error {
                         self.notificationOffline.notificationUnregister(tokenRequest)
@@ -80,6 +100,7 @@ class DitoNotification {
                         DitoLogger.information("Notification - Token cancelado")
                     }
                 }
+
 
             } else {
                 self.notificationOffline.notificationUnregister(tokenRequest)
@@ -91,11 +112,15 @@ class DitoNotification {
     /// Called when notification is received (before click)
     /// - Parameter userInfo: The notification data dictionary
     func notificationRead(with userInfo: [AnyHashable: Any]) {
+        // Capture main-actor isolated values before hopping to a background queue
+        let apiKey = Dito.apiKey
+        let signature = Dito.signature
+
         DispatchQueue.global(qos: .background).async {
             let data = DitoDataNotification(from: userInfo)
 
-            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
-                                                                  sha1Signature: Dito.signature,
+            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: apiKey,
+                                                                  sha1Signature: signature,
                                                                   data: data)
 
             DitoLogger.information("Notification - Received: \(data.notification)")
@@ -109,17 +134,23 @@ class DitoNotification {
     ///   - reference: The user reference
     ///   - identifier: The identifier
     func notificationClick(notificationId: String, reference: String, identifier: String) {
+        // Capture main-actor isolated values before hopping to a background queue
+        let apiKey = Dito.apiKey
+        let signature = Dito.signature
 
         DispatchQueue.global(qos: .background).async {
             let data = DitoDataNotification(identifier: identifier, reference: reference)
 
-            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
-                                                                  sha1Signature: Dito.signature,
+            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: apiKey,
+                                                                  sha1Signature: signature,
                                                                   data: data)
+
 
             if(notificationId != ""){
 
+
                 self.service.read(notificationId: notificationId, data: notificationRequest) { (register, error) in
+
 
                     if let error = error {
                         self.notificationOffline.notificationRead(notificationRequest)

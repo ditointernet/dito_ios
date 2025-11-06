@@ -1,20 +1,15 @@
-//
-//  Dito.swift
-//  DitoSDK
-//
-//  Created by Rodrigo Damacena Gamarra Maciel on 21/01/21.
-//
-
 import Foundation
 
+@MainActor
 public class Dito {
 
-    public static let shared = Dito()
-    static var apiKey: String = ""
-    static var apiSecret: String = ""
-    static var signature: String = ""
+    @MainActor public static let shared = Dito()
+    @MainActor static var apiKey: String = ""
+    @MainActor static var apiSecret: String = ""
+    @MainActor static var signature: String = ""
     private var reachability = try! Reachability()
     private lazy var retry = DitoRetry()
+
 
     init() {
         Dito.apiKey = Bundle.main.apiKey
@@ -22,9 +17,20 @@ public class Dito {
         Dito.signature = Bundle.main.apiSecret.sha1
     }
 
+
     public func configure() {
 
+
         DispatchQueue.main.async {
+            NotificationCenter.default
+                .addObserver(
+                    self,
+                    selector: #selector(self.reachabilityChanged(_:)),
+                    name: .reachabilityChanged,
+                    object: nil
+                )
+
+            do {
             NotificationCenter.default
                 .addObserver(
                     self,
@@ -41,14 +47,17 @@ public class Dito {
         }
     }
 
+
     public static func sha1(for email: String) -> String {
         return email.sha1
     }
+
 
     public static func identify(id: String, data: DitoUser) {
         let dtIdentify = DitoIdentify()
         dtIdentify.identify(id: id, data: data)
     }
+
 
     public static func track(event: DitoEvent) {
         let dtTrack = DitoTrack()
@@ -58,9 +67,18 @@ public class Dito {
     /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
     /// - Parameter token: The FCM token obtained from Firebase Messaging
     public static func registerDevice(token: String) {
+
+    /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
+    /// - Parameter token: The FCM token obtained from Firebase Messaging
+    public static func registerDevice(token: String) {
         let notification = DitoNotification()
         notification.registerToken(token: token)
+        notification.registerToken(token: token)
     }
+
+    /// Unregisters a Firebase Cloud Messaging (FCM) token
+    /// - Parameter token: The FCM token to unregister
+    public static func unregisterDevice(token: String) {
 
     /// Unregisters a Firebase Cloud Messaging (FCM) token
     /// - Parameter token: The FCM token to unregister
@@ -77,9 +95,8 @@ public class Dito {
         let dtIdentify = DitoIdentify()
 
 
-        // Ensure we have a valid email for identification
-        let userEmail = notificationReceived.email ?? ""
-        let ditoUser = DitoUser(id: notificationReceived.userId, email: userEmail)
+        // Ensure we have a valid userId for identification
+        let ditoUser = DitoUser(email: notificationReceived.userId)
         dtIdentify.identify(id: notificationReceived.userId, data: ditoUser)
         dtTrack.track(
             data: DitoEvent(
@@ -108,8 +125,19 @@ public class Dito {
         callback: ((String) -> Void)? = nil
     ) -> DitoNotificationReceived {
 
+    public static func notificationClick(
+        with userInfo: [AnyHashable: Any],
+        callback: ((String) -> Void)? = nil
+    ) -> DitoNotificationReceived {
+
         let notificationReceived = DitoNotificationReceived(with: userInfo)
         let ditoNotification = DitoNotification()
+        ditoNotification
+            .notificationClick(
+                notificationId: notificationReceived.notification,
+                reference: notificationReceived.reference,
+                identifier: notificationReceived.identifier
+            )
         ditoNotification
             .notificationClick(
                 notificationId: notificationReceived.notification,
@@ -124,7 +152,9 @@ public class Dito {
 //MARK: - Network Connection
 extension Dito {
 
+
     @objc func reachabilityChanged(_ note: Notification) {
+
 
         if self.reachability.connection != .unavailable {
             retry.loadOffline()
