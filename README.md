@@ -1286,30 +1286,14 @@ O **DitoSDK** é a biblioteca oficial da Dito para aplicações iOS, permitindo 
 
 
 
-## 🚀 Installation## 🚀 Installation
+## 🚀 Installation
 
+### CocoaPods (Recomendado)
 
-
-### CocoaPods (Recomendado)### Cocoapods
-
-Para instalar a versão mais recente do SDK Dito em seu projeto através do Cocoapods, adicione o pod em seu podfile:
-
-Adicione ao seu `Podfile`:
-
-pod 'DitoSDK'
+Para instalar a versão mais recente do SDK Dito em seu projeto, adicione ao seu `Podfile`:
 
 ```ruby
-
-pod 'DitoSDK', :git => 'https://github.com/ditointernet/dito_ios.git', :branch => 'NOME_DA_BRANCH'Para instalar uma versão específica, inclua o número da versão:
-
-```
-
-pod 'DitoSDK', '~> 1.0.0'
-
-Depois execute:
-
-Em alguns casos, pode ser necessário utilizar uma branch específica para algum ajuste ou correção pontual ou urgente. Neste caso, basta especificar a branch:
-
+pod 'DitoSDK'
 ```bash
 
 pod install
