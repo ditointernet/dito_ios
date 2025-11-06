@@ -158,6 +158,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
         let userInfo = response.notification.request.content.userInfo
+        if let token = fcmToken {
+            Dito.notificationRead(with: userInfo, token: token)
+        } else {
+            print("Warning: FCM token not available for notificationRead")
+        }
         Dito.notificationClick(with: userInfo)
 
         // Notify Firebase Messaging
