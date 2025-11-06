@@ -8,22 +8,25 @@
 import Foundation
 
 struct DitoTokenRequest: Codable {
-    
+
     let platformApiKey: String
     let sha1Signature: String
     let token: String
-    let tokenType: String
+    let tokenType: String = "firebase" // Always Firebase
     let platform: String = "Apple iPhone"
     let idType: String = "id"
 
-    init(platformApiKey: String, sha1Signature: String, token: String, tokenType: DitoTokenType) {
-        
+    /// Initializes a token request for Firebase Cloud Messaging
+    /// - Parameters:
+    ///   - platformApiKey: The Dito platform API key
+    ///   - sha1Signature: The SHA1 signature for authentication
+    ///   - token: The FCM token from Firebase Messaging
+    init(platformApiKey: String, sha1Signature: String, token: String) {
         self.platformApiKey = platformApiKey
         self.sha1Signature = sha1Signature
         self.token = token
-        self.tokenType = tokenType.rawValue
     }
-   
+
     enum CodingKeys: String, CodingKey {
         case platformApiKey = "platform_api_key"
         case sha1Signature = "sha1_signature"
@@ -32,7 +35,7 @@ struct DitoTokenRequest: Codable {
         case platform
         case idType = "id_type"
     }
-    
+
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(platformApiKey, forKey: .platformApiKey)

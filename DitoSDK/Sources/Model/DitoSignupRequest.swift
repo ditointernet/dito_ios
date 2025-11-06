@@ -12,7 +12,7 @@ struct DitoSignupRequest: Codable {
     
     let platformApiKey: String
     let sha1Signature: String
-    let userData: DitoUser
+    let userData: DitoUser?
     var encoding: String = "base64"
    
     enum CodingKeys: String, CodingKey {

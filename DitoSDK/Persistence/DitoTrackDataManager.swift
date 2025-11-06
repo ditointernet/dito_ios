@@ -9,107 +9,119 @@ import Foundation
 import CoreData
 
 struct DitoTrackDataManager {
-    
+
+    /// Saves a new track event using background context (iOS 16+ safe)
     @discardableResult
     func save(event: String?, retry: Int16 = 1) -> Bool {
+        var success = false
+        let semaphore = DispatchSemaphore(value: 0)
 
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        guard let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track
-        else {
-            DitoLogger.error("Failed to save Track")
-            return false
-        }
-        
-        do {
+        DitoCoreDataManager.shared.performBackgroundTask { context in
+            guard let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: context) as? Track else {
+                DitoLogger.error("Failed to create Track entity")
+                semaphore.signal()
+                return
+            }
+
             track.event = event
             track.retry = retry
-        
-            try context.save()
-            DitoLogger.information("Track Saved Successfully!!!")
-            
-            return true
-        } catch let error {
-            DitoLogger.error("Failed to save Track: \(error.localizedDescription)")
-            
-            return false
+
+            do {
+                try context.save()
+                DitoLogger.information("Track Saved Successfully!!!")
+                success = true
+            } catch {
+                DitoLogger.error("Failed to save Track: \(error.localizedDescription)")
+                success = false
+            }
+            semaphore.signal()
         }
+
+        semaphore.wait()
+        return success
     }
-    
+
+    /// Updates an existing track using background context (iOS 16+ safe)
     @discardableResult
     func update(id: NSManagedObjectID, event: String?, retry: Int16) -> Bool {
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
-        let predicate = NSPredicate(format: "SELF = %@", id)
-        fetchRequest.predicate = predicate
-        
-        do {
-            let resultFetch = try context.fetch(fetchRequest).first
-            resultFetch?.event = event
-            resultFetch?.retry = retry
-            
-            try context.save()
-            
-            DitoLogger.information("Track Updated Successfully!!!")
-            return true
-            
-        } catch let error {
-            
-            DitoLogger.error("Failed to update Track: \(error.localizedDescription)")
+        guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+            DitoLogger.error("Failed to create background context for update")
             return false
         }
-         
+
+        var success = false
+        context.performAndWait {
+            do {
+                guard let track = try context.existingObject(with: id) as? Track else {
+                    DitoLogger.error("Track with ID not found")
+                    return
+                }
+
+                track.event = event
+                track.retry = retry
+
+                try context.save()
+                DitoLogger.information("Track Updated Successfully!!!")
+                success = true
+            } catch {
+                DitoLogger.error("Failed to update Track: \(error.localizedDescription)")
+                success = false
+            }
+        }
+
+        return success
     }
-    
+
+    /// Fetches all tracks - Use with caution on main thread
+    /// For iOS 16+, consider using async/await version
     var fetchAll: [Track] {
-        
-        let resultFetch: [Track]
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else {
-            return []
-        }
-        
-        let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
-        
-        do {
-            
-            resultFetch = try context.fetch(fetchRequest)
-            
-            DitoLogger.information("\(resultFetch.count) Tracks found - Successfully!!!")
-            
-            return resultFetch
-        
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to Track Identify: \(fetchErr.localizedDescription)")
+        guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+            DitoLogger.error("Failed to create background context for fetch")
             return []
         }
 
+        var results: [Track] = []
+        context.performAndWait {
+            let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
+            fetchRequest.returnsObjectsAsFaults = false
+
+            do {
+                results = try context.fetch(fetchRequest)
+                DitoLogger.information("\(results.count) Tracks found - Successfully!!!")
+            } catch {
+                DitoLogger.error("Error fetching Tracks: \(error.localizedDescription)")
+            }
+        }
+
+        return results
     }
 
+    /// Deletes a track using background context (iOS 16+ safe)
     @discardableResult
     func delete(with id: NSManagedObjectID) -> Bool {
-        
-        guard let context = DitoCoreDataManager.shared.container?.viewContext else { return false }
-        let fetchRequest = NSFetchRequest<Track>(entityName: "Track")
-        let predicate = NSPredicate(format: "SELF = %@", id)
-        fetchRequest.predicate = predicate
-        
-        do {
-            
-            guard let track = try context.fetch(fetchRequest).first else { throw DitoErrorType.objectError }
-            
-            context.delete(track)
-            try context.save()
-            
-            DitoLogger.information("Track Deleted - Successfully!!!")
-            return true
-        
-        } catch let fetchErr {
-            
-            DitoLogger.error("Error to Delete Track: \(fetchErr.localizedDescription)")
-            
+        guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+            DitoLogger.error("Failed to create background context for delete")
             return false
         }
+
+        var success = false
+        context.performAndWait {
+            do {
+                guard let track = try context.existingObject(with: id) as? Track else {
+                    DitoLogger.error("Track with ID not found")
+                    return
+                }
+
+                context.delete(track)
+                try context.save()
+                DitoLogger.information("Track Deleted - Successfully!!!")
+                success = true
+            } catch {
+                DitoLogger.error("Error deleting Track: \(error.localizedDescription)")
+                success = false
+            }
+        }
+
+        return success
     }
 }
