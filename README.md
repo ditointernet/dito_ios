@@ -1160,7 +1160,3 @@ DitoSDK está disponível sob a licença MIT. Veja [LICENSE](LICENSE) para mais 
 <p align="center">
   Feito com ❤️ pela equipe Dito
 </p>
-
-
-
-
