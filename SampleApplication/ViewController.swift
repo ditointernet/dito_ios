@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Dito test sdk
-//
-//  Created by Igor Duarte on 26/03/24.
-//
-
 import CoreData
 import DitoSDK
 import FirebaseMessaging
@@ -31,10 +24,6 @@ class ViewController: UIViewController {
 
         configureKeyboardDismissGesture()
         fieldEmail?.becomeFirstResponder()
-
-        // Diagnóstico
-        print("fieldEmail is nil? \(fieldEmail == nil)")
-        print("fieldCpf is nil? \(fieldCpf == nil)")
     }
 
     @IBAction func didTapIdentify(_ sender: Any) {
@@ -44,7 +33,7 @@ class ViewController: UIViewController {
     @IBAction func didTapNotification(_ sender: Any) {
         handleNotificationClick()
     }
-    
+
     @IBAction func didTapRegistration(_ sender: Any) {
         handleDeviceRegistration()
     }
@@ -53,7 +42,6 @@ class ViewController: UIViewController {
 extension ViewController {
 
     // MARK: - Actions
-
     func handleIndentifyClick() {
         // Garante que teremos um campo de email válido (via IBOutlet ou fallback)
         guard let emailField = fieldEmail else {
@@ -61,8 +49,10 @@ extension ViewController {
             return
         }
 
+        //  Normaliza e valida e-mail
         let normalizedEmail = normalizeEmail(emailField.text)
 
+        // Verifica se o e-mail foi informado
         guard let email = normalizedEmail, !email.isEmpty else {
             showToast("E-mail não informado")
             emailField.becomeFirstResponder()
@@ -86,20 +76,22 @@ extension ViewController {
         identified = true
 
         showToast("Usuário identificado")
-        
+
         buttonRegisterDevice.isEnabled = true
         buttonNotification.isEnabled = true
     }
 
     func handleNotificationClick() {
+        // Cria objeto evento de comportamento customizado
         let event = DitoEvent(
             action: "teste-behavior",
             customData: ["id_loja": 123]
         )
+        // Dispara o evento no Dito SDK
         Dito.track(event: event)
         showToast("Evento disparado")
     }
-    
+
     func handleDeviceRegistration() {
         Messaging.messaging().token { fcmToken, error in
             if let error = error {
@@ -109,6 +101,7 @@ extension ViewController {
                 }
                 print("Error fetching FCM registration token: \(error)")
             } else if let fcmToken = fcmToken {
+                // Registra o dispositivo no Dito SDK
                 Dito.registerDevice(token: fcmToken)
                 DispatchQueue.main.async {
                     self.showToast("Dispositivo registrado")

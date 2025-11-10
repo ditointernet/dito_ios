@@ -1,16 +1,8 @@
-//
-//  ActionDataManager.swift
-//  DitoSDK
-//
-//  Created by Mateus Rodrigues on 12/01/21.
-//
-
 import Foundation
 import CoreData
 
 struct DitoTrackDataManager {
 
-    /// Saves a new track event using background context (iOS 16+ safe)
     @discardableResult
     func save(event: String?, retry: Int16 = 1) -> Bool {
         var success = false
@@ -41,7 +33,6 @@ struct DitoTrackDataManager {
         return success
     }
 
-    /// Updates an existing track using background context (iOS 16+ safe)
     @discardableResult
     func update(id: NSManagedObjectID, event: String?, retry: Int16) -> Bool {
         guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
@@ -72,8 +63,6 @@ struct DitoTrackDataManager {
         return success
     }
 
-    /// Fetches all tracks - Use with caution on main thread
-    /// For iOS 16+, consider using async/await version
     var fetchAll: [Track] {
         guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
             DitoLogger.error("Failed to create background context for fetch")
@@ -96,7 +85,6 @@ struct DitoTrackDataManager {
         return results
     }
 
-    /// Deletes a track using background context (iOS 16+ safe)
     @discardableResult
     func delete(with id: NSManagedObjectID) -> Bool {
         guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {

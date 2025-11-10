@@ -1,10 +1,3 @@
-//
-//  DTRouterService.swift
-//  DitoSDK
-//
-//  Created by Rodrigo Damacena Gamarra Maciel on 19/12/20.
-//
-
 import Foundation
 import UIKit
 

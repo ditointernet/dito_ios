@@ -1,10 +1,3 @@
-//
-//  MockDTIdentifyService.swift
-//  DitoSDK Tests
-//
-//  Created by brennobemoura on 07/01/21.
-//
-
 @testable import DitoSDK
 
 class MockDTIdentifyService: DitoIdentifyService {

@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Dito test sdk
-//
-//  Created by Igor Duarte on 26/03/24.
-//
-
 import DitoSDK
 import FirebaseAnalytics
 import FirebaseCore
@@ -21,35 +14,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication
             .LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Configure Firebase first
+    // Configura o Firebase primeiro (necessário para Analytics e Messaging)
         FirebaseApp.configure()
         Analytics.setAnalyticsCollectionEnabled(true)
+    // Registra evento de abertura do app no Analytics
+    Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
 
-        // Log app open event to Analytics
-        Analytics.logEvent(AnalyticsEventAppOpen, parameters: nil)
+    // Define o delegate do Firebase Messaging para tratar token e mensagens
+    Messaging.messaging().delegate = self
 
-        // Configure Messaging delegate
-        Messaging.messaging().delegate = self
+    // Inicializa o Dito SDK (configurações internas do SDK)
+    Dito.shared.configure()
 
-        // Configure Dito SDK
-        Dito.shared.configure()
-
-        // Setup notifications
-        UNUserNotificationCenter.current().delegate = self
-        registerForPushNotifications(application: application)
+    // Configura o centro de notificações e registra o app para receber push
+    UNUserNotificationCenter.current().delegate = self
+    registerForPushNotifications(application: application)
 
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
 
     func application(
         _ application: UIApplication,
         configurationForConnecting connectingSceneSession: UISceneSession,
         options: UIScene.ConnectionOptions
     ) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(
             name: "Default Configuration",
             sessionRole: connectingSceneSession.role
@@ -60,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-        // CRITICAL: Set APNS token to Firebase Messaging BEFORE requesting FCM token
+        // IMPORTANTE: setar o token APNS no Firebase Messaging ANTES de solicitar o token FCM
         Messaging.messaging().apnsToken = deviceToken
 
         Messaging.messaging().token { [weak self] fcmToken, error in
@@ -83,28 +71,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
 
     // MARK: Background remote notification (silent / content-available)
+    // Este método é chamado quando uma notificação silenciosa é recebida
+    // mesmo que o app esteja em background ou encerrado
+    // é necessário ter o "Remote notifications" habilitado em Background Modes e "Background fetch" ativado
     func application(
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable : Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
-        // Garantir que o evento de leitura seja disparado mesmo em background
         let callNotificationRead: (String) -> Void = { token in
+            // Garantir que o evento de leitura seja disparado mesmo em background
             Dito.notificationRead(with: userInfo, token: token)
+            // Notifica o Firebase Messaging sobre a mensagem recebida
             Messaging.messaging().appDidReceiveMessage(userInfo)
+            // Chama o completion handler indicando que novos dados foram processados
             completionHandler(.newData)
         }
 
         if let token = self.fcmToken {
             callNotificationRead(token)
         } else {
-            // Fallback: tentar obter o token se ainda não estiver armazenado
+                // Fallback: tentar obter o token se ainda não estiver armazenado
             Messaging.messaging().token { [weak self] token, error in
                 if let token = token {
                     self?.fcmToken = token
                     callNotificationRead(token)
                 } else {
-                    print("FCM token unavailable in background: \(error?.localizedDescription ?? "unknown error")")
+                    print("FCM token indisponível em background: \(error?.localizedDescription ?? "erro desconhecido")")
                     completionHandler(.noData)
                 }
             }
@@ -120,9 +113,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             @escaping (UNNotificationPresentationOptions) -> Void
     ) {
         let userInfo = notification.request.content.userInfo
-        // Notify Firebase Messaging
-        Messaging.messaging().appDidReceiveMessage(userInfo)
-        completionHandler([[.banner, .list, .sound, .badge]])
+    // Notifica o Firebase Messaging sobre a mensagem recebida
+    Messaging.messaging().appDidReceiveMessage(userInfo)
+    // Exibe a notificação mesmo quando o app está em primeiro plano
+    completionHandler([[.banner, .list, .sound, .badge]])
     }
 
     private func registerForPushNotifications(application: UIApplication) {
@@ -143,9 +137,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                 return
             }
 
-            print("Notification authorization granted")
-
-            // Register for remote notifications on main thread
+            print("Autorização de notificações concedida")
             DispatchQueue.main.async {
                 application.registerForRemoteNotifications()
             }
@@ -163,11 +155,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         } else {
             print("Warning: FCM token not available for notificationRead")
         }
+        // Notifica o Dito SDK sobre o clique na notificação
         Dito.notificationClick(with: userInfo)
 
-        // Notify Firebase Messaging
-        Messaging.messaging().appDidReceiveMessage(userInfo)
-
+    // Notifica o Firebase Messaging sobre a interação com a notificação
+    Messaging.messaging().appDidReceiveMessage(userInfo)
         completionHandler()
     }
 }

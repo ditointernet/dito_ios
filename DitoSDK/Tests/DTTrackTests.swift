@@ -1,10 +1,3 @@
-//
-//  DTTrackTests.swift
-//  DitoSDK Tests
-//
-//  Created by brennobemoura on 06/01/21.
-//
-
 import XCTest
 @testable import DitoSDK
 
@@ -45,7 +38,7 @@ class DTTrackTests: DTTestCase {
         let expectedKey1 = key1.split(separator: " ").joined(separator: "_").uppercased()
         let expectedValue2 = "\(value2)"
         
-        let event = DTEvent(json: nil/*jsonDictionary*/)
+    let event = DTEvent(json: nil)
         
         guard let data = event.data?.data(using: .utf8) else {
             assert(false, "Data in DTEvent is empty and that was not expecteded")
