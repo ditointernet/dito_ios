@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "DitoSDK",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v14)],
     products: [
         .library(
             name: "DitoSDK",
