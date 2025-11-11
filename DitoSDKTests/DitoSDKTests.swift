@@ -1,13 +1,13 @@
 import XCTest
 @testable import DitoSDK
 
-class DTTrackTests: DTTestCase {
+class DitoSDKTests: XCTestCase {
 
     func testInvalidAction() {
         let action = "Botao track pressionado"
         let expectedAction = action.split(separator: " ").joined(separator: "_").lowercased()
 
-        let event = DTEvent(
+        let event = DitoEvent(
             action: action,
             json: nil
         )
@@ -18,7 +18,7 @@ class DTTrackTests: DTTestCase {
     func testValidAction() {
         let action = "botao_track_pressionado"
 
-        let event = DTEvent(
+        let event = DitoEvent(
             action: action,
             json: nil
         )
@@ -38,10 +38,10 @@ class DTTrackTests: DTTestCase {
         let expectedKey1 = key1.split(separator: " ").joined(separator: "_").uppercased()
         let expectedValue2 = "\(value2)"
 
-    let event = DTEvent(json: nil)
+        let event = DitoEvent(json: nil)
 
         guard let data = event.data?.data(using: .utf8) else {
-            assert(false, "Data in DTEvent is empty and that was not expecteded")
+            assert(false, "Data in DitoEvent is empty and that was not expecteded")
             return
         }
 
@@ -65,12 +65,12 @@ class DTTrackTests: DTTestCase {
 
         let credentials = registerUser()
 
-        let event = DTEvent(
+        let event = DitoEvent(
             action: action,
             json: nil
         )
 
-        DTInitialize.track(credentials: credentials, event: event)
+        Dito.track(event: event)
 
         #warning("TODO: Wait for user register")
         expect.fulfill()
@@ -82,12 +82,10 @@ class DTTrackTests: DTTestCase {
     }
 }
 
-extension DTTrackTests {
-    func registerUser() -> DTCredentials {
+extension DitoSDKTests {
+    func registerUser() {
 
-        let credentials = DTCredentials(id: "1020")
-
-        let user = DTUser(
+        let user = DitoUser(
             name: "Rodrigo Maciel",
             gender: .masculino,
             email: "teste@teste.com.br",
@@ -97,7 +95,6 @@ extension DTTrackTests {
             json: nil
         )
 
-        DTInitialize.identify(credentials: credentials, data: user)
-        return credentials
+        Dito.identify(user: user)
     }
 }
