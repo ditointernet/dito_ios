@@ -8,41 +8,42 @@
 import Foundation
 
 class DitoNotification {
-    
+
     private let service: DitoNotificationService
     private let notificationOffline: DitoNotificationOffline
-    
+
     init(service: DitoNotificationService = .init(), trackOffline: DitoNotificationOffline = .init()) {
         self.service = service
         self.notificationOffline = trackOffline
     }
-    
-    func registerToken(token: String, tokenType: DitoTokenType) {
-        
-        self.finishRegisterToken(token: token, tokenType: tokenType)
+
+    /// Registers a Firebase Cloud Messaging (FCM) token
+    /// - Parameter token: The FCM token from Firebase Messaging
+    func registerToken(token: String) {
+        self.finishRegisterToken(token: token)
         //TODO: Analisar remoção do valor salvo
-        
+
         /*
          if self.notificationOffline.isSaving {
          self.notificationOffline.setRegisterAsCompletion {
-         self.finishRegisterToken(token: token, tokenType: tokenType)
+         self.finishRegisterToken(token: token)
          }
          } else {
-         self.finishRegisterToken(token: token, tokenType: tokenType)
+         self.finishRegisterToken(token: token)
          }
          */
     }
-    
-    func finishRegisterToken(token: String, tokenType: DitoTokenType) {
-        
+
+    func finishRegisterToken(token: String) {
+
         DispatchQueue.global().async {
-            
-            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token, tokenType: tokenType)
-            
+
+            let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, token: token)
+
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
-                
+
                 self.service.register(reference: reference, data: tokenRequest) { (register, error) in
-                    
+
                     if let error = error {
                         self.notificationOffline.notificationRegister(tokenRequest)
                         DitoLogger.error(error.localizedDescription)
@@ -50,26 +51,28 @@ class DitoNotification {
                         DitoLogger.information("Notification - Token registrado")
                     }
                 }
-                
+
             } else {
-                
+
                 self.notificationOffline.notificationRegister(tokenRequest)
                 DitoLogger.warning("Register Token - Antes de registrar o token é preciso identificar o usuário.")
             }
         }
     }
-    
-    func unregisterToken(token: String, tokenType: DitoTokenType) {
-        
+
+    /// Unregisters a Firebase Cloud Messaging (FCM) token
+    /// - Parameter token: The FCM token to unregister
+    func unregisterToken(token: String) {
+
         DispatchQueue.global().async {
-            
+
             let tokenRequest = DitoTokenRequest(platformApiKey: Dito.apiKey,
                                                 sha1Signature: Dito.signature,
-                                                token: token, tokenType: tokenType)
-            
+                                                token: token)
+
             if let reference = self.notificationOffline.reference, !reference.isEmpty {
                 self.service.unregister(reference: reference, data: tokenRequest) { (register, error) in
-                    
+
                     if let error = error {
                         self.notificationOffline.notificationUnregister(tokenRequest)
                         DitoLogger.error(error.localizedDescription)
@@ -77,27 +80,47 @@ class DitoNotification {
                         DitoLogger.information("Notification - Token cancelado")
                     }
                 }
-                
+
             } else {
                 self.notificationOffline.notificationUnregister(tokenRequest)
                 DitoLogger.warning("Unregister Token - Antes de cancelar um token é preciso identificar o usuário.")
             }
         }
     }
-    
-    func notificationRead(notificationId: String, reference: String, identifier: String) {
-        
+
+    /// Called when notification is received (before click)
+    /// - Parameter userInfo: The notification data dictionary
+    func notificationRead(with userInfo: [AnyHashable: Any]) {
         DispatchQueue.global(qos: .background).async {
-            let data = DitoDataNotification(identifier: identifier, reference: reference)
-            
+            let data = DitoDataNotification(from: userInfo)
+
             let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
                                                                   sha1Signature: Dito.signature,
                                                                   data: data)
-            
+
+            DitoLogger.information("Notification - Received: \(data.notification)")
+            self.notificationOffline.notificationRead(notificationRequest)
+        }
+    }
+
+    /// Called when notification is clicked
+    /// - Parameters:
+    ///   - notificationId: The notification ID
+    ///   - reference: The user reference
+    ///   - identifier: The identifier
+    func notificationClick(notificationId: String, reference: String, identifier: String) {
+
+        DispatchQueue.global(qos: .background).async {
+            let data = DitoDataNotification(identifier: identifier, reference: reference)
+
+            let notificationRequest = DitoNotificationOpenRequest(platformApiKey: Dito.apiKey,
+                                                                  sha1Signature: Dito.signature,
+                                                                  data: data)
+
             if(notificationId != ""){
-            
+
                 self.service.read(notificationId: notificationId, data: notificationRequest) { (register, error) in
-                    
+
                     if let error = error {
                         self.notificationOffline.notificationRead(notificationRequest)
                         DitoLogger.error(error.localizedDescription)

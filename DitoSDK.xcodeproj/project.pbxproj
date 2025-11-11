@@ -59,14 +59,17 @@
 		C164B462A08512ECB05866DC /* DitoIdentifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA9858B52D1F7726ECF7EA /* DitoIdentifyService.swift */; };
 		C39EAE55C7FB92E1F7296F03 /* DitoNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD33ABA9F0C5B5149BA88AE /* DitoNotificationService.swift */; };
 		C9BE11929BFAE4CD2E9103DB /* DitoValidationCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441ABA99F60112EB8FDA6F78 /* DitoValidationCharacters.swift */; };
-		D48A1084C2EF00F0FDA45FF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02617F349C8544972EFAF7EB /* GoogleService-Info.plist */; };
 		D757A010BA326512E6A2EE54 /* DitoTrackDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA38630EAE4177EA95B06A1 /* DitoTrackDataManager.swift */; };
 		DC5D40772A658F13420132C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979487B13BA848B7CC0E465 /* SceneDelegate.swift */; };
 		E3091EB6EC61527CC6A14B8B /* Generic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EAF34C2F1F2F73144D51BD /* Generic+Extensions.swift */; };
 		E65C8E17BB1984575D86BCF8 /* DitoNotificationReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C45C14ABB4A0EFE8EB61F8 /* DitoNotificationReceived.swift */; };
 		E71E2FB70BED0CBEC0EE00CA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381D0859584873675874091 /* String+Extension.swift */; };
+		E97EDFC02EBB871B00513E58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E97EDFBF2EBB871B00513E58 /* GoogleService-Info.plist */; };
 		E99FCFB72C32FC59007772AC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E99FCFB62C32FC59007772AC /* FirebaseMessaging */; };
 		E99FCFB82C33010B007772AC /* DitoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C599E43B1AE0DD94DC3E5B57 /* DitoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9BB62132EBBD5E8005BC104 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E9BB62122EBBD5E8005BC104 /* FirebaseAnalytics */; };
+		E9BB62152EBBD5E8005BC104 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = E9BB62142EBBD5E8005BC104 /* FirebaseAnalyticsOnDeviceConversion */; };
+		E9BB62172EBBD5E8005BC104 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E9BB62162EBBD5E8005BC104 /* FirebaseAnalyticsSwift */; };
 		F0BBA0B6200355C3804F2D30 /* DitoNotificationOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760E650B997D3DE17C092EF3 /* DitoNotificationOffline.swift */; };
 		F30E621CD36DC4FE753425D5 /* DitoRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BA27035ECF86CA2ED9529C /* DitoRetry.swift */; };
 		FBDA381AD8ED347F06E6D344 /* DitoTrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3612836534A6C704B67CDDD2 /* DitoTrackModel.swift */; };
@@ -97,7 +100,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02617F349C8544972EFAF7EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13C4442077EFDDF85A9779AA /* Dito test sdk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dito test sdk.entitlements"; sourceTree = "<group>"; };
 		151E15511C01ADA964C8AACA /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		15A9875D39E0195A312675E6 /* DTIdentifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyTests.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		E36C88373075F1E953FD21A5 /* DitoNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotification.swift; sourceTree = "<group>"; };
 		E6EEB14B38A1C5877FBAA131 /* DitoGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoGender.swift; sourceTree = "<group>"; };
 		E974488C2C33496500352791 /* DitoSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DitoSDK.podspec; sourceTree = "<group>"; };
+		E97EDFBF2EBB871B00513E58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9ECDC4D91B5F9BC6D4609C6 /* DitoNotificationOpenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationOpenRequest.swift; sourceTree = "<group>"; };
 		E9F16BCD2C33299A00AC9424 /* SampleDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SampleDebug.entitlements; sourceTree = "<group>"; };
 		EE304EF54A31ACD454D6E5B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,8 +190,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BB62172EBBD5E8005BC104 /* FirebaseAnalyticsSwift in Frameworks */,
 				E99FCFB72C32FC59007772AC /* FirebaseMessaging in Frameworks */,
 				1ED7B6D0C5C17DB8EFDBD8ED /* DitoSDK.framework in Frameworks */,
+				E9BB62152EBBD5E8005BC104 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				E9BB62132EBBD5E8005BC104 /* FirebaseAnalytics in Frameworks */,
 				A4B1B7DB52ED35D3F6A7C36F /* Pods_Sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +313,7 @@
 				EE304EF54A31ACD454D6E5B5 /* Assets.xcassets */,
 				13C4442077EFDDF85A9779AA /* Dito test sdk.entitlements */,
 				31E014900F2956A0EBF580E4 /* Dito test sdkRelease.entitlements */,
-				02617F349C8544972EFAF7EB /* GoogleService-Info.plist */,
+				E97EDFBF2EBB871B00513E58 /* GoogleService-Info.plist */,
 				F97FEC34CA524AC522472AD6 /* Info.plist */,
 				FC3CDE34D84AB184FDD9296E /* LaunchScreen.storyboard */,
 				CFC70CACAEAAF097AB75098A /* Main.storyboard */,
@@ -450,6 +456,9 @@
 			name = Sample;
 			packageProductDependencies = (
 				E99FCFB62C32FC59007772AC /* FirebaseMessaging */,
+				E9BB62122EBBD5E8005BC104 /* FirebaseAnalytics */,
+				E9BB62142EBBD5E8005BC104 /* FirebaseAnalyticsOnDeviceConversion */,
+				E9BB62162EBBD5E8005BC104 /* FirebaseAnalyticsSwift */,
 			);
 			productName = Sample;
 			productReference = CC4F943C6AD08D23190F7DE5 /* Sample.app */;
@@ -479,7 +488,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2600;
 			};
 			buildConfigurationList = ECA5F549F88D5589049B1542 /* Build configuration list for PBXProject "DitoSDK" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -518,7 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A6C1A96DDBC912447552121 /* Assets.xcassets in Resources */,
-				D48A1084C2EF00F0FDA45FF7 /* GoogleService-Info.plist in Resources */,
+				E97EDFC02EBB871B00513E58 /* GoogleService-Info.plist in Resources */,
 				20E6CA166258C6D7F0500217 /* LaunchScreen.storyboard in Resources */,
 				91953C2F5563F0BEDBF9E06D /* Main.storyboard in Resources */,
 			);
@@ -688,16 +697,17 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+			GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+			GCC_WARN_UNDECLARED_SELECTOR = YES;
+			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+			GCC_WARN_UNUSED_FUNCTION = YES;
+			GCC_WARN_UNUSED_VARIABLE = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+			MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -715,24 +725,29 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SampleApplication/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Dito Sample APP";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "br.com.dito.Dito-test-sdk";
+			INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+			INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+			INFOPLIST_KEY_UIStatusBarHidden = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+			LD_RUNPATH_SEARCH_PATHS = (
+				"$(inherited)",
+				"@executable_path/Frameworks",
+			);
+			MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.ditotestsdk;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		28AA9ACD4577808AB7D38D53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -829,17 +844,18 @@
 					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+			GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+			GCC_WARN_UNDECLARED_SELECTOR = YES;
+			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+			GCC_WARN_UNUSED_FUNCTION = YES;
+			GCC_WARN_UNUSED_VARIABLE = YES;
+			IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+			MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -861,14 +877,19 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "br.com.dito.Dito-test-sdk";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.ditotestsdk;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -920,6 +941,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E99FCFB32C32FA73007772AC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		E9BB62122EBBD5E8005BC104 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAnalytics;
+		};
+		E9BB62142EBBD5E8005BC104 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		E9BB62162EBBD5E8005BC104 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAnalyticsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

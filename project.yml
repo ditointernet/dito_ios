@@ -2,12 +2,12 @@ name: DitoSDK
 options:
   bundleIdPrefix: br.com.dito
   deploymentTarget:
-    iOS: 13.0
+    iOS: 16.0
 targets:
   Sample:
     type: application
     platform: iOS
-    sources: 
+    sources:
       - path: SampleApplication
     dependencies:
       - target: DitoSDK
@@ -18,7 +18,7 @@ targets:
   DitoSDK:
     type: framework
     platform: iOS
-    sources: 
+    sources:
       - path: DitoSDK
     settings:
       base:

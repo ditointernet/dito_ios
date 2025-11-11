@@ -17,7 +17,7 @@ class DitoIdentify {
         self.identifyOffline = identifyOffline
     }
     
-    func identify(id: String, data: DitoUser, sha1Signature: String = Dito.signature) {
+    func identify(id: String, data: DitoUser? = nil, sha1Signature: String = Dito.signature) {
         
         DispatchQueue.global().async {
             
@@ -27,7 +27,7 @@ class DitoIdentify {
                                                 sha1Signature: sha1Signature,
                                                 userData: data)
             
-            guard data.email != nil else {
+            guard data?.email != nil else {
                 self.identifyOffline.finishIdentify()
                 return
             }
