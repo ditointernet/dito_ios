@@ -1,8 +1,8 @@
-# Guia de Migração - DitoSDK v1.2.0
+# Guia de Migração - DitoSDK v2.0.0
 
 ## 📌 Visão Geral
 
-Este guia ajudará você a migrar seu projeto para a versão 1.2.0 do DitoSDK, que inclui:
+Este guia ajudará você a migrar seu projeto para a versão 2.0.0 do DitoSDK, que inclui:
 
 - ✅ Suporte completo para iOS 16, 17 e 18
 - ✅ Correções de concorrência do CoreData
@@ -43,10 +43,10 @@ Ordem correta de inicialização e obtenção de tokens implementada.
 
 ```ruby
 # Atualize para a versão mais recente
-pod 'DitoSDK', '~> 1.2.0'
+pod 'DitoSDK', '~> 2.0.0'
 
 # Ou use a branch específica se necessário
-pod 'DitoSDK', :git => 'https://github.com/ditointernet/dito_ios.git', :tag => 'v1.2.0'
+pod 'DitoSDK', :git => 'https://github.com/ditointernet/dito_ios.git', :tag => 'v2.0.0'
 ```
 
 Execute:
@@ -248,7 +248,7 @@ Dito.registerDevice(token: fcmToken)
 NSManagedObjectContext concurrency violation
 ```
 
-**Solução:** Atualizar para DitoSDK 1.2.0+ (já corrigido internamente)
+**Solução:** Atualizar para DitoSDK 2.0.0+ (já corrigido internamente)
 
 ---
 
@@ -479,7 +479,7 @@ platform :ios, '16.0'
 target 'SeuApp' do
   use_frameworks!
 
-  pod 'DitoSDK', '~> 1.2.0'
+  pod 'DitoSDK', '~> 2.0.0'
   pod 'Firebase/Messaging'  # Obrigatório
   pod 'Firebase/Analytics'  # Recomendado
 end
@@ -532,7 +532,7 @@ Consulte os documentos:
 
 ## ✅ Checklist Final
 
-- [ ] Podfile atualizado para DitoSDK 1.2.0+
+- [ ] Podfile atualizado para DitoSDK 2.0.0+
 - [ ] `pod update DitoSDK` executado
 - [ ] Ordem de inicialização corrigida (Firebase → Messaging → Dito)
 - [ ] APNS token configurado antes de FCM token
@@ -572,7 +572,7 @@ Consulte os documentos:
 ---
 
 **Data de Lançamento:** Novembro 2025
-**Versão:** DitoSDK 1.2.0
+**Versão:** DitoSDK 2.0.0
 **Suporte:** iOS 16.0+
 
 **🚀 Boa migração!**
