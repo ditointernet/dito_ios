@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DitoSDK'
-  s.version          = '1.2.0'
+  s.version          = '2.0.0'
   s.summary          = 'SDK da Dito CRM'
   s.description      ='https://developers.dito.com.br/reference/ios'
   s.homepage         = 'https://github.com/ditointernet/dito_ios'
