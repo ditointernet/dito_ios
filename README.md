@@ -93,7 +93,7 @@ Consulte `MIGRATION_GUIDE.md` para instruções completas e exemplos de código.
 #### 1.1 Adicione o DitoSDK ao Podfile
 
 ```ruby
-pod 'DitoSDK', :git => 'https://github.com/ditointernet/dito_ios.git', :branch => 'main'
+pod 'DitoSDK', :git => 'https://github.com/ditointernet/dito_ios.git', :branch => 'v2.0.0'
 ```
 
 ### Passo 3: Configure o AppDelegate
