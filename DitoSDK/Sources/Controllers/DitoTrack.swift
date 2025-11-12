@@ -1,41 +1,36 @@
-//
-//  DTTrack.swift
-//  DitoSDK
-//
-//  Created by Rodrigo Damacena Gamarra Maciel on 24/12/20.
-//
-
 import Foundation
 
 class DitoTrack {
 
     private let service: DitoTrackService
     private let trackOffline: DitoTrackOffline
-    
+
     init(service: DitoTrackService = .init(), trackOffline: DitoTrackOffline = .init()) {
         self.service = service
         self.trackOffline = trackOffline
     }
-    
+
     func track(data: DitoEvent) {
         if self.trackOffline.checkIdentifyState() {
             self.trackOffline.setTrackCompletion {
                 self.completeTracking(data: data)
             }
         } else {
-            self.completeTracking(data: data)
+            DispatchQueue.main.async {
+                self.completeTracking(data: data)
+            }
         }
     }
-    
+
     func completeTracking(data: DitoEvent) {
-        
+
         DispatchQueue.global().async {
-            
+
             let eventRequest = DitoEventRequest(platformApiKey: Dito.apiKey, sha1Signature: Dito.signature, event: data)
-            
+
             if let reference = self.trackOffline.reference, !reference.isEmpty {
                 self.service.event(reference: reference, data: eventRequest) { (track, error) in
-                    
+
                     if let error = error {
                         self.trackOffline.track(event: eventRequest)
                         DitoLogger.error(error.localizedDescription)

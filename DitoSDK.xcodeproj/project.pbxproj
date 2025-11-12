@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		0EB42C0843328553BB1B4799 /* DitoServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5293356C4F20D71D5FD8114 /* DitoServiceManager.swift */; };
 		10CF33C3D6B081FCB056B616 /* DitoTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8596BF4829A2A49A624B6 /* DitoTokenRequest.swift */; };
 		11AD13F783CE4C00049BD79C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C45B78C4532B4ECCD3B49B /* Reachability.swift */; };
-		121EDE3E385C877C83277F31 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9046005428FA3B074BF44826 /* Data+Extension.swift */; };
 		1456CC1C919DF643DEE81769 /* DitoEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EA4540865B89D1770ADAA2 /* DitoEventRequest.swift */; };
 		191F54D3B5693CC484BB5BBE /* DitoTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A31875A648ACF38FD8111 /* DitoTrack.swift */; };
 		19E3F298772ACACBE1FD19AB /* DitoNotificationUnregisterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD88CED8B081DA3A5F2C62 /* DitoNotificationUnregisterDataManager.swift */; };
@@ -64,6 +63,8 @@
 		E3091EB6EC61527CC6A14B8B /* Generic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EAF34C2F1F2F73144D51BD /* Generic+Extensions.swift */; };
 		E65C8E17BB1984575D86BCF8 /* DitoNotificationReceived.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C45C14ABB4A0EFE8EB61F8 /* DitoNotificationReceived.swift */; };
 		E71E2FB70BED0CBEC0EE00CA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7381D0859584873675874091 /* String+Extension.swift */; };
+		E920CD9F2EC3DF3F008E0259 /* DitoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C599E43B1AE0DD94DC3E5B57 /* DitoSDK.framework */; };
+		E961D9C12EC4FCA800499DF2 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961D9C02EC4FCA800499DF2 /* Data+Extension.swift */; };
 		E97EDFC02EBB871B00513E58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E97EDFBF2EBB871B00513E58 /* GoogleService-Info.plist */; };
 		E99FCFB72C32FC59007772AC /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E99FCFB62C32FC59007772AC /* FirebaseMessaging */; };
 		E99FCFB82C33010B007772AC /* DitoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C599E43B1AE0DD94DC3E5B57 /* DitoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -76,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E920CDA02EC3DF3F008E0259 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3469AFCED4D3913859A4CA98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E793C62D9731A938945DB7AA;
+			remoteInfo = DitoSDK;
+		};
 		E9BEB03B4C4345DDF9A4C002 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3469AFCED4D3913859A4CA98 /* Project object */;
@@ -102,7 +110,6 @@
 /* Begin PBXFileReference section */
 		13C4442077EFDDF85A9779AA /* Dito test sdk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dito test sdk.entitlements"; sourceTree = "<group>"; };
 		151E15511C01ADA964C8AACA /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
-		15A9875D39E0195A312675E6 /* DTIdentifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTIdentifyTests.swift; sourceTree = "<group>"; };
 		179A1C7EF90DFD4736D58DDF /* DitoEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoEvent.swift; sourceTree = "<group>"; };
 		1DA63E9569FD1A8A0D69F6A9 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		227253B8CA171E8FB4F71B6D /* DitoTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTokenModel.swift; sourceTree = "<group>"; };
@@ -111,7 +118,6 @@
 		2F27349FFF25BFB46706713F /* DitoDataNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoDataNotification.swift; sourceTree = "<group>"; };
 		31E014900F2956A0EBF580E4 /* Dito test sdkRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dito test sdkRelease.entitlements"; sourceTree = "<group>"; };
 		33937BB98635420147575391 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		33AC5C2C6E147B85914821C4 /* DTTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTestCase.swift; sourceTree = "<group>"; };
 		3612836534A6C704B67CDDD2 /* DitoTrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrackModel.swift; sourceTree = "<group>"; };
 		36BD88CED8B081DA3A5F2C62 /* DitoNotificationUnregisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationUnregisterDataManager.swift; sourceTree = "<group>"; };
 		3748CFAC8740DE66D4813044 /* DitoIdentifyOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoIdentifyOffline.swift; sourceTree = "<group>"; };
@@ -120,7 +126,6 @@
 		441ABA99F60112EB8FDA6F78 /* DitoValidationCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoValidationCharacters.swift; sourceTree = "<group>"; };
 		491A7EF85D83719C2E191064 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E38A9C06F2B24D667F54B42 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
-		4F51504894DE5714E268CAC6 /* MockDTInitialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDTInitialize.swift; sourceTree = "<group>"; };
 		4FD46B52EB29ACF6CA432CA5 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		549DBD78EAE299E8F731F053 /* DitoTokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTokenType.swift; sourceTree = "<group>"; };
 		54C06D05635A99A753FEEDDF /* DitoNotificationRegisterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationRegisterDataManager.swift; sourceTree = "<group>"; };
@@ -128,22 +133,17 @@
 		604BA4D683D38AD02179F436 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62BA27035ECF86CA2ED9529C /* DitoRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoRetry.swift; sourceTree = "<group>"; };
 		63EA4540865B89D1770ADAA2 /* DitoEventRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoEventRequest.swift; sourceTree = "<group>"; };
-		64B62D799CAC3ACD0C58B33E /* DTPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTPersistenceTests.swift; sourceTree = "<group>"; };
 		652C22D2FE2B621CDF1641BE /* DitoCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoCoreDataManager.swift; sourceTree = "<group>"; };
 		6AE45E1AEA3FA41BD38551B2 /* DitoResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoResultModel.swift; sourceTree = "<group>"; };
 		6FBBF1DC729DEEF738A3CF82 /* DitoTrackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrackService.swift; sourceTree = "<group>"; };
 		7381D0859584873675874091 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		760E650B997D3DE17C092EF3 /* DitoNotificationOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationOffline.swift; sourceTree = "<group>"; };
 		79DE5B602479311D63A915ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7B156A635BE85DC152D2CE1E /* DTTrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrackTests.swift; sourceTree = "<group>"; };
 		80C45B78C4532B4ECCD3B49B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8327A9AD35EFEFD0E7D14C65 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		83EAF34C2F1F2F73144D51BD /* Generic+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Generic+Extensions.swift"; sourceTree = "<group>"; };
 		8696ABD812A7A2715C28A0E3 /* Pods_DitoSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DitoSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DAE9B13DBC5813916FDCCA7 /* DTHashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHashTests.swift; sourceTree = "<group>"; };
 		8F8BBEA8AFA550AF221066A2 /* DitoErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoErrorType.swift; sourceTree = "<group>"; };
-		9046005428FA3B074BF44826 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		90E524AB5E7A0B3EA7050797 /* DTTrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTTrackTests.swift; sourceTree = "<group>"; };
 		911578593020D76D866C2261 /* GlobalState.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = GlobalState.plist; sourceTree = "<group>"; };
 		91283DB43A5A843422B58F1A /* DitoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoUser.swift; sourceTree = "<group>"; };
 		970313E9E6618FE30F4BA7E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -153,8 +153,6 @@
 		ADE653B6C30ACB6C2CA1CFC3 /* DitoNotificationReadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationReadModel.swift; sourceTree = "<group>"; };
 		AFA38630EAE4177EA95B06A1 /* DitoTrackDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrackDataManager.swift; sourceTree = "<group>"; };
 		B5D8F87C9E4C9112E5B0E765 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B635EC827363CF99865888E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B9A4EE997935491FCEC5EDD4 /* MockDTIdentifyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDTIdentifyService.swift; sourceTree = "<group>"; };
 		BDA9662671401A44D946B7AB /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		BE412C438E48EC5ED60CC8A2 /* DitoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DitoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C4C8596BF4829A2A49A624B6 /* DitoTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTokenRequest.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 		C9C45C14ABB4A0EFE8EB61F8 /* DitoNotificationReceived.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationReceived.swift; sourceTree = "<group>"; };
 		CC4F943C6AD08D23190F7DE5 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFC70CACAEAAF097AB75098A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D046A02021EB34175ADD9177 /* MockDTTrackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDTTrackService.swift; sourceTree = "<group>"; };
 		D5CB7DA8C638CF02D6D7D037 /* DitoLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoLogger.swift; sourceTree = "<group>"; };
 		DF782B5947CE0117486266E6 /* DitoTrackOffline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrackOffline.swift; sourceTree = "<group>"; };
 		E283073A06EA932E68826B1F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -173,6 +170,8 @@
 		E317FE537B4DD79FA107A536 /* Debugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		E36C88373075F1E953FD21A5 /* DitoNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotification.swift; sourceTree = "<group>"; };
 		E6EEB14B38A1C5877FBAA131 /* DitoGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoGender.swift; sourceTree = "<group>"; };
+		E920CD9B2EC3DF3F008E0259 /* DitoSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DitoSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E961D9C02EC4FCA800499DF2 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		E974488C2C33496500352791 /* DitoSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DitoSDK.podspec; sourceTree = "<group>"; };
 		E97EDFBF2EBB871B00513E58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9ECDC4D91B5F9BC6D4609C6 /* DitoNotificationOpenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoNotificationOpenRequest.swift; sourceTree = "<group>"; };
@@ -184,6 +183,10 @@
 		FB3A31875A648ACF38FD8111 /* DitoTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitoTrack.swift; sourceTree = "<group>"; };
 		FC3CDE34D84AB184FDD9296E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E920CD9C2EC3DF3F008E0259 /* DitoSDKTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = DitoSDKTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		67F6AFBB92D7967925A0E5E2 /* Frameworks */ = {
@@ -206,19 +209,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E920CD982EC3DF3F008E0259 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E920CD9F2EC3DF3F008E0259 /* DitoSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AC08F9A16346568678FBA61 /* MockServices */ = {
-			isa = PBXGroup;
-			children = (
-				B9A4EE997935491FCEC5EDD4 /* MockDTIdentifyService.swift */,
-				4F51504894DE5714E268CAC6 /* MockDTInitialize.swift */,
-				D046A02021EB34175ADD9177 /* MockDTTrackService.swift */,
-			);
-			path = MockServices;
-			sourceTree = "<group>";
-		};
 		1E5A6EC2237004703E2948DD /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,29 +232,6 @@
 				AFA38630EAE4177EA95B06A1 /* DitoTrackDataManager.swift */,
 			);
 			path = Persistence;
-			sourceTree = "<group>";
-		};
-		2A9A4503A3F275E3CE1D8453 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				7B156A635BE85DC152D2CE1E /* DTTrackTests.swift */,
-				B635EC827363CF99865888E2 /* Info.plist */,
-				1AC08F9A16346568678FBA61 /* MockServices */,
-				3B196A0CBEFDC552C23973B5 /* TestCases */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		3B196A0CBEFDC552C23973B5 /* TestCases */ = {
-			isa = PBXGroup;
-			children = (
-				8DAE9B13DBC5813916FDCCA7 /* DTHashTests.swift */,
-				15A9875D39E0195A312675E6 /* DTIdentifyTests.swift */,
-				64B62D799CAC3ACD0C58B33E /* DTPersistenceTests.swift */,
-				33AC5C2C6E147B85914821C4 /* DTTestCase.swift */,
-				90E524AB5E7A0B3EA7050797 /* DTTrackTests.swift */,
-			);
-			path = TestCases;
 			sourceTree = "<group>";
 		};
 		3C26D491336B94D30BA9FA42 /* Offline */ = {
@@ -277,6 +255,7 @@
 				E9F16BCD2C33299A00AC9424 /* SampleDebug.entitlements */,
 				E2B361C4CF85C237FB25C36D /* DitoSDK */,
 				77EDF3217D3F7FB6DD95B854 /* SampleApplication */,
+				E920CD9C2EC3DF3F008E0259 /* DitoSDKTests */,
 				994AB8117A987D8B5BDB9699 /* Products */,
 				9473F0AE8A595DC4192C6934 /* Pods */,
 				6A3CA87CF60FAC1F17A01DA9 /* Frameworks */,
@@ -286,13 +265,13 @@
 		53B07D61F3E56C3C6F9182EA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9046005428FA3B074BF44826 /* Data+Extension.swift */,
 				33937BB98635420147575391 /* Date+Extension.swift */,
 				151E15511C01ADA964C8AACA /* Encodable+Extensions.swift */,
 				83EAF34C2F1F2F73144D51BD /* Generic+Extensions.swift */,
 				4E38A9C06F2B24D667F54B42 /* Optional+Extension.swift */,
 				7381D0859584873675874091 /* String+Extension.swift */,
 				E2ABC6E7C5BE07DB874C7987 /* URLResponse+Extension.swift */,
+				E961D9C02EC4FCA800499DF2 /* Data+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +328,7 @@
 			children = (
 				C599E43B1AE0DD94DC3E5B57 /* DitoSDK.framework */,
 				CC4F943C6AD08D23190F7DE5 /* Sample.app */,
+				E920CD9B2EC3DF3F008E0259 /* DitoSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -429,7 +409,6 @@
 				970313E9E6618FE30F4BA7E9 /* Info.plist */,
 				1E5A6EC2237004703E2948DD /* Persistence */,
 				C8A1413E3834DC372F5FAD3C /* Sources */,
-				2A9A4503A3F275E3CE1D8453 /* Tests */,
 			);
 			path = DitoSDK;
 			sourceTree = "<group>";
@@ -481,6 +460,29 @@
 			productReference = C599E43B1AE0DD94DC3E5B57 /* DitoSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		E920CD9A2EC3DF3F008E0259 /* DitoSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E920CDA42EC3DF3F008E0259 /* Build configuration list for PBXNativeTarget "DitoSDKTests" */;
+			buildPhases = (
+				E920CD972EC3DF3F008E0259 /* Sources */,
+				E920CD982EC3DF3F008E0259 /* Frameworks */,
+				E920CD992EC3DF3F008E0259 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E920CDA12EC3DF3F008E0259 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E920CD9C2EC3DF3F008E0259 /* DitoSDKTests */,
+			);
+			name = DitoSDKTests;
+			packageProductDependencies = (
+			);
+			productName = DitoSDKTests;
+			productReference = E920CD9B2EC3DF3F008E0259 /* DitoSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -488,7 +490,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					E920CD9A2EC3DF3F008E0259 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
 			};
 			buildConfigurationList = ECA5F549F88D5589049B1542 /* Build configuration list for PBXProject "DitoSDK" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -508,6 +516,7 @@
 			targets = (
 				E793C62D9731A938945DB7AA /* DitoSDK */,
 				61AE308DED5C2FD955C363DA /* Sample */,
+				E920CD9A2EC3DF3F008E0259 /* DitoSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -533,6 +542,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E920CD992EC3DF3F008E0259 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -544,9 +560,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sample/Pods-Sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sample/Pods-Sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -592,7 +612,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				121EDE3E385C877C83277F31 /* Data+Extension.swift in Sources */,
 				0BBAEA4ADC9EB6EB01E80C40 /* Date+Extension.swift in Sources */,
 				855068119C9299831A7083CF /* Debugger.swift in Sources */,
 				B3FDDCD33A852C55DF98A1FE /* Dito.swift in Sources */,
@@ -610,6 +629,7 @@
 				C164B462A08512ECB05866DC /* DitoIdentifyService.swift in Sources */,
 				AB4DDB0B4895D9EEEDBC3AB3 /* DitoLogger.swift in Sources */,
 				2CD71F1F3855285554CCD0A0 /* DitoNotification.swift in Sources */,
+				E961D9C12EC4FCA800499DF2 /* Data+Extension.swift in Sources */,
 				F0BBA0B6200355C3804F2D30 /* DitoNotificationOffline.swift in Sources */,
 				1A39FD375A6B64CF77B7BB9C /* DitoNotificationOpenRequest.swift in Sources */,
 				8252E7A4C4E16C4D0D01E94E /* DitoNotificationReadDataManager.swift in Sources */,
@@ -645,6 +665,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E920CD972EC3DF3F008E0259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -652,6 +679,11 @@
 			isa = PBXTargetDependency;
 			target = E793C62D9731A938945DB7AA /* DitoSDK */;
 			targetProxy = E9BEB03B4C4345DDF9A4C002 /* PBXContainerItemProxy */;
+		};
+		E920CDA12EC3DF3F008E0259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E793C62D9731A938945DB7AA /* DitoSDK */;
+			targetProxy = E920CDA02EC3DF3F008E0259 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -697,13 +729,13 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-			GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-			GCC_WARN_UNDECLARED_SELECTOR = YES;
-			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-			GCC_WARN_UNUSED_FUNCTION = YES;
-			GCC_WARN_UNUSED_VARIABLE = YES;
-			IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-			MTL_ENABLE_DEBUG_INFO = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -725,15 +757,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SampleApplication/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Dito Sample APP";
-			INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
-			INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-			INFOPLIST_KEY_UIStatusBarHidden = YES;
-			IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-			LD_RUNPATH_SEARCH_PATHS = (
-				"$(inherited)",
-				"@executable_path/Frameworks",
-			);
-			MARKETING_VERSION = 1.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.ditotestsdk;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -844,13 +876,13 @@
 					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-			GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-			GCC_WARN_UNDECLARED_SELECTOR = YES;
-			GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-			GCC_WARN_UNUSED_FUNCTION = YES;
-			GCC_WARN_UNUSED_VARIABLE = YES;
-			IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-			MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -893,6 +925,62 @@
 			};
 			name = Debug;
 		};
+		E920CDA22EC3DF3F008E0259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MK2U452RZP;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.DitoSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E920CDA32EC3DF3F008E0259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MK2U452RZP;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.dito.DitoSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -910,6 +998,15 @@
 			buildConfigurations = (
 				28AA9ACD4577808AB7D38D53 /* Debug */,
 				6B1A4287D330B839FB9E9067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E920CDA42EC3DF3F008E0259 /* Build configuration list for PBXNativeTarget "DitoSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E920CDA22EC3DF3F008E0259 /* Debug */,
+				E920CDA32EC3DF3F008E0259 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
