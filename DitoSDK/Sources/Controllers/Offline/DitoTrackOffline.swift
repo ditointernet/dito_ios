@@ -6,7 +6,7 @@ struct DitoTrackOffline {
     private var trackDataManager: DitoTrackDataManager
     private let identifyOffline: DitoIdentifyOffline
 
-    init(trackDataManager: DitoTrackDataManager = .init(), identifyOffline: DitoIdentifyOffline = .init()) {
+    init(trackDataManager: DitoTrackDataManager = .init(), identifyOffline: DitoIdentifyOffline = .shared) {
         self.trackDataManager = trackDataManager
         self.identifyOffline = identifyOffline
     }

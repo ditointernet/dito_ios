@@ -11,7 +11,7 @@ struct DitoNotificationOffline {
     init(notificationReadDataManager: DitoNotificationReadDataManager = .init(),
          notificationRegisterDataManager: DitoNotificationRegisterDataManager = .init(),
          notificationUnregisterDataManager: DitoNotificationUnregisterDataManager = .init(),
-         identifyOffline: DitoIdentifyOffline = .init()) {
+         identifyOffline: DitoIdentifyOffline = .shared) {
 
         self.notificationUnregisterDataManager = notificationUnregisterDataManager
         self.notificationRegisterDataManager = notificationRegisterDataManager

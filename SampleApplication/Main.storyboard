@@ -61,7 +61,7 @@
                                             <action selector="didTapRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J7f-FQ-rh4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="buttonNotification" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj9-co-rlU">
+                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="buttonNotification" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj9-co-rlU">
                                         <rect key="frame" x="108.66666666666667" y="278" width="175.66666666666663" height="34.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Receber notificação"/>

@@ -15,7 +15,7 @@ public struct DitoEvent: Codable, Sendable {
         self.action = action?.formatToDitoString
         self.revenue = revenue
         self.createdAt = Util.toDate(createdAt)
-        self.data = Util.toString(from: customData)
+        self.data = (customData != nil) ? Util.toString(from: customData) : nil
     }
 
     enum CodingKeys: String, CodingKey {

@@ -1,163 +1,123 @@
 import Foundation
 
-@MainActor
 public class Dito {
 
-    @MainActor public static let shared = Dito()
-    @MainActor static var apiKey: String = ""
-    @MainActor static var apiSecret: String = ""
-    @MainActor static var signature: String = ""
-    private var reachability = try! Reachability()
-    private lazy var retry = DitoRetry()
+  public static let shared = Dito()
+  static var apiKey: String = ""
+  static var apiSecret: String = ""
+  static var signature: String = ""
+  private var reachability = try! Reachability()
+  private lazy var retry = DitoRetry()
 
+  init() {
+    Dito.apiKey = Bundle.main.apiKey
+    Dito.apiSecret = Bundle.main.apiSecret
+    Dito.signature = Bundle.main.apiSecret.sha1
+  }
 
-    init() {
-        Dito.apiKey = Bundle.main.apiKey
-        Dito.apiSecret = Bundle.main.apiSecret
-        Dito.signature = Bundle.main.apiSecret.sha1
-    }
+  public func configure() {
 
-
-    public func configure() {
-
-
-        DispatchQueue.main.async {
-            NotificationCenter.default
-                .addObserver(
-                    self,
-                    selector: #selector(self.reachabilityChanged(_:)),
-                    name: .reachabilityChanged,
-                    object: nil
-                )
-
-            do {
-            NotificationCenter.default
-                .addObserver(
-                    self,
-                    selector: #selector(self.reachabilityChanged(_:)),
-                    name: .reachabilityChanged,
-                    object: nil
-                )
-
-            do {
-                try self.reachability.startNotifier()
-            } catch let error {
-                DitoLogger.error(error.localizedDescription)
-            }
-        }
-    }
-
-
-    public static func sha1(for email: String) -> String {
-        return email.sha1
-    }
-
-
-    public static func identify(id: String, data: DitoUser) {
-        let dtIdentify = DitoIdentify()
-        dtIdentify.identify(id: id, data: data)
-    }
-
-
-    public static func track(event: DitoEvent) {
-        let dtTrack = DitoTrack()
-        dtTrack.track(data: event)
-    }
-
-    /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
-    /// - Parameter token: The FCM token obtained from Firebase Messaging
-    public static func registerDevice(token: String) {
-
-    /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
-    /// - Parameter token: The FCM token obtained from Firebase Messaging
-    public static func registerDevice(token: String) {
-        let notification = DitoNotification()
-        notification.registerToken(token: token)
-        notification.registerToken(token: token)
-    }
-
-    /// Unregisters a Firebase Cloud Messaging (FCM) token
-    /// - Parameter token: The FCM token to unregister
-    public static func unregisterDevice(token: String) {
-
-    /// Unregisters a Firebase Cloud Messaging (FCM) token
-    /// - Parameter token: The FCM token to unregister
-    public static func unregisterDevice(token: String) {
-        let notification = DitoNotification()
-        notification.unregisterToken(token: token)
-    }
-
-    /// Called when a notification arrives (before click)
-    /// - Parameter userInfo: The notification data dictionary
-    public static func notificationRead(with userInfo: [AnyHashable: Any], token: String) {
-        let dtTrack = DitoTrack()
-        let notificationReceived = DitoNotificationReceived(with: userInfo)
-        let dtIdentify = DitoIdentify()
-
-
-        // Ensure we have a valid userId for identification
-        let ditoUser = DitoUser(email: notificationReceived.userId)
-        dtIdentify.identify(id: notificationReceived.userId, data: ditoUser)
-        dtTrack.track(
-            data: DitoEvent(
-                action: "receive-ios-notification",
-                customData: [
-                    "canal": "mobile",
-                    "token": token,
-                    "id-disparo": notificationReceived.logId,
-                    "id-notificacao": notificationReceived.notification,
-                    "nome_notificacao": notificationReceived.notificationName,
-                    "provedor": "firebase",
-                    "sistema_operacional": "Apple iPhone",
-                ]
-            )
+    DispatchQueue.main.async {
+      NotificationCenter.default
+        .addObserver(
+          self,
+          selector: #selector(self.reachabilityChanged(_:)),
+          name: .reachabilityChanged,
+          object: nil
         )
 
+      do {
+        try self.reachability.startNotifier()
+      } catch let error {
+        DitoLogger.error(error.localizedDescription)
+      }
+    }
+  }
+
+  public static func sha1(for email: String) -> String {
+    return email.sha1
+  }
+
+  public static func identify(id: String, data: DitoUser) {
+    let dtIdentify = DitoIdentify()
+    dtIdentify.identify(id: id, data: data)
+  }
+
+  public static func track(event: DitoEvent) {
+    let dtTrack = DitoTrack()
+    dtTrack.track(data: event)
+  }
+
+    /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
+    /// - Parameter token: The FCM token obtained from Firebase Messaging
+    public static func registerDevice(token: String) {
+        let notification = DitoNotification()
+        notification.registerToken(token: token)
     }
 
-    /// Called when a notification is clicked
-    /// - Parameters:
-    ///   - userInfo: The notification data dictionary
-    ///   - callback: Optional callback with deeplink
-    @discardableResult
-    public static func notificationClick(
-        with userInfo: [AnyHashable: Any],
-        callback: ((String) -> Void)? = nil
-    ) -> DitoNotificationReceived {
+  /// Unregisters a Firebase Cloud Messaging (FCM) token
+  /// - Parameter token: The FCM token to unregister
+  public static func unregisterDevice(token: String) {
+    let notification = DitoNotification()
+    notification.unregisterToken(token: token)
+  }
 
-    public static func notificationClick(
-        with userInfo: [AnyHashable: Any],
-        callback: ((String) -> Void)? = nil
-    ) -> DitoNotificationReceived {
+  /// Called when a notification arrives (before click)
+  /// - Parameter userInfo: The notification data dictionary
+  public static func notificationRead(with userInfo: [AnyHashable: Any], token: String) {
+    let dtTrack = DitoTrack()
+    let notificationReceived = DitoNotificationReceived(with: userInfo)
+    let dtIdentify = DitoIdentify()
 
-        let notificationReceived = DitoNotificationReceived(with: userInfo)
-        let ditoNotification = DitoNotification()
-        ditoNotification
-            .notificationClick(
-                notificationId: notificationReceived.notification,
-                reference: notificationReceived.reference,
-                identifier: notificationReceived.identifier
-            )
-        ditoNotification
-            .notificationClick(
-                notificationId: notificationReceived.notification,
-                reference: notificationReceived.reference,
-                identifier: notificationReceived.identifier
-            )
-        callback?(notificationReceived.deeplink)
-        return notificationReceived
-    }
+    // Ensure we have a valid userId for identification
+    dtIdentify.identify(id: notificationReceived.userId, data: DitoUser())
+    dtTrack.track(
+      data: DitoEvent(
+        action: "receive-ios-notification",
+        customData: [
+          "canal": "mobile",
+          "token": token,
+          "id-disparo": notificationReceived.logId,
+          "id-notificacao": notificationReceived.notification,
+          "nome_notificacao": notificationReceived.notificationName,
+          "provedor": "firebase",
+          "sistema_operacional": "Apple iPhone",
+        ]
+      )
+    )
+
+  }
+
+  /// Called when a notification is clicked
+  /// - Parameters:
+  ///   - userInfo: The notification data dictionary
+  ///   - callback: Optional callback with deeplink
+  @discardableResult
+  public static func notificationClick(
+    with userInfo: [AnyHashable: Any],
+    callback: ((String) -> Void)? = nil
+  ) -> DitoNotificationReceived {
+
+    let notificationReceived = DitoNotificationReceived(with: userInfo)
+    let ditoNotification = DitoNotification()
+    ditoNotification
+      .notificationClick(
+        notificationId: notificationReceived.notification,
+        reference: notificationReceived.reference,
+        identifier: notificationReceived.identifier
+      )
+    callback?(notificationReceived.deeplink)
+    return notificationReceived
+  }
 }
 
 //MARK: - Network Connection
 extension Dito {
 
+  @objc func reachabilityChanged(_ note: Notification) {
 
-    @objc func reachabilityChanged(_ note: Notification) {
-
-
-        if self.reachability.connection != .unavailable {
-            retry.loadOffline()
-        }
+    if self.reachability.connection != .unavailable {
+      retry.loadOffline()
     }
+  }
 }

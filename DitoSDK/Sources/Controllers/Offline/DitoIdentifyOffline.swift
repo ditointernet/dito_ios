@@ -1,7 +1,9 @@
 import Foundation
 
 
-struct DitoIdentifyOffline {
+class DitoIdentifyOffline {
+
+    static let shared = DitoIdentifyOffline()
 
     private var identifyDataManager: DitoIdentifyDataManager
 
@@ -15,12 +17,13 @@ struct DitoIdentifyOffline {
 
     func finishIdentify() {
         self.getIdentifyCompletionClosure()?()
+        self.identifyDataManager.executeAllCompletions()
         self.identifyDataManager.deleteIdentifyStamp()
         self.identifyDataManager.identitySaveCallback = nil
     }
 
     func setIdentityCompletionClosure(_ closure: @escaping () -> Void) {
-        self.identifyDataManager.identitySaveCallback = closure
+        self.identifyDataManager.addCompletionClosure(closure)
     }
 
     func getIdentifyCompletionClosure() -> (() -> Void)? {

@@ -9,6 +9,7 @@ class DitoIdentifyDataManager {
     }()
 
     var identitySaveCallback: (() -> ())? = nil
+    private var completionClosures: [() -> ()] = []
 
     @discardableResult
     func saveIdentifyStamp() -> Bool {
@@ -60,5 +61,22 @@ class DitoIdentifyDataManager {
             UserDefaults.identify = nil
         }
         return true
+    }
+
+    func addCompletionClosure(_ closure: @escaping () -> ()) {
+        completionClosures.append(closure)
+    }
+
+    func executeAllCompletions() {
+        // Execute the legacy callback if set
+        identitySaveCallback?()
+
+        // Execute all registered closures
+        for closure in completionClosures {
+            closure()
+        }
+
+        // Clear the closures list
+        completionClosures.removeAll()
     }
 }

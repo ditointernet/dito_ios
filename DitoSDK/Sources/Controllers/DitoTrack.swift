@@ -1,6 +1,5 @@
 import Foundation
 
-@MainActor
 class DitoTrack {
 
     private let service: DitoTrackService
@@ -17,7 +16,9 @@ class DitoTrack {
                 self.completeTracking(data: data)
             }
         } else {
-            self.completeTracking(data: data)
+            DispatchQueue.main.async {
+                self.completeTracking(data: data)
+            }
         }
     }
 
