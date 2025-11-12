@@ -34,36 +34,6 @@
             endingLineNumber = "16"
             landmarkName = "signup(network:id:data:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FD323DC8-FE1C-4384-B5FB-73B3A09990A4 - 58a23a3ea7ef9c1c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DitoSDK.DitoIdentifyService.signup(network: Swift.String, id: Swift.String, data: DitoSDK.DitoSignupRequest, completion: (Swift.Optional&lt;DitoSDK.DitoIdentifyModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoIdentifyService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16">
-               </Location>
-               <Location
-                  uuid = "FD323DC8-FE1C-4384-B5FB-73B3A09990A4 - 8a070752ab675a63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (DitoSDK.DitoResult&lt;DitoSDK.DitoIdentifyModel&gt;) -&gt; () in DitoSDK.DitoIdentifyService.signup(network: Swift.String, id: Swift.String, data: DitoSDK.DitoSignupRequest, completion: (Swift.Optional&lt;DitoSDK.DitoIdentifyModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoIdentifyService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,36 +50,6 @@
             endingLineNumber = "18"
             landmarkName = "signup(network:id:data:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B69ED83D-662B-495B-80A7-FE81FE413AC3 - 8a070752ab675a63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (DitoSDK.DitoResult&lt;DitoSDK.DitoIdentifyModel&gt;) -&gt; () in DitoSDK.DitoIdentifyService.signup(network: Swift.String, id: Swift.String, data: DitoSDK.DitoSignupRequest, completion: (Swift.Optional&lt;DitoSDK.DitoIdentifyModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoIdentifyService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-               <Location
-                  uuid = "B69ED83D-662B-495B-80A7-FE81FE413AC3 - 8a070752ab675a63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (DitoSDK.DitoResult&lt;DitoSDK.DitoIdentifyModel&gt;) -&gt; () in DitoSDK.DitoIdentifyService.signup(network: Swift.String, id: Swift.String, data: DitoSDK.DitoSignupRequest, completion: (Swift.Optional&lt;DitoSDK.DitoIdentifyModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoIdentifyService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -126,36 +66,6 @@
             endingLineNumber = "16"
             landmarkName = "event(reference:data:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FC276AA0-7B6C-4922-89A1-E031AF766CDB - 44f76050a571d894"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DitoSDK.DitoTrackService.event(reference: Swift.String, data: DitoSDK.DitoEventRequest, completion: (Swift.Optional&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoTrackService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16">
-               </Location>
-               <Location
-                  uuid = "FC276AA0-7B6C-4922-89A1-E031AF766CDB - 2c89f8c07564bb64"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (DitoSDK.DitoResult&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;) -&gt; () in DitoSDK.DitoTrackService.event(reference: Swift.String, data: DitoSDK.DitoEventRequest, completion: (Swift.Optional&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoTrackService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -172,36 +82,6 @@
             endingLineNumber = "18"
             landmarkName = "event(reference:data:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1BCE22D1-1BF7-491A-83D9-32E1DE7C3528 - 2c89f8c07564bb64"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (DitoSDK.DitoResult&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;) -&gt; () in DitoSDK.DitoTrackService.event(reference: Swift.String, data: DitoSDK.DitoEventRequest, completion: (Swift.Optional&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoTrackService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-               <Location
-                  uuid = "1BCE22D1-1BF7-491A-83D9-32E1DE7C3528 - 2c89f8c07564bb64"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (DitoSDK.DitoResult&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;) -&gt; () in DitoSDK.DitoTrackService.event(reference: Swift.String, data: DitoSDK.DitoEventRequest, completion: (Swift.Optional&lt;Swift.Array&lt;DitoSDK.DitoTrackModel&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Services/DitoTrackService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "53D5FF1F-80C5-429A-8100-E0654547EC3C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DitoSDK/Sources/Controllers/DitoTrack.swift"
@@ -256,7 +136,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C169F011-80E9-45DD-B7FA-74FD13C5C90C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DitoSDK/Sources/Controllers/DitoTrack.swift"
@@ -266,36 +146,102 @@
             endingLineNumber = "15"
             landmarkName = "track(data:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C169F011-80E9-45DD-B7FA-74FD13C5C90C - c22db33c20ded2c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DitoSDK.DitoTrack.track(data: DitoSDK.DitoEvent) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Controllers/DitoTrack.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15">
-               </Location>
-               <Location
-                  uuid = "C169F011-80E9-45DD-B7FA-74FD13C5C90C - a2963210ad3d35a6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in DitoSDK.DitoTrack.track(data: DitoSDK.DitoEvent) -&gt; ()"
-                  moduleName = "DitoSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/igor.duarte/workspace/iOS/dito_ios/DitoSDK/Sources/Controllers/DitoTrack.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45899D0D-9347-4E6D-B13A-CCBEA628B9DD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DitoSDK/Sources/Services/DitoServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "request(type:router:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A47401A3-CAD0-438E-99D2-C1E75F71E2C2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DitoSDK/Sources/Services/DitoServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "request(type:router:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FD2314D-CA2F-4176-BEB7-7434F8D4BEDE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DitoSDK/Sources/Services/DitoServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "request(type:router:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6449BD02-1A07-4C49-AD75-A8FAFF451086"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DitoSDK/Sources/Services/DitoServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "request(type:router:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9694CAA2-912E-42F0-B4CF-D9B45DF423AB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DitoSDK/Sources/Services/DitoServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "request(type:router:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8541CB11-317C-4C7B-B20E-1E9BBDDA3B34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DitoSDK/Sources/Services/DitoServiceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "request(type:router:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

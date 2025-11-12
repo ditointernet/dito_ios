@@ -11,7 +11,9 @@ struct DitoNotificationReadDataManager {
     DitoCoreDataManager.shared.performBackgroundTask { context in
       guard
         let notificationRead = NSEntityDescription.insertNewObject(
-          forEntityName: "NotificationRead", into: context) as? NotificationRead
+          forEntityName: "NotificationRead",
+          into: context
+        ) as? NotificationRead
       else {
         DitoLogger.error("Failed to create NotificationRead entity")
         semaphore.signal()
@@ -26,7 +28,9 @@ struct DitoNotificationReadDataManager {
         DitoLogger.information("Notification Saved Successfully!!!")
         success = true
       } catch {
-        DitoLogger.error("Failed to save Notification: \(error.localizedDescription)")
+        DitoLogger.error(
+          "Failed to save Notification: \(error.localizedDescription)"
+        )
         success = false
       }
       semaphore.signal()
@@ -39,7 +43,8 @@ struct DitoNotificationReadDataManager {
   /// Updates notification read using background context (iOS 16+ safe)
   @discardableResult
   func update(id: NSManagedObjectID, retry: Int16) -> Bool {
-    guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+    guard let context = DitoCoreDataManager.shared.newBackgroundContext()
+    else {
       DitoLogger.error("Failed to create background context for update")
       return false
     }
@@ -47,7 +52,9 @@ struct DitoNotificationReadDataManager {
     var success = false
     context.performAndWait {
       do {
-        guard let notificationRead = try context.existingObject(with: id) as? NotificationRead
+        guard
+          let notificationRead = try context.existingObject(with: id)
+            as? NotificationRead
         else {
           DitoLogger.error("NotificationRead with ID not found")
           return
@@ -55,10 +62,14 @@ struct DitoNotificationReadDataManager {
 
         notificationRead.retry = retry
         try context.save()
-        DitoLogger.information("NotificationRead Updated Successfully!!!")
+        DitoLogger.information(
+          "NotificationRead Updated Successfully!!!"
+        )
         success = true
       } catch {
-        DitoLogger.error("Failed to update NotificationRead: \(error.localizedDescription)")
+        DitoLogger.error(
+          "Failed to update NotificationRead: \(error.localizedDescription)"
+        )
         success = false
       }
     }
@@ -68,21 +79,28 @@ struct DitoNotificationReadDataManager {
 
   /// Fetches all notification reads using background context
   var fetchAll: [NotificationRead] {
-    guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+    guard let context = DitoCoreDataManager.shared.newBackgroundContext()
+    else {
       DitoLogger.error("Failed to create background context for fetch")
       return []
     }
 
     var results: [NotificationRead] = []
     context.performAndWait {
-      let fetchRequest = NSFetchRequest<NotificationRead>(entityName: "NotificationRead")
+      let fetchRequest = NSFetchRequest<NotificationRead>(
+        entityName: "NotificationRead"
+      )
       fetchRequest.returnsObjectsAsFaults = false
 
       do {
         results = try context.fetch(fetchRequest)
-        DitoLogger.information("\(results.count) Notifications found - Successfully!!!")
+        DitoLogger.information(
+          "\(results.count) Notifications found - Successfully!!!"
+        )
       } catch {
-        DitoLogger.error("Error fetching Notifications: \(error.localizedDescription)")
+        DitoLogger.error(
+          "Error fetching Notifications: \(error.localizedDescription)"
+        )
       }
     }
 
@@ -92,7 +110,8 @@ struct DitoNotificationReadDataManager {
   /// Deletes notification read using background context (iOS 16+ safe)
   @discardableResult
   func delete(with id: NSManagedObjectID) -> Bool {
-    guard let context = DitoCoreDataManager.shared.newBackgroundContext() else {
+    guard let context = DitoCoreDataManager.shared.newBackgroundContext()
+    else {
       DitoLogger.error("Failed to create background context for delete")
       return false
     }
@@ -100,7 +119,9 @@ struct DitoNotificationReadDataManager {
     var success = false
     context.performAndWait {
       do {
-        guard let notificationRead = try context.existingObject(with: id) as? NotificationRead
+        guard
+          let notificationRead = try context.existingObject(with: id)
+            as? NotificationRead
         else {
           DitoLogger.error("NotificationRead with ID not found")
           return
@@ -111,7 +132,9 @@ struct DitoNotificationReadDataManager {
         DitoLogger.information("Notification Deleted - Successfully!!!")
         success = true
       } catch {
-        DitoLogger.error("Error deleting NotificationRead: \(error.localizedDescription)")
+        DitoLogger.error(
+          "Error deleting NotificationRead: \(error.localizedDescription)"
+        )
         success = false
       }
     }

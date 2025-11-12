@@ -48,12 +48,12 @@ public class Dito {
     dtTrack.track(data: event)
   }
 
-    /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
-    /// - Parameter token: The FCM token obtained from Firebase Messaging
-    public static func registerDevice(token: String) {
-        let notification = DitoNotification()
-        notification.registerToken(token: token)
-    }
+  /// Registers a Firebase Cloud Messaging (FCM) token for push notifications
+  /// - Parameter token: The FCM token obtained from Firebase Messaging
+  public static func registerDevice(token: String) {
+    let notification = DitoNotification()
+    notification.registerToken(token: token)
+  }
 
   /// Unregisters a Firebase Cloud Messaging (FCM) token
   /// - Parameter token: The FCM token to unregister
@@ -64,7 +64,10 @@ public class Dito {
 
   /// Called when a notification arrives (before click)
   /// - Parameter userInfo: The notification data dictionary
-  public static func notificationRead(with userInfo: [AnyHashable: Any], token: String) {
+  public static func notificationRead(
+    with userInfo: [AnyHashable: Any],
+    token: String
+  ) {
     let dtTrack = DitoTrack()
     let notificationReceived = DitoNotificationReceived(with: userInfo)
     let dtIdentify = DitoIdentify()
