@@ -42,7 +42,7 @@ A versão 2.0.0 do DitoSDK introduz mudanças que podem quebrar integrações ex
 
 - Ordem de inicialização do Firebase (iOS 18): é obrigatório configurar o Firebase e definir o token APNS antes de solicitar o token FCM para evitar o erro "APNS device token not set before retrieving FCM Token".
 
-  - Ação: No `AppDelegate`, chame `FirebaseApp.configure()` primeiro, depois `Messaging.messaging().delegate = self`, e em seguida `Dito.shared.configure()`. Em `didRegisterForRemoteNotificationsWithDeviceToken` atribua `Messaging.messaging().apnsToken = deviceToken` antes de chamar `Messaging.messaging().token { ... }`.
+  - Ação: No `AppDelegate`, chame `FirebaseApp.configure()` primeiro, depois `Messaging.messaging().delegate = self`, e em seguida `Dito.configure()`. Em `didRegisterForRemoteNotificationsWithDeviceToken` atribua `Messaging.messaging().apnsToken = deviceToken` antes de chamar `Messaging.messaging().token { ... }`.
 
 - CoreData (iOS 16+): várias APIs internas foram alteradas para garantir thread-safety e executar operações em background.
   - Ação: Não acesse diretamente contexts do CoreData em background fora das APIs públicas do SDK; verifique chamadas customizadas que manipulam o `viewContext`.
@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     Messaging.messaging().delegate = self
 
     // Inicializa o Dito SDK (configurações internas do SDK)
-    Dito.shared.configure()
+    Dito.configure()
 
     // Configura o centro de notificações e registra o app para receber push
     UNUserNotificationCenter.current().delegate = self
@@ -283,7 +283,7 @@ func application(
     Messaging.messaging().delegate = self
 
     // 3️⃣ Dito por último
-    Dito.shared.configure()
+    Dito.configure()
 
     // 4️⃣ Notificações
     UNUserNotificationCenter.current().delegate = self
