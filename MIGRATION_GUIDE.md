@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
 
         // ✅ 3. Configure Dito SDK
-        Dito.shared.configure()
+        Dito.configure()
 
         // ✅ 4. Setup notifications
         UNUserNotificationCenter.current().delegate = self
@@ -295,7 +295,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Messaging.messaging().delegate = self
 
         // Configure Dito SDK
-        Dito.shared.configure()
+        Dito.configure()
 
         // Setup notifications
         UNUserNotificationCenter.current().delegate = self

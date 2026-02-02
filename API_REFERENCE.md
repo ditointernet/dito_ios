@@ -6,7 +6,7 @@ Inicializa o DitoSDK. **Deve ser chamado no AppDelegate**.
 
 ```swift
 // No AppDelegate, após FirebaseApp.configure()
-Dito.shared.configure()
+Dito.configure()
 ```
 
 - ✅ Carrega credenciais do Info.plist
@@ -511,7 +511,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         Messaging.messaging().delegate = self
 
         // 3. Dito
-        Dito.shared.configure()
+        Dito.configure()
 
         // 4. Notificações
         UNUserNotificationCenter.current().delegate = self
