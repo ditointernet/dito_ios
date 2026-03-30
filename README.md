@@ -1,4 +1,5 @@
-# DitoSDK para iOS
+# DitoSDK para iOS - Deprecado
+Módulo atual - [https://github.com/ditointernet/sdk-mobile](https://github.com/ditointernet/sdk-mobile)
 
 <p align="center">
   SDK iOS oficial da Dito para integração com a plataforma de CRM e Marketing Automation
